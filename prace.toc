@@ -1,0 +1,50 @@
+\contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{7}{chapter.1}
+\contentsline {chapter}{\numberline {2}Jazykov\IeC {\'e} modely}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}Pohled z Bayesovy v\IeC {\v e}ty}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}N-gramov\IeC {\'e} modely}{8}{section.2.2}
+\contentsline {section}{\numberline {2.3}Good-Turing vyhlazov\IeC {\'a}n\IeC {\'\i }}{9}{section.2.3}
+\contentsline {section}{\numberline {2.4}Katz back-off n-gramov\IeC {\'e} modely}{11}{section.2.4}
+\contentsline {section}{\numberline {2.5}Kneser-Ney vyhlazov\IeC {\'a}n\IeC {\'\i }}{12}{section.2.5}
+\contentsline {section}{\numberline {2.6}Modely maxim\IeC {\'a}ln\IeC {\'\i } entropie}{13}{section.2.6}
+\contentsline {section}{\numberline {2.7}Vyhlazov\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} maxim\IeC {\'a}ln\IeC {\'\i } entropie}{15}{section.2.7}
+\contentsline {section}{\numberline {2.8}Hodnocen\IeC {\'\i } model\IeC {\r u}}{15}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}K\IeC {\v r}\IeC {\'\i }\IeC {\v z}ov\IeC {\'a} perplexita}{15}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}Adekv\IeC {\'a}tnost a plynulost p\IeC {\v r}ekladu}{16}{subsection.2.8.2}
+\contentsline {section}{\numberline {2.9}Aplikace jazykov\IeC {\'y}ch model\IeC {\r u}}{16}{section.2.9}
+\contentsline {chapter}{\numberline {3}Probl\IeC {\'e}my s n\IeC {\v e}m\IeC {\v c}inou}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}Sklo\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i } jmen}{17}{section.3.1}
+\contentsline {section}{\numberline {3.2}Po\IeC {\v r}\IeC {\'a}dek slov}{17}{section.3.2}
+\contentsline {section}{\numberline {3.3}V\IeC {\v e}tn\IeC {\'y} r\IeC {\'a}mec}{18}{section.3.3}
+\contentsline {section}{\numberline {3.4}Pozorov\IeC {\'a}n\IeC {\'\i } na konkr\IeC {\'e}tn\IeC {\'\i }ch v\IeC {\v e}t\IeC {\'a}ch}{19}{section.3.4}
+\contentsline {chapter}{\numberline {4}Experimenty}{20}{chapter.4}
+\contentsline {section}{\numberline {4.1}Zp\IeC {\r u}sob vyhodnocen\IeC {\'\i }}{20}{section.4.1}
+\contentsline {section}{\numberline {4.2}B\IeC {\v e}\IeC {\v z}n\IeC {\'e} modely se slovy}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}Modely se slovy nahrazen\IeC {\'y}mi morfologick\IeC {\'y}mi zna\IeC {\v c}kami}{22}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + morfologick\IeC {\'e} zna\IeC {\v c}ky}{23}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Rod}{25}{subsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2.1}Rod stejn\IeC {\'y} s p\IeC {\v r}edchoz\IeC {\'\i }m}{26}{subsubsection.4.3.2.1}
+\contentsline {subsection}{\numberline {4.3.3}\IeC {\v C}\IeC {\'\i }slo}{26}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}P\IeC {\'a}d}{26}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh}{27}{subsection.4.3.5}
+\contentsline {subsection}{\numberline {4.3.6}Osoba + \IeC {\v c}\IeC {\'\i }slo}{27}{subsection.4.3.6}
+\contentsline {subsection}{\numberline {4.3.7}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + rod}{27}{subsection.4.3.7}
+\contentsline {subsection}{\numberline {4.3.8}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + p\IeC {\'a}d}{28}{subsection.4.3.8}
+\contentsline {subsection}{\numberline {4.3.9}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + \IeC {\v c}\IeC {\'\i }slo}{28}{subsection.4.3.9}
+\contentsline {section}{\numberline {4.4}Modely s vlastn\IeC {\'\i } mno\IeC {\v z}inou rys\IeC {\r u}}{28}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Po\IeC {\v c}et ko\IeC {\v r}en\IeC {\r u} v naparsovan\IeC {\'e}m stromu}{29}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } infinitiv s zu}{30}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } podm\IeC {\v e}t}{30}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } ur\IeC {\v c}it\IeC {\'e} sloveso}{30}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}Infinitiv po mod\IeC {\'a}ln\IeC {\'\i }m slovese nen\IeC {\'\i } na konci v\IeC {\v e}ty}{30}{subsection.4.4.5}
+\contentsline {subsection}{\numberline {4.4.6}Podm\IeC {\v e}t se neshoduje s p\IeC {\v r}\IeC {\'\i }sudkem}{30}{subsection.4.4.6}
+\contentsline {subsection}{\numberline {4.4.7}P\IeC {\v r}\IeC {\'\i }\IeC {\v c}est\IeC {\'\i } minul\IeC {\'e} bez pomocn\IeC {\'e}ho slovesa}{30}{subsection.4.4.7}
+\contentsline {subsection}{\numberline {4.4.8}P\IeC {\v r}\IeC {\'\i }\IeC {\v c}est\IeC {\'\i } minul\IeC {\'e} nen\IeC {\'\i } na konci v\IeC {\v e}ty}{30}{subsection.4.4.8}
+\contentsline {subsection}{\numberline {4.4.9}Jm\IeC {\'e}na a slovesa ve v\IeC {\'\i }ce osob\IeC {\'a}ch}{30}{subsection.4.4.9}
+\contentsline {subsection}{\numberline {4.4.10}V\IeC {\'\i }ce ur\IeC {\v c}it\IeC {\'y}ch sloves ve v\IeC {\v e}t\IeC {\v e}}{30}{subsection.4.4.10}
+\contentsline {subsection}{\numberline {4.4.11}Ur\IeC {\v c}it\IeC {\'e} sloveso nen\IeC {\'\i } ve vedlej\IeC {\v s}\IeC {\'\i } v\IeC {\v e}t\IeC {\v e} na konci}{30}{subsection.4.4.11}
+\contentsline {subsection}{\numberline {4.4.12}Sou\IeC {\v c}tov\IeC {\'e} rysy}{30}{subsection.4.4.12}
+\contentsline {chapter}{Z\IeC {\'a}v\IeC {\v e}r}{31}{chapter*.2}
+\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{32}{chapter*.3}
+\contentsline {chapter}{Seznam tabulek}{33}{chapter*.4}
+\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{34}{chapter*.5}
+\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{35}{chapter*.6}
