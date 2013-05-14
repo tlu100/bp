@@ -43,8 +43,7 @@
 \contentsline {subsection}{\numberline {4.4.10}V\IeC {\'\i }ce ur\IeC {\v c}it\IeC {\'y}ch sloves ve v\IeC {\v e}t\IeC {\v e}}{30}{subsection.4.4.10}
 \contentsline {subsection}{\numberline {4.4.11}Ur\IeC {\v c}it\IeC {\'e} sloveso nen\IeC {\'\i } ve vedlej\IeC {\v s}\IeC {\'\i } v\IeC {\v e}t\IeC {\v e} na konci}{30}{subsection.4.4.11}
 \contentsline {subsection}{\numberline {4.4.12}Sou\IeC {\v c}tov\IeC {\'e} rysy}{30}{subsection.4.4.12}
-\contentsline {chapter}{Z\IeC {\'a}v\IeC {\v e}r}{31}{chapter*.2}
-\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{32}{chapter*.3}
-\contentsline {chapter}{Seznam tabulek}{33}{chapter*.4}
-\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{34}{chapter*.5}
-\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{35}{chapter*.6}
+\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{31}{chapter*.2}
+\contentsline {chapter}{Seznam tabulek}{32}{chapter*.3}
+\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{33}{chapter*.4}
+\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{34}{chapter*.5}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  13 MAY 2013 23:53
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  14 MAY 2013 14:07
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -541,14 +541,14 @@ File: ../img/logo.eps Graphic file (type eps)
 ] [2
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 183.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 182.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 183.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 182.
  [3] [4] (./prace.toc
 [5
 
@@ -564,7 +564,7 @@ Kapitola 1.
 ]
 Kapitola 2.
 
-Overfull \hbox (2.4106pt too wide) in paragraph at lines 287--288
+Overfull \hbox (2.4106pt too wide) in paragraph at lines 286--287
 []\IL2/cmr/m/n/12 Zajímá nás, ja-ká je prav-dì-po-dob-nost výsky-tu ta-ko-vé po
 -sloup-nos-ti slov $\OML/cmm/m/it/12 w[]; [] ; w[]$\IL2/cmr/m/n/12 .
  []
@@ -572,29 +572,29 @@ Overfull \hbox (2.4106pt too wide) in paragraph at lines 287--288
 [8
 
 ] [9]
-Overfull \hbox (2.09047pt too wide) in paragraph at lines 365--366
+Overfull \hbox (2.09047pt too wide) in paragraph at lines 364--365
 []\IL2/cmr/m/n/12 Good-Turing vy-hla-zo-vá-ní po-dá-vá dob-ré vý-sled-ky pro má
 -lo frek-ven-to-va-né n-gramy,
  []
 
 [10]
-Overfull \hbox (24.6314pt too wide) detected at line 393
+Overfull \hbox (24.6314pt too wide) detected at line 392
 []\OML/cmm/m/it/12 P[]\IL2/cmr/m/n/12 (\OML/cmm/m/it/12 w[]\OMS/cmsy/m/n/12 j\O
 ML/cmm/m/it/12 w[]; [] ; w[]\IL2/cmr/m/n/12 ) = []
  []
 
 [11]
-LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 416
+LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 415
 .
  (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
 File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
 ) [12] [13] [14]
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 13.20007pt on input line 507.
+(Font)              scaled to size 13.20007pt on input line 506.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 8.80005pt on input line 507.
+(Font)              scaled to size 8.80005pt on input line 506.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 6.60004pt on input line 507.
+(Font)              scaled to size 6.60004pt on input line 506.
 
 [15] [16]
 Kapitola 3.
@@ -603,11 +603,11 @@ Kapitola 3.
 ] [18] [19]
 Kapitola 4.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 11.00006pt on input line 644.
+(Font)              scaled to size 11.00006pt on input line 643.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 7.70004pt on input line 644.
+(Font)              scaled to size 7.70004pt on input line 643.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 5.50003pt on input line 644.
+(Font)              scaled to size 5.50003pt on input line 643.
 [20
 
 ]
@@ -618,16 +618,16 @@ File: ./grafy/max-6-slova.eps Graphic file (type eps)
 File: ./grafy/porovnani-std-max-slova.eps Graphic file (type eps)
 
 <./grafy/porovnani-std-max-slova.eps> [21]
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 733
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 732
 .
 
 (/usr/share/texmf/tex/latex/R/tex/latex/omscmtt.fd
 File: omscmtt.fd 
 )
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 733.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 732.
  [22]
-Overfull \hbox (7.03166pt too wide) in paragraph at lines 758--759
+Overfull \hbox (7.03166pt too wide) in paragraph at lines 757--758
  [] 
  []
 
@@ -694,7 +694,7 @@ File: ./grafy/std-6-rsd+cislo.eps Graphic file (type eps)
 <./grafy/std-6-rsd+cislo.eps>
 File: ./grafy/max-6-rsd+cislo.eps Graphic file (type eps)
  <./grafy/max-6-rsd+cislo.eps> [28]
-Overfull \hbox (14.11543pt too wide) in paragraph at lines 876--879
+Overfull \hbox (14.11543pt too wide) in paragraph at lines 875--878
 []\IL2/cmr/m/n/12 Z gra-ma-tic-ky správ-né vì-ty by mìl jít vy-kres-lit strom s
  vìt-ným roz-bo-rem. Pøedlo¾íme-
  []
@@ -703,36 +703,34 @@ File: ./grafy/pocet-stromu/pocet-stromu.eps Graphic file (type eps)
 <./grafy/pocet-stromu/pocet-stromu.eps> [29] [30]
 \openout2 = `zaver.aux'.
 
- (./zaver.tex) [31
 
-
-]
+No file zaver.tex.
 \openout2 = `literatura.aux'.
-
 
 (./literatura.tex
 
 LaTeX Warning: Empty `thebibliography' environment on input line 16.
 
-) [32
+) [31
 
+
+
+
+] [32
 
 
 ] [33
 
-
 ] [34
-
-] [35
 
 ] (./prace.aux (./zaver.aux) (./literatura.aux)) ) 
 Here is how much of TeX's memory you used:
- 6521 strings out of 494938
- 87362 string characters out of 1181144
- 165554 words of memory out of 3000000
- 9672 multiletter control sequences out of 15000+50000
+ 6518 strings out of 494938
+ 87330 string characters out of 1181144
+ 165441 words of memory out of 3000000
+ 9671 multiletter control sequences out of 15000+50000
  20283 words of font info for 52 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
  38i,17n,36p,985b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (35 pages, 138536 bytes).
+Output written on prace.dvi (34 pages, 137420 bytes).
