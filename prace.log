@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  14 MAY 2013 16:15
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  14 MAY 2013 17:28
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -733,4 +733,4 @@ Here is how much of TeX's memory you used:
  24 hyphenation exceptions out of 8191
  38i,17n,36p,985b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (34 pages, 137432 bytes).
+Output written on prace.dvi (34 pages, 137440 bytes).
