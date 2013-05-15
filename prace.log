@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  15 MAY 2013 02:43
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  15 MAY 2013 05:32
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -708,14 +708,20 @@ File: ./grafy/morf/maxent/rsd+cislo.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rsd+cislo.svg.eps>
 File: ./grafy/morf/porovnani/rsd+cislo.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rsd+cislo.svg.eps> [30]
-Overfull \hbox (14.11543pt too wide) in paragraph at lines 873--876
+<./grafy/morf/porovnani/rsd+cislo.svg.eps>
+File: ./grafy/morf/cas/rsd/bez.eps Graphic file (type eps)
+ <./grafy/morf/cas/rsd/bez.eps>
+File: ./grafy/morf/cas/rsd/rsd.eps Graphic file (type eps)
+
+<./grafy/morf/cas/rsd/rsd.eps> [30]
+Overfull \hbox (14.11543pt too wide) in paragraph at lines 879--882
 []\IL2/cmr/m/n/12 Z gra-ma-tic-ky správ-né vì-ty by mìl jít vy-kres-lit strom s
  vìt-ným roz-bo-rem. Pøedlo¾íme-
  []
 
+[31]
 File: ./grafy/pocet-stromu/pocet-stromu.eps Graphic file (type eps)
-<./grafy/pocet-stromu/pocet-stromu.eps> [31] [32]
+ <./grafy/pocet-stromu/pocet-stromu.eps> [32]
 \openout2 = `zaver.aux'.
 
 
@@ -740,12 +746,12 @@ LaTeX Warning: Empty `thebibliography' environment on input line 16.
 
 ] (./prace.aux (./zaver.aux) (./literatura.aux)) ) 
 Here is how much of TeX's memory you used:
- 6507 strings out of 494938
- 87515 string characters out of 1181144
- 165441 words of memory out of 3000000
- 9676 multiletter control sequences out of 15000+50000
+ 6513 strings out of 494938
+ 87625 string characters out of 1181144
+ 165760 words of memory out of 3000000
+ 9679 multiletter control sequences out of 15000+50000
  20283 words of font info for 52 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
  38i,17n,36p,985b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (36 pages, 138840 bytes).
+Output written on prace.dvi (36 pages, 140040 bytes).
