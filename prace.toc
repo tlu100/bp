@@ -40,17 +40,17 @@
 \contentsline {section}{\numberline {5.2}Zp\IeC {\r u}sob vyhodnocen\IeC {\'\i }}{36}{section.5.2}
 \contentsline {section}{\numberline {5.3}Princip experiment\IeC {\r u}}{36}{section.5.3}
 \contentsline {section}{\numberline {5.4}Vlastn\IeC {\'\i } rysy}{36}{section.5.4}
-\contentsline {section}{\numberline {5.5}JIN\IeC {\'E} D\IeC {\v E}LEN\IeC {\'I} KAPITOL:}{39}{section.5.5}
-\contentsline {section}{\numberline {5.6}Modely se v\IeC {\v s}emi rysy}{39}{section.5.6}
-\contentsline {section}{\numberline {5.7}Modely se v\IeC {\v s}emi rysy krom\IeC {\v e} rys\IeC {\r u} sou\IeC {\v c}tov\IeC {\'y}ch}{39}{section.5.7}
-\contentsline {subsection}{\numberline {5.7.1}Bez rysu root}{39}{subsection.5.7.1}
-\contentsline {section}{\numberline {5.8}Modely se sou\IeC {\v c}tov\IeC {\'y}mi rysy}{39}{section.5.8}
-\contentsline {subsection}{\numberline {5.8.1}S rysem root}{39}{subsection.5.8.1}
-\contentsline {section}{\numberline {5.9}Modely s rysem root}{39}{section.5.9}
-\contentsline {section}{\numberline {5.10}Modely s rysem sum}{39}{section.5.10}
-\contentsline {subsection}{\numberline {5.10.1}S rysem root}{39}{subsection.5.10.1}
-\contentsline {section}{\numberline {5.11}NAM\IeC {\'I}STO P\IeC {\r U}VODN\IeC {\'I}HO:}{39}{section.5.11}
-\contentsline {section}{\numberline {5.12}Po\IeC {\v c}et ko\IeC {\v r}en\IeC {\r u} v naparsovan\IeC {\'e}m stromu}{39}{section.5.12}
+\contentsline {section}{\numberline {5.5}JIN\IeC {\'E} D\IeC {\v E}LEN\IeC {\'I} KAPITOL:}{38}{section.5.5}
+\contentsline {section}{\numberline {5.6}Modely se v\IeC {\v s}emi rysy}{38}{section.5.6}
+\contentsline {section}{\numberline {5.7}Modely se v\IeC {\v s}emi rysy krom\IeC {\v e} rys\IeC {\r u} sou\IeC {\v c}tov\IeC {\'y}ch}{38}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Bez rysu root}{38}{subsection.5.7.1}
+\contentsline {section}{\numberline {5.8}Modely se sou\IeC {\v c}tov\IeC {\'y}mi rysy}{38}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}S rysem root}{38}{subsection.5.8.1}
+\contentsline {section}{\numberline {5.9}Modely s rysem root}{38}{section.5.9}
+\contentsline {section}{\numberline {5.10}Modely s rysem sum}{38}{section.5.10}
+\contentsline {subsection}{\numberline {5.10.1}S rysem root}{38}{subsection.5.10.1}
+\contentsline {section}{\numberline {5.11}NAM\IeC {\'I}STO P\IeC {\r U}VODN\IeC {\'I}HO:}{38}{section.5.11}
+\contentsline {section}{\numberline {5.12}Po\IeC {\v c}et ko\IeC {\v r}en\IeC {\r u} v naparsovan\IeC {\'e}m stromu}{38}{section.5.12}
 \contentsline {section}{\numberline {5.13}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } infinitiv s zu}{40}{section.5.13}
 \contentsline {section}{\numberline {5.14}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } podm\IeC {\v e}t}{40}{section.5.14}
 \contentsline {section}{\numberline {5.15}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } ur\IeC {\v c}it\IeC {\'e} sloveso}{40}{section.5.15}

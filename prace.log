@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  16 MAY 2013 00:14
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  16 MAY 2013 00:21
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -876,31 +876,38 @@ Package xcolor Warning: Incompatible color definition on input line 933.
 File: ./grafy/rysy/chybi_infszu.eps Graphic file (type eps)
 <./grafy/rysy/chybi_infszu.eps>
 File: ./grafy/rysy/chybi_podmet.eps Graphic file (type eps)
- <./grafy/rysy/chybi_podmet.eps> [35
-
-]
+ <./grafy/rysy/chybi_podmet.eps>
 File: ./grafy/rysy/chybi_vfin.eps Graphic file (type eps)
 
 <./grafy/rysy/chybi_vfin.eps>
+Overfull \hbox (19.44855pt too wide) in paragraph at lines 942--945
+[][] [] [] 
+ []
+
+[35
+
+]
 File: ./grafy/rysy/chybi_sum.eps Graphic file (type eps)
  <./grafy/rysy/chybi_sum.eps>
 File: ./grafy/rysy/inf_po_vm_neni_na_konci.eps Graphic file (type eps)
-
-<./grafy/rysy/inf_po_vm_neni_na_konci.eps>
+ <./grafy/rysy/inf_po_vm_neni_na_konci.eps>
 File: ./grafy/rysy/infszu_neni_na_konci.eps Graphic file (type eps)
 
 <./grafy/rysy/infszu_neni_na_konci.eps>
 File: ./grafy/rysy/vv_sloveso_neni_na_konci.eps Graphic file (type eps)
 
 <./grafy/rysy/vv_sloveso_neni_na_konci.eps>
-File: ./grafy/rysy/pp_neni_na_konci.eps Graphic file (type eps)
+Overfull \hbox (19.44855pt too wide) in paragraph at lines 949--952
+[][] [] [] 
+ []
 
-<./grafy/rysy/pp_neni_na_konci.eps> [36]
+File: ./grafy/rysy/pp_neni_na_konci.eps Graphic file (type eps)
+<./grafy/rysy/pp_neni_na_konci.eps>
 File: ./grafy/rysy/neni_na_konci_sum.eps Graphic file (type eps)
  <./grafy/rysy/neni_na_konci_sum.eps>
+[36]
 File: ./grafy/rysy/neshoda_podmet_prisudek.eps Graphic file (type eps)
-
-<./grafy/rysy/neshoda_podmet_prisudek.eps>
+ <./grafy/rysy/neshoda_podmet_prisudek.eps>
 File: ./grafy/rysy/pp_bez_av.eps Graphic file (type eps)
  <./grafy/rysy/pp_bez_av.eps>
 File: ./grafy/rysy/root.eps Graphic file (type eps)
@@ -912,17 +919,16 @@ File: ./grafy/rysy/vice_osob.eps Graphic file (type eps)
  <./grafy/rysy/vice_osob.eps>
 File: ./grafy/rysy/vice_vfin.eps Graphic file (type eps)
 
-<./grafy/rysy/vice_vfin.eps> [37]
+<./grafy/rysy/vice_vfin.eps>
 File: ./grafy/rysy/vice_sum.eps Graphic file (type eps)
- <./grafy/rysy/vice_sum.eps>
+ <./grafy/rysy/vice_sum.eps> [37]
 Overfull \hbox (14.11543pt too wide) in paragraph at lines 984--987
 []\IL2/cmr/m/n/12 Z gra-ma-tic-ky správ-né vì-ty by mìl jít vy-kres-lit strom s
  vìt-ným roz-bo-rem. Pøedlo¾íme-
  []
 
-[38]
 File: ./grafy/pocet-stromu/pocet-stromu.eps Graphic file (type eps)
- <./grafy/pocet-stromu/pocet-stromu.eps> [39] [40]
+<./grafy/pocet-stromu/pocet-stromu.eps> [38] [39] [40]
 \openout2 = `zaver.aux'.
 
 
@@ -955,4 +961,4 @@ Here is how much of TeX's memory you used:
  24 hyphenation exceptions out of 8191
  38i,17n,36p,1084b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (44 pages, 169876 bytes).
+Output written on prace.dvi (44 pages, 169884 bytes).
