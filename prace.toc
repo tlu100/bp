@@ -21,29 +21,29 @@
 \contentsline {section}{\numberline {4.2}B\IeC {\v e}\IeC {\v z}n\IeC {\'e} modely se slovy}{21}{section.4.2}
 \contentsline {section}{\numberline {4.3}Modely se slovy nahrazen\IeC {\'y}mi morfologick\IeC {\'y}mi zna\IeC {\v c}kami}{22}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + morfologick\IeC {\'e} zna\IeC {\v c}ky}{23}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Rod}{25}{subsection.4.3.2}
-\contentsline {subsubsection}{\numberline {4.3.2.1}Rod stejn\IeC {\'y} s p\IeC {\v r}edchoz\IeC {\'\i }m}{26}{subsubsection.4.3.2.1}
+\contentsline {subsection}{\numberline {4.3.2}Rod}{24}{subsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2.1}Rod stejn\IeC {\'y} s p\IeC {\v r}edchoz\IeC {\'\i }m}{25}{subsubsection.4.3.2.1}
 \contentsline {subsection}{\numberline {4.3.3}\IeC {\v C}\IeC {\'\i }slo}{26}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}P\IeC {\'a}d}{26}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.4}P\IeC {\'a}d}{27}{subsection.4.3.4}
 \contentsline {subsection}{\numberline {4.3.5}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh}{27}{subsection.4.3.5}
-\contentsline {subsection}{\numberline {4.3.6}Osoba + \IeC {\v c}\IeC {\'\i }slo}{27}{subsection.4.3.6}
-\contentsline {subsection}{\numberline {4.3.7}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + rod}{27}{subsection.4.3.7}
-\contentsline {subsection}{\numberline {4.3.8}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + p\IeC {\'a}d}{28}{subsection.4.3.8}
-\contentsline {subsection}{\numberline {4.3.9}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + \IeC {\v c}\IeC {\'\i }slo}{28}{subsection.4.3.9}
-\contentsline {section}{\numberline {4.4}Modely s vlastn\IeC {\'\i } mno\IeC {\v z}inou rys\IeC {\r u}}{28}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Po\IeC {\v c}et ko\IeC {\v r}en\IeC {\r u} v naparsovan\IeC {\'e}m stromu}{29}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } infinitiv s zu}{30}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } podm\IeC {\v e}t}{30}{subsection.4.4.3}
-\contentsline {subsection}{\numberline {4.4.4}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } ur\IeC {\v c}it\IeC {\'e} sloveso}{30}{subsection.4.4.4}
-\contentsline {subsection}{\numberline {4.4.5}Infinitiv po mod\IeC {\'a}ln\IeC {\'\i }m slovese nen\IeC {\'\i } na konci v\IeC {\v e}ty}{30}{subsection.4.4.5}
-\contentsline {subsection}{\numberline {4.4.6}Podm\IeC {\v e}t se neshoduje s p\IeC {\v r}\IeC {\'\i }sudkem}{30}{subsection.4.4.6}
-\contentsline {subsection}{\numberline {4.4.7}P\IeC {\v r}\IeC {\'\i }\IeC {\v c}est\IeC {\'\i } minul\IeC {\'e} bez pomocn\IeC {\'e}ho slovesa}{30}{subsection.4.4.7}
-\contentsline {subsection}{\numberline {4.4.8}P\IeC {\v r}\IeC {\'\i }\IeC {\v c}est\IeC {\'\i } minul\IeC {\'e} nen\IeC {\'\i } na konci v\IeC {\v e}ty}{30}{subsection.4.4.8}
-\contentsline {subsection}{\numberline {4.4.9}Jm\IeC {\'e}na a slovesa ve v\IeC {\'\i }ce osob\IeC {\'a}ch}{30}{subsection.4.4.9}
-\contentsline {subsection}{\numberline {4.4.10}V\IeC {\'\i }ce ur\IeC {\v c}it\IeC {\'y}ch sloves ve v\IeC {\v e}t\IeC {\v e}}{30}{subsection.4.4.10}
-\contentsline {subsection}{\numberline {4.4.11}Ur\IeC {\v c}it\IeC {\'e} sloveso nen\IeC {\'\i } ve vedlej\IeC {\v s}\IeC {\'\i } v\IeC {\v e}t\IeC {\v e} na konci}{30}{subsection.4.4.11}
-\contentsline {subsection}{\numberline {4.4.12}Sou\IeC {\v c}tov\IeC {\'e} rysy}{30}{subsection.4.4.12}
-\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{31}{chapter*.2}
-\contentsline {chapter}{Seznam tabulek}{32}{chapter*.3}
-\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{33}{chapter*.4}
-\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{34}{chapter*.5}
+\contentsline {subsection}{\numberline {4.3.6}Osoba + \IeC {\v c}\IeC {\'\i }slo}{28}{subsection.4.3.6}
+\contentsline {subsection}{\numberline {4.3.7}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + rod}{29}{subsection.4.3.7}
+\contentsline {subsection}{\numberline {4.3.8}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + p\IeC {\'a}d}{29}{subsection.4.3.8}
+\contentsline {subsection}{\numberline {4.3.9}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + \IeC {\v c}\IeC {\'\i }slo}{30}{subsection.4.3.9}
+\contentsline {section}{\numberline {4.4}Modely s vlastn\IeC {\'\i } mno\IeC {\v z}inou rys\IeC {\r u}}{31}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Po\IeC {\v c}et ko\IeC {\v r}en\IeC {\r u} v naparsovan\IeC {\'e}m stromu}{31}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } infinitiv s zu}{32}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } podm\IeC {\v e}t}{32}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Chyb\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i } ur\IeC {\v c}it\IeC {\'e} sloveso}{32}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}Infinitiv po mod\IeC {\'a}ln\IeC {\'\i }m slovese nen\IeC {\'\i } na konci v\IeC {\v e}ty}{32}{subsection.4.4.5}
+\contentsline {subsection}{\numberline {4.4.6}Podm\IeC {\v e}t se neshoduje s p\IeC {\v r}\IeC {\'\i }sudkem}{32}{subsection.4.4.6}
+\contentsline {subsection}{\numberline {4.4.7}P\IeC {\v r}\IeC {\'\i }\IeC {\v c}est\IeC {\'\i } minul\IeC {\'e} bez pomocn\IeC {\'e}ho slovesa}{32}{subsection.4.4.7}
+\contentsline {subsection}{\numberline {4.4.8}P\IeC {\v r}\IeC {\'\i }\IeC {\v c}est\IeC {\'\i } minul\IeC {\'e} nen\IeC {\'\i } na konci v\IeC {\v e}ty}{32}{subsection.4.4.8}
+\contentsline {subsection}{\numberline {4.4.9}Jm\IeC {\'e}na a slovesa ve v\IeC {\'\i }ce osob\IeC {\'a}ch}{32}{subsection.4.4.9}
+\contentsline {subsection}{\numberline {4.4.10}V\IeC {\'\i }ce ur\IeC {\v c}it\IeC {\'y}ch sloves ve v\IeC {\v e}t\IeC {\v e}}{32}{subsection.4.4.10}
+\contentsline {subsection}{\numberline {4.4.11}Ur\IeC {\v c}it\IeC {\'e} sloveso nen\IeC {\'\i } ve vedlej\IeC {\v s}\IeC {\'\i } v\IeC {\v e}t\IeC {\v e} na konci}{32}{subsection.4.4.11}
+\contentsline {subsection}{\numberline {4.4.12}Sou\IeC {\v c}tov\IeC {\'e} rysy}{32}{subsection.4.4.12}
+\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{33}{chapter*.2}
+\contentsline {chapter}{Seznam tabulek}{34}{chapter*.3}
+\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{35}{chapter*.4}
+\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{36}{chapter*.5}

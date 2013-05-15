@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  14 MAY 2013 17:28
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  15 MAY 2013 02:43
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -611,13 +611,13 @@ LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 [20
 
 ]
-File: ./grafy/std-6-slova.eps Graphic file (type eps)
- <./grafy/std-6-slova.eps>
-File: ./grafy/max-6-slova.eps Graphic file (type eps)
- <./grafy/max-6-slova.eps>
-File: ./grafy/porovnani-std-max-slova.eps Graphic file (type eps)
+File: ./grafy/morf/ngram/text.svg.eps Graphic file (type eps)
+ <./grafy/morf/ngram/text.svg.eps>
+File: ./grafy/morf/maxent/text.svg.eps Graphic file (type eps)
+ <./grafy/morf/maxent/text.svg.eps>
+File: ./grafy/morf/porovnani/text.svg.eps Graphic file (type eps)
 
-<./grafy/porovnani-std-max-slova.eps> [21]
+<./grafy/morf/porovnani/text.svg.eps> [21]
 LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 732
 .
 
@@ -631,76 +631,91 @@ Overfull \hbox (7.03166pt too wide) in paragraph at lines 757--758
  [] 
  []
 
-File: ./grafy/std-3-morf.eps Graphic file (type eps)
-<./grafy/std-3-morf.eps>
-File: ./grafy/std-6-morf.eps Graphic file (type eps)
- <./grafy/std-6-morf.eps>
-File: ./grafy/porovnani-std-3-6-morf.eps Graphic file (type eps)
+File: ./grafy/morf/ngram/all.svg.eps Graphic file (type eps)
+<./grafy/morf/ngram/all.svg.eps>
+File: ./grafy/morf/maxent/all.svg.eps Graphic file (type eps)
+ <./grafy/morf/maxent/all.svg.eps>
+File: ./grafy/morf/porovnani/all.svg.eps Graphic file (type eps)
 
-<./grafy/porovnani-std-3-6-morf.eps> [23]
-File: ./grafy/max-3-morf.eps Graphic file (type eps)
- <./grafy/max-3-morf.eps>
-File: ./grafy/max-6-morf.eps Graphic file (type eps)
+<./grafy/morf/porovnani/all.svg.eps> [23]
+File: ./grafy/morf/ngram/rod.svg.eps Graphic file (type eps)
+ <./grafy/morf/ngram/rod.svg.eps>
+File: ./grafy/morf/maxent/rod.svg.eps Graphic file (type eps)
 
-<./grafy/max-6-morf.eps>
-File: ./grafy/porovnani-max-3-6-morf.eps Graphic file (type eps)
- <./grafy/porovnani-max-3-6-morf.eps>
-File: ./grafy/porovnani-std-max-3-morf.eps Graphic file (type eps)
+<./grafy/morf/maxent/rod.svg.eps>
+File: ./grafy/morf/porovnani/rod.svg.eps Graphic file (type eps)
+ <./grafy/morf/porovnani/rod.svg.eps> [24]
+File: ./grafy/morf/ngram/rodstejny.svg.eps Graphic file (type eps)
 
-<./grafy/porovnani-std-max-3-morf.eps>
-File: ./grafy/porovnani-std-max-6-morf.eps Graphic file (type eps)
- <./grafy/porovnani-std-max-6-morf.eps>
-[24]
-File: ./grafy/std-6-rod.eps Graphic file (type eps)
- <./grafy/std-6-rod.eps>
-File: ./grafy/max-6-rod.eps Graphic file (type eps)
- <./grafy/max-6-rod.eps>
-File: ./grafy/std-6-rodstejny.eps Graphic file (type eps)
+<./grafy/morf/ngram/rodstejny.svg.eps>
+File: ./grafy/morf/maxent/rodstejny.svg.eps Graphic file (type eps)
+ <./grafy/morf/maxent/rodstejny.svg.eps>
+File: ./grafy/morf/porovnani/rodstejny.svg.eps Graphic file (type eps)
 
-<./grafy/std-6-rodstejny.eps>
-File: ./grafy/max-6-rodstejny.eps Graphic file (type eps)
- <./grafy/max-6-rodstejny.eps> [25]
-File: ./grafy/std-6-cislo.eps Graphic file (type eps)
+<./grafy/morf/porovnani/rodstejny.svg.eps> [25]
+File: ./grafy/morf/ngram/cislo.svg.eps Graphic file (type eps)
 
-<./grafy/std-6-cislo.eps>
-File: ./grafy/max-6-cislo.eps Graphic file (type eps)
- <./grafy/max-6-cislo.eps>
-File: ./grafy/std-6-pad.eps Graphic file (type eps)
- <./grafy/std-6-pad.eps>
-File: ./grafy/max-6-pad.eps Graphic file (type eps)
+<./grafy/morf/ngram/cislo.svg.eps>
+File: ./grafy/morf/maxent/cislo.svg.eps Graphic file (type eps)
+ <./grafy/morf/maxent/cislo.svg.eps>
+File: ./grafy/morf/porovnani/cislo.svg.eps Graphic file (type eps)
 
-<./grafy/max-6-pad.eps>
-File: ./grafy/std-6-rsd.eps Graphic file (type eps)
- <./grafy/std-6-rsd.eps>
-File: ./grafy/max-6-rsd.eps Graphic file (type eps)
- <./grafy/max-6-rsd.eps>
-[26]
-File: ./grafy/std-6-osoba+cislo.eps Graphic file (type eps)
- <./grafy/std-6-osoba+cislo.eps>
-File: ./grafy/max-6-osoba+cislo.eps Graphic file (type eps)
- <./grafy/max-6-osoba+cislo.eps>
-File: ./grafy/std-6-rsd+rod.eps Graphic file (type eps)
+<./grafy/morf/porovnani/cislo.svg.eps>
+File: ./grafy/morf/ngram/pad.svg.eps Graphic file (type eps)
+ <./grafy/morf/ngram/pad.svg.eps>
+File: ./grafy/morf/maxent/pad.svg.eps Graphic file (type eps)
 
-<./grafy/std-6-rsd+rod.eps>
-File: ./grafy/max-6-rsd+rod.eps Graphic file (type eps)
- <./grafy/max-6-rsd+rod.eps>
-File: ./grafy/std-6-rsd+pad.eps Graphic file (type eps)
+<./grafy/morf/maxent/pad.svg.eps>
+File: ./grafy/morf/porovnani/pad.svg.eps Graphic file (type eps)
+ <./grafy/morf/porovnani/pad.svg.eps> [26]
+File: ./grafy/morf/ngram/rsd.svg.eps Graphic file (type eps)
 
-<./grafy/std-6-rsd+pad.eps>
-File: ./grafy/max-6-rsd+pad.eps Graphic file (type eps)
- <./grafy/max-6-rsd+pad.eps> [27]
-File: ./grafy/std-6-rsd+cislo.eps Graphic file (type eps)
+<./grafy/morf/ngram/rsd.svg.eps>
+File: ./grafy/morf/maxent/rsd.svg.eps Graphic file (type eps)
+ <./grafy/morf/maxent/rsd.svg.eps>
+File: ./grafy/morf/porovnani/rsd.svg.eps Graphic file (type eps)
 
-<./grafy/std-6-rsd+cislo.eps>
-File: ./grafy/max-6-rsd+cislo.eps Graphic file (type eps)
- <./grafy/max-6-rsd+cislo.eps> [28]
-Overfull \hbox (14.11543pt too wide) in paragraph at lines 875--878
+<./grafy/morf/porovnani/rsd.svg.eps> [27]
+File: ./grafy/morf/ngram/osoba+cislo.svg.eps Graphic file (type eps)
+
+<./grafy/morf/ngram/osoba+cislo.svg.eps>
+File: ./grafy/morf/maxent/osoba+cislo.svg.eps Graphic file (type eps)
+
+<./grafy/morf/maxent/osoba+cislo.svg.eps>
+File: ./grafy/morf/porovnani/osoba+cislo.svg.eps Graphic file (type eps)
+
+<./grafy/morf/porovnani/osoba+cislo.svg.eps>
+File: ./grafy/morf/ngram/rsd+rod.svg.eps Graphic file (type eps)
+
+<./grafy/morf/ngram/rsd+rod.svg.eps>
+File: ./grafy/morf/maxent/rsd+rod.svg.eps Graphic file (type eps)
+ <./grafy/morf/maxent/rsd+rod.svg.eps>
+File: ./grafy/morf/porovnani/rsd+rod.svg.eps Graphic file (type eps)
+
+<./grafy/morf/porovnani/rsd+rod.svg.eps> [28]
+File: ./grafy/morf/ngram/rsd+pad.svg.eps Graphic file (type eps)
+
+<./grafy/morf/ngram/rsd+pad.svg.eps>
+File: ./grafy/morf/maxent/rsd+pad.svg.eps Graphic file (type eps)
+ <./grafy/morf/maxent/rsd+pad.svg.eps>
+File: ./grafy/morf/porovnani/rsd+pad.svg.eps Graphic file (type eps)
+
+<./grafy/morf/porovnani/rsd+pad.svg.eps> [29]
+File: ./grafy/morf/ngram/rsd+cislo.svg.eps Graphic file (type eps)
+
+<./grafy/morf/ngram/rsd+cislo.svg.eps>
+File: ./grafy/morf/maxent/rsd+cislo.svg.eps Graphic file (type eps)
+ <./grafy/morf/maxent/rsd+cislo.svg.eps>
+File: ./grafy/morf/porovnani/rsd+cislo.svg.eps Graphic file (type eps)
+
+<./grafy/morf/porovnani/rsd+cislo.svg.eps> [30]
+Overfull \hbox (14.11543pt too wide) in paragraph at lines 873--876
 []\IL2/cmr/m/n/12 Z gra-ma-tic-ky správ-né vì-ty by mìl jít vy-kres-lit strom s
  vìt-ným roz-bo-rem. Pøedlo¾íme-
  []
 
 File: ./grafy/pocet-stromu/pocet-stromu.eps Graphic file (type eps)
-<./grafy/pocet-stromu/pocet-stromu.eps> [29] [30]
+<./grafy/pocet-stromu/pocet-stromu.eps> [31] [32]
 \openout2 = `zaver.aux'.
 
 
@@ -711,26 +726,26 @@ No file zaver.tex.
 
 LaTeX Warning: Empty `thebibliography' environment on input line 16.
 
-) [31
+) [33
 
 
 
-
-] [32
-
-
-] [33
 
 ] [34
 
+
+] [35
+
+] [36
+
 ] (./prace.aux (./zaver.aux) (./literatura.aux)) ) 
 Here is how much of TeX's memory you used:
- 6518 strings out of 494938
- 87328 string characters out of 1181144
+ 6507 strings out of 494938
+ 87515 string characters out of 1181144
  165441 words of memory out of 3000000
- 9671 multiletter control sequences out of 15000+50000
+ 9676 multiletter control sequences out of 15000+50000
  20283 words of font info for 52 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
  38i,17n,36p,985b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (34 pages, 137440 bytes).
+Output written on prace.dvi (36 pages, 138840 bytes).

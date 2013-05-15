@@ -694,12 +694,12 @@ Mimo srovnání korelace perplexity a ručně hodnocené plynulosti překladu bu
 \section{Běžné modely se slovy}
 Pro srovnání jsme zkusili natrénovat běžné 6-gramové modely se slovy, abychom viděli, jak spolu souvisí perplexita a plynulost. Jako trénovací data byl použit korpus z WMT\footnotemark[1] 2012 - News Commentary. Ten obsahuje 158~840 německých vět a je používán i u všech následujících modelů s morfologickými značkami.
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/std-6-slova.eps}
-	\includegraphics[width=60mm]{./grafy/max-6-slova.eps}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/text.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/text.svg.eps}
 \end{center}
 Z obou grafů je patrné, že plynulost nekoreluje s perplexitou tak, jak jsme předpokládali. Perplexita by měla se zvyšující se plynulostí klesat - čím nižší perplexita, tím lepší a tedy i plynulejší překlad. Na obou grafech však boxploty neklesají, nýbrž kolísají. Dokonce hypotézy hodnocené plynulostí 5 mají rozsah nejčastějších perplexit nejvyšší. To ale může být částečně způsobeno malým počtem hypotéz ohodnocených plynulostí 5.
 \begin{center}
-	\includegraphics[width=70mm]{./grafy/porovnani-std-max-slova.eps}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/text.svg.eps}
 \end{center}
 Srovnání ukazuje, že maxentový model dopadl o něco lépe, neboť jednotlivé boxploty mají nižší horní hranici nejčastějších perplexit než v případě standardních modelů. Rozdíly ve spodních hranicích jsou zanedbatelné.
 
@@ -757,24 +757,13 @@ Příklad věty:
 }
 \end{center}
 
-Běžné modely se slovy jsme trénovali jako 6-gramy. Zde se zkusíme podívat, jak moc se liší 3- a 6-gramové modely.
-\begin{center}
-	\includegraphics[width=60mm]{./grafy/std-3-morf.eps}
-	\includegraphics[width=60mm]{./grafy/std-6-morf.eps}	
-	\\	* graf je blbě - prohozené barvy
-	\includegraphics[width=70mm]{./grafy/porovnani-std-3-6-morf.eps}
-\end{center}
-Standardní 6-gramové modely dopadají o něco lépe, rozdíly však nejsou nijak výrazné. Podobné je to i u maxentových modelů:
-
 \begin{center}		
-	\includegraphics[width=60mm]{./grafy/max-3-morf.eps}	
-	\includegraphics[width=60mm]{./grafy/max-6-morf.eps}
-	\includegraphics[width=70mm]{./grafy/porovnani-max-3-6-morf.eps}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/all.svg.eps}	
+	\includegraphics[width=60mm]{./grafy/morf/maxent/all.svg.eps}	
 \end{center}
 
 \begin{center}	
-	\includegraphics[width=70mm]{./grafy/porovnani-std-max-3-morf.eps}
-	\includegraphics[width=70mm]{./grafy/porovnani-std-max-6-morf.eps}	
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/all.svg.eps}	
 \end{center}
 Maxentové modely opět dopadají lépe než standardní n-gramové. Celkově dopadly všechny modely lépe než běžné modely se slovy, neboť zde mají boxploty už klesavou tendenci.
 
@@ -802,48 +791,57 @@ Příklad věty:
  
 
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/std-6-rod.eps}
-	\includegraphics[width=60mm]{./grafy/max-6-rod.eps}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/rod.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/rod.svg.eps}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/rod.svg.eps}	
 \end{center}
 \subsubsection{Rod stejný s předchozím}
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/std-6-rodstejny.eps}
-	\includegraphics[width=60mm]{./grafy/max-6-rodstejny.eps}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/rodstejny.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/rodstejny.svg.eps}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/rodstejny.svg.eps}	
 \end{center}
 \subsection{Číslo}
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/std-6-cislo.eps}
-	\includegraphics[width=60mm]{./grafy/max-6-cislo.eps}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/cislo.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/cislo.svg.eps}	
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/cislo.svg.eps}
 \end{center}
 \subsection{Pád}
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/std-6-pad.eps}
-	\includegraphics[width=60mm]{./grafy/max-6-pad.eps}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/pad.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/pad.svg.eps}	
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/pad.svg.eps}	
 \end{center}
 \subsection{Rozšířený slovní druh}
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/std-6-rsd.eps}
-	\includegraphics[width=60mm]{./grafy/max-6-rsd.eps}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd.svg.eps}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd.svg.eps}	
 \end{center}
 \subsection{Osoba + číslo}
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/std-6-osoba+cislo.eps}
-	\includegraphics[width=60mm]{./grafy/max-6-osoba+cislo.eps}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/osoba+cislo.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/osoba+cislo.svg.eps}	
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/osoba+cislo.svg.eps}	
 \end{center}
 \subsection{Rozšířený slovní druh + rod}
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/std-6-rsd+rod.eps}
-	\includegraphics[width=60mm]{./grafy/max-6-rsd+rod.eps}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+rod.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+rod.svg.eps}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+rod.svg.eps}	
 \end{center}
 \subsection{Rozšířený slovní druh + pád}
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/std-6-rsd+pad.eps}
-	\includegraphics[width=60mm]{./grafy/max-6-rsd+pad.eps}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+pad.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+pad.svg.eps}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+pad.svg.eps}	
 \end{center}
 \subsection{Rozšířený slovní druh + číslo}
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/std-6-rsd+cislo.eps}
-	\includegraphics[width=60mm]{./grafy/max-6-rsd+cislo.eps}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+cislo.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+cislo.svg.eps}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+cislo.svg.eps}	
 \end{center}
 
 \section{Modely s vlastní množinou rysů}
@@ -893,6 +891,7 @@ Výsledky vypadají slibně, neboť boxploty mají výrazně klesavou tendenci. 
 \subsection{Součtové rysy}
 
 NAPSAT, ŽE SPOUSTU CHYB V PARZU ZAPŘÍČIŇUJE LOWERCASE!!! zahlen x Zahlen
+
 
 
 % Ukázka použití některých konstrukcí LateXu (odkomentujte, chcete-li)
