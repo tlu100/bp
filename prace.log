@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  15 MAY 2013 06:48
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  15 MAY 2013 15:39
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -553,13 +553,13 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 [5
 
 
-])
+] [6])
 \tf@toc=\write4
 \openout4 = `prace.toc'.
 
- [6]
+ [7]
 Kapitola 1.
-[7
+[8
 
 ]
 Kapitola 2.
@@ -569,26 +569,26 @@ Overfull \hbox (2.4106pt too wide) in paragraph at lines 286--287
 -sloup-nos-ti slov $\OML/cmm/m/it/12 w[]; [] ; w[]$\IL2/cmr/m/n/12 .
  []
 
-[8
+[9
 
-] [9]
+] [10]
 Overfull \hbox (2.09047pt too wide) in paragraph at lines 364--365
 []\IL2/cmr/m/n/12 Good-Turing vy-hla-zo-vá-ní po-dá-vá dob-ré vý-sled-ky pro má
 -lo frek-ven-to-va-né n-gramy,
  []
 
-[10]
+[11]
 Overfull \hbox (24.6314pt too wide) detected at line 392
 []\OML/cmm/m/it/12 P[]\IL2/cmr/m/n/12 (\OML/cmm/m/it/12 w[]\OMS/cmsy/m/n/12 j\O
 ML/cmm/m/it/12 w[]; [] ; w[]\IL2/cmr/m/n/12 ) = []
  []
 
-[11]
+[12]
 LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 415
 .
  (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
 File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
-) [12] [13] [14]
+) [13] [14] [15]
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 13.20007pt on input line 506.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
@@ -596,11 +596,11 @@ LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 6.60004pt on input line 506.
 
-[15] [16]
+[16] [17]
 Kapitola 3.
-[17
+[18
 
-] [18] [19]
+] [19] [20]
 Kapitola 4.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 11.00006pt on input line 650.
@@ -608,16 +608,16 @@ LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 7.70004pt on input line 650.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 5.50003pt on input line 650.
-[20
+[21
 
 ]
 File: ./grafy/morf/ngram/text.svg.eps Graphic file (type eps)
  <./grafy/morf/ngram/text.svg.eps>
 File: ./grafy/morf/maxent/text.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/text.svg.eps>
-[21]
+[22]
 File: ./grafy/morf/porovnani/text.svg.eps Graphic file (type eps)
- <./grafy/morf/porovnani/text.svg.eps> [22]
+ <./grafy/morf/porovnani/text.svg.eps> [23]
 LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 740
 .
 
@@ -634,17 +634,17 @@ Overfull \hbox (7.03166pt too wide) in paragraph at lines 765--766
 File: ./grafy/morf/ngram/all.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/all.svg.eps>
 File: ./grafy/morf/maxent/all.svg.eps Graphic file (type eps)
- <./grafy/morf/maxent/all.svg.eps>
+ <./grafy/morf/maxent/all.svg.eps> [24]
 File: ./grafy/morf/porovnani/all.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/all.svg.eps> [23]
+<./grafy/morf/porovnani/all.svg.eps> [25]
 File: ./grafy/morf/ngram/rod.svg.eps Graphic file (type eps)
  <./grafy/morf/ngram/rod.svg.eps>
 File: ./grafy/morf/maxent/rod.svg.eps Graphic file (type eps)
 
 <./grafy/morf/maxent/rod.svg.eps>
 File: ./grafy/morf/porovnani/rod.svg.eps Graphic file (type eps)
- <./grafy/morf/porovnani/rod.svg.eps> [24]
+ <./grafy/morf/porovnani/rod.svg.eps>
 File: ./grafy/morf/ngram/rodstejny.svg.eps Graphic file (type eps)
 
 <./grafy/morf/ngram/rodstejny.svg.eps>
@@ -652,30 +652,37 @@ File: ./grafy/morf/maxent/rodstejny.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rodstejny.svg.eps>
 File: ./grafy/morf/porovnani/rodstejny.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rodstejny.svg.eps> [25]
+<./grafy/morf/porovnani/rodstejny.svg.eps> [26]
+File: ./grafy/morf/ngram/rsd+rod.svg.eps Graphic file (type eps)
+
+<./grafy/morf/ngram/rsd+rod.svg.eps>
+File: ./grafy/morf/maxent/rsd+rod.svg.eps Graphic file (type eps)
+ <./grafy/morf/maxent/rsd+rod.svg.eps>
+File: ./grafy/morf/porovnani/rsd+rod.svg.eps Graphic file (type eps)
+
+<./grafy/morf/porovnani/rsd+rod.svg.eps>
 File: ./grafy/morf/ngram/cislo.svg.eps Graphic file (type eps)
-
-<./grafy/morf/ngram/cislo.svg.eps>
+ <./grafy/morf/ngram/cislo.svg.eps>
 File: ./grafy/morf/maxent/cislo.svg.eps Graphic file (type eps)
- <./grafy/morf/maxent/cislo.svg.eps>
-File: ./grafy/morf/porovnani/cislo.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/cislo.svg.eps>
+<./grafy/morf/maxent/cislo.svg.eps>
+File: ./grafy/morf/porovnani/cislo.svg.eps Graphic file (type eps)
+ <./grafy/morf/porovnani/cislo.svg.eps>
+[27]
 File: ./grafy/morf/ngram/pad.svg.eps Graphic file (type eps)
  <./grafy/morf/ngram/pad.svg.eps>
 File: ./grafy/morf/maxent/pad.svg.eps Graphic file (type eps)
-
-<./grafy/morf/maxent/pad.svg.eps>
+ <./grafy/morf/maxent/pad.svg.eps>
 File: ./grafy/morf/porovnani/pad.svg.eps Graphic file (type eps)
- <./grafy/morf/porovnani/pad.svg.eps> [26]
+
+<./grafy/morf/porovnani/pad.svg.eps> [28]
 File: ./grafy/morf/ngram/rsd.svg.eps Graphic file (type eps)
-
-<./grafy/morf/ngram/rsd.svg.eps>
+ <./grafy/morf/ngram/rsd.svg.eps>
 File: ./grafy/morf/maxent/rsd.svg.eps Graphic file (type eps)
- <./grafy/morf/maxent/rsd.svg.eps>
-File: ./grafy/morf/porovnani/rsd.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rsd.svg.eps> [27]
+<./grafy/morf/maxent/rsd.svg.eps>
+File: ./grafy/morf/porovnani/rsd.svg.eps Graphic file (type eps)
+ <./grafy/morf/porovnani/rsd.svg.eps>
 File: ./grafy/morf/ngram/osoba+cislo.svg.eps Graphic file (type eps)
 
 <./grafy/morf/ngram/osoba+cislo.svg.eps>
@@ -684,7 +691,7 @@ File: ./grafy/morf/maxent/osoba+cislo.svg.eps Graphic file (type eps)
 <./grafy/morf/maxent/osoba+cislo.svg.eps>
 File: ./grafy/morf/porovnani/osoba+cislo.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/osoba+cislo.svg.eps>
+<./grafy/morf/porovnani/osoba+cislo.svg.eps> [29]
 File: ./grafy/morf/ngram/rsd+rod.svg.eps Graphic file (type eps)
 
 <./grafy/morf/ngram/rsd+rod.svg.eps>
@@ -692,7 +699,7 @@ File: ./grafy/morf/maxent/rsd+rod.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rsd+rod.svg.eps>
 File: ./grafy/morf/porovnani/rsd+rod.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rsd+rod.svg.eps> [28]
+<./grafy/morf/porovnani/rsd+rod.svg.eps> [30]
 File: ./grafy/morf/ngram/rsd+pad.svg.eps Graphic file (type eps)
 
 <./grafy/morf/ngram/rsd+pad.svg.eps>
@@ -700,7 +707,7 @@ File: ./grafy/morf/maxent/rsd+pad.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rsd+pad.svg.eps>
 File: ./grafy/morf/porovnani/rsd+pad.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rsd+pad.svg.eps> [29]
+<./grafy/morf/porovnani/rsd+pad.svg.eps>
 File: ./grafy/morf/ngram/rsd+cislo.svg.eps Graphic file (type eps)
 
 <./grafy/morf/ngram/rsd+cislo.svg.eps>
@@ -708,20 +715,24 @@ File: ./grafy/morf/maxent/rsd+cislo.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rsd+cislo.svg.eps>
 File: ./grafy/morf/porovnani/rsd+cislo.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rsd+cislo.svg.eps>
+<./grafy/morf/porovnani/rsd+cislo.svg.eps> [31]
 File: ./grafy/morf/cas/rsd/bez.eps Graphic file (type eps)
  <./grafy/morf/cas/rsd/bez.eps>
 File: ./grafy/morf/cas/rsd/rsd.eps Graphic file (type eps)
 
-<./grafy/morf/cas/rsd/rsd.eps> [30]
-Overfull \hbox (14.11543pt too wide) in paragraph at lines 887--890
+<./grafy/morf/cas/rsd/rsd.eps> [32]
+Kapitola 5.
+
+Overfull \hbox (14.11543pt too wide) in paragraph at lines 912--915
 []\IL2/cmr/m/n/12 Z gra-ma-tic-ky správ-né vì-ty by mìl jít vy-kres-lit strom s
  vìt-ným roz-bo-rem. Pøedlo¾íme-
  []
 
-[31]
+[33
+
+]
 File: ./grafy/pocet-stromu/pocet-stromu.eps Graphic file (type eps)
- <./grafy/pocet-stromu/pocet-stromu.eps> [32]
+ <./grafy/pocet-stromu/pocet-stromu.eps> [34] [35] [36]
 \openout2 = `zaver.aux'.
 
 
@@ -732,26 +743,26 @@ No file zaver.tex.
 
 LaTeX Warning: Empty `thebibliography' environment on input line 16.
 
-) [33
+) [37
 
 
 
 
-] [34
+] [38
 
 
-] [35
+] [39
 
-] [36
+] [40
 
 ] (./prace.aux (./zaver.aux) (./literatura.aux)) ) 
 Here is how much of TeX's memory you used:
- 6514 strings out of 494938
- 87638 string characters out of 1181144
- 164914 words of memory out of 3000000
- 9680 multiletter control sequences out of 15000+50000
+ 6530 strings out of 494938
+ 87770 string characters out of 1181144
+ 168891 words of memory out of 3000000
+ 9696 multiletter control sequences out of 15000+50000
  20283 words of font info for 52 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
  38i,17n,36p,1084b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (36 pages, 143204 bytes).
+Output written on prace.dvi (40 pages, 160484 bytes).

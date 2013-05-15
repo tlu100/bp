@@ -643,7 +643,7 @@ Z pozorování vyplynulo, že hypotézy se často liší jen ve tvarech přídav
 
 
 
-\chapter{Experimenty}
+\chapter{Modely s morfologickými značkami}
 V této kapitole zkusíme vyrobit několik vlastních modelů. Budeme zkoumat, jak spolu souvisí perplexita a ručně hodnocená plynulost. Zároveň provedeme srovnání standardních n-gramových modelů a modelů maximální entropie s n-gramovými rysy, a to jednak perplexitou a jednak z hlediska výpočetních nároků.
 
 \section{Zdrojová data}
@@ -714,7 +714,7 @@ Srovnání ukazuje, že maxentový model dopadl o něco lépe, neboť jednotliv�
 Čas nutný k natrénování se však výrazně liší - natrénování standardního n-gramového trvalo zhruba 3 minuty oproti téměř 12 hodinám u modelu maxentového.
 
 
-\section{Modely se slovy nahrazenými morfologickými značkami}
+\section{Princip experimentů}
 Německá gramatika je díky shodě jmen, pořádku slov a tvorbě větného rámce složitá. Běžné n-gramové modely, které sledují jen posloupnosti po sobě jdoucích slov nezachycují gramatiku jako takovou. Vyzkoušíme proto, zda dopadnou lépe modely, které budeme trénovat a testovat na datech, v nichž nahradíme slova za morfologické značky.
 
 Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger a morfologický analyzátor Morphisto. ParZu za pomocí těchto dvou nástrojů vybere ze všech variant, které nabízejí, jedinou z nich a vrátí navíc větný rozbor.
@@ -742,7 +742,7 @@ Příklad výstupu ParZu:
 
 Pro účely následujících experimentů nás bude zajímat pátý a šestý sloupec - rozšířený slovní druh a morfologická analýza.
 
-\subsection{Rozšířený slovní druh + morfologické značky}
+\section{Rozšířený slovní druh + morfologické značky}
 Jako první zkusíme natrénovat model, kde slova nahradíme rozšířeným slovním druhem a všemi morfologickými značkami z výstupu ParZu. Pro oddělení použijeme dvojtečku.
 
 
@@ -779,7 +779,7 @@ Z hlediska výpočetních nároků TABULKA?
 
 Tyto modely sice obsahují morfologickou analýzu, ale nerozumí gramatice jako takové. Nedokáží rozlišit, zda se sousední jména shodují v rodě, ale už ne v pádě apod. Natrénování maxentového modelu s rysy, které by vycházely z morfologické analýzy (rod, pád, číslo, ...), rozšíření SRILMu od Tanela Alumäe, jež používáme, bohužel neumožňuje a jiné dostupné toolkity, např. Maxent toolkit od LeZhanga, nejsou vhodné z hlediska výpočetních nároků na velká data. Zkusíme proto natrénovat další modely, ve kterých nahradíme slova vždy jedním z potencionálních rysů. 
 
-\subsection{Rod}
+\section{Rod}
 První z modelů s jednou morfologickou značkou budou modely obsahující rod. Slova budou nahrazena znakem \texttt{w}, ke kterému se připojí patřičný rod, lze-li u slova určit.
 
 Příklad věty:
@@ -803,62 +803,70 @@ Příklad věty:
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rod.svg.eps}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rod.svg.eps}	
 \end{center}
-\subsubsection{Rod stejný s předchozím}
+\subsection{Rod stejný s předchozím}
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rodstejny.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rodstejny.svg.eps}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rodstejny.svg.eps}	
 \end{center}
-\subsection{Číslo}
-\begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/cislo.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/cislo.svg.eps}	
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/cislo.svg.eps}
-\end{center}
-\subsection{Pád}
-\begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/pad.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/pad.svg.eps}	
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/pad.svg.eps}	
-\end{center}
-\subsection{Rozšířený slovní druh}
-\begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd.svg.eps}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd.svg.eps}	
-\end{center}
-\subsection{Osoba + číslo}
-\begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/osoba+cislo.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/osoba+cislo.svg.eps}	
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/osoba+cislo.svg.eps}	
-\end{center}
-\subsection{Rozšířený slovní druh + rod}
+\subsection{PŘIDAT RSD TAKHLE POD KAŽDÝ?}
+\subsection{S rozšířeným slovním druhem}
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+rod.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+rod.svg.eps}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+rod.svg.eps}	
 \end{center}
-\subsection{Rozšířený slovní druh + pád}
+
+\section{Číslo}
+\begin{center}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/cislo.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/cislo.svg.eps}	
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/cislo.svg.eps}
+\end{center}
+\section{Pád}
+\begin{center}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/pad.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/pad.svg.eps}	
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/pad.svg.eps}	
+\end{center}
+\section{Rozšířený slovní druh}
+\begin{center}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd.svg.eps}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd.svg.eps}	
+\end{center}
+\section{Osoba + číslo}
+\begin{center}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/osoba+cislo.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/osoba+cislo.svg.eps}	
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/osoba+cislo.svg.eps}	
+\end{center}
+\section{Rozšířený slovní druh + rod}
+\begin{center}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+rod.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+rod.svg.eps}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+rod.svg.eps}	
+\end{center}
+\section{Rozšířený slovní druh + pád}
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+pad.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+pad.svg.eps}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+pad.svg.eps}	
 \end{center}
-\subsection{Rozšířený slovní druh + číslo}
+\section{Rozšířený slovní druh + číslo}
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+cislo.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+cislo.svg.eps}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+cislo.svg.eps}	
 \end{center}
 
-\subsection{Porovnání z hlediska výpočetních nároků}
+\section{Porovnání z hlediska výpočetních nároků}
 \begin{center}
 	\includegraphics[width=70mm]{./grafy/morf/cas/rsd/bez.eps}
 	\includegraphics[width=70mm]{./grafy/morf/cas/rsd/rsd.eps}
 \end{center}
 
-\section{Modely s vlastní množinou rysů}
+\chapter{Modely s vlastní množinou rysů}
 Problémy s německou gramatikou jsme se prozatím snažili řešit nahrazením slov morfologickými značkami. Modely s rozšířeným slovním druhem + morfologická analýza dopadly sice lépe než běžné modely trénované na slovech, přesto zlepšení není nijak výrazné. V následující kapitole se proto pokusíme upustit od n-gramů a postihnout gramatiku z jiné stránky - vlastní množinou rysů.
 
 Trénovat už nebudeme ve SRILMu, neboť ten nepodporuje jiné než n-gramové rysy. Pro tyto modely použijeme maxent toolkit od LeZhanga\footnote{Lezhang}.
@@ -883,7 +891,24 @@ Pro následující experimenty jsme překladové hypotézy rozdělili na dva dí
 	\multicolumn{1}{c}{\textbf{CELKEM}} & \multicolumn{1}{c}{\textbf{2090}} & \multicolumn{1}{c}{\textbf{1095}} & \multicolumn{1}{c}{\textbf{1095}}\\
 \end{tabular}\end{center}
 
-\subsection{Počet kořenů v naparsovaném stromu}
+\section{Zdrojová data}
+\section{Způsob vyhodnocení}
+\section{Princip experimentů}
+
+\section{Vlastní rysy}
+\section{JINÉ DĚLENÍ KAPITOL:}
+\section{Modely se všemi rysy}
+\section{Modely se všemi rysy kromě rysů součtových}
+\subsection{Bez rysu root}
+\section{Modely se součtovými rysy}
+\subsection{S rysem root}
+\section{Modely s rysem root}
+\section{Modely s rysem sum}
+\subsection{S rysem root}
+
+\section{NAMÍSTO PŮVODNÍHO:}
+
+\section{Počet kořenů v naparsovaném stromu}
 Z gramaticky správné věty by měl jít vykreslit strom s větným rozborem. Předložíme-li ale ParZu větu, která správně není, vrátí nám stromů více.
 %% TODO: doplnit priklady naparsovani vety s chybami
 Zkusili jsme proto zjistit, jak spolu souvisí počet stromů z větného rozboru a ručně hodnocená plynulost překladu.
@@ -892,17 +917,17 @@ Zkusili jsme proto zjistit, jak spolu souvisí počet stromů z větného rozbor
 \end{center}
 Výsledky vypadají slibně, neboť boxploty mají výrazně klesavou tendenci. Je tedy patrné, že počet stromů z větného rozboru souvisí s ručně hodnocenou plynulostí.
 
-\subsection{Chybějící infinitiv s zu}
-\subsection{Chybějící podmět}
-\subsection{Chybějící určité sloveso}
-\subsection{Infinitiv po modálním slovese není na konci věty}
-\subsection{Podmět se neshoduje s přísudkem}
-\subsection{Příčestí minulé bez pomocného slovesa}
-\subsection{Příčestí minulé není na konci věty}
-\subsection{Jména a slovesa ve více osobách}
-\subsection{Více určitých sloves ve větě}
-\subsection{Určité sloveso není ve vedlejší větě na konci}
-\subsection{Součtové rysy}
+\section{Chybějící infinitiv s zu}
+\section{Chybějící podmět}
+\section{Chybějící určité sloveso}
+\section{Infinitiv po modálním slovese není na konci věty}
+\section{Podmět se neshoduje s přísudkem}
+\section{Příčestí minulé bez pomocného slovesa}
+\section{Příčestí minulé není na konci věty}
+\section{Jména a slovesa ve více osobách}
+\section{Více určitých sloves ve větě}
+\section{Určité sloveso není ve vedlejší větě na konci}
+\section{Součtové rysy}
 
 NAPSAT, ŽE SPOUSTU CHYB V PARZU ZAPŘÍČIŇUJE LOWERCASE!!! zahlen x Zahlen
 
