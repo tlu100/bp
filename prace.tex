@@ -51,6 +51,9 @@
 \DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
 \DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
 
+\usepackage[usenames,dvipsnames]{xcolor}
+
+
 
 %% Zrušení odsazení odstavců
 \usepackage{indentfirst}
@@ -164,6 +167,7 @@ Praha 2013
 Poděkování.
 Ondřejovi Bojarovi
 Rudolfovi Rosovi za identifikaci anglických klauzí.
+Daniel Zeman - nbestlisty
 
 \newpage
 
@@ -633,10 +637,26 @@ K tvorbě větného rámce dochází i v dalších případech, jako je třeba t
 
 Vzdálenost mezi pomocným slovesem a slovesem plnovýznamovým nebo příčeštím minulým může být poměrně velká a běžné n-gramy o několika slovech nemohou tuto závislost zachytit.
 
-\section{Pozorování na konkrétních větách}
+\section{Pozorování na větách}
 Na základě výše uvedeného popisu gramatických jevů, u kterých jsme předpokládali, že budou činit největší problémy, jsme pozorovali překladové hypotézy pro desítku vět. Pro každou větu jsme měli k dispozici 100 hypotéz. Zkoumali jsme především, v čem se jednotlivé návrhy liší, neboť to pomyslně znamená právě ty oblasti, kde si není jazykový model příliš jistý.
 
 Z pozorování vyplynulo, že hypotézy se často liší jen ve tvarech přídavných jmen nebo členů. Modely si tak nebyly schopné poradit se skloňováním. Větný rámec se nepovedl takřka nikde, ba co víc, v některých případech plnovýznamové sloveso či příčestí minulé ve větě úplně chybělo.
+
+\subsection{Příklady konkrétních hypotéz}
+
+Zde uvedeme několik příkladů hypotéz, ve kterých budou {\color{red}červeně} zvýrazněné některé gramatické chyby. Pokud se daný jen v některé další hypotéze povedl, bude označen {\color{OliveGreen}zeleně}.
+
+\begin{itemize}
+\item{\textit{Barack Obama erhält als {\color{red}vierte US - Präsident} den Friedensnobelpreis}}
+\item{\textit{Barack Obama {\color{red}wird} als {\color{red}vierte US - Präsident} den Friedensnobelpreis}}
+\item{\textit{Barack Obama bekommt als {\color{red}vierte US - Präsident} den Friedensnobelpreis}}
+\item{\textit{Barack Obama erhält als {\color{OliveGreen}vierter US - Präsident} den Friedensnobelpreis}}
+\end{itemize}
+
+Jak vidíme v první, druhé i třetí větě, číslovka \textit{vierte} je špatně vyskloňovaná. Má špatnou koncovku, neboť před ní nestojí určitý člen a patří k podstatnému jménu rodu mužského. Z tohoto důvodu je správně tvar označený zeleně ve čtvrté větě. Druhá věta ještě navíc obsahuje sloveso \textit{werden}, které ale pravděpodobně bylo pokusem o budoucí čas. Plnovýznamové sloveso však chybí.
+
+
+
 
 
 ? POUŽÍT POZOROVANÉ N-BEST LISTY? ?
@@ -779,6 +799,13 @@ Z hlediska výpočetních nároků TABULKA?
 
 Tyto modely sice obsahují morfologickou analýzu, ale nerozumí gramatice jako takové. Nedokáží rozlišit, zda se sousední jména shodují v rodě, ale už ne v pádě apod. Natrénování maxentového modelu s rysy, které by vycházely z morfologické analýzy (rod, pád, číslo, ...), rozšíření SRILMu od Tanela Alumäe, jež používáme, bohužel neumožňuje a jiné dostupné toolkity, např. Maxent toolkit od LeZhanga, nejsou vhodné z hlediska výpočetních nároků na velká data. Zkusíme proto natrénovat další modely, ve kterých nahradíme slova vždy jedním z potencionálních rysů. 
 
+\section{Rozšířený slovní druh}
+\begin{center}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd.svg.eps}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd.svg.eps}	
+\end{center}
+
 \section{Rod}
 První z modelů s jednou morfologickou značkou budou modely obsahující rod. Slova budou nahrazena znakem \texttt{w}, ke kterému se připojí patřičný rod, lze-li u slova určit.
 
@@ -829,12 +856,7 @@ Příklad věty:
 	\includegraphics[width=60mm]{./grafy/morf/maxent/pad.svg.eps}	
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/pad.svg.eps}	
 \end{center}
-\section{Rozšířený slovní druh}
-\begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd.svg.eps}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd.svg.eps}	
-\end{center}
+
 \section{Osoba + číslo}
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/osoba+cislo.svg.eps}

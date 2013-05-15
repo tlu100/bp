@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  15 MAY 2013 15:39
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  15 MAY 2013 17:40
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -365,6 +365,27 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \everycr=\toks31
 \minrowclearance=\skip51
 )
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Package option `usenames' ignored on input line 216.
+Package xcolor Info: Driver file: dvips.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+
+(/usr/share/texmf-texlive/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
 (/usr/share/texmf-texlive/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
@@ -499,25 +520,25 @@ File: pdfmark.def 2009/10/09 v6.79a Hyperref definitions for pdfmark specials
 (./zaver.aux) (./literatura.aux))
 \openout1 = `prace.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for IL2/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-Package hyperref Info: Link coloring OFF on input line 92.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for IL2/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+Package hyperref Info: Link coloring OFF on input line 95.
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
@@ -527,8 +548,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count107
 )
-LaTeX Info: Redefining \ref on input line 92.
-LaTeX Info: Redefining \pageref on input line 92.
+LaTeX Info: Redefining \ref on input line 95.
+LaTeX Info: Redefining \pageref on input line 95.
  (./prace.out)
 (./prace.out)
 \@outlinefile=\write3
@@ -541,14 +562,14 @@ File: ./img/logo.eps Graphic file (type eps)
 ] [2
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 182.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 186.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 182.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 186.
  [3] [4] (./prace.toc
 [5
 
@@ -564,7 +585,7 @@ Kapitola 1.
 ]
 Kapitola 2.
 
-Overfull \hbox (2.4106pt too wide) in paragraph at lines 286--287
+Overfull \hbox (2.4106pt too wide) in paragraph at lines 290--291
 []\IL2/cmr/m/n/12 Zajímá nás, ja-ká je prav-dì-po-dob-nost výsky-tu ta-ko-vé po
 -sloup-nos-ti slov $\OML/cmm/m/it/12 w[]; [] ; w[]$\IL2/cmr/m/n/12 .
  []
@@ -572,29 +593,29 @@ Overfull \hbox (2.4106pt too wide) in paragraph at lines 286--287
 [9
 
 ] [10]
-Overfull \hbox (2.09047pt too wide) in paragraph at lines 364--365
+Overfull \hbox (2.09047pt too wide) in paragraph at lines 368--369
 []\IL2/cmr/m/n/12 Good-Turing vy-hla-zo-vá-ní po-dá-vá dob-ré vý-sled-ky pro má
 -lo frek-ven-to-va-né n-gramy,
  []
 
 [11]
-Overfull \hbox (24.6314pt too wide) detected at line 392
+Overfull \hbox (24.6314pt too wide) detected at line 396
 []\OML/cmm/m/it/12 P[]\IL2/cmr/m/n/12 (\OML/cmm/m/it/12 w[]\OMS/cmsy/m/n/12 j\O
 ML/cmm/m/it/12 w[]; [] ; w[]\IL2/cmr/m/n/12 ) = []
  []
 
 [12]
-LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 415
+LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 419
 .
  (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
 File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
 ) [13] [14] [15]
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 13.20007pt on input line 506.
+(Font)              scaled to size 13.20007pt on input line 510.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 8.80005pt on input line 506.
+(Font)              scaled to size 8.80005pt on input line 510.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 6.60004pt on input line 506.
+(Font)              scaled to size 6.60004pt on input line 510.
 
 [16] [17]
 Kapitola 3.
@@ -603,11 +624,11 @@ Kapitola 3.
 ] [19] [20]
 Kapitola 4.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 11.00006pt on input line 650.
+(Font)              scaled to size 11.00006pt on input line 670.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 7.70004pt on input line 650.
+(Font)              scaled to size 7.70004pt on input line 670.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 5.50003pt on input line 650.
+(Font)              scaled to size 5.50003pt on input line 670.
 [21
 
 ]
@@ -618,16 +639,26 @@ File: ./grafy/morf/maxent/text.svg.eps Graphic file (type eps)
 [22]
 File: ./grafy/morf/porovnani/text.svg.eps Graphic file (type eps)
  <./grafy/morf/porovnani/text.svg.eps> [23]
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 740
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 760
 .
 
 (/usr/share/texmf/tex/latex/R/tex/latex/omscmtt.fd
 File: omscmtt.fd 
 )
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 740.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 760.
 
-Overfull \hbox (7.03166pt too wide) in paragraph at lines 765--766
+
+Package xcolor Warning: Incompatible color definition on input line 785.
+
+
+Package xcolor Warning: Incompatible color definition on input line 785.
+
+
+Package xcolor Warning: Incompatible color definition on input line 785.
+
+
+Overfull \hbox (7.03166pt too wide) in paragraph at lines 785--786
  [] 
  []
 
@@ -637,14 +668,27 @@ File: ./grafy/morf/maxent/all.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/all.svg.eps> [24]
 File: ./grafy/morf/porovnani/all.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/all.svg.eps> [25]
-File: ./grafy/morf/ngram/rod.svg.eps Graphic file (type eps)
- <./grafy/morf/ngram/rod.svg.eps>
-File: ./grafy/morf/maxent/rod.svg.eps Graphic file (type eps)
+<./grafy/morf/porovnani/all.svg.eps>
+File: ./grafy/morf/ngram/rsd.svg.eps Graphic file (type eps)
+ <./grafy/morf/ngram/rsd.svg.eps>
+File: ./grafy/morf/maxent/rsd.svg.eps Graphic file (type eps)
 
-<./grafy/morf/maxent/rod.svg.eps>
+<./grafy/morf/maxent/rsd.svg.eps>
+File: ./grafy/morf/porovnani/rsd.svg.eps Graphic file (type eps)
+ <./grafy/morf/porovnani/rsd.svg.eps> [25]
+
+Package xcolor Warning: Incompatible color definition on input line 824.
+
+
+Package xcolor Warning: Incompatible color definition on input line 824.
+
+File: ./grafy/morf/ngram/rod.svg.eps Graphic file (type eps)
+<./grafy/morf/ngram/rod.svg.eps>
+File: ./grafy/morf/maxent/rod.svg.eps Graphic file (type eps)
+ <./grafy/morf/maxent/rod.svg.eps>
 File: ./grafy/morf/porovnani/rod.svg.eps Graphic file (type eps)
- <./grafy/morf/porovnani/rod.svg.eps>
+
+<./grafy/morf/porovnani/rod.svg.eps> [26]
 File: ./grafy/morf/ngram/rodstejny.svg.eps Graphic file (type eps)
 
 <./grafy/morf/ngram/rodstejny.svg.eps>
@@ -652,7 +696,7 @@ File: ./grafy/morf/maxent/rodstejny.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rodstejny.svg.eps>
 File: ./grafy/morf/porovnani/rodstejny.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rodstejny.svg.eps> [26]
+<./grafy/morf/porovnani/rodstejny.svg.eps> [27]
 File: ./grafy/morf/ngram/rsd+rod.svg.eps Graphic file (type eps)
 
 <./grafy/morf/ngram/rsd+rod.svg.eps>
@@ -668,21 +712,14 @@ File: ./grafy/morf/maxent/cislo.svg.eps Graphic file (type eps)
 <./grafy/morf/maxent/cislo.svg.eps>
 File: ./grafy/morf/porovnani/cislo.svg.eps Graphic file (type eps)
  <./grafy/morf/porovnani/cislo.svg.eps>
-[27]
+[28]
 File: ./grafy/morf/ngram/pad.svg.eps Graphic file (type eps)
  <./grafy/morf/ngram/pad.svg.eps>
 File: ./grafy/morf/maxent/pad.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/pad.svg.eps>
 File: ./grafy/morf/porovnani/pad.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/pad.svg.eps> [28]
-File: ./grafy/morf/ngram/rsd.svg.eps Graphic file (type eps)
- <./grafy/morf/ngram/rsd.svg.eps>
-File: ./grafy/morf/maxent/rsd.svg.eps Graphic file (type eps)
-
-<./grafy/morf/maxent/rsd.svg.eps>
-File: ./grafy/morf/porovnani/rsd.svg.eps Graphic file (type eps)
- <./grafy/morf/porovnani/rsd.svg.eps>
+<./grafy/morf/porovnani/pad.svg.eps> [29]
 File: ./grafy/morf/ngram/osoba+cislo.svg.eps Graphic file (type eps)
 
 <./grafy/morf/ngram/osoba+cislo.svg.eps>
@@ -691,7 +728,7 @@ File: ./grafy/morf/maxent/osoba+cislo.svg.eps Graphic file (type eps)
 <./grafy/morf/maxent/osoba+cislo.svg.eps>
 File: ./grafy/morf/porovnani/osoba+cislo.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/osoba+cislo.svg.eps> [29]
+<./grafy/morf/porovnani/osoba+cislo.svg.eps>
 File: ./grafy/morf/ngram/rsd+rod.svg.eps Graphic file (type eps)
 
 <./grafy/morf/ngram/rsd+rod.svg.eps>
@@ -707,7 +744,7 @@ File: ./grafy/morf/maxent/rsd+pad.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rsd+pad.svg.eps>
 File: ./grafy/morf/porovnani/rsd+pad.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rsd+pad.svg.eps>
+<./grafy/morf/porovnani/rsd+pad.svg.eps> [31]
 File: ./grafy/morf/ngram/rsd+cislo.svg.eps Graphic file (type eps)
 
 <./grafy/morf/ngram/rsd+cislo.svg.eps>
@@ -715,24 +752,138 @@ File: ./grafy/morf/maxent/rsd+cislo.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rsd+cislo.svg.eps>
 File: ./grafy/morf/porovnani/rsd+cislo.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rsd+cislo.svg.eps> [31]
+<./grafy/morf/porovnani/rsd+cislo.svg.eps>
 File: ./grafy/morf/cas/rsd/bez.eps Graphic file (type eps)
  <./grafy/morf/cas/rsd/bez.eps>
 File: ./grafy/morf/cas/rsd/rsd.eps Graphic file (type eps)
 
-<./grafy/morf/cas/rsd/rsd.eps> [32]
+<./grafy/morf/cas/rsd/rsd.eps> [32] [33]
 Kapitola 5.
 
-Overfull \hbox (14.11543pt too wide) in paragraph at lines 912--915
+Package xcolor Warning: Incompatible color definition on input line 899.
+
+
+Package xcolor Warning: Incompatible color definition on input line 900.
+
+
+Package xcolor Warning: Incompatible color definition on input line 900.
+
+
+Package xcolor Warning: Incompatible color definition on input line 900.
+
+
+Package xcolor Warning: Incompatible color definition on input line 900.
+
+
+Package xcolor Warning: Incompatible color definition on input line 901.
+
+
+Package xcolor Warning: Incompatible color definition on input line 901.
+
+
+Package xcolor Warning: Incompatible color definition on input line 902.
+
+
+Package xcolor Warning: Incompatible color definition on input line 902.
+
+
+Package xcolor Warning: Incompatible color definition on input line 902.
+
+
+Package xcolor Warning: Incompatible color definition on input line 902.
+
+
+Package xcolor Warning: Incompatible color definition on input line 903.
+
+
+Package xcolor Warning: Incompatible color definition on input line 903.
+
+
+Package xcolor Warning: Incompatible color definition on input line 904.
+
+
+Package xcolor Warning: Incompatible color definition on input line 904.
+
+
+Package xcolor Warning: Incompatible color definition on input line 904.
+
+
+Package xcolor Warning: Incompatible color definition on input line 904.
+
+
+Package xcolor Warning: Incompatible color definition on input line 905.
+
+
+Package xcolor Warning: Incompatible color definition on input line 905.
+
+
+Package xcolor Warning: Incompatible color definition on input line 906.
+
+
+Package xcolor Warning: Incompatible color definition on input line 906.
+
+
+Package xcolor Warning: Incompatible color definition on input line 906.
+
+
+Package xcolor Warning: Incompatible color definition on input line 906.
+
+
+Package xcolor Warning: Incompatible color definition on input line 907.
+
+
+Package xcolor Warning: Incompatible color definition on input line 907.
+
+
+Package xcolor Warning: Incompatible color definition on input line 908.
+
+
+Package xcolor Warning: Incompatible color definition on input line 908.
+
+
+Package xcolor Warning: Incompatible color definition on input line 908.
+
+
+Package xcolor Warning: Incompatible color definition on input line 908.
+
+
+Package xcolor Warning: Incompatible color definition on input line 909.
+
+
+Package xcolor Warning: Incompatible color definition on input line 909.
+
+
+Package xcolor Warning: Incompatible color definition on input line 910.
+
+
+Package xcolor Warning: Incompatible color definition on input line 910.
+
+
+Package xcolor Warning: Incompatible color definition on input line 910.
+
+
+Package xcolor Warning: Incompatible color definition on input line 910.
+
+
+Package xcolor Warning: Incompatible color definition on input line 911.
+
+
+Package xcolor Warning: Incompatible color definition on input line 911.
+
+
+Package xcolor Warning: Incompatible color definition on input line 912.
+
+
+Overfull \hbox (14.11543pt too wide) in paragraph at lines 934--937
 []\IL2/cmr/m/n/12 Z gra-ma-tic-ky správ-né vì-ty by mìl jít vy-kres-lit strom s
  vìt-ným roz-bo-rem. Pøedlo¾íme-
  []
 
-[33
+[34
 
 ]
 File: ./grafy/pocet-stromu/pocet-stromu.eps Graphic file (type eps)
- <./grafy/pocet-stromu/pocet-stromu.eps> [34] [35] [36]
+ <./grafy/pocet-stromu/pocet-stromu.eps> [35] [36] [37]
 \openout2 = `zaver.aux'.
 
 
@@ -743,26 +894,26 @@ No file zaver.tex.
 
 LaTeX Warning: Empty `thebibliography' environment on input line 16.
 
-) [37
+) [38
 
 
-
-
-] [38
 
 
 ] [39
 
+
 ] [40
+
+] [41
 
 ] (./prace.aux (./zaver.aux) (./literatura.aux)) ) 
 Here is how much of TeX's memory you used:
- 6530 strings out of 494938
- 87770 string characters out of 1181144
- 168891 words of memory out of 3000000
- 9696 multiletter control sequences out of 15000+50000
+ 6994 strings out of 494938
+ 93339 string characters out of 1181144
+ 180477 words of memory out of 3000000
+ 10152 multiletter control sequences out of 15000+50000
  20283 words of font info for 52 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
  38i,17n,36p,1084b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (40 pages, 160484 bytes).
+Output written on prace.dvi (41 pages, 163612 bytes).
