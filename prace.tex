@@ -640,8 +640,10 @@ ruční analýza vět, přehled počtů chyb a vyhodnocení, které dělají př
 
 
 \chapter{Experimenty}
-\footnotetext[1]{WORKSHOP ON STATISTICAL MACHINE TRANSLATION}
-Data pro experimenty pochází z výstupů překladových systémů z WMT\footnotemark[1] 2006, které se účastnily překladu z angličtiny do němčiny. Některé z překladových hypotéz obsahovaly ručně ohodnocenou plynulost překladu. Právě tyto ohodnocené hypotézy používáme pro naše experimenty. Celkem jich je k dispozici 2028, z toho 58 je hodnoceno dvakrát a 2 třikrát, celkem tedy 2090 hodnocení. Následující tabulka ukazuje přesné počty hypotéz:
+V této kapitole zkusíme vyrobit několik vlastních modelů. Budeme zkoumat, jak spolu souvisí perplexita a ručně hodnocená plynulost. Zároveň provedeme srovnání standardních n-gramových modelů a modelů maximální entropie s n-gramovými rysy, a to jednak perplexitou a jednak z hlediska výpočetních nároků.
+
+\section{Zdrojová data}
+Data pro experimenty pochází z výstupů překladových systémů z WMT\footnote{WORKSHOP ON STATISTICAL MACHINE TRANSLATION} 2006, které se účastnily překladu z angličtiny do němčiny. Některé z překladových hypotéz obsahovaly ručně ohodnocenou plynulost překladu. Právě tyto ohodnocené hypotézy používáme pro naše experimenty. Celkem jich je k dispozici 2028, z toho 58 je hodnoceno dvakrát a 2 třikrát, celkem tedy 2090 hodnocení. Následující tabulka ukazuje přesné počty hypotéz:
 
 \begin{center}\begin{tabular}{|c|c|}
 	\hline
@@ -678,16 +680,18 @@ Hypotézy hodnotí 400 různých vět překládaných osmi systémy. Plynulost h
 	\hline
 \end{tabular}\end{center}
 
-Dvě hypotézy hodnocené třikrát byly taktéž hodnoceny dvěma hodnotiteli, třetí hodnocení bylo vždy vykonáno jedním z nich a slouží pouze jako kontrola. V jednom případě se hodnotitelé shodli, v druhém se lišili o 1.
+Dvě hypotézy hodnocené třikrát byly taktéž hodnoceny dvěma hodnotiteli, třetí hodnocení bylo vždy vykonáno jedním z nich a slouží pouze jako kontrola - ta dopadla v obou případech úspěšně, tedy udělením stejného hodnocení. V jednom případě se hodnotitelé shodli, v druhém se lišili o 1.
 
-\footnotetext[2]{The SRI Language Modeling Toolkit}
-\footnotetext[3]{Od verze 1.7.1 je toto rozšíření již součástí základní instalace SRILM toolkit.}
+Ačkoliv nevýhodou ručního hodnocení je vždy určitá míra subjektivity, výše udená tabulka uvádí nadpoloviční shodu a budeme-li brát jako uspokojivé i případy, kdy se hodnocení lišilo o 1, pak jsme dokonce lehce nad 90 \%.
+
+\footnotetext[2]{The SRI Language Modeling Toolkit - PŘESUNOUT DO KAPITOLY 2}
+\footnotetext[3]{Od verze 1.7.1 je toto rozšíření již součástí základní instalace SRILM toolkit. TAKÉ}
 Každý model natrénujeme jak metodou maximální entropie, tak standardními n-gramy. Pro trénování bude použit SRILM toolkit\footnotemark[2], který umí natrénovat standardní n-gramové modely, a jeho rozšíření od Tanela Alumäe\footnotemark[3] pro natrénování modelů maximální entropie (maxentových).
 
 \section{Způsob vyhodnocení}
-U každého natrénovaného modelu bude změřena perplexita pro každou větu zvlášť. Výsledky pak vykreslíme do grafu společně s odpovídající plynulostí pro znázornění jejich korelace. Pro lepší znázornění bude u každé plynulosti vykreslen boxplot\footnote{Boxplot (krabicový graf) - vykreslí obdélník v oblasti, kde se vyskytuje 50 \% hodnot. Horní a dolní hranice odpovídají hornímu a dolnímu kvartilu. Uprostřed boxplotu se vykresluje ještě tučně medián. Vertikálně vedou z obdélníků tzv. vousy, jejichž hranice leží v maximální (minimální) hodnotě, maximálně však v 1.5 násobku horní nebo dolní hranice. Body mimo tyto hranice se nazývají extrémní hodnoty} znázorňující oblast s nejvyšším výskytem hypotéz ohodnocených danou perplexitou. Čím vyšší je plynulost, tím nižší by měla být perplexita. Jednotlivé boxploty by proto měly, co se perplexity týče, klesat. 
+U každého natrénovaného modelu bude změřena perplexita pro každou větu zvlášť. Výsledky pak vykreslíme do grafu společně s odpovídající plynulostí pro znázornění jejich korelace. Pro lepší znázornění bude u každé plynulosti vykreslen boxplot\footnote{Boxplot (krabicový graf) - vykreslí obdélník v oblasti, kde se vyskytuje 50 \% hodnot. Horní a dolní hranice odpovídají hornímu a dolnímu kvartilu. Uprostřed boxplotu se vykresluje ještě tučně medián. Vertikálně vedou z obdélníků tzv. vousy, jejichž hranice leží v maximální (minimální) hodnotě, maximálně však v 1.5 násobku horní nebo dolní hranice. Body mimo tyto hranice se nazývají extrémní hodnoty} znázorňující oblast s nejvyšším výskytem hypotéz ohodnocených danou perplexitou. Čím vyšší je plynulost, tím nižší by měla být perplexita. Jednotlivé boxploty by proto měly, co se perplexity týče, klesat. Mediány boxplotů bude ještě proložena přímka, aby byla jejich tendence více zřetelná. \\
 %Grafy lze vyhodnotit a porovnat Pearsonovým korelačním koeficientem. Ten ale není úplně vypovídající a může dávat pro dvě na pohled odlišné korelace stejný výsledek. 
-Srovnání provedeme graficky umístěním dvou grafů přes sebe vykreslených odlišnou barvou.
+Srovnání standardních a maxentových modelů provedeme graficky umístěním dvou grafů přes sebe vykreslených odlišnou barvou.
 
 Mimo srovnání korelace perplexity a ručně hodnocené plynulosti překladu budou oba typy modelů (standardní n-gramové a maxentové) srovnány z hlediska výpočetních nároků.
 

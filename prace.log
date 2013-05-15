@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  15 MAY 2013 05:32
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  15 MAY 2013 06:22
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -603,11 +603,11 @@ Kapitola 3.
 ] [18] [19]
 Kapitola 4.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 11.00006pt on input line 643.
+(Font)              scaled to size 11.00006pt on input line 646.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 7.70004pt on input line 643.
+(Font)              scaled to size 7.70004pt on input line 646.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 5.50003pt on input line 643.
+(Font)              scaled to size 5.50003pt on input line 646.
 [20
 
 ]
@@ -615,19 +615,19 @@ File: ./grafy/morf/ngram/text.svg.eps Graphic file (type eps)
  <./grafy/morf/ngram/text.svg.eps>
 File: ./grafy/morf/maxent/text.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/text.svg.eps>
+[21]
 File: ./grafy/morf/porovnani/text.svg.eps Graphic file (type eps)
-
-<./grafy/morf/porovnani/text.svg.eps> [21]
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 732
+ <./grafy/morf/porovnani/text.svg.eps> [22]
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 736
 .
 
 (/usr/share/texmf/tex/latex/R/tex/latex/omscmtt.fd
 File: omscmtt.fd 
 )
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 732.
- [22]
-Overfull \hbox (7.03166pt too wide) in paragraph at lines 757--758
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 736.
+
+Overfull \hbox (7.03166pt too wide) in paragraph at lines 761--762
  [] 
  []
 
@@ -714,7 +714,7 @@ File: ./grafy/morf/cas/rsd/bez.eps Graphic file (type eps)
 File: ./grafy/morf/cas/rsd/rsd.eps Graphic file (type eps)
 
 <./grafy/morf/cas/rsd/rsd.eps> [30]
-Overfull \hbox (14.11543pt too wide) in paragraph at lines 879--882
+Overfull \hbox (14.11543pt too wide) in paragraph at lines 883--886
 []\IL2/cmr/m/n/12 Z gra-ma-tic-ky správ-né vì-ty by mìl jít vy-kres-lit strom s
  vìt-ným roz-bo-rem. Pøedlo¾íme-
  []
@@ -746,12 +746,12 @@ LaTeX Warning: Empty `thebibliography' environment on input line 16.
 
 ] (./prace.aux (./zaver.aux) (./literatura.aux)) ) 
 Here is how much of TeX's memory you used:
- 6513 strings out of 494938
- 87625 string characters out of 1181144
- 165760 words of memory out of 3000000
- 9679 multiletter control sequences out of 15000+50000
+ 6514 strings out of 494938
+ 87638 string characters out of 1181144
+ 164914 words of memory out of 3000000
+ 9680 multiletter control sequences out of 15000+50000
  20283 words of font info for 52 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
- 38i,17n,36p,985b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,17n,36p,1084b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (36 pages, 140040 bytes).
+Output written on prace.dvi (36 pages, 142376 bytes).
