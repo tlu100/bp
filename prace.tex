@@ -644,7 +644,7 @@ Z pozorování vyplynulo, že hypotézy se často liší jen ve tvarech přídav
 
 \subsection{Příklady konkrétních hypotéz}
 
-Zde uvedeme několik příkladů hypotéz, ve kterých budou {\color{red}červeně} zvýrazněné některé gramatické chyby. Pokud se daný jen v některé další hypotéze povedl, bude označen {\color{OliveGreen}zeleně}. Zaměříme se vždy na nějaký gramatický jev, nikoliv na samotný špatný překlad některých slov.
+Zde uvedeme několik příkladů hypotéz, ve kterých budou {\color{red}červeně} zvýrazněné některé gramatické chyby. Pokud se daný jev v některé další hypotéze povedl, bude označen {\color{OliveGreen}zeleně}. Zaměříme se vždy na nějaký gramatický jev, nikoliv na samotný špatný překlad některých slov.
 
 \begin{itemize}
 \item{\textit{Barack Obama erhält als {\color{red}vierte US - Präsident} den Friedensnobelpreis}}
@@ -653,11 +653,12 @@ Zde uvedeme několik příkladů hypotéz, ve kterých budou {\color{red}červen
 \item{\textit{Barack Obama erhält als {\color{OliveGreen}vierter US - Präsident} den Friedensnobelpreis}}
 \end{itemize}
 
-Jak vidíme v první, druhé i třetí větě, číslovka \textit{vierte} je špatně vyskloňovaná. Má špatnou koncovku, neboť před ní nestojí určitý člen a patří k podstatnému jménu rodu mužského. Z tohoto důvodu je správně tvar označený zeleně ve čtvrté větě. Druhá věta ještě navíc obsahuje sloveso \textit{werden}, které ale pravděpodobně bylo pokusem o budoucí čas. Plnovýznamové sloveso však chybí.
+Jak vidíme v první, druhé i třetí hypotéze, číslovka \textit{vierte} je špatně vyskloňovaná. Má špatnou koncovku, neboť před ní nestojí určitý člen a patří k podstatnému jménu rodu mužského. Z tohoto důvodu je správně tvar označený zeleně ve čtvrté větě. Druhá hypotéza ještě navíc obsahuje sloveso \textit{werden}, které ale pravděpodobně bylo pokusem o budoucí čas. Plnovýznamové sloveso však chybí.
 
 \begin{itemize}
 \item{\textit{US - Präsident Barack Obama přiletí des norwegischen in Oslo auf 26 Stunden , {\color{red}um} sich hier als vierte US - Präsident in der Geschichte {\color{red}übernahm} den Friedensnobelpreis .}}
 \end{itemize}
+
 
 V této větě jsme zvýraznili dvojici \textit{um} a \textit{übernahm}. Pokud byla vedlejší věta uvozena spojkou \textit{um}, pak se zřejmě mělo jednat o zkrácenou vedlejší větu a měl následovat infinitiv s \textit{zu} na konci věty. Mimo tohoto jevu se ve větě vyskytují samozřejmě další gramatické chyby, jako třeba již zmíněné špatné skloňování.
 
@@ -668,7 +669,11 @@ V této větě jsme zvýraznili dvojici \textit{um} a \textit{übernahm}. Pokud 
 
 Zde se naopak v první hypotéze povedl větný rámec utvořením pořádku slov vedlejší věty, ačkoliv zde být neměl, neboť se o vedlejší větu nejedná. Druhá hypotéza obsahuje sloveso \textit{werden}, které má zřejmě funkci slovesa pomocného. Infinitiv nebo příčestí minulé už ale chybí. V obou hypotézách je určité sloveso ve třetí osobě čísla jednotného, přestože takový podmět, s nímž by měl přísudek utvořit shodu, se ve větě nenachází.
 
+\begin{itemize}
+\item{\textit{der Präsident {\color{red}hat} sich diesem Thema vermeiden {\color{red}will} , weil sie erkennt , dass die Kosten {\color{red}übernimmt} wie ein Präsident , der derzeit ein Krieg in zwei Ländern .}}
+\end{itemize}
 
+V první klauzi se vyskytují dvě určitá slovesa, v poslední naopak sloveso úplně chybí. Třetí klauze je vedlejší větou a špatný pořádek slov zde staví \textit{die Kosten} do role podmětu neshodujícího se s přísudkem, neboť \textit{die Kosten} je pomnožné podstatné jméno a \textit{übernimmt} je v čísle jednotném.
 
 
 
@@ -751,7 +756,7 @@ Srovnání ukazuje, že maxentový model dopadl o něco lépe, neboť jednotliv�
 
 
 \section{Princip experimentů}
-Německá gramatika je díky shodě jmen, pořádku slov a tvorbě větného rámce složitá. Běžné n-gramové modely, které sledují jen posloupnosti po sobě jdoucích slov nezachycují gramatiku jako takovou. Vyzkoušíme proto, zda dopadnou lépe modely, které budeme trénovat a testovat na datech, v nichž nahradíme slova za morfologické značky.
+Jak jsme popsali v předchozí kapitole, německá gramatika je díky shodě jmen, pořádku slov a tvorbě větného rámce složitá. Běžné n-gramové modely, které sledují jen posloupnosti po sobě jdoucích slov nezachycují gramatiku jako takovou. Vyzkoušíme proto, zda dopadnou lépe modely, které budeme trénovat a testovat na datech, v nichž nahradíme slova za morfologické značky.
 
 Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger a morfologický analyzátor Morphisto. ParZu za pomocí těchto dvou nástrojů vybere ze všech variant, které nabízejí, jedinou z nich a vrátí navíc větný rozbor.
 
