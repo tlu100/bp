@@ -45,7 +45,7 @@
 \usepackage{color}
 \usepackage{colortbl}
 \usepackage[bottom]{footmisc}
-
+\usepackage{multirow}
 
 \definecolor{seda}{rgb}{0.7,0.7,0.7}
 \newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
@@ -792,7 +792,7 @@ Z obou grafů je patrné, že plynulost nekoreluje s perplexitou tak, jak bychom
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/text.svg.eps}
 \end{center}
-Srovnání ukazuje, že maxentový model dopadl o něco lépe, neboť jednotlivé boxploty mají nižší horní hranici nejčastějších perplexit než v případě standardních modelů. Rozdíly ve spodních hranicích jsou zanedbatelné.
+Srovnání ukazuje, že maxentový model dopadl o něco lépe, neboť jednotlivé boxploty mají nižší horní hranici nejčastějších perplexit než v případě standardních modelů. Rozdíly ve spodních hranicích jsou zanedbatelné. I proložená přímka stoupá v případě standardního n-gramového modelu více než v případě maxentového.
 
 Čas nutný k natrénování se však výrazně liší - natrénování standardního n-gramového trvalo zhruba 3 minuty oproti téměř 12 hodinám u modelu maxentového.
 
@@ -826,9 +826,7 @@ Příklad věty:
 \begin{center}	
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/all.svg.eps}	
 \end{center}
-Maxentové modely opět dopadají lépe než standardní n-gramové. Celkově dopadly všechny modely lépe než běžné modely se slovy, neboť zde mají boxploty už klesavou tendenci.
-
-Z hlediska výpočetních nároků jsou na tom stadardní n-gramy oproti maxentovým znovu výrazně lépe - 72 sekund proti takřka 8 hodinám.
+Maxentové modely opět, co se perplexity týče, dopadají lépe než standardní n-gramové. Avšak proložená přímka klesá u standardních modelů strměji. Z hlediska výpočetních nároků jsou na tom stadardní n-gramy oproti maxentovým znovu výrazně lépe - 72 sekund proti takřka 8 hodinám.
 
 Tyto modely sice obsahují morfologickou analýzu, ale nerozumí jejímu obsahu. Nedokáží rozlišit, zda se sousední jména shodují v rodě, ale už ne v pádě apod. Natrénování maxentového modelu s rysy, které by vycházely z morfologické analýzy (rod, pád, číslo, ...), rozšíření SRILMu od Tanela Alumäe a Mikko Kurima, bohužel neumožňuje a jiné dostupné toolkity, např. Maxent toolkit od LeZhanga, nejsou vhodné z hlediska výpočetních nároků na velká data. Zkusíme proto natrénovat další modely, ve kterých nahradíme slova vždy jedním z potencionálních rysů. 
 
@@ -848,7 +846,7 @@ Příklad věty:
 \color{blue} KON & \color{blue} ART & \color{blue} ADJA \\
 \hline
 \color{red} Medien & \color{red} zu & \color{red} unterdrücken & \color{red} . \\
-\color{blue} NN & \color{blue} PTKZU \color{blue} VVINF & \color{blue} \$.: \\
+\color{blue} NN & \color{blue} PTKZU & \color{blue} VVINF & \color{blue} \$. \\
 \hline
 \end{tabular}
 }
@@ -862,7 +860,7 @@ Modely dopadly o něco hůře než v případě, kdy byl rozšířený slovní d
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd.svg.eps}	
 \end{center}
-V porovnání je na tom maxentový model opět mírně lépe.
+V porovnání je na tom maxentový model z hlediska perplexity opět mírně lépe. Stejně jako proložená přímka klesá u standardního n-gramového modelu strměji.
 
 Z hlediska výpočetních nároků to tentokrát není takový rozdíl. Standardní n-gramový model potřeboval pro natrénování 22 sekund, maxentový 14 minut. Zde je vidět, nakolik ovlivňuje velikost slovníku dobu trénování maxentových modelů. Oproti modelům se všemi morfologickými značkami potřebovaly standardní n-gramy 3.27x méně času, maxentové 34.29x, což je obrovský rozdíl.
 
@@ -1078,14 +1076,50 @@ Zlepšení je znatelné a podobá se modelům s rozšířeným slovním druhem a
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+pad.eps}	
 \end{center}
-Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Výpočetní nároky se ale výrazně liší - 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
+Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Nicméně proložená přímka je u strmější u standardních n-gramů. Výpočetní nároky se ale výrazně liší - 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
 
 \section{Shrnutí}
-přehled časů, pearsonových koeficientů, směrnic proložených přímek
+Zde uvedeme všechny naměřené hodnoty do tabulky. Tabulka bude obsahovat od každého modelu Pearsonův korelační koeficient\footnote{Udává vztah mezi dvěma veličinami. Nabývá hodnot $<-1, 1>$, přičemž 1 značí závislost přímou a -1 závislost nepřímou. Hodnota 0 indikuje, že vztah mezi veličinami nelze vyjádřit lineární funkcí.}, směrnici přímky proložené mediány boxplotů a čas potřebný k natrénování.
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
 \begin{center}
-	\includegraphics[width=70mm]{./grafy/morf/cas/rsd/bez.eps}
-	\includegraphics[width=70mm]{./grafy/morf/cas/rsd/rsd.eps}
+\small\addtolength{\tabcolsep}{-3pt}
+\begin{tabular}{|M{2.6cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|}
+\hline
+\multirow{2}*{\textbf{Model}} & \multicolumn{2}{M{3.1cm}|}{\textbf{Pearsonův koeficient}} & \multicolumn{2}{M{3.1cm}|}{\textbf{Směrnice přímky}} & \multicolumn{2}{M{3.1cm}|}{\textbf{Čas trénování}} \\
+\cline{2-7}
+& {\tiny standardní} & {\tiny maxentový} & {\tiny standardní} & {\tiny maxentový} & {\tiny standardní} & {\tiny maxentový} \\
+\hline
+Slova & 0.05 & 0.05 & 33.53 & 17.43 & 3 min & 12 hod\\
+\hline
+RSD + všechny značky & -0.03 & 0.04 & -7.00 & -5.54 & 72 s & 8 hod s\\
+\hline
+RSD & 0.05 & 0.03 & -1.23 & -1.07 & 22 s & 14 min\\
+\hline
+Rod &  0.15 & 0.15 & 0.07 & 0.07 & 3 s & 4 s\\
+\hline
+Rod stejný s předchozím & 0.15 & 0.14 & 0.06 & 0.06 & 3 s & 3 s\\
+\hline
+RSD + rod & 0.04 & 0.03 & -1.42 & -1.41 & 36 s & 27 min\\
+\hline
+Číslo & 0.07 & 0.10 & 0.04 & 0.04 & 3 s & 3 s\\
+\hline
+Osoba + číslo & 0.06 & 0.09 & 0.07 & 0.07 & 4 s & 11 s\\
+\hline
+RSD + číslo & 0.03 & 0.02 & -1.70 & -1.70 & 33 s & 24 min\\
+\hline
+Pád & 0.15 & 0.15 & 0.07 & 0.07 & 4 s & 4 s\\
+\hline
+RSD + pád & 0.04 & 0.02 & -2.25 & -1.78 & 34 s & 27 min \\
+\hline
+\end{tabular}
 \end{center}
+
+U Pearsonova koeficientu bychom rádi dosáhli hodnoty blížící se k -1. Jedinou zápornou hodnotu má ale jen standardní n-gramový model natrénovaný na rozšířeném slovním druhu a všech morfologických značkách. Směrnice přímky by měla být záporná, aby přímka klesala. Čím menší bude, tím bude klesat strměji. Opět je hodnota nejnižší u standardního modelu se slovním druhem a všemi značkami.
+
+Ačkoliv modely maximální entropie obvykle dostávaly nižší perplexitu než standardní modely, korelace perplexity a ručně hodnocené plynulosti vycházela lépe u standardních modelů. Trénování modelů maximální entropie trvalo ve většině případů mnohonásobně déle a nepřineslo žádné výrazné zlepšení.
+
 
 \chapter{Modely s vlastní množinou rysů}
 Problémy s německou gramatikou jsme se prozatím snažili řešit nahrazením slov morfologickými značkami. Modely s rozšířeným slovním druhem + morfologická analýza dopadly sice lépe než běžné modely trénované na slovech, přesto zlepšení není nijak výrazné. V následující kapitole se proto pokusíme upustit od n-gramů a postihnout gramatiku z jiné stránky - vlastní množinou rysů.
