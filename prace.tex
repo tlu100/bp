@@ -746,7 +746,7 @@ Princip experimentů bude následující
 
 Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German, formálněji známý také pod názvem Pro3GresDE}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger a morfologický analyzátor Morphisto. Pro morphisto použijeme předkompilovaný model \texttt{morphisto-02022011.a}\footnote{ZDROJ}. S využitím Morphisto uvádí ParZu přesnost 86.5 \% (ZDROJ).
 
-ParZu spouští nejprve vlastní tokenizér. Vzhledem k tomu, že data z WMT 06, která používáme, jsou již tokenizovaná, tento tokenizér vynecháme a pouze upravíme formát - jeden token na řádku, věty oddělené prázdným řádkem.
+ParZu spouští nejprve vlastní tokenizér. Vzhledem k tomu, že data z WMT 06, která používáme, jsou již tokenizovaná, tento tokenizér vynecháme a pouze upravíme formát - jeden token na řádku, věty oddělené prázdným řádkem. Data z WMT 12 tokenizovaná nejsou, proto u nich tokenizér necháme běžet.
 
 Příklad výstupu ParZu:
 \begin{center}
@@ -828,17 +828,44 @@ Maxentové modely opět dopadají lépe než standardní n-gramové. Celkově do
 
 Z hlediska výpočetních nároků jsou na tom stadardní n-gramy oproti maxentovým znovu výrazně lépe - 72 sekund proti takřka 8 hodinám.
 
-Tyto modely sice obsahují morfologickou analýzu, ale stále nemohou příliš rozumět gramatice jako takové. Nedokáží rozlišit, zda se sousední jména shodují v rodě, ale už ne v pádě apod. Natrénování maxentového modelu s rysy, které by vycházely z morfologické analýzy (rod, pád, číslo, ...), rozšíření SRILMu od Tanela Alumäe, jež používáme, bohužel neumožňuje a jiné dostupné toolkity, např. Maxent toolkit od LeZhanga, nejsou vhodné z hlediska výpočetních nároků na velká data. Zkusíme proto natrénovat další modely, ve kterých nahradíme slova vždy jedním z potencionálních rysů. 
+Tyto modely sice obsahují morfologickou analýzu, ale nerozumí jejímu obsahu. Nedokáží rozlišit, zda se sousední jména shodují v rodě, ale už ne v pádě apod. Natrénování maxentového modelu s rysy, které by vycházely z morfologické analýzy (rod, pád, číslo, ...), rozšíření SRILMu od Tanela Alumäe a Mikko Kurima, bohužel neumožňuje a jiné dostupné toolkity, např. Maxent toolkit od LeZhanga, nejsou vhodné z hlediska výpočetních nároků na velká data. Zkusíme proto natrénovat další modely, ve kterých nahradíme slova vždy jedním z potencionálních rysů. 
 
 \section{Rozšířený slovní druh}
+Zkusíme data ještě více zhustit a slova nahradit jen jejich rozšířeným slovním druhem.
+
+Příklad věty:
+\begin{center}
+\texttt{%
+\arrayrulecolor{seda}
+\begin{tabular}{llll}
+\color{red} Die & \color{red} unabhängige & \color{red} Justiz\\
+\color{blue} ART & \color{blue} ADJA & \color{blue} NN \\
+\hline
+\color{black}
+\color{red} und & \color{red} die & \color{red} freien \\
+\color{blue} KON & \color{blue} ART & \color{blue} ADJA \\
+\hline
+\color{red} Medien & \color{red} zu & \color{red} unterdrücken & \color{red} . \\
+\color{blue} NN & \color{blue} PTKZU \color{blue} VVINF & \color{blue} \$.: \\
+\hline
+\end{tabular}
+}
+\end{center}
+
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd.svg.eps}
+\end{center}
+Modely dopadly o něco hůře než v případě, kdy byl rozšířený slovní druh ještě upřesněn další analýzou. Bez dalšího určení nemůžeme např. kontrolovat správné vyskloňování. Stále je to však lepší než při natrénování na slovech.
+\begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd.svg.eps}	
 \end{center}
+V porovnání je na tom maxentový model opět mírně lépe.
+
+Z hlediska výpočetních nároků to tentokrát není takový rozdíl. Standardní n-gramový model potřeboval pro natrénování 22 sekund, maxentový 14 minut. Zde je vidět, nakolik ovlivňuje velikost slovníku dobu trénování maxentových modelů. Oproti modelům se všemi morfologickými značkami potřebovaly standardní n-gramy 3.27x méně času, maxentové 34.29x, což je obrovský rozdíl.
 
 \section{Rod}
-První z modelů s jednou morfologickou značkou budou modely obsahující rod. Slova budou nahrazena znakem \texttt{w}, ke kterému se připojí patřičný rod, lze-li u slova určit.
+První z modelů s jedinou morfologickou značkou budou modely obsahující rod. Slova budou nahrazena znakem \texttt{w}, ke kterému se připojí patřičný rod, lze-li u slova určit. Tím dojde ke zhuštění dat a velikost slovníku se zmenší na pouhá 4 slova.
 
 Příklad věty:
 \begin{center}
@@ -854,20 +881,42 @@ Příklad věty:
 \end{tabular}
 }
 \end{center}
- 
 
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rod.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rod.svg.eps}
+\end{center}
+Modely ale dopadly přesně obráceně, než jsme chtěli. Boxploty neklesají, ale stoupají. S trochou nadsázky by se dalo říct, že zde čím je perplexita vyšší, tím je lepší plynulost. Ovšem skutečnost je taková, že perplexita pro plynulosti 1-4 vyšla velmi podobně a nejsme pouze na základě ní schopni rozlišit, o kterou plynulost by se mělo jednat.
+
+\begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rod.svg.eps}	
 \end{center}
+Rozdíl mezi standardními a maxentovými n-gramovými modely je prakticky neznatelný. Stejně je tomu tentokrát i u výpočetních nároků. Standardní n-gramy potřebovaly k natrénování 3 sekundy, maxentové n-gramy pak sekundy 4.
+
 \subsection{Rod stejný s předchozím}
+Ačkoliv modely pouze s rodem nebyly úspěšné, zkusíme ještě slova nenahrazovat jenom rodem daného slova, ale pokusíme se sledovat, zda se rody za sebou shodují. Slova tedy nahradíme opět písmenem \textit{w}, k němuž přidáme slovo \textit{rod}, lze-li u slova určit, a slovo \textit{stejne}, pokud lze jednak rod u slova určit a jednak, pokud se rod shoduje s předchozím slovem.
+
+Příklad věty:
+\begin{center}
+\texttt{%
+\arrayrulecolor{seda}
+\begin{tabular}{lllllll}
+\color{red} Die & \color{red} unabhängige & \color{red} Justiz & \color{red} und & \color{red} die & \color{red} freien & \color{red} Medien\\
+\color{blue} wrod & \color{blue} wstejny & \color{blue} wstejny & \color{blue} w & \color{blue} wrod & \color{blue} wstejny & \color{blue} wstejny\\
+\hline
+\color{red} zu & \color{red} unterdrücken &\color{red} .\\
+\color{blue} w & \color{blue} w & \color{blue} w \\
+\hline
+\end{tabular}
+}
+\end{center}
+
+
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rodstejny.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rodstejny.svg.eps}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rodstejny.svg.eps}	
 \end{center}
-\subsection{PŘIDAT RSD TAKHLE POD KAŽDÝ?}
 \subsection{S rozšířeným slovním druhem}
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+rod.svg.eps}
@@ -881,6 +930,7 @@ Příklad věty:
 	\includegraphics[width=60mm]{./grafy/morf/maxent/cislo.svg.eps}	
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/cislo.svg.eps}
 \end{center}
+
 \section{Pád}
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/pad.svg.eps}
