@@ -685,10 +685,14 @@ V první klauzi se vyskytují dvě určitá slovesa, v poslední naopak sloveso 
 
 
 \chapter{Modely s morfologickými značkami}
-V této kapitole zkusíme vyrobit několik vlastních modelů. Budeme zkoumat, jak spolu souvisí perplexita a ručně hodnocená plynulost. Zároveň provedeme srovnání standardních n-gramových modelů a modelů maximální entropie s n-gramovými rysy, a to jednak perplexitou a jednak z hlediska výpočetních nároků.
+Jak jsme popsali v předchozí kapitole, německá gramatika je díky shodě jmen, pořádku slov a tvorbě větného rámce složitá. Běžné n-gramové modely, které sledují jen posloupnosti po sobě jdoucích slov nezachycují gramatiku jako takovou. Vyzkoušíme proto, zda dopadnou lépe modely, které budeme trénovat a testovat na datech, v nichž nahradíme slova za různé morfologické značky. Budeme na nich zkoumat, jak spolu souvisí perplexita a ručně hodnocená plynulost.
+
+Předpokladem je, že pokud nahradíme slova jejich morfologickými značkami, dojde ke zhuštění dat a model se bude snažit dosadit slovo v patřičném tvaru vycházejícím z morfologické analýzy.
 
 \section{Zdrojová data}
-Data pro experimenty pochází z výstupů překladových systémů z WMT\footnote{WORKSHOP ON STATISTICAL MACHINE TRANSLATION} 2006, které se účastnily překladu z angličtiny do němčiny. Některé z překladových hypotéz obsahovaly ručně ohodnocenou plynulost překladu. Právě tyto ohodnocené hypotézy používáme pro naše experimenty. Celkem jich je k dispozici 2028, z toho 58 je hodnoceno dvakrát a 2 třikrát, celkem tedy 2090 hodnocení. Následující tabulka ukazuje přesné počty hypotéz:
+Modely budeme trénovat na německých datech z WMT\footnote{WORKSHOP ON STATISTICAL MACHINE TRANSLATION} 2012 - News Commentary (ZDROJ).
+
+Pro otestování použijeme data z výstupů překladových systémů z WMT 2006, které se účastnily překladu z angličtiny do němčiny. Některé z překladových hypotéz obsahovaly ručně ohodnocenou plynulost překladu. Právě takové hypotézy použijeme pro zkoumání korelace perplexity a plynulosti. Celkem jich je k dispozici 2028, z toho 58 je hodnoceno dvakrát a 2 třikrát, celkem tedy 2090 hodnocení. Následující tabulka ukazuje přesné počty hypotéz:
 
 \begin{center}\begin{tabular}{|c|c|}
 	\hline
@@ -707,7 +711,7 @@ Data pro experimenty pochází z výstupů překladových systémů z WMT\footno
 \end{tabular}\end{center}
 
 
-Počty jednotlivých plynulostí nejsou vyvážené. Díky malému vzorku ohodnocených hypotéz, především pak hodnocených plynulostí 1 a~5, mohou být výsledky zkreslené malým vzorkem dat.
+Počty jednotlivých plynulostí nejsou vyvážené. Díky malému vzorku ohodnocených hypotéz, především pak hodnocených plynulostí 1 a~5, nemusí mít výsledky vždy úplně vypovídající charakter. TAHLE VĚTA ZNÍ JAKO, ŽE TO BUDE K NIČEMU - JAK TO FORMULOVAT LÉPE?
 
 Hypotézy hodnotí 400 různých vět překládaných osmi systémy. Plynulost hodnotili 4 hodnotitelé, kteří se u 58 hypotéz hodnocených dvěma hodnotiteli shodli následovně:
 
@@ -725,44 +729,24 @@ Hypotézy hodnotí 400 různých vět překládaných osmi systémy. Plynulost h
 	\hline
 \end{tabular}\end{center}
 
-Dvě hypotézy hodnocené třikrát byly taktéž hodnoceny dvěma hodnotiteli, třetí hodnocení bylo vždy vykonáno jedním z nich a slouží pouze jako kontrola - ta dopadla v obou případech úspěšně, tedy udělením stejného hodnocení. V jednom případě se hodnotitelé shodli, v druhém se lišili o 1.
+Dvě hypotézy hodnocené třikrát byly taktéž hodnoceny dvěma hodnotiteli, třetí hodnocení bylo vždy vykonáno jedním z nich a slouží pouze jako kontrola - ta dopadla v obou případech úspěšně, tedy udělením stejného hodnocení. U jedné hypotézy se hodnotitelé shodli, u druhé se lišili o 1.
 
 Ačkoliv nevýhodou ručního hodnocení je vždy určitá míra subjektivity, výše udená tabulka uvádí nadpoloviční shodu a budeme-li brát jako uspokojivé i případy, kdy se hodnocení lišilo o 1, pak jsme dokonce lehce nad 90 \%.
 
-\footnotetext[2]{The SRI Language Modeling Toolkit - PŘESUNOUT DO KAPITOLY 2}
-\footnotetext[3]{Od verze 1.7.1 je toto rozšíření již součástí základní instalace SRILM toolkit. TAKÉ}
-Každý model natrénujeme jak metodou maximální entropie, tak standardními n-gramy. Pro trénování bude použit SRILM toolkit\footnotemark[2], který umí natrénovat standardní n-gramové modely, a jeho rozšíření od Tanela Alumäe\footnotemark[3] pro natrénování modelů maximální entropie (maxentových).
-
-\section{Způsob vyhodnocení}
-U každého natrénovaného modelu bude změřena perplexita pro každou větu zvlášť. Výsledky pak vykreslíme do grafu společně s odpovídající plynulostí pro znázornění jejich korelace. Pro lepší znázornění bude u každé plynulosti vykreslen boxplot\footnote{Boxplot (krabicový graf) - vykreslí obdélník v oblasti, kde se vyskytuje 50 \% hodnot. Horní a dolní hranice odpovídají hornímu a dolnímu kvartilu. Uprostřed boxplotu se vykresluje ještě tučně medián. Vertikálně vedou z obdélníků tzv. vousy, jejichž hranice leží v maximální (minimální) hodnotě, maximálně však v 1.5 násobku horní nebo dolní hranice. Body mimo tyto hranice se nazývají extrémní hodnoty} znázorňující oblast s nejvyšším výskytem hypotéz ohodnocených danou perplexitou. Čím vyšší je plynulost, tím nižší by měla být perplexita. Jednotlivé boxploty by proto měly, co se perplexity týče, klesat. Mediány boxplotů bude ještě proložena přímka, aby byla jejich tendence více zřetelná. \\
-%Grafy lze vyhodnotit a porovnat Pearsonovým korelačním koeficientem. Ten ale není úplně vypovídající a může dávat pro dvě na pohled odlišné korelace stejný výsledek. 
-Srovnání standardních a maxentových modelů provedeme graficky umístěním dvou grafů přes sebe vykreslených odlišnou barvou.
-
-Mimo srovnání korelace perplexity a ručně hodnocené plynulosti překladu budou oba typy modelů (standardní n-gramové a maxentové) srovnány z hlediska výpočetních nároků.
-
-\section{Běžné modely se slovy}
-Pro srovnání jsme zkusili natrénovat běžné 6-gramové modely se slovy, abychom viděli, jak spolu souvisí perplexita a plynulost. Jako trénovací data byl použit korpus z WMT\footnotemark[1] 2012 - News Commentary. Ten obsahuje 158~840 německých vět a je používán i u všech následujících modelů s morfologickými značkami.
-\begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/text.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/text.svg.eps}
-\end{center}
-Z obou grafů je patrné, že plynulost nekoreluje s perplexitou tak, jak jsme předpokládali. Perplexita by měla se zvyšující se plynulostí klesat - čím nižší perplexita, tím lepší a tedy i plynulejší překlad. Na obou grafech však boxploty neklesají, nýbrž kolísají. Dokonce hypotézy hodnocené plynulostí 5 mají rozsah nejčastějších perplexit nejvyšší. To ale může být částečně způsobeno malým počtem hypotéz ohodnocených plynulostí 5.
-\begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/text.svg.eps}
-\end{center}
-Srovnání ukazuje, že maxentový model dopadl o něco lépe, neboť jednotlivé boxploty mají nižší horní hranici nejčastějších perplexit než v případě standardních modelů. Rozdíly ve spodních hranicích jsou zanedbatelné.
-
-Čas nutný k natrénování se však výrazně liší - natrénování standardního n-gramového trvalo zhruba 3 minuty oproti téměř 12 hodinám u modelu maxentového.
-
-
 \section{Princip experimentů}
-Jak jsme popsali v předchozí kapitole, německá gramatika je díky shodě jmen, pořádku slov a tvorbě větného rámce složitá. Běžné n-gramové modely, které sledují jen posloupnosti po sobě jdoucích slov nezachycují gramatiku jako takovou. Vyzkoušíme proto, zda dopadnou lépe modely, které budeme trénovat a testovat na datech, v nichž nahradíme slova za morfologické značky.
 
-Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger a morfologický analyzátor Morphisto. ParZu za pomocí těchto dvou nástrojů vybere ze všech variant, které nabízejí, jedinou z nich a vrátí navíc větný rozbor.
+Princip experimentů bude následující
+\begin{itemize}
+\item{na trénovacích datech provedeme morfologickou analýzu}
+\item{slova trénovacího textu nahradíme odpovídajícími morfologickými značkami}
+\item{natrénujeme standardní 6-gramový model a maxentový 6-gramový model}
+\item{stejně jako trénovací data, připravíme i data testovací}
+\item{změříme perplexitu na testovacích datech a provedeme vyhodnocení}
+\end{itemize}
 
-připsat, že se používá předkompilovaný model morphista morphisto-02022011.a
+Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German, formálněji známý také pod názvem Pro3GresDE}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger a morfologický analyzátor Morphisto. Pro morphisto použijeme předkompilovaný model \texttt{morphisto-02022011.a}\footnote{ZDROJ}. S využitím Morphisto uvádí ParZu přesnost 86.5 \% (ZDROJ).
 
-ParZu spouští nejprve vlastní tokenizér. Vzhledem k tomu, že data z WMT 06, které používáme, jsou již tokenizovaná, tento tokenizér vynecháme a pouze upravíme formát - jeden token na řádku, věty oddělené prázdným řádkem.
+ParZu spouští nejprve vlastní tokenizér. Vzhledem k tomu, že data z WMT 06, která používáme, jsou již tokenizovaná, tento tokenizér vynecháme a pouze upravíme formát - jeden token na řádku, věty oddělené prázdným řádkem.
 
 Příklad výstupu ParZu:
 \begin{center}
@@ -783,9 +767,35 @@ Příklad výstupu ParZu:
 
 Pro účely následujících experimentů nás bude zajímat pátý a šestý sloupec - rozšířený slovní druh a morfologická analýza.
 
+Nahrazení slov různými morfologickými značkami z výstupu ParZu zajišťuje program MorfModel(VYMYSLET TŘEBA NĚJAKÝ TAKOVÝ NÁZEV), který vzniknul jako součást této práce a je k dispozici na přiloženém DVD. 
+
+Standardní n-gramové modely budeme vyrábět v již zmíněném SRILM toolkitu, nástrojem \texttt{ngram-count} s výchozím nastavením. Tj. technika back-off s Good-Turing vyhlazováním. Pro trénování modelů maximální entropie (maxentové) využijeme již taktéž zmíněné rozšíření SRILM toolkitu od Tanela Alumäe a Mikko Kurima. Pro vyhlazování používá toto rozšíření popsanou metodu $\mathpzc{l}_1+\mathpzc{l}_2^2$ regularizace.
+
+
+\section{Způsob vyhodnocení}
+U každého natrénovaného modelu bude změřena perplexita pro každou větu zvlášť. Výsledky pak vykreslíme do grafu společně s odpovídající plynulostí pro znázornění jejich korelace. Pro lepší znázornění bude u každé plynulosti vykreslen boxplot\footnote{Boxplot (krabicový graf) - vykreslí obdélník v oblasti, kde se vyskytuje 50 \% hodnot. Horní a dolní hranice obdélníku odpovídají hornímu a dolnímu kvartilu. Uprostřed obdélníku se vykresluje ještě tučně medián. Vertikálně vedou z obdélníků tzv. vousy, jejichž hranice leží v maximální (minimální) hodnotě, maximálně však v 1.5 násobku mezikvartilového rozmezí (horní - dolní kvartil) nad horním nebo pod dolním kvartilem. Body mimo tyto hranice se nazývají extrémní hodnoty a jsou vykresleny samostatně jako body.} znázorňující oblast s nejvyšším výskytem hypotéz ohodnocených danou perplexitou. Čím vyšší je plynulost, tím nižší by měla být perplexita. Jednotlivé boxploty by proto měly, co se perplexity týče, klesat. Mediány boxplotů bude ještě proložena přímka, aby byla jejich tendence více zřetelná. \\
+%Grafy lze vyhodnotit a porovnat Pearsonovým korelačním koeficientem. Ten ale není úplně vypovídající a může dávat pro dvě na pohled odlišné korelace stejný výsledek. 
+
+Srovnání standardních a maxentových modelů provedeme graficky umístěním dvou grafů přes sebe vykreslených odlišnou barvou. Mimo toho proveme ještě srovnání z hlediska výpočetních nároků\footnote{Všechny modely trénovány na netbooku Asus EEE 1201N - Intel Atom 330 - 1.6 GHz dual core, 2 GB RAM.}.
+
+\section{Běžné modely se slovy}
+Jako první jsme zkusili natrénovat standardní 6-gramové modely se slovy, abychom viděli, jak spolu souvisí perplexita a plynulost u takových modelů a mohli výsledek použít pro další srovnání.
+
+\begin{center}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/text.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/text.svg.eps}
+\end{center}
+Z obou grafů je patrné, že plynulost nekoreluje s perplexitou tak, jak bychom chtěli. Perplexita by měla se zvyšující se plynulostí klesat - čím nižší perplexita, tím lepší a tedy i plynulejší překlad. Na obou grafech však boxploty neklesají, nýbrž kolísají. Dokonce hypotézy hodnocené plynulostí 5 mají rozsah nejčastějších perplexit nejvyšší. To ale může být částečně způsobeno malým počtem hypotéz ohodnocených plynulostí 5.
+
+\begin{center}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/text.svg.eps}
+\end{center}
+Srovnání ukazuje, že maxentový model dopadl o něco lépe, neboť jednotlivé boxploty mají nižší horní hranici nejčastějších perplexit než v případě standardních modelů. Rozdíly ve spodních hranicích jsou zanedbatelné.
+
+Čas nutný k natrénování se však výrazně liší - natrénování standardního n-gramového trvalo zhruba 3 minuty oproti téměř 12 hodinám u modelu maxentového.
+
 \section{Rozšířený slovní druh + morfologické značky}
 Jako první zkusíme natrénovat model, kde slova nahradíme rozšířeným slovním druhem a všemi morfologickými značkami z výstupu ParZu. Pro oddělení použijeme dvojtečku.
-
 
 Příklad věty:
 \begin{center}
@@ -816,9 +826,9 @@ Příklad věty:
 \end{center}
 Maxentové modely opět dopadají lépe než standardní n-gramové. Celkově dopadly všechny modely lépe než běžné modely se slovy, neboť zde mají boxploty už klesavou tendenci.
 
-Z hlediska výpočetních nároků TABULKA?
+Z hlediska výpočetních nároků jsou na tom stadardní n-gramy oproti maxentovým znovu výrazně lépe - 72 sekund proti takřka 8 hodinám.
 
-Tyto modely sice obsahují morfologickou analýzu, ale nerozumí gramatice jako takové. Nedokáží rozlišit, zda se sousední jména shodují v rodě, ale už ne v pádě apod. Natrénování maxentového modelu s rysy, které by vycházely z morfologické analýzy (rod, pád, číslo, ...), rozšíření SRILMu od Tanela Alumäe, jež používáme, bohužel neumožňuje a jiné dostupné toolkity, např. Maxent toolkit od LeZhanga, nejsou vhodné z hlediska výpočetních nároků na velká data. Zkusíme proto natrénovat další modely, ve kterých nahradíme slova vždy jedním z potencionálních rysů. 
+Tyto modely sice obsahují morfologickou analýzu, ale stále nemohou příliš rozumět gramatice jako takové. Nedokáží rozlišit, zda se sousední jména shodují v rodě, ale už ne v pádě apod. Natrénování maxentového modelu s rysy, které by vycházely z morfologické analýzy (rod, pád, číslo, ...), rozšíření SRILMu od Tanela Alumäe, jež používáme, bohužel neumožňuje a jiné dostupné toolkity, např. Maxent toolkit od LeZhanga, nejsou vhodné z hlediska výpočetních nároků na velká data. Zkusíme proto natrénovat další modely, ve kterých nahradíme slova vždy jedním z potencionálních rysů. 
 
 \section{Rozšířený slovní druh}
 \begin{center}
@@ -903,7 +913,8 @@ Příklad věty:
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+cislo.svg.eps}	
 \end{center}
 
-\section{Porovnání z hlediska výpočetních nároků}
+\section{Shrnutí}
+přehled časů, pearsonových koeficientů, směrnic proložených přímek
 \begin{center}
 	\includegraphics[width=70mm]{./grafy/morf/cas/rsd/bez.eps}
 	\includegraphics[width=70mm]{./grafy/morf/cas/rsd/rsd.eps}

@@ -19,9 +19,9 @@
 \contentsline {subsection}{\numberline {3.4.1}P\IeC {\v r}\IeC {\'\i }klady konkr\IeC {\'e}tn\IeC {\'\i }ch hypot\IeC {\'e}z}{20}{subsection.3.4.1}
 \contentsline {chapter}{\numberline {4}Modely s morfologick\IeC {\'y}mi zna\IeC {\v c}kami}{22}{chapter.4}
 \contentsline {section}{\numberline {4.1}Zdrojov\IeC {\'a} data}{22}{section.4.1}
-\contentsline {section}{\numberline {4.2}Zp\IeC {\r u}sob vyhodnocen\IeC {\'\i }}{23}{section.4.2}
-\contentsline {section}{\numberline {4.3}B\IeC {\v e}\IeC {\v z}n\IeC {\'e} modely se slovy}{23}{section.4.3}
-\contentsline {section}{\numberline {4.4}Princip experiment\IeC {\r u}}{24}{section.4.4}
+\contentsline {section}{\numberline {4.2}Princip experiment\IeC {\r u}}{23}{section.4.2}
+\contentsline {section}{\numberline {4.3}Zp\IeC {\r u}sob vyhodnocen\IeC {\'\i }}{24}{section.4.3}
+\contentsline {section}{\numberline {4.4}B\IeC {\v e}\IeC {\v z}n\IeC {\'e} modely se slovy}{24}{section.4.4}
 \contentsline {section}{\numberline {4.5}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + morfologick\IeC {\'e} zna\IeC {\v c}ky}{25}{section.4.5}
 \contentsline {section}{\numberline {4.6}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh}{27}{section.4.6}
 \contentsline {section}{\numberline {4.7}Rod}{27}{section.4.7}
@@ -34,7 +34,7 @@
 \contentsline {section}{\numberline {4.11}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + rod}{32}{section.4.11}
 \contentsline {section}{\numberline {4.12}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + p\IeC {\'a}d}{32}{section.4.12}
 \contentsline {section}{\numberline {4.13}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + \IeC {\v c}\IeC {\'\i }slo}{33}{section.4.13}
-\contentsline {section}{\numberline {4.14}Porovn\IeC {\'a}n\IeC {\'\i } z hlediska v\IeC {\'y}po\IeC {\v c}etn\IeC {\'\i }ch n\IeC {\'a}rok\IeC {\r u}}{34}{section.4.14}
+\contentsline {section}{\numberline {4.14}Shrnut\IeC {\'\i }}{34}{section.4.14}
 \contentsline {chapter}{\numberline {5}Modely s vlastn\IeC {\'\i } mno\IeC {\v z}inou rys\IeC {\r u}}{35}{chapter.5}
 \contentsline {section}{\numberline {5.1}Zdrojov\IeC {\'a} data}{36}{section.5.1}
 \contentsline {section}{\numberline {5.2}Zp\IeC {\r u}sob vyhodnocen\IeC {\'\i }}{36}{section.5.2}
