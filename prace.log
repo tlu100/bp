@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  16 MAY 2013 17:16
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  16 MAY 2013 17:58
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -792,14 +792,19 @@ File: ./grafy/morf/maxent/rsd+cislo.svg.eps Graphic file (type eps)
 File: ./grafy/morf/porovnani/rsd+cislo.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/rsd+cislo.svg.eps> [33]
-File: ./grafy/morf/ngram/pad.svg.eps Graphic file (type eps)
 
+Package xcolor Warning: Incompatible color definition on input line 1055.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1055.
+
+File: ./grafy/morf/ngram/pad.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/pad.svg.eps>
 File: ./grafy/morf/maxent/pad.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/pad.svg.eps>
 File: ./grafy/morf/porovnani/pad.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/pad.svg.eps>
+<./grafy/morf/porovnani/pad.svg.eps> [34]
 File: ./grafy/morf/ngram/rsd+pad.svg.eps Graphic file (type eps)
  <./grafy/morf/ngram/rsd+pad.svg.eps>
 File: ./grafy/morf/maxent/rsd+pad.svg.eps Graphic file (type eps)
@@ -807,125 +812,125 @@ File: ./grafy/morf/maxent/rsd+pad.svg.eps Graphic file (type eps)
 <./grafy/morf/maxent/rsd+pad.svg.eps>
 File: ./grafy/morf/porovnani/rsd+pad.svg.eps Graphic file (type eps)
  <./grafy/morf/porovnani/rsd+pad.svg.eps>
-[34]
+[35]
 File: ./grafy/morf/cas/rsd/bez.eps Graphic file (type eps)
  <./grafy/morf/cas/rsd/bez.eps>
 File: ./grafy/morf/cas/rsd/rsd.eps Graphic file (type eps)
- <./grafy/morf/cas/rsd/rsd.eps> [35]
+ <./grafy/morf/cas/rsd/rsd.eps> [36]
 Kapitola 5.
 
-Package xcolor Warning: Incompatible color definition on input line 1068.
+Package xcolor Warning: Incompatible color definition on input line 1098.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1069.
+Package xcolor Warning: Incompatible color definition on input line 1099.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1069.
+Package xcolor Warning: Incompatible color definition on input line 1099.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1069.
+Package xcolor Warning: Incompatible color definition on input line 1099.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1069.
+Package xcolor Warning: Incompatible color definition on input line 1099.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1070.
+Package xcolor Warning: Incompatible color definition on input line 1100.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1070.
+Package xcolor Warning: Incompatible color definition on input line 1100.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1071.
+Package xcolor Warning: Incompatible color definition on input line 1101.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1071.
+Package xcolor Warning: Incompatible color definition on input line 1101.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1071.
+Package xcolor Warning: Incompatible color definition on input line 1101.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1071.
+Package xcolor Warning: Incompatible color definition on input line 1101.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1072.
+Package xcolor Warning: Incompatible color definition on input line 1102.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1072.
+Package xcolor Warning: Incompatible color definition on input line 1102.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1073.
+Package xcolor Warning: Incompatible color definition on input line 1103.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1073.
+Package xcolor Warning: Incompatible color definition on input line 1103.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1073.
+Package xcolor Warning: Incompatible color definition on input line 1103.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1073.
+Package xcolor Warning: Incompatible color definition on input line 1103.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1074.
+Package xcolor Warning: Incompatible color definition on input line 1104.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1074.
+Package xcolor Warning: Incompatible color definition on input line 1104.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1075.
+Package xcolor Warning: Incompatible color definition on input line 1105.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1075.
+Package xcolor Warning: Incompatible color definition on input line 1105.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1075.
+Package xcolor Warning: Incompatible color definition on input line 1105.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1075.
+Package xcolor Warning: Incompatible color definition on input line 1105.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1076.
+Package xcolor Warning: Incompatible color definition on input line 1106.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1076.
+Package xcolor Warning: Incompatible color definition on input line 1106.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1077.
+Package xcolor Warning: Incompatible color definition on input line 1107.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1077.
+Package xcolor Warning: Incompatible color definition on input line 1107.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1077.
+Package xcolor Warning: Incompatible color definition on input line 1107.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1077.
+Package xcolor Warning: Incompatible color definition on input line 1107.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1078.
+Package xcolor Warning: Incompatible color definition on input line 1108.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1078.
+Package xcolor Warning: Incompatible color definition on input line 1108.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1079.
+Package xcolor Warning: Incompatible color definition on input line 1109.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1079.
+Package xcolor Warning: Incompatible color definition on input line 1109.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1079.
+Package xcolor Warning: Incompatible color definition on input line 1109.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1079.
+Package xcolor Warning: Incompatible color definition on input line 1109.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1080.
+Package xcolor Warning: Incompatible color definition on input line 1110.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1080.
+Package xcolor Warning: Incompatible color definition on input line 1110.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1081.
+Package xcolor Warning: Incompatible color definition on input line 1111.
 
 File: ./grafy/rysy/chybi_infszu.eps Graphic file (type eps)
 <./grafy/rysy/chybi_infszu.eps>
@@ -934,11 +939,11 @@ File: ./grafy/rysy/chybi_podmet.eps Graphic file (type eps)
 File: ./grafy/rysy/chybi_vfin.eps Graphic file (type eps)
 
 <./grafy/rysy/chybi_vfin.eps>
-Overfull \hbox (19.44855pt too wide) in paragraph at lines 1090--1093
+Overfull \hbox (19.44855pt too wide) in paragraph at lines 1120--1123
 [][] [] [] 
  []
 
-[36
+[37
 
 ]
 File: ./grafy/rysy/chybi_sum.eps Graphic file (type eps)
@@ -951,7 +956,7 @@ File: ./grafy/rysy/infszu_neni_na_konci.eps Graphic file (type eps)
 File: ./grafy/rysy/vv_sloveso_neni_na_konci.eps Graphic file (type eps)
 
 <./grafy/rysy/vv_sloveso_neni_na_konci.eps>
-Overfull \hbox (19.44855pt too wide) in paragraph at lines 1097--1100
+Overfull \hbox (19.44855pt too wide) in paragraph at lines 1127--1130
 [][] [] [] 
  []
 
@@ -959,7 +964,7 @@ File: ./grafy/rysy/pp_neni_na_konci.eps Graphic file (type eps)
 <./grafy/rysy/pp_neni_na_konci.eps>
 File: ./grafy/rysy/neni_na_konci_sum.eps Graphic file (type eps)
  <./grafy/rysy/neni_na_konci_sum.eps>
-[37]
+[38]
 File: ./grafy/rysy/neshoda_podmet_prisudek.eps Graphic file (type eps)
  <./grafy/rysy/neshoda_podmet_prisudek.eps>
 File: ./grafy/rysy/pp_bez_av.eps Graphic file (type eps)
@@ -975,14 +980,14 @@ File: ./grafy/rysy/vice_vfin.eps Graphic file (type eps)
 
 <./grafy/rysy/vice_vfin.eps>
 File: ./grafy/rysy/vice_sum.eps Graphic file (type eps)
- <./grafy/rysy/vice_sum.eps> [38]
-Overfull \hbox (14.11543pt too wide) in paragraph at lines 1132--1135
+ <./grafy/rysy/vice_sum.eps> [39]
+Overfull \hbox (14.11543pt too wide) in paragraph at lines 1162--1165
 []\IL2/cmr/m/n/12 Z gra-ma-tic-ky správ-né vì-ty by mìl jít vy-kres-lit strom s
  vìt-ným roz-bo-rem. Pøedlo¾íme-
  []
 
 File: ./grafy/pocet-stromu/pocet-stromu.eps Graphic file (type eps)
-<./grafy/pocet-stromu/pocet-stromu.eps> [39] [40] [41]
+<./grafy/pocet-stromu/pocet-stromu.eps> [40] [41] [42]
 \openout2 = `zaver.aux'.
 
 
@@ -993,17 +998,17 @@ No file zaver.tex.
 
 LaTeX Warning: Empty `thebibliography' environment on input line 16.
 
-) [42
+) [43
 
 
-
-
-] [43
 
 
 ] [44
 
+
 ] [45
+
+] [46
 
 ] (./prace.aux (./zaver.aux) (./literatura.aux)) ) 
 Here is how much of TeX's memory you used:
@@ -1015,4 +1020,4 @@ Here is how much of TeX's memory you used:
  24 hyphenation exceptions out of 8191
  38i,17n,36p,1205b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (45 pages, 182900 bytes).
+Output written on prace.dvi (46 pages, 186588 bytes).

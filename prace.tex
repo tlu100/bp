@@ -1031,24 +1031,54 @@ Příklad věty:
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+cislo.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+cislo.svg.eps}
 \end{center}
-Modely s rozšířeným slovním druhem dopadly znovu lépe. 
+Modely s rozšířeným slovním druhem dopadly znovu lépe. Ovšem výsledky stále nejsou nijak dobré.
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+cislo.svg.eps}	
 \end{center}
+V porovnání dostávaly maxentové modely o něco nižší perplexitu. Čas potřebný k natrénování byl u standardních n-gramových modelů 33 s, u maxentových 24 minut.
 
 \section{Pád}
+Jako poslední zkusíme ještě natrénovat modely, kde slova nahradíme znovu písmenem \textit{w} a přidáme k němu pád, lze-li u daného slova určit.
+
+Příklad věty:
+\begin{center}
+\texttt{%
+\arrayrulecolor{seda}
+\begin{tabular}{llllll}
+\color{red} Zur & \color{red} Belohnung & \color{red} erhielt & \color{red} Pakistan & \color{red} von & \color{red} Amerika\\
+\color{blue} wDat & \color{blue} w & \color{blue} w & \color{blue} wNom & \color{blue} wDat & \color{blue} wDat\\
+\hline
+\color{red} finanzielle & \color{red} Unterstützung & \color{red} und &\color{red} Waffen &\color{red} .\\
+\color{blue} wAkk & \color{blue} wAkk & \color{blue} w & \color{blue} wAkk & \color{blue} w \\
+\hline
+\end{tabular}
+}
+\end{center}
+
+
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/pad.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/pad.svg.eps}	
+\end{center}
+Výsledky opět nejsou dobré a jen potvrzují, že poskytnutí modelu značek pouze z jedné morfologické kategorie je nedostatečná informace.
+
+\begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/pad.svg.eps}	
 \end{center}
+V porovnání jsou taktéž standardní n-gramové modely s modely maximálně entropie srovnatelné, bez větších rozdílů. Natrénování trvalo shodně 4 sekundy.
+
 
 \subsection{S rozšířeným slovním druhem}
+Jako v případech předchozích modelů se značkami z jedné morfologické kategorie, zkusíme přidat k pádu ještě rozšířený slovní druh.
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+pad.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+pad.svg.eps}
+\end{center}
+Zlepšení je znatelné a podobá se modelům s rozšířeným slovním druhem a všemi morfologickými značkami. Výsledky jsou ale už nyní nejlepší ze všech modelů se značkami jedné morfologické kategorie s rozšířeným slovním druhem.
+\begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+pad.svg.eps}	
 \end{center}
+Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Výpočetní nároky se ale výrazně liší - 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
 
 \section{Shrnutí}
 přehled časů, pearsonových koeficientů, směrnic proložených přímek
