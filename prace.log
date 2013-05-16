@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  16 MAY 2013 15:40
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  16 MAY 2013 17:16
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -365,6 +365,20 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \everycr=\toks31
 \minrowclearance=\skip51
 )
+(/usr/share/texmf-texlive/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2009/09/15 v5.5a a miscellany of footnote facilities
+\FN@temptoken=\toks32
+\footnotemargin=\dimen116
+\c@pp@next@reset=\count100
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
 (/usr/share/texmf/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
@@ -410,9 +424,9 @@ O)
 (/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
-\@linkdim=\dimen116
-\Hy@linkcounter=\count100
-\Hy@pagecounter=\count101
+\@linkdim=\dimen117
+\Hy@linkcounter=\count101
+\Hy@pagecounter=\count102
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
@@ -486,10 +500,10 @@ Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 )))
-\Fld@menulength=\count102
-\Field@Width=\dimen117
-\Fld@charsize=\dimen118
-\Field@toks=\toks32
+\Fld@menulength=\count103
+\Field@Width=\dimen118
+\Fld@charsize=\dimen119
+\Field@toks=\toks33
 Package hyperref Info: Hyper figures OFF on input line 4377.
 Package hyperref Info: Link nesting OFF on input line 4382.
 Package hyperref Info: Hyper index ON on input line 4385.
@@ -501,9 +515,9 @@ Package hyperref Info: PDF/A mode OFF on input line 4407.
 (/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@abspage=\count103
-\c@Item=\count104
-\c@Hfootnote=\count105
+\Hy@abspage=\count104
+\c@Item=\count105
+\c@Hfootnote=\count106
 )
 *hyperref using driver hdvips*
 (/usr/share/texmf-texlive/tex/latex/hyperref/hdvips.def
@@ -511,34 +525,34 @@ File: hdvips.def 2009/10/09 v6.79a Hyperref driver for dvips
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pdfmark.def
 File: pdfmark.def 2009/10/09 v6.79a Hyperref definitions for pdfmark specials
-\pdf@docset=\toks33
+\pdf@docset=\toks34
 \pdf@box=\box28
-\pdf@toks=\toks34
-\pdf@defaulttoks=\toks35
-\Fld@listcount=\count106
+\pdf@toks=\toks35
+\pdf@defaulttoks=\toks36
+\Fld@listcount=\count107
 )) (./prace.aux
 (./zaver.aux) (./literatura.aux))
 \openout1 = `prace.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for IL2/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-Package hyperref Info: Link coloring OFF on input line 95.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for IL2/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+Package hyperref Info: Link coloring OFF on input line 97.
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
@@ -546,10 +560,10 @@ Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count107
+\c@section@level=\count108
 )
-LaTeX Info: Redefining \ref on input line 95.
-LaTeX Info: Redefining \pageref on input line 95.
+LaTeX Info: Redefining \ref on input line 97.
+LaTeX Info: Redefining \pageref on input line 97.
  (./prace.out)
 (./prace.out)
 \@outlinefile=\write3
@@ -562,14 +576,14 @@ File: ./img/logo.eps Graphic file (type eps)
 ] [2
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 186.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 188.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 186.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 188.
  [3] [4] (./prace.toc
 [5
 
@@ -585,7 +599,7 @@ Kapitola 1.
 ]
 Kapitola 2.
 
-Overfull \hbox (2.4106pt too wide) in paragraph at lines 290--291
+Overfull \hbox (2.4106pt too wide) in paragraph at lines 292--293
 []\IL2/cmr/m/n/12 Zajímá nás, ja-ká je prav-dì-po-dob-nost výsky-tu ta-ko-vé po
 -sloup-nos-ti slov $\OML/cmm/m/it/12 w[]; [] ; w[]$\IL2/cmr/m/n/12 .
  []
@@ -593,29 +607,29 @@ Overfull \hbox (2.4106pt too wide) in paragraph at lines 290--291
 [9
 
 ] [10]
-Overfull \hbox (2.09047pt too wide) in paragraph at lines 368--369
+Overfull \hbox (2.09047pt too wide) in paragraph at lines 370--371
 []\IL2/cmr/m/n/12 Good-Turing vy-hla-zo-vá-ní po-dá-vá dob-ré vý-sled-ky pro má
 -lo frek-ven-to-va-né n-gramy,
  []
 
 [11]
-Overfull \hbox (24.6314pt too wide) detected at line 396
+Overfull \hbox (24.6314pt too wide) detected at line 398
 []\OML/cmm/m/it/12 P[]\IL2/cmr/m/n/12 (\OML/cmm/m/it/12 w[]\OMS/cmsy/m/n/12 j\O
 ML/cmm/m/it/12 w[]; [] ; w[]\IL2/cmr/m/n/12 ) = []
  []
 
 [12]
-LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 419
+LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 421
 .
  (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
 File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
 ) [13] [14] [15]
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 13.20007pt on input line 510.
+(Font)              scaled to size 13.20007pt on input line 512.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 8.80005pt on input line 510.
+(Font)              scaled to size 8.80005pt on input line 512.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 6.60004pt on input line 510.
+(Font)              scaled to size 6.60004pt on input line 512.
 
 [16] [17]
 Kapitola 3.
@@ -624,33 +638,33 @@ Kapitola 3.
 ] [19] [20] [21]
 Kapitola 4.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 11.00006pt on input line 693.
+(Font)              scaled to size 11.00006pt on input line 695.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 7.70004pt on input line 693.
+(Font)              scaled to size 7.70004pt on input line 695.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 5.50003pt on input line 693.
+(Font)              scaled to size 5.50003pt on input line 695.
 [22
 
 ]
-Underfull \hbox (badness 1975) in paragraph at lines 747--747
+Underfull \hbox (badness 1590) in paragraph at lines 749--749
 [][][][][][]\IL2/cmr/m/n/10 The Zu-rich De-pen-den-cy Par-ser for Ger-man, for-
 mál-nì-ji zná-mý ta-ké pod ná-zvem
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 765
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 767
 .
 (/usr/share/texmf/tex/latex/R/tex/latex/omscmtt.fd
 File: omscmtt.fd 
 )
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 765.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 767.
  [23]
-Underfull \hbox (badness 10000) in paragraph at lines 776--778
+Underfull \hbox (badness 10000) in paragraph at lines 778--780
 
  []
 
 
-Overfull \hbox (3.0849pt too wide) in paragraph at lines 782--783
+Overfull \hbox (3.0849pt too wide) in paragraph at lines 784--785
 []\IL2/cmr/m/n/12 Jako prv-ní jsme zku-si-li na-tré-no-vat stan-dard-ní 6-gramo
 vé mo-de-ly se slo-vy, abychom
  []
@@ -663,16 +677,16 @@ File: ./grafy/morf/porovnani/text.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/text.svg.eps> [25]
 
-Package xcolor Warning: Incompatible color definition on input line 816.
+Package xcolor Warning: Incompatible color definition on input line 818.
 
 
-Package xcolor Warning: Incompatible color definition on input line 816.
+Package xcolor Warning: Incompatible color definition on input line 818.
 
 
-Package xcolor Warning: Incompatible color definition on input line 816.
+Package xcolor Warning: Incompatible color definition on input line 818.
 
 
-Overfull \hbox (7.03166pt too wide) in paragraph at lines 816--817
+Overfull \hbox (7.03166pt too wide) in paragraph at lines 818--819
  [] 
  []
 
@@ -684,13 +698,13 @@ File: ./grafy/morf/porovnani/all.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/all.svg.eps> [26]
 
-Package xcolor Warning: Incompatible color definition on input line 852.
+Package xcolor Warning: Incompatible color definition on input line 854.
 
 
-Package xcolor Warning: Incompatible color definition on input line 852.
+Package xcolor Warning: Incompatible color definition on input line 854.
 
 
-Package xcolor Warning: Incompatible color definition on input line 852.
+Package xcolor Warning: Incompatible color definition on input line 854.
 
 File: ./grafy/morf/ngram/rsd.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/rsd.svg.eps>
@@ -700,10 +714,10 @@ File: ./grafy/morf/porovnani/rsd.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/rsd.svg.eps> [27]
 
-Package xcolor Warning: Incompatible color definition on input line 882.
+Package xcolor Warning: Incompatible color definition on input line 884.
 
 
-Package xcolor Warning: Incompatible color definition on input line 882.
+Package xcolor Warning: Incompatible color definition on input line 884.
 
 File: ./grafy/morf/ngram/rod.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/rod.svg.eps>
@@ -713,10 +727,10 @@ File: ./grafy/morf/porovnani/rod.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/rod.svg.eps> [28]
 
-Package xcolor Warning: Incompatible color definition on input line 912.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 
-Package xcolor Warning: Incompatible color definition on input line 912.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 File: ./grafy/morf/ngram/rodstejny.eps Graphic file (type eps)
 <./grafy/morf/ngram/rodstejny.eps>
@@ -725,181 +739,193 @@ File: ./grafy/morf/maxent/rodstejny.eps Graphic file (type eps)
 File: ./grafy/morf/porovnani/rodstejny.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/rodstejny.eps> [29]
-File: ./grafy/morf/ngram/rsd+rod.svg.eps Graphic file (type eps)
 
+Package xcolor Warning: Incompatible color definition on input line 942.
+
+
+Package xcolor Warning: Incompatible color definition on input line 942.
+
+File: ./grafy/morf/ngram/rsd+rod.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/rsd+rod.svg.eps>
 File: ./grafy/morf/maxent/rsd+rod.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rsd+rod.svg.eps>
 File: ./grafy/morf/porovnani/rsd+rod.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rsd+rod.svg.eps>
+<./grafy/morf/porovnani/rsd+rod.svg.eps> [30]
+
+Package xcolor Warning: Incompatible color definition on input line 970.
+
+
+Package xcolor Warning: Incompatible color definition on input line 970.
+
 File: ./grafy/morf/ngram/cislo.svg.eps Graphic file (type eps)
- <./grafy/morf/ngram/cislo.svg.eps>
+<./grafy/morf/ngram/cislo.svg.eps>
 File: ./grafy/morf/maxent/cislo.svg.eps Graphic file (type eps)
-
-<./grafy/morf/maxent/cislo.svg.eps>
+ <./grafy/morf/maxent/cislo.svg.eps>
 File: ./grafy/morf/porovnani/cislo.svg.eps Graphic file (type eps)
- <./grafy/morf/porovnani/cislo.svg.eps>
-[30]
-File: ./grafy/morf/ngram/pad.svg.eps Graphic file (type eps)
- <./grafy/morf/ngram/pad.svg.eps>
-File: ./grafy/morf/maxent/pad.svg.eps Graphic file (type eps)
- <./grafy/morf/maxent/pad.svg.eps>
-File: ./grafy/morf/porovnani/pad.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/pad.svg.eps> [31]
+<./grafy/morf/porovnani/cislo.svg.eps> [31]
+
+Package xcolor Warning: Incompatible color definition on input line 999.
+
+
+Package xcolor Warning: Incompatible color definition on input line 999.
+
 File: ./grafy/morf/ngram/osoba+cislo.svg.eps Graphic file (type eps)
-
 <./grafy/morf/ngram/osoba+cislo.svg.eps>
 File: ./grafy/morf/maxent/osoba+cislo.svg.eps Graphic file (type eps)
 
 <./grafy/morf/maxent/osoba+cislo.svg.eps>
 File: ./grafy/morf/porovnani/osoba+cislo.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/osoba+cislo.svg.eps>
-File: ./grafy/morf/ngram/rsd+rod.svg.eps Graphic file (type eps)
+<./grafy/morf/porovnani/osoba+cislo.svg.eps> [32]
 
-<./grafy/morf/ngram/rsd+rod.svg.eps>
-File: ./grafy/morf/maxent/rsd+rod.svg.eps Graphic file (type eps)
- <./grafy/morf/maxent/rsd+rod.svg.eps>
-File: ./grafy/morf/porovnani/rsd+rod.svg.eps Graphic file (type eps)
+Package xcolor Warning: Incompatible color definition on input line 1027.
 
-<./grafy/morf/porovnani/rsd+rod.svg.eps> [32]
-File: ./grafy/morf/ngram/rsd+pad.svg.eps Graphic file (type eps)
 
-<./grafy/morf/ngram/rsd+pad.svg.eps>
-File: ./grafy/morf/maxent/rsd+pad.svg.eps Graphic file (type eps)
- <./grafy/morf/maxent/rsd+pad.svg.eps>
-File: ./grafy/morf/porovnani/rsd+pad.svg.eps Graphic file (type eps)
+Package xcolor Warning: Incompatible color definition on input line 1027.
 
-<./grafy/morf/porovnani/rsd+pad.svg.eps> [33]
 File: ./grafy/morf/ngram/rsd+cislo.svg.eps Graphic file (type eps)
-
 <./grafy/morf/ngram/rsd+cislo.svg.eps>
 File: ./grafy/morf/maxent/rsd+cislo.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rsd+cislo.svg.eps>
 File: ./grafy/morf/porovnani/rsd+cislo.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rsd+cislo.svg.eps> [34]
+<./grafy/morf/porovnani/rsd+cislo.svg.eps> [33]
+File: ./grafy/morf/ngram/pad.svg.eps Graphic file (type eps)
+
+<./grafy/morf/ngram/pad.svg.eps>
+File: ./grafy/morf/maxent/pad.svg.eps Graphic file (type eps)
+ <./grafy/morf/maxent/pad.svg.eps>
+File: ./grafy/morf/porovnani/pad.svg.eps Graphic file (type eps)
+
+<./grafy/morf/porovnani/pad.svg.eps>
+File: ./grafy/morf/ngram/rsd+pad.svg.eps Graphic file (type eps)
+ <./grafy/morf/ngram/rsd+pad.svg.eps>
+File: ./grafy/morf/maxent/rsd+pad.svg.eps Graphic file (type eps)
+
+<./grafy/morf/maxent/rsd+pad.svg.eps>
+File: ./grafy/morf/porovnani/rsd+pad.svg.eps Graphic file (type eps)
+ <./grafy/morf/porovnani/rsd+pad.svg.eps>
+[34]
 File: ./grafy/morf/cas/rsd/bez.eps Graphic file (type eps)
  <./grafy/morf/cas/rsd/bez.eps>
 File: ./grafy/morf/cas/rsd/rsd.eps Graphic file (type eps)
-
-<./grafy/morf/cas/rsd/rsd.eps> [35]
+ <./grafy/morf/cas/rsd/rsd.eps> [35]
 Kapitola 5.
 
-Package xcolor Warning: Incompatible color definition on input line 982.
+Package xcolor Warning: Incompatible color definition on input line 1068.
 
 
-Package xcolor Warning: Incompatible color definition on input line 983.
+Package xcolor Warning: Incompatible color definition on input line 1069.
 
 
-Package xcolor Warning: Incompatible color definition on input line 983.
+Package xcolor Warning: Incompatible color definition on input line 1069.
 
 
-Package xcolor Warning: Incompatible color definition on input line 983.
+Package xcolor Warning: Incompatible color definition on input line 1069.
 
 
-Package xcolor Warning: Incompatible color definition on input line 983.
+Package xcolor Warning: Incompatible color definition on input line 1069.
 
 
-Package xcolor Warning: Incompatible color definition on input line 984.
+Package xcolor Warning: Incompatible color definition on input line 1070.
 
 
-Package xcolor Warning: Incompatible color definition on input line 984.
+Package xcolor Warning: Incompatible color definition on input line 1070.
 
 
-Package xcolor Warning: Incompatible color definition on input line 985.
+Package xcolor Warning: Incompatible color definition on input line 1071.
 
 
-Package xcolor Warning: Incompatible color definition on input line 985.
+Package xcolor Warning: Incompatible color definition on input line 1071.
 
 
-Package xcolor Warning: Incompatible color definition on input line 985.
+Package xcolor Warning: Incompatible color definition on input line 1071.
 
 
-Package xcolor Warning: Incompatible color definition on input line 985.
+Package xcolor Warning: Incompatible color definition on input line 1071.
 
 
-Package xcolor Warning: Incompatible color definition on input line 986.
+Package xcolor Warning: Incompatible color definition on input line 1072.
 
 
-Package xcolor Warning: Incompatible color definition on input line 986.
+Package xcolor Warning: Incompatible color definition on input line 1072.
 
 
-Package xcolor Warning: Incompatible color definition on input line 987.
+Package xcolor Warning: Incompatible color definition on input line 1073.
 
 
-Package xcolor Warning: Incompatible color definition on input line 987.
+Package xcolor Warning: Incompatible color definition on input line 1073.
 
 
-Package xcolor Warning: Incompatible color definition on input line 987.
+Package xcolor Warning: Incompatible color definition on input line 1073.
 
 
-Package xcolor Warning: Incompatible color definition on input line 987.
+Package xcolor Warning: Incompatible color definition on input line 1073.
 
 
-Package xcolor Warning: Incompatible color definition on input line 988.
+Package xcolor Warning: Incompatible color definition on input line 1074.
 
 
-Package xcolor Warning: Incompatible color definition on input line 988.
+Package xcolor Warning: Incompatible color definition on input line 1074.
 
 
-Package xcolor Warning: Incompatible color definition on input line 989.
+Package xcolor Warning: Incompatible color definition on input line 1075.
 
 
-Package xcolor Warning: Incompatible color definition on input line 989.
+Package xcolor Warning: Incompatible color definition on input line 1075.
 
 
-Package xcolor Warning: Incompatible color definition on input line 989.
+Package xcolor Warning: Incompatible color definition on input line 1075.
 
 
-Package xcolor Warning: Incompatible color definition on input line 989.
+Package xcolor Warning: Incompatible color definition on input line 1075.
 
 
-Package xcolor Warning: Incompatible color definition on input line 990.
+Package xcolor Warning: Incompatible color definition on input line 1076.
 
 
-Package xcolor Warning: Incompatible color definition on input line 990.
+Package xcolor Warning: Incompatible color definition on input line 1076.
 
 
-Package xcolor Warning: Incompatible color definition on input line 991.
+Package xcolor Warning: Incompatible color definition on input line 1077.
 
 
-Package xcolor Warning: Incompatible color definition on input line 991.
+Package xcolor Warning: Incompatible color definition on input line 1077.
 
 
-Package xcolor Warning: Incompatible color definition on input line 991.
+Package xcolor Warning: Incompatible color definition on input line 1077.
 
 
-Package xcolor Warning: Incompatible color definition on input line 991.
+Package xcolor Warning: Incompatible color definition on input line 1077.
 
 
-Package xcolor Warning: Incompatible color definition on input line 992.
+Package xcolor Warning: Incompatible color definition on input line 1078.
 
 
-Package xcolor Warning: Incompatible color definition on input line 992.
+Package xcolor Warning: Incompatible color definition on input line 1078.
 
 
-Package xcolor Warning: Incompatible color definition on input line 993.
+Package xcolor Warning: Incompatible color definition on input line 1079.
 
 
-Package xcolor Warning: Incompatible color definition on input line 993.
+Package xcolor Warning: Incompatible color definition on input line 1079.
 
 
-Package xcolor Warning: Incompatible color definition on input line 993.
+Package xcolor Warning: Incompatible color definition on input line 1079.
 
 
-Package xcolor Warning: Incompatible color definition on input line 993.
+Package xcolor Warning: Incompatible color definition on input line 1079.
 
 
-Package xcolor Warning: Incompatible color definition on input line 994.
+Package xcolor Warning: Incompatible color definition on input line 1080.
 
 
-Package xcolor Warning: Incompatible color definition on input line 994.
+Package xcolor Warning: Incompatible color definition on input line 1080.
 
 
-Package xcolor Warning: Incompatible color definition on input line 995.
+Package xcolor Warning: Incompatible color definition on input line 1081.
 
 File: ./grafy/rysy/chybi_infszu.eps Graphic file (type eps)
 <./grafy/rysy/chybi_infszu.eps>
@@ -908,7 +934,7 @@ File: ./grafy/rysy/chybi_podmet.eps Graphic file (type eps)
 File: ./grafy/rysy/chybi_vfin.eps Graphic file (type eps)
 
 <./grafy/rysy/chybi_vfin.eps>
-Overfull \hbox (19.44855pt too wide) in paragraph at lines 1004--1007
+Overfull \hbox (19.44855pt too wide) in paragraph at lines 1090--1093
 [][] [] [] 
  []
 
@@ -925,7 +951,7 @@ File: ./grafy/rysy/infszu_neni_na_konci.eps Graphic file (type eps)
 File: ./grafy/rysy/vv_sloveso_neni_na_konci.eps Graphic file (type eps)
 
 <./grafy/rysy/vv_sloveso_neni_na_konci.eps>
-Overfull \hbox (19.44855pt too wide) in paragraph at lines 1011--1014
+Overfull \hbox (19.44855pt too wide) in paragraph at lines 1097--1100
 [][] [] [] 
  []
 
@@ -950,7 +976,7 @@ File: ./grafy/rysy/vice_vfin.eps Graphic file (type eps)
 <./grafy/rysy/vice_vfin.eps>
 File: ./grafy/rysy/vice_sum.eps Graphic file (type eps)
  <./grafy/rysy/vice_sum.eps> [38]
-Overfull \hbox (14.11543pt too wide) in paragraph at lines 1046--1049
+Overfull \hbox (14.11543pt too wide) in paragraph at lines 1132--1135
 []\IL2/cmr/m/n/12 Z gra-ma-tic-ky správ-né vì-ty by mìl jít vy-kres-lit strom s
  vìt-ným roz-bo-rem. Pøedlo¾íme-
  []
@@ -981,12 +1007,12 @@ LaTeX Warning: Empty `thebibliography' environment on input line 16.
 
 ] (./prace.aux (./zaver.aux) (./literatura.aux)) ) 
 Here is how much of TeX's memory you used:
- 7024 strings out of 494938
- 94063 string characters out of 1181144
- 181038 words of memory out of 3000000
- 10167 multiletter control sequences out of 15000+50000
+ 7127 strings out of 494938
+ 95697 string characters out of 1181144
+ 182513 words of memory out of 3000000
+ 10266 multiletter control sequences out of 15000+50000
  20283 words of font info for 52 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
  38i,17n,36p,1205b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (45 pages, 176712 bytes).
+Output written on prace.dvi (45 pages, 182900 bytes).

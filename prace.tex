@@ -44,6 +44,8 @@
 \usepackage{amsmath}
 \usepackage{color}
 \usepackage{colortbl}
+\usepackage[bottom]{footmisc}
+
 
 \definecolor{seda}{rgb}{0.7,0.7,0.7}
 \newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
@@ -912,24 +914,126 @@ Příklad věty:
 }
 \end{center}
 
-
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rodstejny.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rodstejny.eps}
+\end{center}
+Výsledky jsou ale stejně špatné jako v případě samotného rodu.
+\begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rodstejny.eps}	
 \end{center}
+Rozdíly mezi standardním n-gramovým a maxentovým n-gramovým modelem je taktéž nepatrný. Doba nutná k natrénování obou typů byla v tomto případě shodně 3 sekundy.
+
 \subsection{S rozšířeným slovním druhem}
+Jelikož samotný rod byla pro model nedostatečná informace, zkusíme namísto písmene \textit{w} slova nahrazovat rozšířeným slovním druhem a k němu přidávat za dvojtečku rod.
+
+Příklad věty:
+\begin{center}
+\texttt{%
+\arrayrulecolor{seda}
+\begin{tabular}{lllllll}
+\color{red} Die & \color{red} unabhängige & \color{red} Justiz & \color{red} und & \color{red} die & \color{red} freien & \color{red} Medien\\
+\color{blue} ART:Fem & \color{blue} ADJA:Fem & \color{blue} NN:Fem & \color{blue} KON & \color{blue} ART:Neut & \color{blue} ADJA:Neut & \color{blue} NN:Neut\\
+\hline
+\color{red} zu & \color{red} unterdrücken &\color{red} .\\
+\color{blue} PTKZU & \color{blue} VVINF & \color{blue} \$. \\
+\hline
+\end{tabular}
+}
+\end{center}
+
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+rod.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+rod.svg.eps}
+\end{center}
+S rozšířeným slovním druhem už modely dopadly lépe, přesto perplexita s rostoucí plynulostí neklesá nijak výrazně, což dokazuje proložená přímka.
+\begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+rod.svg.eps}	
 \end{center}
+Ve srovnání jsou oba typy modelů na tom podobně, maxentové dostávaly jen o něco málo nižší perplexitu. Z hlediska výpočetní náročnosti je ale rozdíl velký - 36 sekund standardní n-gramový model naproti 27 minutám u modelu maxentového.
 
 \section{Číslo}
+Stejné modely zkusíme natrénovat i v případě čísla. Jako první znovu zkusíme, zda bude modelu postačovat informace pouze o čísle daného slova tj. \textit{wSg}, \textit{wPl} nebo \textit{w}.
+
+Příklad věty:
+\begin{center}
+\texttt{%
+\arrayrulecolor{seda}
+\begin{tabular}{lllllll}
+\color{red} Die & \color{red} unabhängige & \color{red} Justiz & \color{red} und & \color{red} die & \color{red} freien & \color{red} Medien\\
+\color{blue} wSg & \color{blue} wSg & \color{blue} wSg & \color{blue} w & \color{blue} wPl & \color{blue} wPl & \color{blue} wPl\\
+\hline
+\color{red} zu & \color{red} unterdrücken &\color{red} .\\
+\color{blue} w & \color{blue} w & \color{blue} w \\
+\hline
+\end{tabular}
+}
+\end{center}
+
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/cislo.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/cislo.svg.eps}	
+\end{center}
+Výsledky ale dopadly obdobně špatně jako v případě rodu. Pomocí perplexity nejsme schopni rozlišit, o jakou plynulost by se mělo jednat.
+
+\begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/cislo.svg.eps}
+\end{center}
+Oba typy modelů dopadly takřka stejně. Stejná byla i doba nutná k natrénování - shodně po třech sekundách.
+
+\subsection{Přidání osoby}
+Číslo se bude často pojit s nějakou osobou. Zkusíme proto tuto informaci k číslu přidat. Slovo nahradíme písmenem \textit{w}, poté bude následovat osoba a číslo, jdou-li u daného slova určit.
+
+Příklad věty:
+\begin{center}
+\texttt{%
+\arrayrulecolor{seda}
+\begin{tabular}{llllll}
+\color{red} Zur & \color{red} Belohnung & \color{red} erhielt & \color{red} Pakistan & \color{red} von & \color{red} Amerika\\
+\color{blue} w & \color{blue} wSg & \color{blue} w3Sg & \color{blue} wSg & \color{blue} w & \color{blue} wSg\\
+\hline
+\color{red} finanzielle & \color{red} Unterstützung & \color{red} und &\color{red} Waffen &\color{red} .\\
+\color{blue} wSg & \color{blue} wSg & \color{blue} w & \color{blue} wPl & \color{blue} w \\
+\hline
+\end{tabular}
+}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/osoba+cislo.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/osoba+cislo.svg.eps}	
+\end{center}
+Modely ale nedopadly o nic lépe. Proložené přímky opět mírně stoupají, namísto aby klesaly.
+\begin{center}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/osoba+cislo.svg.eps}	
+\end{center}
+Ve srovnání obou typů modelů opět nejsou patrné výrazné rozdíly. Z hlediska výpočetních nároků se ale tentokrát trochu liší. Standardní n-gramové potřebovaly k natrénování 4 sekundy, maxentové 11 sekund.
+
+\subsection{S rozšířeným slovním druhem}
+Vzhledem k tomu, že přidání osoby žádné patrné zlepšení nepřineslo, zkusíme znovu přidat rozšířený slovní druh. Slova tedy budeme nahrazovat jejich druhem a číslem, lze-li určit.
+
+Příklad věty:
+\begin{center}
+\texttt{%
+\arrayrulecolor{seda}
+\begin{tabular}{llllll}
+\color{red} Zur & \color{red} Belohnung & \color{red} erhielt & \color{red} Pakistan & \color{red} von & \color{red} Amerika\\
+\color{blue} APPRART & \color{blue} NN:Sg & \color{blue} VVFIN:Sg & \color{blue} NE:Sg & \color{blue} APPR & \color{blue} NE:Sg\\
+\hline
+\color{red} finanzielle & \color{red} Unterstützung & \color{red} und &\color{red} Waffen &\color{red} .\\
+\color{blue} ADJA:Sg & \color{blue} NN:Sg & \color{blue} KON & \color{blue} NN:Pl & \color{blue} \$. \\
+\hline
+\end{tabular}
+}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+cislo.svg.eps}
+	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+cislo.svg.eps}
+\end{center}
+Modely s rozšířeným slovním druhem dopadly znovu lépe. 
+\begin{center}
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+cislo.svg.eps}	
 \end{center}
 
 \section{Pád}
@@ -939,29 +1043,11 @@ Příklad věty:
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/pad.svg.eps}	
 \end{center}
 
-\section{Osoba + číslo}
-\begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/osoba+cislo.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/osoba+cislo.svg.eps}	
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/osoba+cislo.svg.eps}	
-\end{center}
-\section{Rozšířený slovní druh + rod}
-\begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+rod.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+rod.svg.eps}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+rod.svg.eps}	
-\end{center}
-\section{Rozšířený slovní druh + pád}
+\subsection{S rozšířeným slovním druhem}
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+pad.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+pad.svg.eps}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+pad.svg.eps}	
-\end{center}
-\section{Rozšířený slovní druh + číslo}
-\begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+cislo.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+cislo.svg.eps}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+cislo.svg.eps}	
 \end{center}
 
 \section{Shrnutí}
