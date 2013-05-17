@@ -47,6 +47,8 @@
 \usepackage[bottom]{footmisc}
 \usepackage{multirow}
 
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+
 \definecolor{seda}{rgb}{0.7,0.7,0.7}
 \newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
 \DeclareFontFamily{OT1}{pzc}{}
@@ -1126,9 +1128,9 @@ Ačkoliv modely maximální entropie obvykle dostávaly nižší perplexitu než
 \chapter{Modely s vlastní množinou rysů}
 Problémy s německou gramatikou jsme se prozatím snažili řešit nahrazením slov morfologickými značkami. Modely s rozšířeným slovním druhem + morfologická analýza dopadly sice lépe než běžné modely trénované na slovech, přesto zlepšení není nijak výrazné. V následující kapitole se proto pokusíme upustit od n-gramů a postihnout gramatiku z jiné stránky - vlastní množinou rysů.
 
-Trénovat už nebudeme ve SRILMu, neboť ten nepodporuje jiné než n-gramové rysy. Pro tyto modely použijeme maxent toolkit od LeZhanga\footnote{Lezhang}.
+\section{Zdrojová data}
 
-Pro následující experimenty jsme překladové hypotézy rozdělili na dva díly. Polovina tj. 1045 překladových hypotéz se použilo jako vývojová sada a druhá polovina jako sada testovací. Hypotézy byly rozděleny s ohledem na hodnocení plynulosti tak, aby vývojová i testovací množina vět obsahovala stejný počet hypotéz hodnocených plynulostí 1, 2, .., 5 (až na liché počty hypotéz některých plynulostí). Následující tabulka ukazuje přesné počty hypotéz a jejich rozdělení:
+Pro následující experimenty používáme stejná data s ručně hodnocenou plynulostí jako v předchozí kapitole. Zde jsme je rozdělili na dva díly. Polovina tj. 1045 překladových hypotéz se použije jako vývojová sada a druhá polovina jako sada testovací. Hypotézy byly rozděleny s ohledem na hodnocení plynulosti tak, aby vývojová i testovací množina vět obsahovala stejný počet hypotéz hodnocených plynulostí 1, 2, .., 5 (až na liché počty hypotéz některých plynulostí). Následující tabulka ukazuje přesné počty hypotéz a jejich rozdělení:
 
 \begin{center}\begin{tabular}{|c|c|c|c|}
 	\hline
@@ -1148,37 +1150,78 @@ Pro následující experimenty jsme překladové hypotézy rozdělili na dva dí
 	\multicolumn{1}{c}{\textbf{CELKEM}} & \multicolumn{1}{c}{\textbf{2090}} & \multicolumn{1}{c}{\textbf{1095}} & \multicolumn{1}{c}{\textbf{1095}}\\
 \end{tabular}\end{center}
 
-\section{Zdrojová data}
-\section{Způsob vyhodnocení}
+Vzhledem k tomu, že budou rysy vycházet z německé gramatiky, budeme často potřebovat znát hranice klauzí dané věty. Určit klauze z hypotézy, která není gramaticky správně, je však obtížné - parser je v takovém případě zmatený a neudělá větný rozbor správně. Na základě toho používáme identifikované klauze z výchozího anglického textu, který je gramaticky správně, a na německé je pak převádíme pomocí zarovnání na úrovni slov. 
+
 \section{Princip experimentů}
+- popsat identifikaci klauzí dle alignmentu a rysy
+
+Princip experimentů bude následující:
+\begin{itemize}
+\item{identifikovat německé klauze v hypotézách na základě anglických s využitím zarovnání na úrovni slov}
+\item{provést morfologickou analýzu a pokusit se o větný rozbor hypotéz}
+\item{pokusit se vyhledat některé gramatické chyby a použít je jako rysy}
+\item{natrénovat maxentový model s těmito rysy}
+\item{provést stejný postup na testovacích datech a model otestovat}
+\end{itemize}
+
+Pro identifikaci klauzí vzniknul k bakalářské práci program Klauze, který na základě anglických klauzí a zarovnání na úrovni slov identifikuje klauze německé a vydá na výstup jejich hranice. Ze zarovnání bereme jen ty nejvíce jisté shody (int?), neboť nám nejde o kompletní zarovnání, ale jen o hranice klauzí. Na základě anglických klauzí jsou nejdříve slova roztříděna podle zarovnání do klauzí. Slova v klauzích se potom setřídí podle pořadí, v jakém byly v hypotéze. Poté se dle minimálního a maximálního indexu slova (počítáno zleva od nuly) rozhoduje, zda se jedná o větu vloženou nebo zda má začínat až pozdějším slovem, neboť se kryje s větou předchozí. Tímto způsobem se určí hranice klauzí tak, aby zahrnuly všechny slova ve větě.
+
+Na morfologickou analýzu a větný rozbor použijeme opět parser ParZu. Tentokrát ale využijeme ještě dalších informací, které poskytuje. Zkusíme využít v náš prospěch i skutečnosti, že u gramaticky špatné věty postaví větný rozbor chybně.
+
+Pro hledání chyb v jednotlivých klauzích jsme stvořili program Chyby. Ten se na základě provedené analýzy z ParZu a hranicí klauzí snaží určit některé gramatické chyby, pro celou větu pak vydá tyto chyby jako součet všech klauzí. Výstupem je soubor ve formátu ihned použitelném pro natrénování v Maxent Toolkitu od Le Zhanga. Za pomocí rysů vycházejících z gramatiky se budeme snažit predikovat plynulost. Výstupní formát bude tedy např. následující:
+
+\begin{center}
+\begin{tabular}{llll}
+\hline
+\texttt{1} & \texttt{chybi\_vfin:2} & \texttt{pp\_bez\_av:3} & \texttt{chybi\_infszu:1} \\
+\texttt{4} & \texttt{chybi\_vfin:0} & \texttt{pp\_bez\_av:0} & \texttt{chybi\_infszu:1} \\
+\texttt{2} & \texttt{chybi\_vfin:1} & \texttt{pp\_bez\_av:2} & \texttt{chybi\_infszu:0} \\
+\hline
+\end{tabular}
+\end{center}
+
+Jak vidíme z příkladu, druhý řádek nám říká, že hypotéza hodnocená plynulostí 4 má hodnotu rysu \texttt{chybi\_vfin} 0, \texttt{pp\_bez\_av} 0 a \texttt{chybi\_infszu} 1. Význam jednotlivých rysů bude ještě dále upřesněn, zde prozatím slouží jako příklad.
+
+\section{Způsob vyhodnocení}
+přesnost, lišící se o jedna + přehled nabízených fluency
 
 \section{Vlastní rysy}
-\includegraphics[width=50mm]{./grafy/rysy/chybi_infszu.eps}
-\includegraphics[width=50mm]{./grafy/rysy/chybi_podmet.eps}
-\includegraphics[width=50mm]{./grafy/rysy/chybi_vfin.eps}
+vždy napsat, jak se hledají - neznamenají vždy 100 \% to, jak se jmenují
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=60mm]{./grafy/rysy/chybi_infszu.eps}
+  \caption{Korelace plynulosti a hodnoty rysu chybi\_infszu}
+  \label{chybiinfszu}
+\end{figure}
+
+\includegraphics[width=60mm]{./grafy/rysy/chybi_infszu.eps}
+\includegraphics[width=60mm]{./grafy/rysy/chybi_podmet.eps}
+\includegraphics[width=60mm]{./grafy/rysy/chybi_vfin.eps}
 
 \includegraphics[width=70mm]{./grafy/rysy/chybi_sum.eps}
 
 
-\includegraphics[width=50mm]{./grafy/rysy/inf_po_vm_neni_na_konci.eps}
-\includegraphics[width=50mm]{./grafy/rysy/infszu_neni_na_konci.eps}
-\includegraphics[width=50mm]{./grafy/rysy/vv_sloveso_neni_na_konci.eps}
+\includegraphics[width=60mm]{./grafy/rysy/inf_po_vm_neni_na_konci.eps}
+\includegraphics[width=60mm]{./grafy/rysy/infszu_neni_na_konci.eps}
+\includegraphics[width=60mm]{./grafy/rysy/vv_sloveso_neni_na_konci.eps}
 
-\includegraphics[width=50mm]{./grafy/rysy/pp_neni_na_konci.eps}
+\includegraphics[width=60mm]{./grafy/rysy/pp_neni_na_konci.eps}
 
 \includegraphics[width=70mm]{./grafy/rysy/neni_na_konci_sum.eps}
 
 
-\includegraphics[width=50mm]{./grafy/rysy/neshoda_podmet_prisudek.eps}
-\includegraphics[width=50mm]{./grafy/rysy/pp_bez_av.eps}
+\includegraphics[width=60mm]{./grafy/rysy/neshoda_podmet_prisudek.eps}
+\includegraphics[width=60mm]{./grafy/rysy/pp_bez_av.eps}
 
 
 \includegraphics[width=70mm]{./grafy/rysy/root.eps}
 \includegraphics[width=70mm]{./grafy/rysy/sum.eps}
 
 
-\includegraphics[width=50mm]{./grafy/rysy/vice_osob.eps}
-\includegraphics[width=50mm]{./grafy/rysy/vice_vfin.eps}
+\includegraphics[width=60mm]{./grafy/rysy/vice_osob.eps}
+\includegraphics[width=60mm]{./grafy/rysy/vice_vfin.eps}
 
 \includegraphics[width=70mm]{./grafy/rysy/vice_sum.eps}
 
