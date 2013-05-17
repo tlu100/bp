@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  17 MAY 2013 15:36
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  18 MAY 2013 00:45
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -382,6 +382,14 @@ Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 (/usr/share/texmf-texlive/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen117
 )
+(/usr/share/texmf-texlive/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count101
+\float@exts=\toks33
+\float@box=\box28
+\@float@everytoks=\toks34
+\@floatcapt=\box29
+)
 (/usr/share/texmf-texlive/tex/latex/caption/caption.sty
 Package: caption 2009/10/09 v3.1k Customizing captions (AR)
 
@@ -394,7 +402,8 @@ Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
 \caption@parindent=\dimen122
 \caption@hangindent=\dimen123
 )
-\c@ContinuedFloat=\count101
+\c@ContinuedFloat=\count102
+Package caption Info: float package is loaded.
 )
 (/usr/share/texmf/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
@@ -442,8 +451,8 @@ O)
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
 \@linkdim=\dimen124
-\Hy@linkcounter=\count102
-\Hy@pagecounter=\count103
+\Hy@linkcounter=\count103
+\Hy@pagecounter=\count104
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
@@ -517,10 +526,10 @@ Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 )))
-\Fld@menulength=\count104
+\Fld@menulength=\count105
 \Field@Width=\dimen125
 \Fld@charsize=\dimen126
-\Field@toks=\toks33
+\Field@toks=\toks35
 Package hyperref Info: Hyper figures OFF on input line 4377.
 Package hyperref Info: Link nesting OFF on input line 4382.
 Package hyperref Info: Hyper index ON on input line 4385.
@@ -532,9 +541,9 @@ Package hyperref Info: PDF/A mode OFF on input line 4407.
 (/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@abspage=\count105
-\c@Item=\count106
-\c@Hfootnote=\count107
+\Hy@abspage=\count106
+\c@Item=\count107
+\c@Hfootnote=\count108
 )
 *hyperref using driver hdvips*
 (/usr/share/texmf-texlive/tex/latex/hyperref/hdvips.def
@@ -542,11 +551,11 @@ File: hdvips.def 2009/10/09 v6.79a Hyperref driver for dvips
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pdfmark.def
 File: pdfmark.def 2009/10/09 v6.79a Hyperref definitions for pdfmark specials
-\pdf@docset=\toks34
-\pdf@box=\box28
-\pdf@toks=\toks35
-\pdf@defaulttoks=\toks36
-\Fld@listcount=\count108
+\pdf@docset=\toks36
+\pdf@box=\box30
+\pdf@toks=\toks37
+\pdf@defaulttoks=\toks38
+\Fld@listcount=\count109
 )) (./prace.aux
 (./zaver.aux) (./literatura.aux))
 \openout1 = `prace.aux'.
@@ -580,7 +589,7 @@ Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count109
+\c@section@level=\count110
 )
 LaTeX Info: Redefining \ref on input line 99.
 LaTeX Info: Redefining \pageref on input line 99.
@@ -589,7 +598,7 @@ LaTeX Info: Redefining \pageref on input line 99.
 \@outlinefile=\write3
 \openout3 = `prace.out'.
 
-\AtBeginShipoutBox=\box29
+\AtBeginShipoutBox=\box31
 File: ./img/logo.eps Graphic file (type eps)
  <./img/logo.eps> [1
 
@@ -608,13 +617,13 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 [5
 
 
-] [6])
+])
 \tf@toc=\write4
 \openout4 = `prace.toc'.
 
- [7]
+ [6]
 Kapitola 1.
-[8
+[7
 
 ]
 Kapitola 2.
@@ -624,26 +633,26 @@ Overfull \hbox (2.4106pt too wide) in paragraph at lines 294--295
 -sloup-nos-ti slov $\OML/cmm/m/it/12 w[]; [] ; w[]$\IL2/cmr/m/n/12 .
  []
 
-[9
+[8
 
-] [10]
+] [9]
 Overfull \hbox (2.09047pt too wide) in paragraph at lines 372--373
 []\IL2/cmr/m/n/12 Good-Turing vy-hla-zo-vá-ní po-dá-vá dob-ré vý-sled-ky pro má
 -lo frek-ven-to-va-né n-gramy,
  []
 
-[11]
+[10]
 Overfull \hbox (24.6314pt too wide) detected at line 400
 []\OML/cmm/m/it/12 P[]\IL2/cmr/m/n/12 (\OML/cmm/m/it/12 w[]\OMS/cmsy/m/n/12 j\O
 ML/cmm/m/it/12 w[]; [] ; w[]\IL2/cmr/m/n/12 ) = []
  []
 
-[12]
+[11]
 LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 423
 .
  (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
 File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
-) [13] [14] [15]
+) [12] [13] [14]
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 13.20007pt on input line 514.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
@@ -651,11 +660,11 @@ LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 6.60004pt on input line 514.
 
-[16] [17]
+[15] [16]
 Kapitola 3.
-[18
+[17
 
-] [19] [20] [21]
+] [18] [19] [20]
 Kapitola 4.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 11.00006pt on input line 697.
@@ -663,7 +672,7 @@ LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 7.70004pt on input line 697.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 5.50003pt on input line 697.
-[22
+[21
 
 ]
 Underfull \hbox (badness 1590) in paragraph at lines 751--751
@@ -684,15 +693,15 @@ File: omscmtt.fd
 )
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 769.
- [23]
+ [22]
 File: ./grafy/morf/ngram/text.svg.eps Graphic file (type eps)
 
 <./grafy/morf/ngram/text.svg.eps>
 File: ./grafy/morf/maxent/text.svg.eps Graphic file (type eps)
- <./grafy/morf/maxent/text.svg.eps> [24]
+ <./grafy/morf/maxent/text.svg.eps> [23]
 File: ./grafy/morf/porovnani/text.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/text.svg.eps> [25]
+<./grafy/morf/porovnani/text.svg.eps> [24]
 
 Package xcolor Warning: Incompatible color definition on input line 819.
 
@@ -713,7 +722,7 @@ File: ./grafy/morf/maxent/all.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/all.svg.eps>
 File: ./grafy/morf/porovnani/all.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/all.svg.eps> [26]
+<./grafy/morf/porovnani/all.svg.eps> [25]
 
 Package xcolor Warning: Incompatible color definition on input line 854.
 
@@ -729,7 +738,7 @@ File: ./grafy/morf/maxent/rsd.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rsd.svg.eps>
 File: ./grafy/morf/porovnani/rsd.svg.eps Graphic file (type eps)
 
-<./grafy/morf/porovnani/rsd.svg.eps> [27]
+<./grafy/morf/porovnani/rsd.svg.eps> [26]
 
 Package xcolor Warning: Incompatible color definition on input line 886.
 
@@ -739,7 +748,7 @@ Package xcolor Warning: Incompatible color definition on input line 886.
 File: ./grafy/morf/ngram/rod.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/rod.svg.eps>
 File: ./grafy/morf/maxent/rod.svg.eps Graphic file (type eps)
- <./grafy/morf/maxent/rod.svg.eps> [28]
+ <./grafy/morf/maxent/rod.svg.eps> [27]
 File: ./grafy/morf/porovnani/rod.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/rod.svg.eps>
@@ -749,7 +758,7 @@ Package xcolor Warning: Incompatible color definition on input line 916.
 
 Package xcolor Warning: Incompatible color definition on input line 916.
 
-[29]
+[28]
 File: ./grafy/morf/ngram/rodstejny.eps Graphic file (type eps)
  <./grafy/morf/ngram/rodstejny.eps>
 File: ./grafy/morf/maxent/rodstejny.eps Graphic file (type eps)
@@ -763,7 +772,7 @@ Package xcolor Warning: Incompatible color definition on input line 944.
 
 Package xcolor Warning: Incompatible color definition on input line 944.
 
-[30]
+[29]
 File: ./grafy/morf/ngram/rsd+rod.svg.eps Graphic file (type eps)
  <./grafy/morf/ngram/rsd+rod.svg.eps>
 File: ./grafy/morf/maxent/rsd+rod.svg.eps Graphic file (type eps)
@@ -777,7 +786,7 @@ Package xcolor Warning: Incompatible color definition on input line 972.
 
 Package xcolor Warning: Incompatible color definition on input line 972.
 
-[31]
+[30]
 File: ./grafy/morf/ngram/cislo.svg.eps Graphic file (type eps)
  <./grafy/morf/ngram/cislo.svg.eps>
 File: ./grafy/morf/maxent/cislo.svg.eps Graphic file (type eps)
@@ -791,7 +800,7 @@ Package xcolor Warning: Incompatible color definition on input line 1001.
 
 Package xcolor Warning: Incompatible color definition on input line 1001.
 
-[32]
+[31]
 File: ./grafy/morf/ngram/osoba+cislo.svg.eps Graphic file (type eps)
  <./grafy/morf/ngram/osoba+cislo.svg.eps>
 File: ./grafy/morf/maxent/osoba+cislo.svg.eps Graphic file (type eps)
@@ -810,7 +819,7 @@ File: ./grafy/morf/ngram/rsd+cislo.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/rsd+cislo.svg.eps>
 File: ./grafy/morf/maxent/rsd+cislo.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/rsd+cislo.svg.eps>
-[33]
+[32]
 File: ./grafy/morf/porovnani/rsd+cislo.svg.eps Graphic file (type eps)
  <./grafy/morf/porovnani/rsd+cislo.svg.eps>
 
@@ -822,7 +831,7 @@ Package xcolor Warning: Incompatible color definition on input line 1057.
 File: ./grafy/morf/ngram/pad.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/pad.svg.eps>
 File: ./grafy/morf/maxent/pad.svg.eps Graphic file (type eps)
- <./grafy/morf/maxent/pad.svg.eps> [34]
+ <./grafy/morf/maxent/pad.svg.eps> [33]
 File: ./grafy/morf/porovnani/pad.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/pad.svg.eps>
@@ -830,7 +839,7 @@ File: ./grafy/morf/ngram/rsd+pad.svg.eps Graphic file (type eps)
  <./grafy/morf/ngram/rsd+pad.svg.eps>
 File: ./grafy/morf/maxent/rsd+pad.svg.eps Graphic file (type eps)
 
-<./grafy/morf/maxent/rsd+pad.svg.eps> [35]
+<./grafy/morf/maxent/rsd+pad.svg.eps> [34]
 File: ./grafy/morf/porovnani/rsd+pad.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/rsd+pad.eps>
@@ -1182,7 +1191,7 @@ Package xcolor Warning: Incompatible color definition on input line 1119.
 
 Package xcolor Warning: Incompatible color definition on input line 1119.
 
-[36] [37]
+[35] [36]
 Kapitola 5.
 
 Package xcolor Warning: Incompatible color definition on input line 1136.
@@ -1298,72 +1307,115 @@ Package xcolor Warning: Incompatible color definition on input line 1148.
 
 Package xcolor Warning: Incompatible color definition on input line 1149.
 
-[38
+[37
 
-]
-
-Package xcolor Warning: Incompatible color definition on input line 1175.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1179.
-
-File: ./grafy/rysy/chybi_infszu.eps Graphic file (type eps)
-<./grafy/rysy/chybi_infszu.eps>
+] [38]
 File: ./grafy/rysy/chybi_infszu.eps Graphic file (type eps)
  <./grafy/rysy/chybi_infszu.eps>
-File: ./grafy/rysy/chybi_podmet.eps Graphic file (type eps)
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1183--1184
+ [][] 
+ []
 
+File: ./grafy/rysy/chybi_podmet.eps Graphic file (type eps)
 <./grafy/rysy/chybi_podmet.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1187--1188
+ [][] 
+ []
+
 File: ./grafy/rysy/chybi_vfin.eps Graphic file (type eps)
- <./grafy/rysy/chybi_vfin.eps>
-Overfull \hbox (104.80678pt too wide) in paragraph at lines 1199--1202
-[][] [] [] 
+<./grafy/rysy/chybi_vfin.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1191--1192
+ [][] 
+ []
+
+File: ./grafy/rysy/chybi_sum.eps Graphic file (type eps)
+<./grafy/rysy/chybi_sum.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1198--1199
+ [][] 
  []
 
 [39]
-File: ./grafy/rysy/chybi_sum.eps Graphic file (type eps)
- <./grafy/rysy/chybi_sum.eps>
 File: ./grafy/rysy/inf_po_vm_neni_na_konci.eps Graphic file (type eps)
  <./grafy/rysy/inf_po_vm_neni_na_konci.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1211--1212
+ [][] 
+ []
+
 File: ./grafy/rysy/infszu_neni_na_konci.eps Graphic file (type eps)
-
 <./grafy/rysy/infszu_neni_na_konci.eps>
-File: ./grafy/rysy/vv_sloveso_neni_na_konci.eps Graphic file (type eps)
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1215--1216
+ [][] 
+ []
 
+File: ./grafy/rysy/vv_sloveso_neni_na_konci.eps Graphic file (type eps)
 <./grafy/rysy/vv_sloveso_neni_na_konci.eps>
-Overfull \hbox (104.80678pt too wide) in paragraph at lines 1206--1209
-[][] [] [] 
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1219--1220
+ [][] 
  []
 
 File: ./grafy/rysy/pp_neni_na_konci.eps Graphic file (type eps)
-<./grafy/rysy/pp_neni_na_konci.eps> [40]
-File: ./grafy/rysy/neni_na_konci_sum.eps Graphic file (type eps)
- <./grafy/rysy/neni_na_konci_sum.eps>
-File: ./grafy/rysy/neshoda_podmet_prisudek.eps Graphic file (type eps)
-
-<./grafy/rysy/neshoda_podmet_prisudek.eps>
-File: ./grafy/rysy/pp_bez_av.eps Graphic file (type eps)
- <./grafy/rysy/pp_bez_av.eps>
-File: ./grafy/rysy/root.eps Graphic file (type eps)
-
-<./grafy/rysy/root.eps>
-File: ./grafy/rysy/sum.eps Graphic file (type eps)
- <./grafy/rysy/sum.eps>
-File: ./grafy/rysy/vice_osob.eps Graphic file (type eps)
- <./grafy/rysy/vice_osob.eps>
-File: ./grafy/rysy/vice_vfin.eps Graphic file (type eps)
-
-<./grafy/rysy/vice_vfin.eps> [41]
-File: ./grafy/rysy/vice_sum.eps Graphic file (type eps)
- <./grafy/rysy/vice_sum.eps>
-Overfull \hbox (14.11543pt too wide) in paragraph at lines 1241--1244
-[]\IL2/cmr/m/n/12 Z gra-ma-tic-ky správ-né vì-ty by mìl jít vy-kres-lit strom s
- vìt-ným roz-bo-rem. Pøedlo¾íme-
+<./grafy/rysy/pp_neni_na_konci.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1228--1229
+ [][] 
  []
 
-[42]
-File: ./grafy/pocet-stromu/pocet-stromu.eps Graphic file (type eps)
- <./grafy/pocet-stromu/pocet-stromu.eps> [43] [44]
+File: ./grafy/rysy/neni_na_konci_sum.eps Graphic file (type eps)
+<./grafy/rysy/neni_na_konci_sum.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1232--1233
+ [][] 
+ []
+
+File: ./grafy/rysy/pp_bez_av.eps Graphic file (type eps)
+<./grafy/rysy/pp_bez_av.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1246--1247
+ [][] 
+ []
+
+File: ./grafy/rysy/neshoda_podmet_prisudek.eps Graphic file (type eps)
+<./grafy/rysy/neshoda_podmet_prisudek.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1250--1251
+ [][] 
+ []
+
+File: ./grafy/rysy/vice_osob.eps Graphic file (type eps)
+<./grafy/rysy/vice_osob.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1263--1264
+ [][] 
+ []
+
+File: ./grafy/rysy/vice_vfin.eps Graphic file (type eps)
+<./grafy/rysy/vice_vfin.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1267--1268
+ [][] 
+ []
+
+File: ./grafy/rysy/vice_sum.eps Graphic file (type eps)
+<./grafy/rysy/vice_sum.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1271--1272
+ [][] 
+ []
+
+[40]
+File: ./grafy/rysy/root.eps Graphic file (type eps)
+ <./grafy/rysy/root.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1282--1283
+ [][] 
+ []
+
+File: ./grafy/rysy/sum.eps Graphic file (type eps)
+<./grafy/rysy/sum.eps>
+Overfull \hbox (14.36966pt too wide) in paragraph at lines 1286--1287
+ [][] 
+ []
+
+[41]
+
+Package xcolor Warning: Incompatible color definition on input line 1317.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1321.
+
+[42] [43]
 \openout2 = `zaver.aux'.
 
 
@@ -1374,26 +1426,26 @@ No file zaver.tex.
 
 LaTeX Warning: Empty `thebibliography' environment on input line 16.
 
-) [45
+) [44
 
 
+
+
+] [45
 
 
 ] [46
 
-
 ] [47
-
-] [48
 
 ] (./prace.aux (./zaver.aux) (./literatura.aux)) ) 
 Here is how much of TeX's memory you used:
- 8037 strings out of 494938
- 112176 string characters out of 1181144
- 201569 words of memory out of 3000000
- 11167 multiletter control sequences out of 15000+50000
- 23365 words of font info for 59 fonts, out of 3000000 for 9000
+ 8086 strings out of 494938
+ 112762 string characters out of 1181144
+ 201850 words of memory out of 3000000
+ 11213 multiletter control sequences out of 15000+50000
+ 23367 words of font info for 59 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
- 38i,17n,38p,1202b,401s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,17n,38p,1202b,411s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (48 pages, 203752 bytes).
+Output written on prace.dvi (47 pages, 211940 bytes).

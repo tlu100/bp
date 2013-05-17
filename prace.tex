@@ -46,8 +46,8 @@
 \usepackage{colortbl}
 \usepackage[bottom]{footmisc}
 \usepackage{multirow}
-
-\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{float}
+\usepackage[font=scriptsize,labelfont=bf]{caption}
 
 \definecolor{seda}{rgb}{0.7,0.7,0.7}
 \newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
@@ -1152,8 +1152,147 @@ Pro následující experimenty používáme stejná data s ručně hodnocenou pl
 
 Vzhledem k tomu, že budou rysy vycházet z německé gramatiky, budeme často potřebovat znát hranice klauzí dané věty. Určit klauze z hypotézy, která není gramaticky správně, je však obtížné - parser je v takovém případě zmatený a neudělá větný rozbor správně. Na základě toho používáme identifikované klauze z výchozího anglického textu, který je gramaticky správně, a na německé je pak převádíme pomocí zarovnání na úrovni slov. 
 
+\section{Vlastní rysy}
+Vlastní množina rysů sestává především z gramatických jevů, které n-gramy nemají možnost zachytit. Jedná se hlavně o tvorbu větného rámce. Mimo to ale budeme zkoumat, zda se ve větě třeba nevyskytuje více určitých sloves nebo naopak sloveso úplně chybí.
+
+Celkem jsme sestavili 16 následujících rysů, u kterých vysvětlíme, jak fungují a co kontrolují, neboť ačkoliv jejich názvy intuitivně funkci napovídají, může být omezena jen na některé případy.
+\begin{enumerate}
+\item{\texttt{chybi\_infszu} - kontroluje, zda byla klauze uvozena spojkou vyžadující infinitiv s zu (rozšířený slovní druh \textit{KOUI}\footnote{ParZu používá pro označení rozšířeného slovního druhu Stuttgart/Tübinger Tagsets ZDROJ http://www.coli.uni-saarland.de/projects/sfb378/negra-corpus/stts.asc}), typicky se jedná o zkrácené vedlejší věty, a sleduje, zda ve větě takový infinitiv byl}
+\item{\texttt{chybi\_podmet} - označuje skutečnost, že se v klauzi nevyskytlo slovo v prvním pádě}
+\item{\texttt{chybi\_vfin} - v klauzi chybí určité sloveso}
+\item{\texttt{chybi\_sum} - sčítá hodnoty všech rysů typu \texttt{chybi\_*}}
+\item{\texttt{inf\_po\_vm\_neni\_na\_konci} - kontroluje, zda se za infinitivem po modálním slovese nevyskytlo ještě další slovo mimo sloves}
+\item{\texttt{infszu\_neni\_na\_konci} - byla-li spojka vyžadující infinitiv s zu a zároveň se za infinitivem ještě vyskytlo další slovo mimo sloves}
+\item{\texttt{vv\_sloveso\_neni\_na\_konci} - po podřadících spojkách (\textit{KOUS}, \textit{PRELS}, \textit{PRELAT}) kontroluje, zda po určitém slovesu nešlo ještě další slovo mimo sloves}
+\item{\texttt{pp\_neni\_na\_konci} - pokud věta obsahovala pomocné sloveso, očekáváme příčestí minulé a kontrolujeme proto, zda se za ním ještě nevyskytlo další slovo mimo sloves}
+\item{\texttt{neni\_na\_konci\_sum} - sčítá hodnoty všech rysů typu \texttt{*\_neni\_na\_konci}}
+\item{\texttt{pp\_bez\_av} - bylo-li ve větě příčestí minulé bez pomocného slovesa a zároveň nebyla před příčestím minulým souřadící spojka, která by mohla oddělovat dvě věty se dvěma příčestími minulými, ale pomocným slovesem jen v první z nich (\textit{např.: Ich habe gekocht und gelernt.})}
+\item{\texttt{neshoda\_podmet\_prisudek} - sledujeme výskyt prvního slova v nominativu nebo prvního slovesa, od těchto prvních výskytů si zapamatujeme číslo a osobu (u podstatných jmen ručně nastavíme, že se jedná o třetí osobu), pokud se nenajde shoda v čísle a osobě mezi prvním nalezeným nominativem a slovesem, pak daná klauze dostane tento rys}
+\item{\texttt{vice\_osob} - funguje stejně jako předchozí, jenom s jiným vyhodnocením - tj. tehdy, když po první nalezené osobě nalezneme ještě další (samozřejmě v prvním pádě)}
+\item{\texttt{vice\_vfin} - indikuje výskyt více určitých sloves v jedné klauzi}
+\item{\texttt{vice\_sum} - sčítá hodnoty všech rysů typu \texttt{vice\_*}}
+\item{\texttt{root} - projde větný rozbor z výstupu ParZu a spočítá počet kořenů, je-li totiž věta gramaticky správně, nalezneme kořen pouze jeden, v opačném případě je jich více a představují pomyslný počet chyb ve větě}
+\item{\texttt{sum} - sčítá hodnoty všech předchozích rysů včetně rysu \texttt{root}}
+\end{enumerate}
+
+Pomocí programu Chyby, který vzniknul k této práci, jsme změřili na vývojových datech korelaci každého rysu s ručně hodnocenou plynulostí. Každý rys kromě rysů součtových a rysu \texttt{root} jsou určovány pro každou klauzi zvlášť a mohou v ní vždy dostat jen hodnotu \texttt{true}/\texttt{false}. Rysy celé věty jsou pak součtem hodnot rysů ze všech klauzí - přičteme vždy jedničku, když daný rys nabyl v klauzi hodnoty \texttt{true}.
+
+\subsection{Rysy typu chybi\_*}
+\begin{figure}[!htb]
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_infszu.eps}
+  \caption{Korelace hodnoty rysu chybi\_infszu a plynulosti}\label{gr:infszu}
+\endminipage\hfill
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_podmet.eps}
+  \caption{Korelace hodnoty rysu chybi\_podmet a plynulosti}\label{gr:podmet}
+\endminipage\hfill
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_vfin.eps}
+  \caption{Korelace hodnoty rysu chybi\_vfin a plynulosti}\label{gr:vfin}
+\endminipage\hfill
+\end{figure}
+
+\begin{figure}[!htb]
+\centering\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_sum.eps}
+  \caption{Korelace součtového rysu chybi\_sum a plynulosti}\label{gr:chybi}
+\endminipage
+\end{figure}
+
+Jednotlivé rysy samostatně neukázaly závislost s plynulostí (obrázky \ref{gr:infszu}, \ref{gr:podmet}, \ref{gr:vfin}). V součtu je u hypotéz s plynulostí 5 medián na nule, což je správně, neboť tyto hypotézy by měly být úplně bez chyb (obrázek \ref{gr:chybi}). Hodnoty nad nulou jsou způsobené jednak díky chybám v hranicích klauzí, protože se v nich spoléháme na identifikaci klauzí anglických a na zarovnání slov. Jednak také díky chybám při morfologické analýze z ParZu a samozřejmě také díky speciálním případům, se kterými náš program na vyhledávání hodnot rysů, nepočítá.
+
+\pagebreak
+
+
+\subsection{Rysy typu *\_neni\_na\_konci}
+\begin{figure}[!htb]
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/inf_po_vm_neni_na_konci.eps}
+  \caption{Korelace hodnoty rysu inf\_po\_vm\_neni\_na\_konci a plynulosti}\label{gr:vm}
+\endminipage\hfill
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/infszu_neni_na_konci.eps}
+  \caption{Korelace hodnoty rysu infszu\_neni\_na\_konci a plynulosti}\label{gr:infszu_konec}
+\endminipage\hfill
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/vv_sloveso_neni_na_konci.eps}
+  \caption{Korelace hodnoty rysu vv\_sloveso\_neni\_na\_konci a plynulosti}\label{gr:vvsloveso}
+\endminipage\hfill
+\end{figure}
+
+
+\begin{figure}[!htb]
+\begin{center}
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/pp_neni_na_konci.eps}
+  \caption{Korelace hodnoty rysu pp\_neni\_na\_konci a plynulosti}\label{gr:pp_konec}
+\endminipage\quad
+\minipage{0.31\textwidth} 
+  \centering\includegraphics[width=50mm]{./grafy/rysy/neni_na_konci_sum.eps}
+  \caption{Korelace součtového rysu neni\_na\_konci\_sum a plynulosti}\label{gr:sumneni}
+\endminipage
+\end{center}
+\end{figure}
+
+
+Zde je situace podobná jako u předchozí skupiny rysů. Jednotlivé rysy samostatně (obrázky \ref{gr:vm}, \ref{gr:infszu_konec}, \ref{gr:vvsloveso}, \ref{gr:pp_konec}) mají mediány na nule. U součtového rysu (obrázek \ref{gr:sumneni}) alespoň hypotézy s hodnocením plynulosti 5 dostávaly oproti ostatním plynulostem častěji nulu.
+
+
+\subsection{Rysy pp\_bez\_av a neshoda\_podmet\_prisudek}
+\begin{figure}[!htb]
+\begin{center}
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/pp_bez_av.eps}
+  \caption{Korelace hodnoty rysu pp\_bez\_av a plynulosti}\label{gr:bezav}
+\endminipage\quad
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/neshoda_podmet_prisudek.eps}
+  \caption{Korelace hodnoty rysu neshoda\_podmet\_prisudek a plynulosti}\label{gr:neshoda}
+\endminipage
+\end{center}
+\end{figure}
+
+Oba rysy opět nevykazují samostatně souvislost s plynulostí (obrázky \ref{gr:bezav}, \ref{gr:neshoda}). 
+
+
+\subsection{Rysy typu vice\_*}
+
+\begin{figure}[!htb]
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/vice_osob.eps}
+  \caption{Korelace hodnoty rysu vice\_osob a plynulosti}\label{gr:viceosob}
+\endminipage\hfill
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/vice_vfin.eps}
+  \caption{Korelace hodnoty rysu vice\_vfin a plynulosti}\label{gr:vicevfin}
+\endminipage\hfill
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/vice_sum.eps}
+  \caption{Korelace součtového rysu vice\_sum a plynulosti}\label{gr:vicesum}
+\endminipage\hfill
+\end{figure}
+
+Shodně dopadly i rysy typu \texttt{vice\_*}. Mediány rysu \texttt{vice\_osob} jsou nulové (obrázek \ref{gr:viceosob}). U rysu \texttt{vice\_vfin} mediány kolísají mezi nulou a jedničkou (obrázek \ref{gr:vicevfin}), stejně jako i u součtového rysu (obrázek \ref{gr:vicesum}).
+
+\subsection{Rysy sum a root}
+\begin{figure}[!htb]
+\begin{center}
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/root.eps}
+  \caption{Korelace hodnoty rysu root a plynulosti}\label{gr:root}
+\endminipage\quad
+\minipage{0.31\textwidth}
+  \centering\includegraphics[width=50mm]{./grafy/rysy/sum.eps}
+  \caption{Korelace hodnoty rysu sum a plynulosti}\label{gr:sum}
+\endminipage
+\end{center}
+\end{figure}
+
+Oba rysy vykazují závislost jejich hodnot s plynulostí (obrázky \ref{gr:root}, \ref{gr:sum}). Mediány mají pro různé plynulosti odlišné hodnoty (až na plynulosti 4 a 5). V následujících experimentech proto zkusíme, zda se dá predikovat plynulost třeba jen na základě mediánu vypočteného pro jednotlivé plynulosti v trénovacích datech.
+
+
 \section{Princip experimentů}
-- popsat identifikaci klauzí dle alignmentu a rysy
 
 Princip experimentů bude následující:
 \begin{itemize}
@@ -1185,47 +1324,6 @@ Jak vidíme z příkladu, druhý řádek nám říká, že hypotéza hodnocená 
 \section{Způsob vyhodnocení}
 přesnost, lišící se o jedna + přehled nabízených fluency
 
-\section{Vlastní rysy}
-vždy napsat, jak se hledají - neznamenají vždy 100 \% to, jak se jmenují
-
-
-\begin{figure}
-  \centering
-  \includegraphics[width=60mm]{./grafy/rysy/chybi_infszu.eps}
-  \caption{Korelace plynulosti a hodnoty rysu chybi\_infszu}
-  \label{chybiinfszu}
-\end{figure}
-
-\includegraphics[width=60mm]{./grafy/rysy/chybi_infszu.eps}
-\includegraphics[width=60mm]{./grafy/rysy/chybi_podmet.eps}
-\includegraphics[width=60mm]{./grafy/rysy/chybi_vfin.eps}
-
-\includegraphics[width=70mm]{./grafy/rysy/chybi_sum.eps}
-
-
-\includegraphics[width=60mm]{./grafy/rysy/inf_po_vm_neni_na_konci.eps}
-\includegraphics[width=60mm]{./grafy/rysy/infszu_neni_na_konci.eps}
-\includegraphics[width=60mm]{./grafy/rysy/vv_sloveso_neni_na_konci.eps}
-
-\includegraphics[width=60mm]{./grafy/rysy/pp_neni_na_konci.eps}
-
-\includegraphics[width=70mm]{./grafy/rysy/neni_na_konci_sum.eps}
-
-
-\includegraphics[width=60mm]{./grafy/rysy/neshoda_podmet_prisudek.eps}
-\includegraphics[width=60mm]{./grafy/rysy/pp_bez_av.eps}
-
-
-\includegraphics[width=70mm]{./grafy/rysy/root.eps}
-\includegraphics[width=70mm]{./grafy/rysy/sum.eps}
-
-
-\includegraphics[width=60mm]{./grafy/rysy/vice_osob.eps}
-\includegraphics[width=60mm]{./grafy/rysy/vice_vfin.eps}
-
-\includegraphics[width=70mm]{./grafy/rysy/vice_sum.eps}
-
-\section{JINÉ DĚLENÍ KAPITOL:}
 \section{Modely se všemi rysy}
 \section{Modely se všemi rysy kromě rysů součtových}
 \subsection{Bez rysu root}
@@ -1235,28 +1333,6 @@ vždy napsat, jak se hledají - neznamenají vždy 100 \% to, jak se jmenují
 \section{Modely s rysem sum}
 \subsection{S rysem root}
 
-\section{NAMÍSTO PŮVODNÍHO:}
-
-\section{Počet kořenů v naparsovaném stromu}
-Z gramaticky správné věty by měl jít vykreslit strom s větným rozborem. Předložíme-li ale ParZu větu, která správně není, vrátí nám stromů více.
-%% TODO: doplnit priklady naparsovani vety s chybami
-Zkusili jsme proto zjistit, jak spolu souvisí počet stromů z větného rozboru a ručně hodnocená plynulost překladu.
-\begin{center}
-	\includegraphics[width=70mm]{./grafy/pocet-stromu/pocet-stromu.eps}
-\end{center}
-Výsledky vypadají slibně, neboť boxploty mají výrazně klesavou tendenci. Je tedy patrné, že počet stromů z větného rozboru souvisí s ručně hodnocenou plynulostí.
-
-\section{Chybějící infinitiv s zu}
-\section{Chybějící podmět}
-\section{Chybějící určité sloveso}
-\section{Infinitiv po modálním slovese není na konci věty}
-\section{Podmět se neshoduje s přísudkem}
-\section{Příčestí minulé bez pomocného slovesa}
-\section{Příčestí minulé není na konci věty}
-\section{Jména a slovesa ve více osobách}
-\section{Více určitých sloves ve větě}
-\section{Určité sloveso není ve vedlejší větě na konci}
-\section{Součtové rysy}
 
 NAPSAT, ŽE SPOUSTU CHYB V PARZU ZAPŘÍČIŇUJE LOWERCASE!!! zahlen x Zahlen
 
