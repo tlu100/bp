@@ -746,7 +746,7 @@ Princip experimentů bude následující
 \item{změříme perplexitu na testovacích datech a provedeme vyhodnocení}
 \end{itemize}
 
-Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German, formálněji známý také pod názvem Pro3GresDE}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger a morfologický analyzátor Morphisto. Pro morphisto použijeme předkompilovaný model \texttt{morphisto-02022011.a}\footnote{ZDROJ}. S využitím Morphisto uvádí ParZu přesnost 86.5 \% (ZDROJ).
+Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German, formálněji známý také pod názvem Pro3GresDE}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger (ZDROJ) a morfologický analyzátor Morphisto (ZDROJ). Pro Morphisto použijeme předkompilovaný model \texttt{morphisto-02022011.a}\footnote{ZDROJ}. S využitím nástroje Morphisto uvádí ParZu přesnost 86.5 \% (ZDROJ).
 
 ParZu spouští nejprve vlastní tokenizér. Vzhledem k tomu, že data z WMT 06, která používáme, jsou již tokenizovaná, tento tokenizér vynecháme a pouze upravíme formát - jeden token na řádku, věty oddělené prázdným řádkem. Data z WMT 12 tokenizovaná nejsou, proto u nich tokenizér necháme běžet.
 
@@ -771,17 +771,16 @@ Pro účely následujících experimentů nás bude zajímat pátý a šestý sl
 
 Nahrazení slov různými morfologickými značkami z výstupu ParZu zajišťuje program MorfModel(VYMYSLET TŘEBA NĚJAKÝ TAKOVÝ NÁZEV), který vzniknul jako součást této práce a je k dispozici na přiloženém DVD. 
 
-Standardní n-gramové modely budeme vyrábět v již zmíněném SRILM toolkitu, nástrojem \texttt{ngram-count} s výchozím nastavením. Tj. technika back-off s Good-Turing vyhlazováním. Pro trénování modelů maximální entropie (maxentové) využijeme již taktéž zmíněné rozšíření SRILM toolkitu od Tanela Alumäe a Mikko Kurima. Pro vyhlazování používá toto rozšíření popsanou metodu $\mathpzc{l}_1+\mathpzc{l}_2^2$ regularizace.
+Standardní n-gramové modely budeme vyrábět v již zmíněném SRILM toolkitu, nástrojem \texttt{ngram-count} s výchozím nastavením. Tj. technika back-off s Good-Turing vyhlazováním. Pro trénování modelů maximální entropie (maxentových) využijeme již taktéž zmíněné rozšíření SRILM toolkitu od Tanela Alumäe a Mikko Kurima. Pro vyhlazování používá toto rozšíření popsanou metodu $\mathpzc{l}_1+\mathpzc{l}_2^2$ regularizace.
 
 
 \section{Způsob vyhodnocení}
-U každého natrénovaného modelu bude změřena perplexita pro každou větu zvlášť. Výsledky pak vykreslíme do grafu společně s odpovídající plynulostí pro znázornění jejich korelace. Pro lepší znázornění bude u každé plynulosti vykreslen boxplot\footnote{Boxplot (krabicový graf) - vykreslí obdélník v oblasti, kde se vyskytuje 50 \% hodnot. Horní a dolní hranice obdélníku odpovídají hornímu a dolnímu kvartilu. Uprostřed obdélníku se vykresluje ještě tučně medián. Vertikálně vedou z obdélníků tzv. vousy, jejichž hranice leží v maximální (minimální) hodnotě, maximálně však v 1.5 násobku mezikvartilového rozmezí (horní - dolní kvartil) nad horním nebo pod dolním kvartilem. Body mimo tyto hranice se nazývají extrémní hodnoty a jsou vykresleny samostatně jako body.} znázorňující oblast s nejvyšším výskytem hypotéz ohodnocených danou perplexitou. Čím vyšší je plynulost, tím nižší by měla být perplexita. Jednotlivé boxploty by proto měly, co se perplexity týče, klesat. Mediány boxplotů bude ještě proložena přímka, aby byla jejich tendence více zřetelná. \\
-%Grafy lze vyhodnotit a porovnat Pearsonovým korelačním koeficientem. Ten ale není úplně vypovídající a může dávat pro dvě na pohled odlišné korelace stejný výsledek. 
+U každého natrénovaného modelu bude změřena perplexita pro každou větu zvlášť. Výsledky pak vykreslíme do grafu společně s odpovídající plynulostí pro znázornění jejich korelace. Pro lepší znázornění bude u každé plynulosti vykreslen boxplot\footnote{Boxplot (krabicový graf) - vykreslí obdélník v oblasti, kde se vyskytuje 50 \% hodnot. Horní a dolní hranice obdélníku odpovídají hornímu a dolnímu kvartilu. Uprostřed obdélníku se vykresluje ještě tučně medián. Vertikálně vedou z obdélníků tzv. vousy, jejichž hranice leží v maximální (minimální) hodnotě, maximálně však v 1.5 násobku mezikvartilového rozmezí (horní - dolní kvartil) nad horním nebo pod dolním kvartilem. Body mimo tyto hranice se nazývají extrémní hodnoty a jsou vykresleny samostatně jako body.} znázorňující oblast s nejvyšším výskytem hypotéz ohodnocených danou perplexitou. Čím vyšší je plynulost, tím nižší by měla být perplexita. Jednotlivé boxploty by proto měly, co se perplexity týče, klesat. Mediány boxplotů bude ještě proložena přímka, aby byla jejich tendence více zřetelná.
 
-Srovnání standardních a maxentových modelů provedeme graficky umístěním dvou grafů přes sebe vykreslených odlišnou barvou. Mimo toho proveme ještě srovnání z hlediska výpočetních nároků\footnote{Všechny modely trénovány na netbooku Asus EEE 1201N - Intel Atom 330 - 1.6 GHz dual core, 2 GB RAM.}.
+Srovnání standardních a maxentových modelů provedeme graficky umístěním dvou grafů přes sebe vykreslených odlišnou barvou. Mimo toho proveme ještě srovnání z hlediska výpočetních nároků\footnote{Všechny modely trénovány na netbooku Asus EEE 1201N - Intel Atom 330 - 1.6 GHz dual core, 2 GB RAM.}. Na závěr uvedeme shrnutí popisující naměřené hodnoty ze všech modelů.
 
 \section{Běžné modely se slovy}
-Jako první jsme zkusili natrénovat standardní 6-gramové modely se slovy, abychom viděli, jak spolu souvisí perplexita a plynulost u takových modelů a mohli výsledek použít pro další srovnání.
+Jako první jsme zkusili natrénovat 6-gramové modely se slovy, abychom viděli, jak spolu souvisí perplexita a plynulost u takových modelů a mohli výsledek použít pro další srovnání.
 
 \begin{center}
 	\includegraphics[width=60mm]{./grafy/morf/ngram/text.svg.eps}
@@ -822,13 +821,14 @@ Příklad věty:
 	\includegraphics[width=60mm]{./grafy/morf/ngram/all.svg.eps}	
 	\includegraphics[width=60mm]{./grafy/morf/maxent/all.svg.eps}	
 \end{center}
+Oba modely dopadly lépe než modely trénované na slovech. Boxploty vykazují lehce klesavou tendenci.
 
 \begin{center}	
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/all.svg.eps}	
 \end{center}
 Maxentové modely opět, co se perplexity týče, dopadají lépe než standardní n-gramové. Avšak proložená přímka klesá u standardních modelů strměji. Z hlediska výpočetních nároků jsou na tom stadardní n-gramy oproti maxentovým znovu výrazně lépe - 72 sekund proti takřka 8 hodinám.
 
-Tyto modely sice obsahují morfologickou analýzu, ale nerozumí jejímu obsahu. Nedokáží rozlišit, zda se sousední jména shodují v rodě, ale už ne v pádě apod. Natrénování maxentového modelu s rysy, které by vycházely z morfologické analýzy (rod, pád, číslo, ...), rozšíření SRILMu od Tanela Alumäe a Mikko Kurima, bohužel neumožňuje a jiné dostupné toolkity, např. Maxent toolkit od LeZhanga, nejsou vhodné z hlediska výpočetních nároků na velká data. Zkusíme proto natrénovat další modely, ve kterých nahradíme slova vždy jedním z potencionálních rysů. 
+Tyto modely sice obsahují morfologickou analýzu, ale nerozumí jejímu obsahu. Nedokáží rozlišit, zda se sousední jména shodují v rodě, ale už ne v pádě apod. Natrénování maxentového modelu s rysy, které by vycházely z morfologické analýzy (rod, pád, číslo, ...), rozšíření SRILMu od Tanela Alumäe a Mikko Kurima bohužel neumožňuje a jiné dostupné toolkity, např. Maxent toolkit od LeZhanga, nejsou vhodné z hlediska výpočetních nároků na velká data. Zkusíme proto natrénovat další n-gramové modely, ve kterých nahradíme slova vždy jedním z potencionálních rysů. Takové modely by potom bylo možné kombinovat.
 
 \section{Rozšířený slovní druh}
 Zkusíme data ještě více zhustit a slova nahradit jen jejich rozšířeným slovním druhem.
@@ -862,7 +862,9 @@ Modely dopadly o něco hůře než v případě, kdy byl rozšířený slovní d
 \end{center}
 V porovnání je na tom maxentový model z hlediska perplexity opět mírně lépe. Stejně jako proložená přímka klesá u standardního n-gramového modelu strměji.
 
-Z hlediska výpočetních nároků to tentokrát není takový rozdíl. Standardní n-gramový model potřeboval pro natrénování 22 sekund, maxentový 14 minut. Zde je vidět, nakolik ovlivňuje velikost slovníku dobu trénování maxentových modelů. Oproti modelům se všemi morfologickými značkami potřebovaly standardní n-gramy 3.27x méně času, maxentové 34.29x, což je obrovský rozdíl.
+Z hlediska výpočetních nároků to tentokrát není takový rozdíl. Standardní n-gramový model potřeboval pro natrénování 22 sekund, maxentový 14 minut.
+
+Zde je vidět, nakolik ovlivňuje velikost slovníku dobu trénování maxentových modelů. Oproti modelům se všemi morfologickými značkami potřebovaly standardní n-gramy 3.27x méně času, maxentové 34.29x, což je obrovský rozdíl.
 
 \section{Rod}
 První z modelů s jedinou morfologickou značkou budou modely obsahující rod. Slova budou nahrazena znakem \texttt{w}, ke kterému se připojí patřičný rod, lze-li u slova určit. Tím dojde ke zhuštění dat a velikost slovníku se zmenší na pouhá 4 slova.
@@ -894,7 +896,7 @@ Modely ale dopadly přesně obráceně, než jsme chtěli. Boxploty neklesají, 
 Rozdíl mezi standardními a maxentovými n-gramovými modely je prakticky neznatelný. Stejně je tomu tentokrát i u výpočetních nároků. Standardní n-gramy potřebovaly k natrénování 3 sekundy, maxentové n-gramy pak sekundy 4.
 
 \subsection{Rod stejný s předchozím}
-Ačkoliv modely pouze s rodem nebyly úspěšné, zkusíme ještě slova nenahrazovat jenom rodem daného slova, ale pokusíme se sledovat, zda se rody za sebou shodují. Slova tedy nahradíme opět písmenem \textit{w}, k němuž přidáme slovo \textit{rod}, lze-li u slova určit, a slovo \textit{stejne}, pokud lze jednak rod u slova určit a jednak, pokud se rod shoduje s předchozím slovem.
+Ačkoliv modely pouze s rodem nebyly úspěšné, zkusíme ještě slova nenahrazovat jenom rodem daného slova, ale pokusíme se sledovat, zda se rody za sebou shodují. Slova tedy nahradíme opět písmenem \texttt{w}, k němuž přidáme slovo \texttt{rod}, lze-li u slova určit, a slovo \texttt{stejne}, pokud lze jednak rod u slova určit a jednak, pokud se rod shoduje s předchozím slovem.
 
 
 Příklad věty:
@@ -916,14 +918,14 @@ Příklad věty:
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rodstejny.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rodstejny.eps}
 \end{center}
-Výsledky jsou ale stejně špatné jako v případě samotného rodu.
+Výsledky jsou ale stejně špatné jako v případě samotného rodu. Grafy vypadají hodně podobně.
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rodstejny.eps}	
 \end{center}
 Rozdíly mezi standardním n-gramovým a maxentovým n-gramovým modelem je taktéž nepatrný. Doba nutná k natrénování obou typů byla v tomto případě shodně 3 sekundy.
 
 \subsection{S rozšířeným slovním druhem}
-Jelikož samotný rod byla pro model nedostatečná informace, zkusíme namísto písmene \textit{w} slova nahrazovat rozšířeným slovním druhem a k němu přidávat za dvojtečku rod.
+Jelikož samotný rod byla pro model nedostatečná informace, zkusíme namísto písmene \texttt{w} slova nahrazovat rozšířeným slovním druhem a k němu přidávat za dvojtečku rod.
 
 Příklad věty:
 \begin{center}
@@ -951,7 +953,7 @@ S rozšířeným slovním druhem už modely dopadly lépe, přesto perplexita s 
 Ve srovnání jsou oba typy modelů na tom podobně, maxentové dostávaly jen o něco málo nižší perplexitu. Z hlediska výpočetní náročnosti je ale rozdíl velký - 36 sekund standardní n-gramový model naproti 27 minutám u modelu maxentového.
 
 \section{Číslo}
-Stejné modely zkusíme natrénovat i v případě čísla. Jako první znovu zkusíme, zda bude modelu postačovat informace pouze o čísle daného slova tj. \textit{wSg}, \textit{wPl} nebo \textit{w}.
+Stejné modely zkusíme natrénovat i v případě čísla. Jako první znovu zkusíme, zda bude modelu postačovat informace pouze o čísle daného slova tj. \texttt{wSg}, \texttt{wPl} nebo \texttt{w}.
 
 Příklad věty:
 \begin{center}
@@ -980,7 +982,7 @@ Výsledky ale dopadly obdobně špatně jako v případě rodu. Pomocí perplexi
 Oba typy modelů dopadly takřka stejně. Stejná byla i doba nutná k natrénování - shodně po třech sekundách.
 
 \subsection{Přidání osoby}
-Číslo se bude často pojit s nějakou osobou. Zkusíme proto tuto informaci k číslu přidat. Slovo nahradíme písmenem \textit{w}, poté bude následovat osoba a číslo, jdou-li u daného slova určit.
+Číslo se bude často pojit s nějakou osobou. Zkusíme proto tuto informaci k číslu přidat. Slovo nahradíme písmenem \texttt{w}, poté bude následovat osoba a číslo, jdou-li u daného slova určit.
 
 Příklad věty:
 \begin{center}
@@ -1036,7 +1038,7 @@ Modely s rozšířeným slovním druhem dopadly znovu lépe. Ovšem výsledky st
 V porovnání dostávaly maxentové modely o něco nižší perplexitu. Čas potřebný k natrénování byl u standardních n-gramových modelů 33 s, u maxentových 24 minut.
 
 \section{Pád}
-Jako poslední zkusíme ještě natrénovat modely, kde slova nahradíme znovu písmenem \textit{w} a přidáme k němu pád, lze-li u daného slova určit.
+Jako poslední zkusíme ještě natrénovat modely, kde slova nahradíme znovu písmenem \texttt{w} a přidáme k němu pád, lze-li u daného slova určit.
 
 Příklad věty:
 \begin{center}
@@ -1072,11 +1074,11 @@ Jako v případech předchozích modelů se značkami z jedné morfologické kat
 	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+pad.svg.eps}
 	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+pad.svg.eps}
 \end{center}
-Zlepšení je znatelné a podobá se modelům s rozšířeným slovním druhem a všemi morfologickými značkami. Výsledky jsou ale už nyní nejlepší ze všech modelů se značkami jedné morfologické kategorie s rozšířeným slovním druhem.
+Zlepšení je znatelné a podobá se modelům s rozšířeným slovním druhem a všemi morfologickými značkami. Výsledky jsou prozatím nejlepší ze všech modelů se značkami jedné morfologické kategorie s rozšířeným slovním druhem.
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+pad.eps}	
 \end{center}
-Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Nicméně proložená přímka je u strmější u standardních n-gramů. Výpočetní nároky se ale výrazně liší - 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
+Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Nicméně proložená přímka je strmější u standardních n-gramů. Výpočetní nároky se ale výrazně liší - 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
 
 \section{Shrnutí}
 Zde uvedeme všechny naměřené hodnoty do tabulky. Tabulka bude obsahovat od každého modelu Pearsonův korelační koeficient\footnote{Udává vztah mezi dvěma veličinami. Nabývá hodnot $<-1, 1>$, přičemž 1 značí závislost přímou a -1 závislost nepřímou. Hodnota 0 indikuje, že vztah mezi veličinami nelze vyjádřit lineární funkcí.}, směrnici přímky proložené mediány boxplotů a čas potřebný k natrénování.
@@ -1118,7 +1120,7 @@ RSD + pád & 0.04 & 0.02 & -2.25 & -1.78 & 34 s & 27 min \\
 
 U Pearsonova koeficientu bychom rádi dosáhli hodnoty blížící se k -1. Jedinou zápornou hodnotu má ale jen standardní n-gramový model natrénovaný na rozšířeném slovním druhu a všech morfologických značkách. Směrnice přímky by měla být záporná, aby přímka klesala. Čím menší bude, tím bude klesat strměji. Opět je hodnota nejnižší u standardního modelu se slovním druhem a všemi značkami.
 
-Ačkoliv modely maximální entropie obvykle dostávaly nižší perplexitu než standardní modely, korelace perplexity a ručně hodnocené plynulosti vycházela lépe u standardních modelů. Trénování modelů maximální entropie trvalo ve většině případů mnohonásobně déle a nepřineslo žádné výrazné zlepšení.
+Ačkoliv modely maximální entropie obvykle dostávaly nižší perplexitu než standardní modely, korelace perplexity a ručně hodnocené plynulosti vycházela lépe u standardních modelů. Trénování modelů maximální entropie trvalo ve většině případů mnohonásobně déle a nepřineslo pro naše experimenty žádné výrazné zlepšení.
 
 
 \chapter{Modely s vlastní množinou rysů}

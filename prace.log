@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  17 MAY 2013 01:39
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  17 MAY 2013 02:25
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -654,6 +654,12 @@ Underfull \hbox (badness 1590) in paragraph at lines 749--749
 mál-nì-ji zná-mý ta-ké pod ná-zvem
  []
 
+
+Overfull \hbox (27.43613pt too wide) in paragraph at lines 749--750
+\IL2/cmr/m/n/12 (ZDROJ). Pro Mor-phis-to po-u-¾i-je-me pøed-kom-pi-lo-va-ný mo-
+del \IL2/cmtt/m/n/12 morphisto-02022011.a[]\IL2/cmr/m/n/12 .
+ []
+
 LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 767
 .
 (/usr/share/texmf/tex/latex/R/tex/latex/omscmtt.fd
@@ -662,17 +668,8 @@ File: omscmtt.fd
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 767.
  [23]
-Underfull \hbox (badness 10000) in paragraph at lines 778--780
-
- []
-
-
-Overfull \hbox (3.0849pt too wide) in paragraph at lines 784--785
-[]\IL2/cmr/m/n/12 Jako prv-ní jsme zku-si-li na-tré-no-vat stan-dard-ní 6-gramo
-vé mo-de-ly se slo-vy, abychom
- []
-
 File: ./grafy/morf/ngram/text.svg.eps Graphic file (type eps)
+
 <./grafy/morf/ngram/text.svg.eps>
 File: ./grafy/morf/maxent/text.svg.eps Graphic file (type eps)
  <./grafy/morf/maxent/text.svg.eps> [24]
@@ -680,16 +677,16 @@ File: ./grafy/morf/porovnani/text.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/text.svg.eps> [25]
 
-Package xcolor Warning: Incompatible color definition on input line 818.
+Package xcolor Warning: Incompatible color definition on input line 817.
 
 
-Package xcolor Warning: Incompatible color definition on input line 818.
+Package xcolor Warning: Incompatible color definition on input line 817.
 
 
-Package xcolor Warning: Incompatible color definition on input line 818.
+Package xcolor Warning: Incompatible color definition on input line 817.
 
 
-Overfull \hbox (7.03166pt too wide) in paragraph at lines 818--819
+Overfull \hbox (7.03166pt too wide) in paragraph at lines 817--818
  [] 
  []
 
@@ -717,10 +714,10 @@ File: ./grafy/morf/porovnani/rsd.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/rsd.svg.eps> [27]
 
-Package xcolor Warning: Incompatible color definition on input line 882.
+Package xcolor Warning: Incompatible color definition on input line 884.
 
 
-Package xcolor Warning: Incompatible color definition on input line 882.
+Package xcolor Warning: Incompatible color definition on input line 884.
 
 File: ./grafy/morf/ngram/rod.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/rod.svg.eps>
@@ -730,36 +727,38 @@ File: ./grafy/morf/porovnani/rod.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/rod.svg.eps>
 
-Package xcolor Warning: Incompatible color definition on input line 912.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 
-Package xcolor Warning: Incompatible color definition on input line 912.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
+[29]
 File: ./grafy/morf/ngram/rodstejny.eps Graphic file (type eps)
-<./grafy/morf/ngram/rodstejny.eps>
+ <./grafy/morf/ngram/rodstejny.eps>
 File: ./grafy/morf/maxent/rodstejny.eps Graphic file (type eps)
- <./grafy/morf/maxent/rodstejny.eps> [29]
+ <./grafy/morf/maxent/rodstejny.eps>
 File: ./grafy/morf/porovnani/rodstejny.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/rodstejny.eps>
 
-Package xcolor Warning: Incompatible color definition on input line 940.
+Package xcolor Warning: Incompatible color definition on input line 942.
 
 
-Package xcolor Warning: Incompatible color definition on input line 940.
+Package xcolor Warning: Incompatible color definition on input line 942.
 
-File: ./grafy/morf/ngram/rsd+rod.svg.eps Graphic file (type eps)
-<./grafy/morf/ngram/rsd+rod.svg.eps>
-File: ./grafy/morf/maxent/rsd+rod.svg.eps Graphic file (type eps)
- <./grafy/morf/maxent/rsd+rod.svg.eps>
 [30]
+File: ./grafy/morf/ngram/rsd+rod.svg.eps Graphic file (type eps)
+ <./grafy/morf/ngram/rsd+rod.svg.eps>
+File: ./grafy/morf/maxent/rsd+rod.svg.eps Graphic file (type eps)
+
+<./grafy/morf/maxent/rsd+rod.svg.eps>
 File: ./grafy/morf/porovnani/rsd+rod.svg.eps Graphic file (type eps)
  <./grafy/morf/porovnani/rsd+rod.svg.eps>
 
-Package xcolor Warning: Incompatible color definition on input line 968.
+Package xcolor Warning: Incompatible color definition on input line 970.
 
 
-Package xcolor Warning: Incompatible color definition on input line 968.
+Package xcolor Warning: Incompatible color definition on input line 970.
 
 File: ./grafy/morf/ngram/cislo.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/cislo.svg.eps>
@@ -769,10 +768,10 @@ File: ./grafy/morf/porovnani/cislo.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/cislo.svg.eps>
 
-Package xcolor Warning: Incompatible color definition on input line 997.
+Package xcolor Warning: Incompatible color definition on input line 999.
 
 
-Package xcolor Warning: Incompatible color definition on input line 997.
+Package xcolor Warning: Incompatible color definition on input line 999.
 
 File: ./grafy/morf/ngram/osoba+cislo.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/osoba+cislo.svg.eps>
@@ -783,10 +782,10 @@ File: ./grafy/morf/porovnani/osoba+cislo.svg.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/osoba+cislo.svg.eps>
 
-Package xcolor Warning: Incompatible color definition on input line 1025.
+Package xcolor Warning: Incompatible color definition on input line 1027.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1025.
+Package xcolor Warning: Incompatible color definition on input line 1027.
 
 File: ./grafy/morf/ngram/rsd+cislo.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/rsd+cislo.svg.eps>
@@ -796,10 +795,10 @@ File: ./grafy/morf/maxent/rsd+cislo.svg.eps Graphic file (type eps)
 File: ./grafy/morf/porovnani/rsd+cislo.svg.eps Graphic file (type eps)
  <./grafy/morf/porovnani/rsd+cislo.svg.eps>
 
-Package xcolor Warning: Incompatible color definition on input line 1053.
+Package xcolor Warning: Incompatible color definition on input line 1055.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1053.
+Package xcolor Warning: Incompatible color definition on input line 1055.
 
 File: ./grafy/morf/ngram/pad.svg.eps Graphic file (type eps)
 <./grafy/morf/ngram/pad.svg.eps>
@@ -817,25 +816,7 @@ File: ./grafy/morf/porovnani/rsd+pad.eps Graphic file (type eps)
 
 <./grafy/morf/porovnani/rsd+pad.eps>
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
-(Font)              scaled to size 12.04506pt on input line 1088.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1089.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1090.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1090.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1090.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1090.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1090.
+(Font)              scaled to size 12.04506pt on input line 1090.
 
 
 Package xcolor Warning: Incompatible color definition on input line 1091.
@@ -856,15 +837,6 @@ Package xcolor Warning: Incompatible color definition on input line 1092.
 Package xcolor Warning: Incompatible color definition on input line 1092.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1092.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1092.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1093.
-
-
 Package xcolor Warning: Incompatible color definition on input line 1093.
 
 
@@ -1163,27 +1135,36 @@ Package xcolor Warning: Incompatible color definition on input line 1115.
 
 
 Package xcolor Warning: Incompatible color definition on input line 1115.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1116.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1116.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1116.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1116.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1116.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1116.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1116.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1117.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1117.
 
 [36] [37]
 Kapitola 5.
-
-Package xcolor Warning: Incompatible color definition on input line 1132.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1133.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1133.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1133.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1133.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1134.
-
 
 Package xcolor Warning: Incompatible color definition on input line 1134.
 
@@ -1280,6 +1261,24 @@ Package xcolor Warning: Incompatible color definition on input line 1144.
 
 Package xcolor Warning: Incompatible color definition on input line 1145.
 
+
+Package xcolor Warning: Incompatible color definition on input line 1145.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1145.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1145.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1146.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1146.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1147.
+
 File: ./grafy/rysy/chybi_infszu.eps Graphic file (type eps)
 <./grafy/rysy/chybi_infszu.eps>
 File: ./grafy/rysy/chybi_podmet.eps Graphic file (type eps)
@@ -1287,7 +1286,7 @@ File: ./grafy/rysy/chybi_podmet.eps Graphic file (type eps)
 File: ./grafy/rysy/chybi_vfin.eps Graphic file (type eps)
 
 <./grafy/rysy/chybi_vfin.eps>
-Overfull \hbox (19.44855pt too wide) in paragraph at lines 1154--1157
+Overfull \hbox (19.44855pt too wide) in paragraph at lines 1156--1159
 [][] [] [] 
  []
 
@@ -1304,7 +1303,7 @@ File: ./grafy/rysy/infszu_neni_na_konci.eps Graphic file (type eps)
 File: ./grafy/rysy/vv_sloveso_neni_na_konci.eps Graphic file (type eps)
 
 <./grafy/rysy/vv_sloveso_neni_na_konci.eps>
-Overfull \hbox (19.44855pt too wide) in paragraph at lines 1161--1164
+Overfull \hbox (19.44855pt too wide) in paragraph at lines 1163--1166
 [][] [] [] 
  []
 
@@ -1329,7 +1328,7 @@ File: ./grafy/rysy/vice_vfin.eps Graphic file (type eps)
 <./grafy/rysy/vice_vfin.eps>
 File: ./grafy/rysy/vice_sum.eps Graphic file (type eps)
  <./grafy/rysy/vice_sum.eps> [40]
-Overfull \hbox (14.11543pt too wide) in paragraph at lines 1196--1199
+Overfull \hbox (14.11543pt too wide) in paragraph at lines 1198--1201
 []\IL2/cmr/m/n/12 Z gra-ma-tic-ky správ-né vì-ty by mìl jít vy-kres-lit strom s
  vìt-ným roz-bo-rem. Pøedlo¾íme-
  []
@@ -1366,6 +1365,6 @@ Here is how much of TeX's memory you used:
  10280 multiletter control sequences out of 15000+50000
  22787 words of font info for 58 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
- 38i,17n,36p,1205b,401s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,17n,36p,1202b,401s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (47 pages, 198032 bytes).
+Output written on prace.dvi (47 pages, 198352 bytes).
