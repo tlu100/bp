@@ -1,14 +1,20 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces V\IeC {\'y}znam jednotliv\IeC {\'y}ch hodnocen\IeC {\'\i } adekv\IeC {\'a}tnosti a plynulosti\relax }}{16}{table.caption.2}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Po\IeC {\v c}ty hodnocen\IeC {\'\i } jednotliv\IeC {\'y}ch plynulost\IeC {\'\i }\relax }}{21}{table.caption.3}
+\contentsline {table}{\numberline {4.2}{\ignorespaces P\IeC {\v r}ehled shody v hodnocen\IeC {\'\i } plynulosti\relax }}{22}{table.caption.4}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Shrnut\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} model\IeC {\r u} s morfologick\IeC {\'y}mi zna\IeC {\v c}kami\relax }}{40}{table.caption.27}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se v\IeC {\v s}emi rysy\relax }}{44}{table.caption.9}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se v\IeC {\v s}emi sou\IeC {\v c}tov\IeC {\'y}mi rysy\relax }}{44}{table.caption.10}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se sou\IeC {\v c}tov\IeC {\'y}mi rysy a rysem root\relax }}{45}{table.caption.11}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} s rysem root\relax }}{45}{table.caption.12}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} s rysem sum\relax }}{46}{table.caption.13}
-\contentsline {table}{\numberline {5.6}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se rysy sum a root\relax }}{46}{table.caption.14}
-\contentsline {table}{\numberline {5.7}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se v\IeC {\v s}emi rysy krom\IeC {\v e} rys\IeC {\r u} sou\IeC {\v c}tov\IeC {\'y}ch\relax }}{47}{table.caption.15}
-\contentsline {table}{\numberline {5.8}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se v\IeC {\v s}emi rysy krom\IeC {\v e} sou\IeC {\v c}tov\IeC {\'y}ch a krom\IeC {\v e} root\relax }}{47}{table.caption.16}
-\contentsline {table}{\numberline {5.9}{\ignorespaces Shrnut\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} model\IeC {\r u} s vlastn\IeC {\'\i }mi rysy\relax }}{48}{table.caption.17}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Rozd\IeC {\v e}len\IeC {\'\i } hodnocen\IeC {\'\i } hypot\IeC {\'e}z na v\IeC {\'y}vojov\IeC {\'a} a testovac\IeC {\'\i } data\relax }}{41}{table.caption.28}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se v\IeC {\v s}emi rysy\relax }}{48}{table.caption.36}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se v\IeC {\v s}emi sou\IeC {\v c}tov\IeC {\'y}mi rysy\relax }}{48}{table.caption.37}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se sou\IeC {\v c}tov\IeC {\'y}mi rysy a rysem root\relax }}{49}{table.caption.38}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} s rysem root\relax }}{49}{table.caption.39}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} s rysem sum\relax }}{50}{table.caption.40}
+\contentsline {table}{\numberline {5.7}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se rysy sum a root\relax }}{50}{table.caption.41}
+\contentsline {table}{\numberline {5.8}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se v\IeC {\v s}emi rysy krom\IeC {\v e} rys\IeC {\r u} sou\IeC {\v c}tov\IeC {\'y}ch\relax }}{51}{table.caption.42}
+\contentsline {table}{\numberline {5.9}{\ignorespaces Nam\IeC {\v e}\IeC {\v r}en\IeC {\'e} hodnoty model\IeC {\r u} se v\IeC {\v s}emi rysy krom\IeC {\v e} sou\IeC {\v c}tov\IeC {\'y}ch a krom\IeC {\v e} root\relax }}{51}{table.caption.43}
+\contentsline {table}{\numberline {5.10}{\ignorespaces Shrnut\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u} model\IeC {\r u} s vlastn\IeC {\'\i }mi rysy\relax }}{52}{table.caption.44}
+\addvspace {10\p@ }

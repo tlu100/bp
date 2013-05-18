@@ -2,20 +2,54 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Standardn\IeC {\'\i } 6-gramov\IeC {\'y} model se slovy\relax }}{24}{figure.caption.5}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Maxentov\IeC {\'y} 6-gramov\IeC {\'y} model se slovy\relax }}{24}{figure.caption.5}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} se slovy\relax }}{24}{figure.caption.6}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Standardn\IeC {\'\i } 6-gramov\IeC {\'y} model - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + morf. zn.}}{25}{figure.caption.7}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Maxentov\IeC {\'y} 6-gramov\IeC {\'y} model - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + morf. zn.}}{25}{figure.caption.7}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + morfologick\IeC {\'e} zna\IeC {\v c}ky\relax }}{26}{figure.caption.8}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Standardn\IeC {\'\i } 6-gramov\IeC {\'y} model - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh\relax }}{27}{figure.caption.9}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Maxentov\IeC {\'y} 6-gramov\IeC {\'y} model - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh\relax }}{27}{figure.caption.9}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh\relax }}{27}{figure.caption.10}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Standardn\IeC {\'\i } 6-gramov\IeC {\'y} model - rod\relax }}{28}{figure.caption.11}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Maxentov\IeC {\'y} 6-gramov\IeC {\'y} model - rod\relax }}{28}{figure.caption.11}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} - rod\relax }}{29}{figure.caption.12}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Standardn\IeC {\'\i } 6-gramov\IeC {\'y} model - rod stejn\IeC {\'y} s p\IeC {\v r}edchoz\IeC {\'\i }m\relax }}{30}{figure.caption.13}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Maxentov\IeC {\'y} 6-gramov\IeC {\'y} model - rod stejn\IeC {\'y} s p\IeC {\v r}edchoz\IeC {\'\i }m\relax }}{30}{figure.caption.13}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} - rod stejn\IeC {\'y} s p\IeC {\v r}edchoz\IeC {\'\i }m\relax }}{30}{figure.caption.14}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Standardn\IeC {\'\i } 6-gramov\IeC {\'y} model - \IeC {\v c}\IeC {\'\i }slo\relax }}{31}{figure.caption.15}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Maxentov\IeC {\'y} 6-gramov\IeC {\'y} model - \IeC {\v c}\IeC {\'\i }slo\relax }}{31}{figure.caption.15}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + rod\relax }}{31}{figure.caption.16}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Standardn\IeC {\'\i } 6-gramov\IeC {\'y} model - \IeC {\v c}\IeC {\'\i }slo\relax }}{32}{figure.caption.17}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Maxentov\IeC {\'y} 6-gramov\IeC {\'y} model - \IeC {\v c}\IeC {\'\i }slo\relax }}{32}{figure.caption.17}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} - \IeC {\v c}\IeC {\'\i }slo\relax }}{32}{figure.caption.18}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Standardn\IeC {\'\i } 6-gramov\IeC {\'y} model - osoba + \IeC {\v c}\IeC {\'\i }slo\relax }}{33}{figure.caption.19}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Maxentov\IeC {\'y} 6-gramov\IeC {\'y} model - osoba + \IeC {\v c}\IeC {\'\i }slo\relax }}{33}{figure.caption.19}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} - osoba + \IeC {\v c}\IeC {\'\i }slo\relax }}{33}{figure.caption.20}
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Standardn\IeC {\'\i } 6-gramov\IeC {\'y} model - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + \IeC {\v c}\IeC {\'\i }slo\relax }}{35}{figure.caption.21}
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Maxentov\IeC {\'y} 6-gramov\IeC {\'y} model - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + \IeC {\v c}\IeC {\'\i }slo\relax }}{35}{figure.caption.21}
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + \IeC {\v c}\IeC {\'\i }slo\relax }}{35}{figure.caption.22}
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Standardn\IeC {\'\i } 6-gramov\IeC {\'y} model - p\IeC {\'a}d\relax }}{37}{figure.caption.23}
+\contentsline {figure}{\numberline {4.29}{\ignorespaces Maxentov\IeC {\'y} 6-gramov\IeC {\'y} - p\IeC {\'a}d\relax }}{37}{figure.caption.23}
+\contentsline {figure}{\numberline {4.30}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} - p\IeC {\'a}d\relax }}{37}{figure.caption.24}
+\contentsline {figure}{\numberline {4.31}{\ignorespaces Standardn\IeC {\'\i } 6-gramov\IeC {\'y} model - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + p\IeC {\'a}d\relax }}{38}{figure.caption.25}
+\contentsline {figure}{\numberline {4.32}{\ignorespaces Maxentov\IeC {\'y} 6-gramov\IeC {\'y} model - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + p\IeC {\'a}d\relax }}{38}{figure.caption.25}
+\contentsline {figure}{\numberline {4.33}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} - roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'y} slovn\IeC {\'\i } druh + p\IeC {\'a}d\relax }}{38}{figure.caption.26}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Korelace hodnoty rysu chybi\_infszu a plynulosti\relax }}{39}{figure.caption.2}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Korelace hodnoty rysu chybi\_podmet a plynulosti\relax }}{39}{figure.caption.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Korelace hodnoty rysu chybi\_vfin a plynulosti\relax }}{39}{figure.caption.2}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Korelace sou\IeC {\v c}tov\IeC {\'e}ho rysu chybi\_sum a plynulosti\relax }}{39}{figure.caption.3}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Korelace hodnoty rysu inf\_po\_vm\_neni\_na\_konci a plynulosti\relax }}{40}{figure.caption.4}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Korelace hodnoty rysu infszu\_neni\_na\_konci a plynulosti\relax }}{40}{figure.caption.4}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Korelace hodnoty rysu vv\_sloveso\_neni\_na\_konci a plynulosti\relax }}{40}{figure.caption.4}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Korelace hodnoty rysu pp\_neni\_na\_konci a plynulosti\relax }}{40}{figure.caption.5}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Korelace sou\IeC {\v c}tov\IeC {\'e}ho rysu neni\_na\_konci\_sum a plynulosti\relax }}{40}{figure.caption.5}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Korelace hodnoty rysu pp\_bez\_av a plynulosti\relax }}{40}{figure.caption.6}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Korelace hodnoty rysu neshoda\_podmet\_prisudek a plynulosti\relax }}{40}{figure.caption.6}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Korelace hodnoty rysu vice\_osob a plynulosti\relax }}{41}{figure.caption.7}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Korelace hodnoty rysu vice\_vfin a plynulosti\relax }}{41}{figure.caption.7}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Korelace sou\IeC {\v c}tov\IeC {\'e}ho rysu vice\_sum a plynulosti\relax }}{41}{figure.caption.7}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Korelace hodnoty rysu root a plynulosti\relax }}{41}{figure.caption.8}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Korelace hodnoty rysu sum a plynulosti\relax }}{41}{figure.caption.8}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Korelace hodnoty rysu chybi\_infszu a plynulosti\relax }}{43}{figure.caption.29}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Korelace hodnoty rysu chybi\_podmet a plynulosti\relax }}{43}{figure.caption.29}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Korelace hodnoty rysu chybi\_vfin a plynulosti\relax }}{43}{figure.caption.29}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Korelace sou\IeC {\v c}tov\IeC {\'e}ho rysu chybi\_sum a plynulosti\relax }}{43}{figure.caption.30}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Korelace hodnoty rysu inf\_po\_vm\_neni\_na\_konci a plynulosti\relax }}{44}{figure.caption.31}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Korelace hodnoty rysu infszu\_neni\_na\_konci a plynulosti\relax }}{44}{figure.caption.31}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Korelace hodnoty rysu vv\_sloveso\_neni\_na\_konci a plynulosti\relax }}{44}{figure.caption.31}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Korelace hodnoty rysu pp\_neni\_na\_konci a plynulosti\relax }}{44}{figure.caption.32}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Korelace sou\IeC {\v c}tov\IeC {\'e}ho rysu neni\_na\_konci\_sum a plynulosti\relax }}{44}{figure.caption.32}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Korelace hodnoty rysu pp\_bez\_av a plynulosti\relax }}{44}{figure.caption.33}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Korelace hodnoty rysu neshoda\_podmet\_prisudek a plynulosti\relax }}{44}{figure.caption.33}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Korelace hodnoty rysu vice\_osob a plynulosti\relax }}{45}{figure.caption.34}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Korelace hodnoty rysu vice\_vfin a plynulosti\relax }}{45}{figure.caption.34}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Korelace sou\IeC {\v c}tov\IeC {\'e}ho rysu vice\_sum a plynulosti\relax }}{45}{figure.caption.34}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Korelace hodnoty rysu root a plynulosti\relax }}{45}{figure.caption.35}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Korelace hodnoty rysu sum a plynulosti\relax }}{45}{figure.caption.35}
+\addvspace {10\p@ }

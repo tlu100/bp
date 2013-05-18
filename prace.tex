@@ -550,6 +550,8 @@ Kvalita jazykového modelu při překladu bývá hodnocena i ručně lidmi, a to
 \end{itemize}
 
 Obě metriky nabývají hodnot $1, 2, \ldots, 5$ a nesou následující význam:
+
+\begin{table}[!htbp]
 \begin{center}\begin{tabular}{|c|c|c|}
 \hline
 \textbf{Hodnota} & \textbf{Adekvátnost} & \textbf{Plynulost}\\
@@ -564,7 +566,9 @@ Obě metriky nabývají hodnot $1, 2, \ldots, 5$ a nesou následující význam:
 \hline
 5 & veškerý význam & bezchybný jazyk \\
 \hline
-\end{tabular}\end{center}
+\end{tabular}
+\caption{Význam jednotlivých hodnocení adekvátnosti a plynulosti}\label{tb:vyznamflad}
+\end{center}\end{table}
 
 Ruční hodnocení má ale nevýhodu v tom, že je pomalé, drahé a subjektivní. Mezianotátorská shoda ukazuje, že se lidé shodnou více na plynulosti než na adekvátnosti. [PÍŠE O TOM BAISA V UČEBNÍM TEXTU, ALE CHYBÍ ZDROJ]
 
@@ -696,8 +700,9 @@ Předpokladem je, že pokud nahradíme slova jejich morfologickými značkami, d
 \section{Zdrojová data}
 Modely budeme trénovat na německých datech z WMT\footnote{WORKSHOP ON STATISTICAL MACHINE TRANSLATION} 2012 - News Commentary (ZDROJ).
 
-Pro otestování použijeme data z výstupů překladových systémů z WMT 2006, které se účastnily překladu z angličtiny do němčiny. Některé z překladových hypotéz obsahovaly ručně ohodnocenou plynulost překladu. Právě takové hypotézy použijeme pro zkoumání korelace perplexity a plynulosti. Celkem jich je k dispozici 2028, z toho 58 je hodnoceno dvakrát a 2 třikrát, celkem tedy 2090 hodnocení. Následující tabulka ukazuje přesné počty hypotéz:
+Pro otestování použijeme data z výstupů překladových systémů z WMT 2006, které se účastnily překladu z angličtiny do němčiny. Některé z překladových hypotéz obsahovaly ručně ohodnocenou plynulost překladu. Právě takové hypotézy použijeme pro zkoumání korelace perplexity a plynulosti. Celkem jich je k dispozici 2028, z toho 58 je hodnoceno dvakrát a 2 třikrát, celkem tedy 2090 hodnocení. Následující tabulka \ref{tb:poctyfluency} ukazuje přesné počty hypotéz:
 
+\begin{table}[!htbp]
 \begin{center}\begin{tabular}{|c|c|}
 	\hline
 	\textbf{Plynulost} & \textbf{Počet hodnocení}\\
@@ -712,13 +717,16 @@ Pro otestování použijeme data z výstupů překladových systémů z WMT 2006
 	\hline
 	5 & 176\\
 	\hline
-\end{tabular}\end{center}
-
+\end{tabular}
+\caption{Počty hodnocení jednotlivých plynulostí}\label{tb:poctyfluency}
+\end{center}
+\end{table}
 
 Počty jednotlivých plynulostí nejsou vyvážené. Díky malému vzorku ohodnocených hypotéz, především pak hodnocených plynulostí 1 a~5, nemusí mít výsledky vždy úplně vypovídající charakter. TAHLE VĚTA ZNÍ JAKO, ŽE TO BUDE K NIČEMU - JAK TO FORMULOVAT LÉPE?
 
-Hypotézy hodnotí 400 různých vět překládaných osmi systémy. Plynulost hodnotili 4 hodnotitelé, kteří se u 58 hypotéz hodnocených dvěma hodnotiteli shodli následovně:
+Hypotézy pochází ze 400 různých vět překládaných osmi systémy. Plynulost posuzovali 4 hodnotitelé, kteří se u 58 hypotéz hodnocených dvěma z nich shodli následovně:
 
+\begin{table}[!htbp]
 \begin{center}\begin{tabular}{|c|c|c|}
 	\hline
 	\textbf{Shoda} & \textbf{Počet hypotéz} & \textbf{V procentech}\\
@@ -731,11 +739,13 @@ Hypotézy hodnotí 400 různých vět překládaných osmi systémy. Plynulost h
 	\hline
 	lišili se o 3 & 1 & 1.7 \%\\
 	\hline
-\end{tabular}\end{center}
+\end{tabular}
+\caption{Přehled shody v hodnocení plynulosti}\label{tb:shoda}
+\end{center}\end{table}
 
-Dvě hypotézy hodnocené třikrát byly taktéž hodnoceny dvěma hodnotiteli, třetí hodnocení bylo vždy vykonáno jedním z nich a slouží pouze jako kontrola - ta dopadla v obou případech úspěšně, tedy udělením stejného hodnocení. U jedné hypotézy se hodnotitelé shodli, u druhé se lišili o 1.
+Dvě hypotézy hodnocené třikrát byly taktéž posouzeny dvěma hodnotiteli, třetí hodnocení bylo vždy vykonáno jedním z nich a slouží pouze jako kontrola - ta dopadla v obou případech úspěšně, tedy udělením stejného hodnocení. U jedné hypotézy se hodnotitelé shodli, u druhé se lišili o 1.
 
-Ačkoliv nevýhodou ručního hodnocení je vždy určitá míra subjektivity, výše udená tabulka uvádí nadpoloviční shodu a budeme-li brát jako uspokojivé i případy, kdy se hodnocení lišilo o 1, pak jsme dokonce lehce nad 90 \%.
+Ačkoliv nevýhodou ručního hodnocení je vždy určitá míra subjektivity, výše udená tabulka \ref{tb:shoda} uvádí nadpoloviční shodu a budeme-li brát jako uspokojivé i případy, kdy se hodnocení lišilo o 1, pak jsme dokonce lehce nad 90 \%.
 
 \section{Princip experimentů}
 
@@ -784,16 +794,33 @@ Srovnání standardních a maxentových modelů provedeme graficky umístěním 
 \section{Běžné modely se slovy}
 Jako první jsme zkusili natrénovat 6-gramové modely se slovy, abychom viděli, jak spolu souvisí perplexita a plynulost u takových modelů a mohli výsledek použít pro další srovnání.
 
+\begin{figure}[!htb]
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/text.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/text.svg.eps}
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/ngram/text.svg.eps}
+  \caption{Standardní 6-gramový model se slovy}\label{gr:ngrslova}
+\endminipage\quad
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/maxent/text.svg.eps}
+  \caption{Maxentový 6-gramový model se slovy}\label{gr:maxslova}
+\endminipage
 \end{center}
-Z obou grafů je patrné, že plynulost nekoreluje s perplexitou tak, jak bychom chtěli. Perplexita by měla se zvyšující se plynulostí klesat - čím nižší perplexita, tím lepší a tedy i plynulejší překlad. Na obou grafech však boxploty neklesají, nýbrž kolísají. Dokonce hypotézy hodnocené plynulostí 5 mají rozsah nejčastějších perplexit nejvyšší. To ale může být částečně způsobeno malým počtem hypotéz ohodnocených plynulostí 5.
+\end{figure}
 
+
+\pagebreak
+
+
+Z obou grafů (obrázky \ref{gr:ngrslova}, \ref{gr:maxslova}) je patrné, že plynulost nekoreluje s perplexitou tak, jak bychom chtěli. Perplexita by měla se zvyšující se plynulostí klesat - čím nižší perplexita, tím lepší a tedy i plynulejší překlad. Na obou grafech však boxploty neklesají, nýbrž kolísají. Dokonce hypotézy hodnocené plynulostí 5 mají rozsah nejčastějších perplexit nejvyšší. To ale může být částečně způsobeno malým počtem hypotéz ohodnocených plynulostí 5.
+
+\begin{figure}[!htbp]
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/text.svg.eps}
 \end{center}
-Srovnání ukazuje, že maxentový model dopadl o něco lépe, neboť jednotlivé boxploty mají nižší horní hranici nejčastějších perplexit než v případě standardních modelů. Rozdíly ve spodních hranicích jsou zanedbatelné. I proložená přímka stoupá v případě standardního n-gramového modelu více než v případě maxentového.
+\caption{Porovnání modelů se slovy}\label{gr:porslova}
+\end{figure}
+
+Srovnání ukazuje, že maxentový model dopadl o něco lépe, neboť jednotlivé boxploty mají nižší horní hranici nejčastějších perplexit než v případě standardních modelů. Rozdíly ve spodních hranicích jsou zanedbatelné. I proložená přímka stoupá v případě standardního n-gramového modelu více než v případě maxentového (obrázek \ref{gr:porslova}).
 
 Čas nutný k natrénování se však výrazně liší - natrénování standardního n-gramového trvalo zhruba 3 minuty oproti téměř 12 hodinám u modelu maxentového.
 
@@ -819,15 +846,31 @@ Příklad věty:
 }
 \end{center}
 
-\begin{center}		
-	\includegraphics[width=60mm]{./grafy/morf/ngram/all.svg.eps}	
-	\includegraphics[width=60mm]{./grafy/morf/maxent/all.svg.eps}	
+\begin{figure}[!htb]
+\begin{center}
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/ngram/all.svg.eps}	
+  \caption[Standardní 6-gramový model - rozšířený slovní druh + morf. zn.]{Standardní 6-gramový model - rozšířený slovní druh + morfologické značky}\label{gr:ngrrsd+morf}
+\endminipage\quad
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/maxent/all.svg.eps}	
+  \caption[Maxentový 6-gramový model - rozšířený slovní druh + morf. zn.]{Maxentový 6-gramový model - rozšířený slovní druh + morfologické značky}\label{gr:maxrsd+morf}
+\endminipage
 \end{center}
+\end{figure}
+
 Oba modely dopadly lépe než modely trénované na slovech. Boxploty vykazují lehce klesavou tendenci.
 
-\begin{center}	
+\pagebreak
+
+\begin{figure}[!htbp]
+\begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/all.svg.eps}	
 \end{center}
+\caption{Porovnání modelů - rozšířený slovní druh + morfologické značky}\label{gr:porrsd+morf}
+\end{figure}
+
+
 Maxentové modely opět, co se perplexity týče, dopadají lépe než standardní n-gramové. Avšak proložená přímka klesá u standardních modelů strměji. Z hlediska výpočetních nároků jsou na tom stadardní n-gramy oproti maxentovým znovu výrazně lépe - 72 sekund proti takřka 8 hodinám.
 
 Tyto modely sice obsahují morfologickou analýzu, ale nerozumí jejímu obsahu. Nedokáží rozlišit, zda se sousední jména shodují v rodě, ale už ne v pádě apod. Natrénování maxentového modelu s rysy, které by vycházely z morfologické analýzy (rod, pád, číslo, ...), rozšíření SRILMu od Tanela Alumäe a Mikko Kurima bohužel neumožňuje a jiné dostupné toolkity, např. Maxent toolkit od LeZhanga, nejsou vhodné z hlediska výpočetních nároků na velká data. Zkusíme proto natrénovat další n-gramové modely, ve kterých nahradíme slova vždy jedním z potencionálních rysů. Takové modely by potom bylo možné kombinovat.
@@ -854,15 +897,36 @@ Příklad věty:
 }
 \end{center}
 
+
+
+\pagebreak
+
+
+
+\begin{figure}[!htb]
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd.svg.eps}
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd.svg.eps}
+  \caption{Standardní 6-gramový model - rozšířený slovní druh}\label{gr:ngrrsd}
+\endminipage\quad
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd.svg.eps}
+  \caption{Maxentový 6-gramový model - rozšířený slovní druh}\label{gr:maxrsd}
+\endminipage
 \end{center}
+\end{figure}
+
+
 Modely dopadly o něco hůře než v případě, kdy byl rozšířený slovní druh ještě upřesněn další analýzou. Bez dalšího určení nemůžeme např. kontrolovat správné vyskloňování. Stále je to však lepší než při natrénování na slovech.
+
+\begin{figure}[!htbp]
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd.svg.eps}	
 \end{center}
-V porovnání je na tom maxentový model z hlediska perplexity opět mírně lépe. Stejně jako proložená přímka klesá u standardního n-gramového modelu strměji.
+\caption{Porovnání modelů - rozšířený slovní druh}\label{gr:porrsd}
+\end{figure}
+
+V porovnání je na tom maxentový model z hlediska perplexity opět mírně lépe. Stejně jako proložená přímka klesá u standardního n-gramového modelu strměji (obrázek \ref{gr:porrsd}).
 
 Z hlediska výpočetních nároků to tentokrát není takový rozdíl. Standardní n-gramový model potřeboval pro natrénování 22 sekund, maxentový 14 minut.
 
@@ -886,16 +950,34 @@ Příklad věty:
 }
 \end{center}
 
+\begin{figure}[!htb]
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/rod.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/rod.svg.eps}
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rod.svg.eps}
+  \caption{Standardní 6-gramový model - rod}\label{gr:ngrrod}
+\endminipage\quad
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rod.svg.eps}
+  \caption{Maxentový 6-gramový model - rod}\label{gr:maxrod}
+\endminipage
 \end{center}
-Modely ale dopadly přesně obráceně, než jsme chtěli. Boxploty neklesají, ale stoupají. S trochou nadsázky by se dalo říct, že zde čím je perplexita vyšší, tím je lepší plynulost. Ovšem skutečnost je taková, že perplexita pro plynulosti 1-4 vyšla velmi podobně a nejsme pouze na základě ní schopni rozlišit, o kterou plynulost by se mělo jednat.
+\end{figure}
 
+Modely ale dopadly přesně obráceně, než jsme chtěli. Boxploty neklesají, ale stoupají (obrázky \ref{gr:ngrrod}, \ref{gr:maxrod}). S trochou nadsázky by se dalo říct, že zde čím je perplexita vyšší, tím je lepší plynulost. Ovšem skutečnost je taková, že perplexita pro plynulosti 1-4 vyšla velmi podobně a nejsme pouze na základě ní schopni rozlišit, o kterou plynulost by se mělo jednat.
+
+
+\pagebreak
+
+
+
+\begin{figure}[!htbp]
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rod.svg.eps}	
 \end{center}
-Rozdíl mezi standardními a maxentovými n-gramovými modely je prakticky neznatelný. Stejně je tomu tentokrát i u výpočetních nároků. Standardní n-gramy potřebovaly k natrénování 3 sekundy, maxentové n-gramy pak sekundy 4.
+\caption{Porovnání modelů - rod}\label{gr:porrod}
+\end{figure}
+
+Rozdíl mezi standardními a maxentovými n-gramovými modely je prakticky neznatelný (obrázek \ref{gr:porrod}). Stejně je tomu tentokrát i u výpočetních nároků. Standardní n-gramy potřebovaly k natrénování 3 sekundy, maxentové n-gramy pak sekundy 4.
 
 \subsection{Rod stejný s předchozím}
 Ačkoliv modely pouze s rodem nebyly úspěšné, zkusíme ještě slova nenahrazovat jenom rodem daného slova, ale pokusíme se sledovat, zda se rody za sebou shodují. Slova tedy nahradíme opět písmenem \texttt{w}, k němuž přidáme slovo \texttt{rod}, lze-li u slova určit, a slovo \texttt{stejne}, pokud lze jednak rod u slova určit a jednak, pokud se rod shoduje s předchozím slovem.
@@ -916,15 +998,33 @@ Příklad věty:
 }
 \end{center}
 
+
+\pagebreak
+
+
+\begin{figure}[!htb]
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/rodstejny.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/rodstejny.eps}
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rodstejny.eps}
+  \caption{Standardní 6-gramový model - rod stejný s předchozím}\label{gr:ngrrodstejny}
+\endminipage\quad
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rodstejny.eps}
+  \caption{Maxentový 6-gramový model - rod stejný s předchozím}\label{gr:maxrodstejny}
+\endminipage
 \end{center}
-Výsledky jsou ale stejně špatné jako v případě samotného rodu. Grafy vypadají hodně podobně.
+\end{figure}
+
+Výsledky jsou ale stejně špatné jako v případě samotného rodu. Grafy se sobě velmi podobají (obrázek \ref{gr:ngrrodstejny}, \ref{gr:maxrodstejny}).
+
+\begin{figure}[!htbp]
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rodstejny.eps}	
 \end{center}
-Rozdíly mezi standardním n-gramovým a maxentovým n-gramovým modelem je taktéž nepatrný. Doba nutná k natrénování obou typů byla v tomto případě shodně 3 sekundy.
+\caption{Porovnání modelů - rod stejný s předchozím}\label{gr:porrodstejny}
+\end{figure}
+
+Rozdíly mezi standardním n-gramovým a maxentovým n-gramovým modelem je taktéž nepatrný (obrázek \ref{gr:porrodstejny}). Doba nutná k natrénování obou typů byla v tomto případě shodně 3 sekundy.
 
 \subsection{S rozšířeným slovním druhem}
 Jelikož samotný rod byla pro model nedostatečná informace, zkusíme namísto písmene \texttt{w} slova nahrazovat rozšířeným slovním druhem a k němu přidávat za dvojtečku rod.
@@ -944,15 +1044,30 @@ Příklad věty:
 }
 \end{center}
 
+\begin{figure}[!htb]
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+rod.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+rod.svg.eps}
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+rod.svg.eps}
+  \caption{Standardní 6-gramový model - číslo}\label{gr:ngrcislo}
+\endminipage\quad
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+rod.svg.eps}
+  \caption{Maxentový 6-gramový model - číslo}\label{gr:maxcislo}
+\endminipage
 \end{center}
+\end{figure}
+
+
 S rozšířeným slovním druhem už modely dopadly lépe, přesto perplexita s rostoucí plynulostí neklesá nijak výrazně, což dokazuje proložená přímka.
+
+\begin{figure}[!htbp]
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+rod.svg.eps}	
 \end{center}
-Ve srovnání jsou oba typy modelů na tom podobně, maxentové dostávaly jen o něco málo nižší perplexitu. Z hlediska výpočetní náročnosti je ale rozdíl velký - 36 sekund standardní n-gramový model naproti 27 minutám u modelu maxentového.
+\caption{Porovnání modelů - rozšířený slovní druh + rod}\label{gr:porrsd+rod}
+\end{figure}
+
+Ve srovnání jsou oba typy modelů na tom podobně, maxentové dostávaly jen o něco málo nižší perplexitu (obrázek \ref{gr:porrsd+rod}). Z hlediska výpočetní náročnosti je ale rozdíl velký - 36 sekund standardní n-gramový model naproti 27 minutám u modelu maxentového.
 
 \section{Číslo}
 Stejné modely zkusíme natrénovat i v případě čísla. Jako první znovu zkusíme, zda bude modelu postačovat informace pouze o čísle daného slova tj. \texttt{wSg}, \texttt{wPl} nebo \texttt{w}.
@@ -972,16 +1087,30 @@ Příklad věty:
 }
 \end{center}
 
+\begin{figure}[!htb]
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/cislo.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/cislo.svg.eps}	
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/ngram/cislo.svg.eps}
+  \caption{Standardní 6-gramový model - číslo}\label{gr:ngrcislo}
+\endminipage\quad
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/maxent/cislo.svg.eps}	
+  \caption{Maxentový 6-gramový model - číslo}\label{gr:maxcislo}
+\endminipage
 \end{center}
+\end{figure}
+
+
 Výsledky ale dopadly obdobně špatně jako v případě rodu. Pomocí perplexity nejsme schopni rozlišit, o jakou plynulost by se mělo jednat.
 
+\begin{figure}[!htbp]
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/cislo.svg.eps}
 \end{center}
-Oba typy modelů dopadly takřka stejně. Stejná byla i doba nutná k natrénování - shodně po třech sekundách.
+\caption{Porovnání modelů - číslo}\label{gr:porcislo}
+\end{figure}
+
+Oba typy modelů dopadly takřka stejně (obrázek \ref{gr:porcislo}). Stejná byla i doba nutná k natrénování - shodně po třech sekundách.
 
 \subsection{Přidání osoby}
 Číslo se bude často pojit s nějakou osobou. Zkusíme proto tuto informaci k číslu přidat. Slovo nahradíme písmenem \texttt{w}, poté bude následovat osoba a číslo, jdou-li u daného slova určit.
@@ -1001,15 +1130,29 @@ Příklad věty:
 }
 \end{center}
 
+\begin{figure}[!htb]
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/osoba+cislo.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/osoba+cislo.svg.eps}	
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/ngram/osoba+cislo.svg.eps}
+  \caption{Standardní 6-gramový model - osoba + číslo}\label{gr:ngros+cislo}
+\endminipage\quad
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/maxent/osoba+cislo.svg.eps}	
+  \caption{Maxentový 6-gramový model - osoba + číslo}\label{gr:maxos+cislo}
+\endminipage
 \end{center}
-Modely ale nedopadly o nic lépe. Proložené přímky opět mírně stoupají, namísto aby klesaly.
+\end{figure}
+
+Modely ale nedopadly o nic lépe. Proložené přímky opět mírně stoupají, namísto aby klesaly (obrázky \ref{gr:ngros+cislo}, \ref{gr:maxos+cislo}).
+
+\begin{figure}[!htbp]
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/osoba+cislo.svg.eps}	
 \end{center}
-Ve srovnání obou typů modelů opět nejsou patrné výrazné rozdíly. Z hlediska výpočetních nároků se ale tentokrát trochu liší. Standardní n-gramové potřebovaly k natrénování 4 sekundy, maxentové 11 sekund.
+\caption{Porovnání modelů - osoba + číslo}\label{gr:porosoba+cislo}
+\end{figure}
+
+Ve srovnání obou typů modelů opět nejsou patrné výrazné rozdíly (obrázek \ref{gr:porosoba+cislo}). Z hlediska výpočetních nároků se ale tentokrát trochu liší. Standardní n-gramové potřebovaly k natrénování 4 sekundy, maxentové 11 sekund.
 
 \subsection{S rozšířeným slovním druhem}
 Vzhledem k tomu, že přidání osoby žádné patrné zlepšení nepřineslo, zkusíme znovu přidat rozšířený slovní druh. Slova tedy budeme nahrazovat jejich druhem a číslem, lze-li určit.
@@ -1029,14 +1172,35 @@ Příklad věty:
 }
 \end{center}
 
+
+\pagebreak
+
+
+\begin{figure}[!htb]
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+cislo.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+cislo.svg.eps}
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+cislo.svg.eps}
+  \caption{Standardní 6-gramový model - rozšířený slovní druh + číslo}\label{gr:ngrrsd+cislo}
+\endminipage\quad
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+cislo.svg.eps}
+  \caption{Maxentový 6-gramový model - rozšířený slovní druh + číslo}\label{gr:maxrsd+cislo}
+\endminipage
 \end{center}
+\end{figure}
+
+
+
+
 Modely s rozšířeným slovním druhem dopadly znovu lépe. Ovšem výsledky stále nejsou nijak dobré.
+
+\begin{figure}[!htbp]
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+cislo.svg.eps}	
 \end{center}
+\caption{Porovnání modelů - rozšířený slovní druh + číslo}\label{gr:porrsd+cislo}
+\end{figure}
+
 V porovnání dostávaly maxentové modely o něco nižší perplexitu. Čas potřebný k natrénování byl u standardních n-gramových modelů 33 s, u maxentových 24 minut.
 
 \section{Pád}
@@ -1058,35 +1222,76 @@ Příklad věty:
 \end{center}
 
 
+\pagebreak
+
+
+\begin{figure}[!htb]
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/pad.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/pad.svg.eps}	
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/ngram/pad.svg.eps}
+  \caption{Standardní 6-gramový model - pád}\label{gr:ngpad}
+\endminipage\quad
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/maxent/pad.svg.eps}	
+  \caption{Maxentový 6-gramový - pád}\label{gr:maxpad}
+\endminipage
 \end{center}
+\end{figure}
+
 Výsledky opět nejsou dobré a jen potvrzují, že poskytnutí modelu značek pouze z jedné morfologické kategorie je nedostatečná informace.
 
+\begin{figure}[!htbp]
 \begin{center}
 	\includegraphics[width=90mm]{./grafy/morf/porovnani/pad.svg.eps}	
 \end{center}
-V porovnání jsou taktéž standardní n-gramové modely s modely maximálně entropie srovnatelné, bez větších rozdílů. Natrénování trvalo shodně 4 sekundy.
+\caption{Porovnání modelů - pád}\label{gr:porpad}
+\end{figure}
+
+V porovnání jsou taktéž standardní n-gramové modely s modely maximálně entropie srovnatelné, bez větších rozdílů (obrázek \ref{gr:porpad}). Natrénování trvalo shodně 4 sekundy.
 
 
 \subsection{S rozšířeným slovním druhem}
 Jako v případech předchozích modelů se značkami z jedné morfologické kategorie, zkusíme přidat k pádu ještě rozšířený slovní druh.
+
+\begin{figure}[!htb]
 \begin{center}
-	\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+pad.svg.eps}
-	\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+pad.svg.eps}
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+pad.svg.eps}
+  \caption{Standardní 6-gramový model - rozšířený slovní druh + pád}\label{gr:ngrsd+pad}
+\endminipage\quad
+\minipage{0.45\textwidth}
+  \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+pad.svg.eps}
+  \caption{Maxentový 6-gramový model - rozšířený slovní druh + pád}\label{gr:maxrsd+pad}
+\endminipage
 \end{center}
+\end{figure}
+
+
+\pagebreak
+
+
+
 Zlepšení je znatelné a podobá se modelům s rozšířeným slovním druhem a všemi morfologickými značkami. Výsledky jsou prozatím nejlepší ze všech modelů se značkami jedné morfologické kategorie s rozšířeným slovním druhem.
+\begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+pad.eps}	
+	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+pad.eps}
+	\caption{Porovnání modelů - rozšířený slovní druh + pád}\label{gr:porrsd+pad}
 \end{center}
-Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Nicméně proložená přímka je strmější u standardních n-gramů. Výpočetní nároky se ale výrazně liší - 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
+\end{figure}
+
+
+Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Nicméně proložená přímka je strmější u standardních n-gramů (obrázek \ref{gr:porrsd+pad}). Výpočetní nároky se ale výrazně liší - 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
 
 \section{Shrnutí}
 Zde uvedeme všechny naměřené hodnoty do tabulky. Tabulka bude obsahovat od každého modelu Pearsonův korelační koeficient\footnote{Udává vztah mezi dvěma veličinami. Nabývá hodnot $<-1, 1>$, přičemž 1 značí závislost přímou a -1 závislost nepřímou. Hodnota 0 indikuje, že vztah mezi veličinami nelze vyjádřit lineární funkcí.}, směrnici přímky proložené mediány boxplotů a čas potřebný k natrénování.
 
+
+\pagebreak
+
+
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 
+\begin{table}[!htbp]
 \begin{center}
 \small\addtolength{\tabcolsep}{-3pt}
 \begin{tabular}{|M{2.6cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|}
@@ -1118,9 +1323,11 @@ Pád & 0.15 & 0.15 & 0.07 & 0.07 & 4 s & 4 s\\
 RSD + pád & 0.04 & 0.02 & -2.25 & -1.78 & 34 s & 27 min \\
 \hline
 \end{tabular}
+\caption{Shrnutí výsledků modelů s morfologickými značkami}\label{tb:shrnutimorf}
 \end{center}
+\end{table}
 
-U Pearsonova koeficientu bychom rádi dosáhli hodnoty blížící se k -1. Jedinou zápornou hodnotu má ale jen standardní n-gramový model natrénovaný na rozšířeném slovním druhu a všech morfologických značkách. Směrnice přímky by měla být záporná, aby přímka klesala. Čím menší bude, tím bude klesat strměji. Opět je hodnota nejnižší u standardního modelu se slovním druhem a všemi značkami.
+U Pearsonova koeficientu bychom rádi dosáhli hodnoty blížící se k -1. Jedinou zápornou hodnotu má ale jen standardní n-gramový model natrénovaný na rozšířeném slovním druhu a všech morfologických značkách. Směrnice přímky by měla být záporná, aby přímka klesala. Čím menší bude, tím bude klesat strměji. Opět je hodnota nejnižší u standardního modelu se slovním druhem a všemi značkami (tabulka \ref{tb:shrnutimorf}).
 
 Ačkoliv modely maximální entropie obvykle dostávaly nižší perplexitu než standardní modely, korelace perplexity a ručně hodnocené plynulosti vycházela lépe u standardních modelů. Trénování modelů maximální entropie trvalo ve většině případů mnohonásobně déle a nepřineslo pro naše experimenty žádné výrazné zlepšení.
 
@@ -1130,8 +1337,9 @@ Problémy s německou gramatikou jsme se prozatím snažili řešit nahrazením 
 
 \section{Zdrojová data}
 
-Pro následující experimenty používáme stejná data s ručně hodnocenou plynulostí jako v předchozí kapitole. Zde jsme je rozdělili na dva díly. Polovina tj. 1045 překladových hypotéz se použije jako vývojová sada a druhá polovina jako sada testovací. Hypotézy byly rozděleny s ohledem na hodnocení plynulosti tak, aby vývojová i testovací množina vět obsahovala stejný počet hypotéz hodnocených plynulostí 1, 2, .., 5 (až na liché počty hypotéz některých plynulostí). Následující tabulka ukazuje přesné počty hypotéz a jejich rozdělení:
+Pro následující experimenty používáme stejná data s ručně hodnocenou plynulostí jako v předchozí kapitole. Zde jsme je rozdělili na dva díly. Polovina tj. 1045 hodnocení překladových hypotéz se použije jako vývojová sada a druhá polovina jako sada testovací. Hypotézy byly rozděleny s ohledem na hodnocení plynulosti tak, aby vývojová i testovací množina vět obsahovala stejný počet hypotéz hodnocených plynulostí 1, 2, .., 5 (až na liché počty hypotéz některých plynulostí). Následující tabulka \ref{tb:rozdeleni} ukazuje přesné počty hypotéz a jejich rozdělení:
 
+\begin{table}[!htbp]
 \begin{center}\begin{tabular}{|c|c|c|c|}
 	\hline
 	\textbf{Plynulost} & \textbf{Celkem hypotéz} & \textbf{Vývojová sada} & \textbf{Testovací sada}\\
@@ -1148,7 +1356,9 @@ Pro následující experimenty používáme stejná data s ručně hodnocenou pl
 	\hline
 	\hline	
 	\multicolumn{1}{c}{\textbf{CELKEM}} & \multicolumn{1}{c}{\textbf{2090}} & \multicolumn{1}{c}{\textbf{1095}} & \multicolumn{1}{c}{\textbf{1095}}\\
-\end{tabular}\end{center}
+\end{tabular}
+\caption{Rozdělení hodnocení hypotéz na vývojová a testovací data}\label{tb:rozdeleni}
+\end{center}\end{table}
 
 Vzhledem k tomu, že budou rysy vycházet z německé gramatiky, budeme často potřebovat znát hranice klauzí dané věty. Určit klauze z hypotézy, která není gramaticky správně, je však obtížné - parser je v takovém případě zmatený a neudělá větný rozbor správně. Na základě toho používáme identifikované klauze z výchozího anglického textu, který je gramaticky správně, a na německé je pak převádíme pomocí zarovnání na úrovni slov. 
 
@@ -1414,7 +1624,7 @@ lišící se o 1 & 39.23 \% & 46.70 \%  \\
 \end{center}
 \end{table}
 
-Maxentový model se dotýká hranice baseline, bohužel ji ale nepřekonává. Mediánový model je na tom s přesností hůře, ovšem nabídnul každou plynulost alespoň jednou. Můžeme proto u něj brát i v potaz, že počet hypotéz, kdy se lišil o jedna, je 46.70 \% (tabulka \ref{allsums}.
+Maxentový model se dotýká hranice baseline, bohužel ji ale nepřekonává. Mediánový model je na tom s přesností hůře, ovšem nabídnul každou plynulost alespoň jednou. Můžeme proto u něj brát i v potaz, že počet hypotéz, kdy se lišil o jedna, je 46.70 \% (tabulka \ref{tb:allsums}.
 
 \subsection{S rysem root}
 Mimo součtové rysy, co se korelace týče, dopadnul dobře i rys root. Zkusíme jej proto přidat k součtovým rysům.
@@ -1606,7 +1816,7 @@ Všechny rysy kromě součtových a kromě root & 38.66 \% & 19.43 \% & X & X\\
 \end{center}
 \end{table}
 
-Z tabulky \ref{tb:shrnutivlrysy} je patrné, že údaje lišící se o jedna prošly stanoveným kritériem jen u našich mediánových modelů. Maxentový kritérium nesplnil ani jednou. Celkově jsme se s přesností bohužel nedostali přes baseline. Pokud budeme brát v potaz plynulosti lišící o jedna, pak můžeme plynulost predikovat nejlépe pomocí mediánového modelu se všemi součtovými rysy společně s rysem root. Sečteme-li přesnost a počet procent, kdy se lišil o jedna od očekávaného výsledku, dostaneme se na 81,97 \%.
+Z tabulky \ref{tb:shrnutivlrysy} je patrné, že údaje lišící se o jedna prošly stanoveným kritériem jen u našich mediánových modelů. Maxentový kritérium nesplnil ani jednou. Celkově jsme se s přesností bohužel nedostali přes baseline. Pokud budeme brát v potaz plynulosti lišící o jedna, pak můžeme plynulost predikovat nejlépe pomocí mediánového modelu se všemi součtovými rysy společně s rysem root. Sečteme-li přesnost a počet procent, kdy se lišil o jedna od očekávaného výsledku, dostaneme se na 81.97 \%.
 
 
 
@@ -1615,18 +1825,20 @@ Z tabulky \ref{tb:shrnutivlrysy} je patrné, že údaje lišící se o jedna pro
 % Ukázka použití některých konstrukcí LateXu (odkomentujte, chcete-li)
 % \include{ukazka}
 
-\include{zaver}
+\chapter{Závěr}
 
 %%% Seznam použité literatury
 \include{literatura}
 
 %%% Tabulky v bakalářské práci, existují-li.
 %\chapwithtoc{Seznam tabulek}
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
 
 
 %%% Použité zkratky v bakalářské práci, existují-li, včetně jejich vysvětlení.
-\chapwithtoc{\listtablename}
 \listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
 
 
 %%% Přílohy k bakalářské práci, existují-li (různé dodatky jako výpisy programů,
