@@ -1535,9 +1535,12 @@ lišící se o 1 & 36.84 \% & 49.00 \%  \\
 \end{center}
 Zde se ale výsledky ve všech parametrech zhoršily. Jedinou možná trochu lepší zprávou je to, že maxentový model nabízel 4 různé plynulosti. To však přesto nevyhovuje námi stanovenému kritériu pro uznání hodnocení lišících se o 1.
 
+\pagebreak
+
 \section{Shrnutí}
 Zde shrneme všechny naměřené hodnoty do tabulky. Ve sloupci lišící se o 1 uvedeme počet procent, pokud model vyhověl našemu stanovenému kritériu, nebo X v případě opačném.
 
+\begin{table}[!htbp]
 \begin{center}
 \begin{tabular}{|M{4.5cm}|c|c|c|c|}
 \hline
@@ -1561,7 +1564,9 @@ Všechny rysy kromě součtových & 40.96 \% & 21.91 \% & X & X \\
 Všechny rysy kromě součtových a kromě root & 38.66 \% & 19.43 \% & X & X\\
 \hline
 \end{tabular}
+\caption{Shrnutí výsledků}
 \end{center}
+\end{table}
 
 Z tabulky je patrné, že údaje lišící se o jedna prošly stanoveným kritériem jen u našich mediánových modelů. Maxentový kritérium nesplnil ani jednou. Celkově jsme se s přesností bohužel nedostali přes baseline. Pokud budeme brát v potaz plynulosti lišící o jedna, pak můžeme plynulost predikovat nejlépe pomocí mediánového modelu se všemi součtovými rysy společně s rysem root. Sečteme-li přesnost a počet procent, kdy se lišil o jedna od očekávaného výsledku, dostaneme se na 81,97 \%.
 
