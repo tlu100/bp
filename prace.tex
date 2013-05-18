@@ -1292,6 +1292,40 @@ Shodně dopadly i rysy typu \texttt{vice\_*}. Mediány rysu \texttt{vice\_osob} 
 Oba rysy vykazují závislost jejich hodnot s plynulostí (obrázky \ref{gr:root}, \ref{gr:sum}). Mediány mají pro různé plynulosti odlišné hodnoty (až na plynulosti 4 a 5). V následujících experimentech proto zkusíme, zda se dá predikovat plynulost třeba jen na základě mediánu vypočteného pro jednotlivé plynulosti v trénovacích datech.
 
 
+\subsection{Přesnost určení rysů}
+Jak jsme již zmínili, určování rysů se musí spoléhat na další výstupy nástrojů, které taktéž nepracují bezchybně. Abychom alespoň orientačně věděli, jak přesné určení rysů je, analyzovali jsme ručně 15 náhodných vět a kontrolovali, zda se hodnota rysu shoduje se skutečností. V rámci ruční kontroly jsme přišli na to, že spoustu chyb v určení zapříčiňuje špatná identifikace slovního druhu parserem ParZu. K chybě dochází především z důvodu, že německé hypotézy jsou psané pouze malými písmeny. V němčině ale často právě velké písmeno rozhodne o tom, zda se jedná o sloveso nebo podstatné jméno, \textit{např. zahlen x Zahlen}.
+
+
+Příklad ruční analýzy:
+
+\textit{in vielen ländern , aber die politischen parteien sich schwer vorstellen , daß solche debatten auch .}
+\begin{center}
+\begin{tabular}{>{\small\texttt}l>{\small\texttt}l|>{\small\texttt}l>{\small\texttt}l}
+ok	&chybi\_infszu:0 &
+-1	&chybi\_podmet:1\\
+	&chybi\_sum:1 &
++1	&chybi\_vfin:0\\
+ok	&inf\_po\_vm\_neni\_na\_konci:0 &
+ok	&infszu\_neni\_na\_konci:0\\
+	&neni\_na\_konci\_sum:0 &
+ok	&neshoda\_podmet\_prisudek:1\\
+ok	&pp\_bez\_av:0 &
+ok	&pp\_neni\_na\_konci:0\\
+	&root:3 &
+	&sum:5\\
+ok	&vice\_osob:0 &
+	&vice\_sum:0\\
+ok	&vice\_vfin:0 &
+ok	&vv\_sloveso\_neni\_na\_konci:0\\
+\end{tabular}
+\end{center}
+
+Ve sloupci nalevo od názvu rysu je uvedeno stanovisko - ok označuje souhlas, kladná hodnota udává, o kolik měla být hodnota rysu vyšší, záporná udává opak tj. o kolik měla být hodnota nižší. Součtové rysy hodnoceny nebyly, neboť vychází z ostatních. Stejně jako rys \texttt{root} nebyl hodnocen, neboť ten stanovujeme pouze na základě výstupu z ParZu.
+
+Stanovení, zda je některý rys správně či špatně, je někdy sporné, neboť mnoho hypotéz nedává smysl a spoustu věcí tak musíme jen odhadovat. V této hypotéze například nevíme, zda se jedná o dvě nebo tři klauze, proto jsme rys \texttt{chybi\_vfin} mohli ohodnotit jako +1 nebo +2. Zde jsme zvolili +1, pokud bychom ohodnotili jako +2, pak bychom zase u \texttt{chybi\_podmet} museli namísto -1 zvolit ok.
+
+Vyhodnocení jsme potom stanovili jako součet hodnot rysů, jaké byly stanoveny programem, a součet hodnot, jaké měly být ve skutečnosti. Podílem jsme potom získali číslo okolo 53 \%. Toto číslo ale udává jen úspěšnost rysů, které nabyly hodnoty vyšší než nula. Abychom zohlednili i rysy, které měly být hodnocené nulou a nulu dostaly, zvýšíme všem rysům hodnocení o jedna. Hodnoty znovu sečteme a vydělíme. Výpočet udává necelých 87 \%.
+
 \section{Princip experimentů}
 
 Princip experimentů bude následující:
@@ -1319,7 +1353,7 @@ Pro hledání chyb v jednotlivých klauzích jsme stvořili program Chyby. Ten s
 \end{tabular}
 \end{center}
 
-Jak vidíme z příkladu, druhý řádek nám říká, že hypotéza hodnocená plynulostí 4 má hodnotu rysu \texttt{chybi\_vfin} 0, \texttt{pp\_bez\_av} 0 a \texttt{chybi\_infszu} 1. Význam jednotlivých rysů bude ještě dále upřesněn, zde prozatím slouží jako příklad.
+Jak vidíme z příkladu, druhý řádek nám říká, že hypotéza hodnocená plynulostí 4 má hodnotu rysu \texttt{chybi\_vfin} 0, \texttt{pp\_bez\_av} 0 a \texttt{chybi\_infszu} 1.
 
 \section{Způsob vyhodnocení}
 přesnost, lišící se o jedna + přehled nabízených fluency

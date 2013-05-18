@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  18 MAY 2013 00:45
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  18 MAY 2013 02:16
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -1410,12 +1410,37 @@ Overfull \hbox (14.36966pt too wide) in paragraph at lines 1286--1287
 
 [41]
 
-Package xcolor Warning: Incompatible color definition on input line 1317.
+Package xcolor Warning: Incompatible color definition on input line 1304.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1321.
+Package xcolor Warning: Incompatible color definition on input line 1306.
 
-[42] [43]
+
+Package xcolor Warning: Incompatible color definition on input line 1308.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1310.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1312.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1314.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1316.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1318.
+
+[42]
+
+Package xcolor Warning: Incompatible color definition on input line 1348.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1352.
+
+[43] [44]
 \openout2 = `zaver.aux'.
 
 
@@ -1426,26 +1451,26 @@ No file zaver.tex.
 
 LaTeX Warning: Empty `thebibliography' environment on input line 16.
 
-) [44
+) [45
 
 
-
-
-] [45
 
 
 ] [46
 
+
 ] [47
+
+] [48
 
 ] (./prace.aux (./zaver.aux) (./literatura.aux)) ) 
 Here is how much of TeX's memory you used:
- 8086 strings out of 494938
- 112762 string characters out of 1181144
- 201850 words of memory out of 3000000
- 11213 multiletter control sequences out of 15000+50000
- 23367 words of font info for 59 fonts, out of 3000000 for 9000
+ 8089 strings out of 494938
+ 112804 string characters out of 1181144
+ 202056 words of memory out of 3000000
+ 11215 multiletter control sequences out of 15000+50000
+ 23663 words of font info for 60 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
  38i,17n,38p,1202b,411s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (47 pages, 211940 bytes).
+Output written on prace.dvi (48 pages, 217596 bytes).
