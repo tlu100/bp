@@ -1333,7 +1333,7 @@ Princip experimentů bude následující:
 \item{identifikovat německé klauze v hypotézách na základě anglických s využitím zarovnání na úrovni slov}
 \item{provést morfologickou analýzu a pokusit se o větný rozbor hypotéz}
 \item{pokusit se vyhledat některé gramatické chyby a použít je jako rysy}
-\item{natrénovat maxentový model s těmito rysy}
+\item{natrénovat maxentový a mediánový\footnote{Mediánovým modelem rozumíme model pro náš klasifikátor hodnotící jen na základě mediánů} model s těmito rysy}
 \item{provést stejný postup na testovacích datech a model otestovat}
 \end{itemize}
 
@@ -1355,10 +1355,167 @@ Pro hledání chyb v jednotlivých klauzích jsme stvořili program Chyby. Ten s
 
 Jak vidíme z příkladu, druhý řádek nám říká, že hypotéza hodnocená plynulostí 4 má hodnotu rysu \texttt{chybi\_vfin} 0, \texttt{pp\_bez\_av} 0 a \texttt{chybi\_infszu} 1.
 
+Maxentové modely budeme trénovat v MaxentToolkitu(ZDROJ) od Le Zhanga. Pro určení vah rysů využijeme výchozího nastavení tj. metody LBFGS.
+
+V úvodním seznamu kroků této sekce jsme se zmínili o mediánovém modelu. U korelací rysů root a sum jsme zmínili, že zkusíme, zda lze plynulost predikovat jen na základě mediánů jednotlivých plynulostí. Za tímto účelem jsme vytvořili vlastní takový klasifikátor. Z trénovacích dat si vypočítá pro každý rys a každou plynulost medián. Souhrn mediánů je pak zapsán jako model. Při testování vycházíme z těchto mediánů - každý rys vydá jeden návrh plynulosti, tyto návrhy zprůměrujeme a dostaneme výslednou navrhovanou plynulost. Pokud jsou mediány dvou plynulostí stejné, zvýšíme ten, který patří horší plynulosti, o jedna. Vstupní formát je shodný s formátem pro maxentové modely.
+
 \section{Způsob vyhodnocení}
-přesnost, lišící se o jedna + přehled nabízených fluency
+U obou typů modelů budeme vyhodnocovat hlavně přesnost predikce tj. procentuálně vyjádříme, v kolika případech se model trefil do správné plynulosti. Mimo to budeme ještě zkoumat, v kolika případech se plynulost navrhovaná modelem lišila od skutečnosti jen o 1. Abychom ale mohli brát tento údaj v potaz, vypíšeme vždy ještě počty jednotlivých plynulostí, které model nabídnul. Pokud bychom tyto počty nezohlednili, mohlo by se stát, že model bude slepě tipovat vždy plynulost 3, kterých je nejvíce (42.6 \%). Potom by lišící se o jedna byly hypotézy s plynulostí 2 a 4, kterých je dohromady 38 \%. Dopředu proto stanovíme, že údaj, kdy se navrhovaná plynulost od skutečnosti lišila jen o jedna, budeme brát v potaz pouze za předpokladu, že model nabídnul každou plynulost alespoň jednou. 
+
 
 \section{Modely se všemi rysy}
+
+\begin{center}
+\begin{tabular}{|r|c|c|}
+\hline
+ & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ \hline
+přesnost & 41.24 \%  & 28.23 \%  \\
+\hline
+lišící se o 1 & 38.85 \% & 47.94 \%  \\
+\hline
+\textbf{počty} \quad 1 & \color{red}0 & \color{red}0 \\
+\textbf{plynulostí} \quad 2 & 278 & \color{red}0 \\
+ 3 & 767 & 245 \\
+ 4 & \color{red}0 & 727 \\
+ 5 & \color{red}0 & 73 \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{|r|c|c|}
+\hline
+ & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ \hline
+     přesnost & 42.58 \%  & 32.15 \%  \\
+\hline
+lišící se o 1 & 39.23 \% & 46.70 \%  \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}6   \\
+\textbf{plynulostí} \quad 2 & 128 & \color{OliveGreen}104   \\
+                          3 & 917 & \color{OliveGreen}329 \\
+                          4 & \color{red}0   & \color{OliveGreen}464 \\
+                          5 & \color{red}0   & \color{OliveGreen}142  \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|r|c|c|}
+\hline
+ & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ \hline
+     přesnost & 40.67 \%  & 32.97 \%  \\
+\hline
+lišící se o 1 & 40.10 \% & 49.00 \%  \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}11   \\
+\textbf{plynulostí} \quad 2 & 205 & \color{OliveGreen}227   \\
+                          3 & 840 & \color{OliveGreen}301 \\
+                          4 & \color{red}0   & \color{OliveGreen}415 \\
+                          5 & \color{red}0   & \color{OliveGreen}91  \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+
+\begin{center}
+\begin{tabular}{|r|c|c|}
+\hline
+ & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ \hline
+     přesnost & 44.60 \%  & 23.54 \%  \\
+\hline
+lišící se o 1 & 39.81 \% & 38.76 \%  \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}316   \\
+\textbf{plynulostí} \quad 2 & \color{red}0 & \color{OliveGreen}99   \\
+                          3 & 1045 & \color{OliveGreen}132 \\
+                          4 & \color{red}0   & \color{OliveGreen}310 \\
+                          5 & \color{red}0   & \color{OliveGreen}188  \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{|r|c|c|}
+\hline
+ & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ \hline
+     přesnost & 41.44 \%  & 24.78 \%  \\
+\hline
+lišící se o 1 & 40.00 \% & 39.90 \%  \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}324   \\
+\textbf{plynulostí} \quad 2 & 115 & \color{OliveGreen}130   \\
+                          3 & 930 & \color{OliveGreen}147 \\
+                          4 & \color{red}0   & \color{OliveGreen}278 \\
+                          5 & \color{red}0   & \color{OliveGreen}166  \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{|r|c|c|}
+\hline
+ & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ \hline
+     přesnost & 44.59 \%  & 24.59 \%  \\
+\hline
+lišící se o 1 & 39.81 \% & 34.83 \%  \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}334   \\
+\textbf{plynulostí} \quad 2 & \color{red}0 & \color{OliveGreen}64   \\
+                          3 & 1045 & \color{OliveGreen}151 \\
+                          4 & \color{red}0   & \color{OliveGreen}197 \\
+                          5 & \color{red}0   & \color{OliveGreen}299  \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|r|c|c|}
+\hline
+ & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ \hline
+     přesnost & 40.96 \%  & 21.91 \%  \\
+\hline
+lišící se o 1 & 39.14 \% & 49.19 \%  \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & \color{red}0   \\
+\textbf{plynulostí} \quad 2 & 251 & \color{red}0   \\
+                          3 & 794 & 59 \\
+                          4 & \color{red}0   & 913 \\
+                          5 & \color{red}0   & 73  \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|r|c|c|}
+\hline
+ & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ \hline
+     přesnost & 38.66 \%  & 19.43 \%  \\
+\hline
+lišící se o 1 & 36.84 \% & 49.00 \%  \\
+\hline
+     \textbf{počty} \quad 1 & 115   & \color{red} 0   \\
+\textbf{plynulostí} \quad 2 & 201 & \color{red}0   \\
+                          3 & 726 & 13 \\
+                          4 & 3   & 917 \\
+                          5 & \color{red}0   & 115  \\
+\hline
+\end{tabular}
+\end{center}
+
+
 \section{Modely se všemi rysy kromě rysů součtových}
 \subsection{Bez rysu root}
 \section{Modely se součtovými rysy}
@@ -1367,8 +1524,6 @@ přesnost, lišící se o jedna + přehled nabízených fluency
 \section{Modely s rysem sum}
 \subsection{S rysem root}
 
-
-NAPSAT, ŽE SPOUSTU CHYB V PARZU ZAPŘÍČIŇUJE LOWERCASE!!! zahlen x Zahlen
 
 
 
