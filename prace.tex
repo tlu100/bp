@@ -1360,11 +1360,11 @@ Maxentové modely budeme trénovat v MaxentToolkitu(ZDROJ) od Le Zhanga. Pro ur�
 V úvodním seznamu kroků této sekce jsme se zmínili o mediánovém modelu. U korelací rysů root a sum jsme zmínili, že zkusíme, zda lze plynulost predikovat jen na základě mediánů jednotlivých plynulostí. Za tímto účelem jsme vytvořili vlastní takový klasifikátor. Z trénovacích dat si vypočítá pro každý rys a každou plynulost medián. Souhrn mediánů je pak zapsán jako model. Při testování vycházíme z těchto mediánů - každý rys vydá jeden návrh plynulosti, tyto návrhy zprůměrujeme a dostaneme výslednou navrhovanou plynulost. Pokud jsou mediány dvou plynulostí stejné, zvýšíme ten, který patří horší plynulosti, o jedna. Vstupní formát je shodný s formátem pro maxentové modely.
 
 \section{Způsob vyhodnocení}
-U obou typů modelů budeme vyhodnocovat hlavně přesnost predikce tj. procentuálně vyjádříme, v kolika případech se model trefil do správné plynulosti. Mimo to budeme ještě zkoumat, v kolika případech se plynulost navrhovaná modelem lišila od skutečnosti jen o 1. Abychom ale mohli brát tento údaj v potaz, vypíšeme vždy ještě počty jednotlivých plynulostí, které model nabídnul. Pokud bychom tyto počty nezohlednili, mohlo by se stát, že model bude slepě tipovat vždy plynulost 3, kterých je nejvíce (42.6 \%). Potom by lišící se o jedna byly hypotézy s plynulostí 2 a 4, kterých je dohromady 38 \%. Dopředu proto stanovíme, že údaj, kdy se navrhovaná plynulost od skutečnosti lišila jen o jedna, budeme brát v potaz pouze za předpokladu, že model nabídnul každou plynulost alespoň jednou. 
+U obou typů modelů budeme vyhodnocovat hlavně přesnost predikce tj. procentuálně vyjádříme, v kolika případech se model trefil do správné plynulosti. Mimo to budeme ještě zkoumat, v kolika případech se plynulost navrhovaná modelem lišila od skutečnosti jen o 1. Abychom ale mohli brát tento údaj v potaz, vypíšeme vždy ještě počty jednotlivých plynulostí, které model nabídnul. Pokud bychom tyto počty nezohlednili, mohlo by se stát, že model bude slepě tipovat vždy plynulost 3, kterých je nejvíce (44.6 \%). Potom by lišící se o jedna byly hypotézy s plynulostí 2 a 4, kterých je dohromady 38 \%. Dopředu proto stanovíme, že údaj, kdy se navrhovaná plynulost od skutečnosti lišila jen o jedna, budeme brát v potaz pouze za předpokladu, že model nabídnul každou plynulost alespoň jednou. 
 
 
 \section{Modely se všemi rysy}
-
+Jako první zkusíme natrénovat modely se všemi šestnácti rysy.
 \begin{center}
 \begin{tabular}{|r|c|c|}
 \hline
@@ -1383,6 +1383,11 @@ lišící se o 1 & 38.85 \% & 47.94 \%  \\
 \end{tabular}
 \end{center}
 
+Přesnost obou modelů je nižší než, kdybychom slepě tipovali samé trojky (44.6 \% - tuto hodnotu budeme dále označovat jako baseline). Ani jeden z modelů nenabídnul od každou plynulost alespoň jednou, a proto dle stanoveného kritéria, nebereme údaje lišící se o 1 jako relevantní.
+
+
+\section{Modely se součtovými rysy}
+Při znázorňování korelace rysů a plynulosti vždy vyšly o něco lépe součtové rysy. Konkrétně se jedná o rysy chybi\_sum, neni\_na\_konci\_sum, sum, vice\_sum. Zkusíme proto modely natrénovat právě jenom na nich. 
 
 \begin{center}
 \begin{tabular}{|r|c|c|}
@@ -1401,7 +1406,10 @@ lišící se o 1 & 39.23 \% & 46.70 \%  \\
 \hline
 \end{tabular}
 \end{center}
+Maxentový model se dotýká hranice baseline, bohužel ji ale nepřekonává. Mediánový model je na tom s přesností hůře, ovšem nabídnul každou plynulost alespoň jednou. Můžeme proto u něj brát i v potaz, že počet hypotéz, kdy se lišil o jedna, je 46.70 \%.
 
+\subsection{S rysem root}
+Mimo součtové rysy, co se korelace týče, dopadnul dobře i rys root. Zkusíme jej proto přidat k součtovým rysům.
 \begin{center}
 \begin{tabular}{|r|c|c|}
 \hline
@@ -1419,10 +1427,11 @@ lišící se o 1 & 40.10 \% & 49.00 \%  \\
 \hline
 \end{tabular}
 \end{center}
+Toto přidání se ale projevilo negativně u maxentových modelů a jen o 0.82 \% si polepšil mediánový model v přesnosti. Znovu ale nabídnul všechny hodnoty plynulosti. V počtu lišících se o 1 si polepšil o 2.3 \%.
 
 
-
-
+\section{Modely s rysem root}
+Rys root vypadal v korelaci s plynulostí slibně. Se součtovými rysy přílišné zlepšení nepřinesl, zkusíme jej proto použít zcela samostatně.
 \begin{center}
 \begin{tabular}{|r|c|c|}
 \hline
@@ -1440,8 +1449,31 @@ lišící se o 1 & 39.81 \% & 38.76 \%  \\
 \hline
 \end{tabular}
 \end{center}
+Zde došlo u maxentového modelu k popisovanému slepému tipování. Údaj o lišících se o jedna je tedy u něj naprosto irelevantní. Mediánový model nabídnul znovu celou škálu plynulostí, a proto u něj v potaz údaj o lišících se o 1 v potaz brát můžeme.
 
+\section{Modely s rysem sum}
+Vedle na pohled dobře korelujícího rysu root, dobře dopadl i součtový rys sum, který rys root obsahuje v sobě započítaný. Zkusíme znovu jako v případě rysu root, natrénovat na modely na jediném rysu sum.
+\begin{center}
+\begin{tabular}{|r|c|c|}
+\hline
+ & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ \hline
+     přesnost & 44.60 \%  & 24.59 \%  \\
+\hline
+lišící se o 1 & 39.81 \% & 34.83 \%  \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}334   \\
+\textbf{plynulostí} \quad 2 & \color{red}0 & \color{OliveGreen}64   \\
+                          3 & 1045 & \color{OliveGreen}151 \\
+                          4 & \color{red}0   & \color{OliveGreen}197 \\
+                          5 & \color{red}0   & \color{OliveGreen}299  \\
+\hline
+\end{tabular}
+\end{center}
+Od maxentového modelu jsme dostali znovu stejnou odpověď jako v případě rysu root. Mediánový model si o 1.05 \% oproti rysu root v přesnosti polepšil. Znovu nabídnul od všech plynulostí minimálně jedno hodnocení. V procentuálním počtu lišících se o jedna si ale o 4.07 \% pohoršil.
 
+\subsection{S rysem root}
+Jelikož rysy root a sum se zdály být nejúspěšnější v rámci korelace s plynulostí, zkusíme natrénovat modely na obou najednou.
 \begin{center}
 \begin{tabular}{|r|c|c|}
 \hline
@@ -1459,26 +1491,10 @@ lišící se o 1 & 40.00 \% & 39.90 \%  \\
 \hline
 \end{tabular}
 \end{center}
+Přidáním druhého rysu maxentový model už nabízí alespoň dvě různé plynulosti. V přesnosti je však horší než baseline a tedy i horší než v případě se samostatnými rysy root nebo sum. Přenost mediánového modelu zůstává podobná, počet lišících se o jedna je ale z modelů s rysem root, sum a jejich kombinace nejlepší. Mediánový model nabízel všechny plynulosti, a proto můžeme jeho údaj o počtu lišících se o jedna brát v potaz.
 
-
-\begin{center}
-\begin{tabular}{|r|c|c|}
-\hline
- & \textbf{Maxentový model} & \textbf{Mediánový model} \\
- \hline
-     přesnost & 44.59 \%  & 24.59 \%  \\
-\hline
-lišící se o 1 & 39.81 \% & 34.83 \%  \\
-\hline
-     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}334   \\
-\textbf{plynulostí} \quad 2 & \color{red}0 & \color{OliveGreen}64   \\
-                          3 & 1045 & \color{OliveGreen}151 \\
-                          4 & \color{red}0   & \color{OliveGreen}197 \\
-                          5 & \color{red}0   & \color{OliveGreen}299  \\
-\hline
-\end{tabular}
-\end{center}
-
+\section{Modely se všemi rysy kromě rysů součtových}
+Namísto úspěšných rysů, které vycházely ze součtu jiných, zkusíme nechat natrénovat modely na všech rysech kromě těch součtových. Může se stát, že si pro ně maxentový model najde váhy, které budou podávat lepší výsledky než námi podané součty v rysech.
 \begin{center}
 \begin{tabular}{|r|c|c|}
 \hline
@@ -1496,7 +1512,10 @@ lišící se o 1 & 39.14 \% & 49.19 \%  \\
 \hline
 \end{tabular}
 \end{center}
+Bohužel maxentový model nedosáhl ani na baseline. Mediánový je na tom ještě takřka o polovinu hůře, ale u něho lze toto očekávat, neboť jednotlivé rysy samostatně nevykazovaly korelaci s plynulostí. Ani jeden z modelů nenabízel všechny plynulosti.
 
+\subsection{Bez rysu root}
+Mimo naše součtové rysy máme ještě jeden rys, který sčítá kořeny větného rozboru - rys root. Zkusíme tedy vynechat i ten a uvidíme, zda se situace zlepší nebo zhorší.
 \begin{center}
 \begin{tabular}{|r|c|c|}
 \hline
@@ -1514,15 +1533,38 @@ lišící se o 1 & 36.84 \% & 49.00 \%  \\
 \hline
 \end{tabular}
 \end{center}
+Zde se ale výsledky ve všech parametrech zhoršily. Jedinou možná trochu lepší zprávou je to, že maxentový model nabízel 4 různé plynulosti. To však přesto nevyhovuje námi stanovenému kritériu pro uznání hodnocení lišících se o 1.
 
+\section{Shrnutí}
+Zde shrneme všechny naměřené hodnoty do tabulky. Ve sloupci lišící se o 1 uvedeme počet procent, pokud model vyhověl našemu stanovenému kritériu, nebo X v případě opačném.
+\begin{figure}
+\begin{center}
+\begin{tabular}{|M{4.5cm}|c|c|c|c|}
+\hline
+\multirow{2}*{\textbf{Model}} & \multicolumn{2}{c|}{\textbf{Přesnost}} & \multicolumn{2}{c|}{\textbf{Lišící se o 1}} \\ \cline{2-5}
+& {\tiny maxentový} & {\tiny mediánový} & {\tiny maxentový} & {\tiny mediánový} \\
+\hline 
+Všechny rysy & 41.24 \% & 28.23 \% & X & X \\
+\hline
+Součtové rysy & 42.58 \% & 32.15 \% & X & 46.7 \% \\
+\hline
+Součtové rysy a root & 40.67 \% & 32.97 \% & X & 49 \% \\
+\hline
+Rys root & 44.60 \% & 23.54 \% & X & 38.76 \% \\
+\hline
+Rys sum & 44.60 \% & 24.59 \% & X & 34.83 \% \\
+\hline
+Rysy root a sum & 41.44 \% & 24.78 \% & X & 39.90 \%\\
+\hline
+Všechny rysy kromě součtových & 40.96 \% & 21.91 \% & X & X \\
+\hline
+Všechny rysy kromě součtových a kromě root & 38.66 \% & 19.43 \% & X & X\\
+\hline
+\end{tabular}
+\end{center}
+\end{figure}
+Z tabulky je patrné, že údaje lišící se o jedna prošly stanoveným kritériem jen u našich mediánových modelů. Maxentový kritérium nesplnil ani jednou. Celkově jsme se s přesností bohužel nedostali přes baseline. Pokud budeme brát v potaz plynulosti lišící o jedna, pak můžeme plynulost predikovat nejlépe pomocí mediánového modelu se všemi součtovými rysy společně s rysem root. Sečteme-li přesnost a počet procent, kdy se lišil o jedna od očekávaného výsledku, dostaneme se na 81,97 \%.
 
-\section{Modely se všemi rysy kromě rysů součtových}
-\subsection{Bez rysu root}
-\section{Modely se součtovými rysy}
-\subsection{S rysem root}
-\section{Modely s rysem root}
-\section{Modely s rysem sum}
-\subsection{S rysem root}
 
 
 
