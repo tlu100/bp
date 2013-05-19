@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  19 MAY 2013 22:15
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  20 MAY 2013 01:30
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -627,8 +627,6 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 \openout4 = `prace.toc'.
 
  [6]
-Kapitola 1.
-
 Overfull \hbox (0.22346pt too wide) in paragraph at lines 291--292
 []\IL2/cmr/m/n/12 Jedny z nej-roz-¹í-øe-nìj-¹ích a stá-le nej-po-u-¾í-va-nìj-¹í
 ch mo-de-lù jsou mo-de-ly \IL2/cmr/m/it/12 n-gramové\IL2/cmr/m/n/12 ,
@@ -637,7 +635,7 @@ ch mo-de-lù jsou mo-de-ly \IL2/cmr/m/it/12 n-gramové\IL2/cmr/m/n/12 ,
 [7
 
 ] [8]
-Kapitola 2.
+Kapitola 1.
 
 Overfull \hbox (2.4106pt too wide) in paragraph at lines 345--346
 []\IL2/cmr/m/n/12 Zajímá nás, ja-ká je prav-dì-po-dob-nost výsky-tu ta-ko-vé po
@@ -672,11 +670,11 @@ LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 6.60004pt on input line 565.
 
 [16] [17]
-Kapitola 3.
+Kapitola 2.
 [18
 
 ] [19] [20] [21]
-Kapitola 4.
+Kapitola 3.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
 (Font)              scaled to size 11.00006pt on input line 752.
 LaTeX Font Info:    Font shape `OT1/pzc/m/it' will be
@@ -1206,7 +1204,7 @@ Package xcolor Warning: Incompatible color definition on input line 1460.
 Package xcolor Warning: Incompatible color definition on input line 1460.
 
 [37]
-Kapitola 5.
+Kapitola 4.
 
 Package xcolor Warning: Incompatible color definition on input line 1484.
 
@@ -2554,9 +2552,7 @@ Package xcolor Warning: Incompatible color definition on input line 1954.
 
 Package xcolor Warning: Incompatible color definition on input line 1954.
 
-[49]
-Kapitola 6.
-[50
+[49] [50
 
 ]
 \openout2 = `literatura.aux'.
@@ -2576,7 +2572,7 @@ LaTeX Warning: Empty `thebibliography' environment on input line 16.
 \openout5 = `prace.lof'.
 
  [53] (./prace.lot
-Overfull \hbox (27.52914pt too wide) in paragraph at lines 18--18
+Overfull \hbox (27.52914pt too wide) in paragraph at lines 17--17
  [][] [] [][]  
  []
 
@@ -2595,11 +2591,11 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  8141 strings out of 494938
- 113517 string characters out of 1181144
- 207733 words of memory out of 3000000
+ 113520 string characters out of 1181144
+ 207741 words of memory out of 3000000
  11266 multiletter control sequences out of 15000+50000
  23663 words of font info for 60 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
  38i,17n,38p,2012b,436s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (55 pages, 326256 bytes).
+Output written on prace.dvi (55 pages, 326240 bytes).
