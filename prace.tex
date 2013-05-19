@@ -282,6 +282,39 @@ language modelling, German, n-gram, maximum entropy
 
 
 \chapter{Úvod}
+Už před několika desítkami let se zrodil nápad automatizovat překlad. Předpokládalo se, že to pro počítače nebude velký problém, a tak se hned po druhé světové válce začalo na této myšlence pracovat. Postupem času se ale ukázalo, že úkol to nebude vůbec lehký. První systémy byly velmi jednoduché, obsahovaly jen několik gramatických pravidel a malý slovník. Kvalita překladu proto byla špatná. Později se objevila myšlenka zašumněného kanálu, kde konečně přicházejí ke slovu jazykové modely. Překladový model z výchozího do cílového jazyka je nahrazen překladovým modelem obráceného směru tj. z jazyka cílového do jazyka zdrojového a jazykovým modelem cílového jazyka. Jazykový model přichází na řadu v době, kdy máme více možných hypotéz překladu a potřebujeme určit tu, která vypadá jako nejhezčí věta.
+
++ pokračování
+
+%Na celou tuto problematiku se dá pohlížet z hlediska lingvistiky nebo z hlediska statistiky. 
+
+%Myšlenka zašumněného kanálu, kdy se namísto 
+
+%Později se začaly objevovat chytřejší systémy, ale i nové myšlenky, jakou je třeba rozpoznávání mluvené řeči. Ať už se jednalo o překlad nebo jinou úlohu, začalo být potřeba umět z více hypotéz
+
+%Mimo strojový překlad se začaly objevovat i pokusy o rozpoznávání mluvené řeči. Oba 
+
+%Až později se realizovala myšlenka frázového překladu, kdy se věta nejprve rozdělí na několik frází a teprve potom se dle naučených překladů těchto frází přeloží. Tím už ale začalo vznikat vždy velké množství překladových hypotéz a muselo se vymyslet, kterou z nich vybrat jako tu nejlepší. A právě zde se zrodil jazykový model, který tuto funkci v rámci překladu zajišťuje a snaží se z nabízených hypotéz vybrat tu nejlepší. Nejlepší ne ve smyslu přesnosti překladu, ale ve smyslu přirozeného slovosledu, gramatické správnosti a dalších zákonitostí daného cílového jazyka.
+
+%Na strojový překlad se od dob jeho vzniku pohlíží dvěma způsoby - z hlediska lingvistiky a z hlediska statistiky. Statistické systémy dosahují obecně lepších výsledků, ačkoliv nevědí, jaké gramatické a morfologické zákonitosti jazyk má. Jsou vlastně založené jen na tom, jak pravděpodobný je výskyt daného úseku slov za sebou. Teoretické východisko pro omezení tohoto úseku na pevnou velikost formuloval už v roce 1912 
+
+%napsat o morf - ale přidali ke slovu | fluency - ale nezadařilo se mu
+
+%práce bude rozdílná v tom, že se budeme učit i na špatných větách, budeme se učit, kolik chyb může věta dané plynulosti obsahovat
+%díky tomu neurčujeme gramatické závislosti, které jsou správně - ale hledáme naopak chyby, ve správném textu bychom neměli co určovat
+
+
+%všechny tyto systémy se ale učí, co je správně - my zkusíme z druhé strany, učit se co je špatně, vše ostatní je správně
+
+
+
+%MaxEnt gramatické rysy - Rukolaien http://www.pinview.eu/files/Ruokolainen2010.pdf - modeloval gramatické závislosti slov - vyhodnocoval jako perplexitu (zlepšení 19 \%) a WER (word errorate), kde dopadly lépe modely s kombinací n-gramů na slovech).
+
+%Přímo němčina - http://eprints.pascal-network.org/archive/00009510/01/morphgen\_hmm.pdf - uvádí zlepšení, pokud modely naučíme slova ohýbat - modeloval pád, číslo a rod - nejprve překládá na kmen slova a poté predikuje jeho formu pomocí ohýbání. S úspěšností predikce formy se dostal až skoro na 95 \%. Využití v překladu pak vyhodnocoval pomocí BLEU, kde také uvádí zlepšení. 
+
+
+
+
 
 \chapter{Jazykové modely}
 Jazykový model se snaží charakterizovat a zachytit zákonitosti v přirozeném jazyce. K tomu je možné přistupovat z pohledu statistiky nebo z pohledu hlubší lingvistické analýzy. Statistický přístup automaticky určuje všechny parametry z velkého množství textu v daném jazyce. Tento proces se nazývá \textit{trénování modelu}. Modely opírající se hlavně o lingvistiku jsou tvořeny pravidly, která je potřeba naprogramovat ručně. Lze však využít i obou přístupů zároveň, a to například tak, že model nenecháme trénovat jenom na samotném textu, ale i na morfologických nebo jiných značkách či gramatických vztazích. Právě takovými modely se budeme zabývat.
@@ -1377,53 +1410,56 @@ Zlepšení je znatelné (obrázky \ref{gr:ngrsd+pad}, \ref{gr:maxrsd+pad}) a pod
 Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Nicméně proložená přímka je strmější u standardních n-gramů (obrázek \ref{gr:porrsd+pad}). Výpočetní nároky se ale výrazně liší - 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
 
 \section{Shrnutí}
-Zde uvedeme všechny naměřené hodnoty do tabulky. Tabulka bude obsahovat od každého modelu Pearsonův korelační koeficient\footnote{Udává vztah mezi dvěma veličinami. Nabývá hodnot $<-1, 1>$, přičemž 1 značí závislost přímou a -1 závislost nepřímou. Hodnota 0 indikuje, že vztah mezi veličinami nelze vyjádřit lineární funkcí.}, směrnici přímky proložené mediány boxplotů a čas potřebný k natrénování.
+Zde uvedeme všechny naměřené hodnoty do tabulky. Tabulka bude obsahovat od každého modelu Pearsonův korelační koeficient\footnote{Udává vztah mezi dvěma veličinami. Nabývá hodnot $<-1, 1>$, přičemž 1 značí závislost přímou a -1 závislost nepřímou. Hodnota 0 indikuje, že vztah mezi veličinami nelze vyjádřit lineární funkcí.}, Spearmanův korelační koeficient{Nabývá hodnot jako Pearsonův korelační koeficient. Spearmanův ale vyjadřuje, zda vztah mezi veličinami lze vyjádřit monotonní funkcí.} a čas potřebný k natrénování.
 
 
 
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{R}[1]{>{\hfill\arraybackslash}m{#1}}
 
 \begin{table}[!htbp]
 \begin{center}
 \small\addtolength{\tabcolsep}{-3pt}
-\begin{tabular}{|M{2.6cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|M{1.4cm}|}
+\begin{tabular}{|M{2.6cm}|R{1.4cm}|R{1.4cm}|R{1.4cm}|R{1.4cm}|R{1.4cm}|R{1.4cm}|}
 \hline
-\multirow{2}*{\textbf{Model}} & \multicolumn{2}{M{3.1cm}|}{\textbf{Pearsonův koeficient}} & \multicolumn{2}{M{3.1cm}|}{\textbf{Směrnice přímky}} & \multicolumn{2}{M{3.1cm}|}{\textbf{Čas trénování}} \\
+\multirow{2}*{\textbf{Model}} & \multicolumn{2}{M{3.1cm}|}{\textbf{Pearsonův koeficient}} & \multicolumn{2}{M{3.1cm}|}{\textbf{Spearmanův koeficient}} & \multicolumn{2}{M{3.1cm}|}{\textbf{Čas trénování}} \\
 \cline{2-7}
 & {\tiny standardní} & {\tiny maxentový} & {\tiny standardní} & {\tiny maxentový} & {\tiny standardní} & {\tiny maxentový} \\
 \hline
-Slova & 0.05 & 0.05 & 33.53 & 17.43 & 3 min & 12 hod\\
+Slova & 0.05 & 0.05 & -0.004 & -0.01 & 3 min & 12 hod\\
 \hline
-RSD + všechny značky & -0.03 & 0.04 & -7.00 & -5.54 & 72 s & 8 hod s\\
+RSD + všechny značky & \textbf{-0.03} & 0.04 & -0.20 & -0.22 & 72 s & 8 hod \\
 \hline
-RSD & 0.05 & 0.03 & -1.23 & -1.07 & 22 s & 14 min\\
+RSD & 0.05 & 0.03 & -0.20 & -0.21 & 22 s & 14 min\\
 \hline
-Rod &  0.15 & 0.15 & 0.07 & 0.07 & 3 s & 4 s\\
+Rod &  0.15 & 0.15 & 0.16 & 0.16 & 3 s & 4 s\\
 \hline
-Rod stejný s předchozím & 0.15 & 0.14 & 0.06 & 0.06 & 3 s & 3 s\\
+Rod stejný s předchozím & 0.15 & 0.14 & 0.21 & 0.21 & 3 s & 3 s\\
 \hline
-RSD + rod & 0.04 & 0.03 & -1.42 & -1.41 & 36 s & 27 min\\
+RSD + rod & 0.04 & 0.03 & -0.19 & -0.20 & 36 s & 27 min\\
 \hline
-Číslo & 0.07 & 0.10 & 0.04 & 0.04 & 3 s & 3 s\\
+Číslo & 0.07 & 0.10 & 0.11 & 0.11 & 3 s & 3 s\\
 \hline
-Osoba + číslo & 0.06 & 0.09 & 0.07 & 0.07 & 4 s & 11 s\\
+Osoba + číslo & 0.06 & 0.09 & 0.67 & 0.68 & 4 s & 11 s\\
 \hline
-RSD + číslo & 0.03 & 0.02 & -1.70 & -1.70 & 33 s & 24 min\\
+RSD + číslo & 0.03 & 0.02 & -0.19 & -0.21 & 33 s & 24 min\\
 \hline
-Pád & 0.15 & 0.15 & 0.07 & 0.07 & 4 s & 4 s\\
+Pád & 0.15 & 0.15 & 0.15 & 0.15 & 4 s & 4 s\\
 \hline
-RSD + pád & 0.04 & 0.02 & -2.25 & -1.78 & 34 s & 27 min \\
+RSD + pád & 0.04 & 0.02 & -0.23 & \textbf{-0.24} & 34 s & 27 min \\
 \hline
 \end{tabular}
 \caption{Shrnutí výsledků modelů s morfologickými značkami}\label{tb:shrnutimorf}
 \end{center}
 \end{table}
 
-U Pearsonova koeficientu bychom rádi dosáhli hodnoty blížící se k -1. Jedinou zápornou hodnotu má ale jen standardní n-gramový model natrénovaný na rozšířeném slovním druhu a všech morfologických značkách.
+U obou korelačních koeficientů bychom rádi dosáhli záporné hodnoty a v nejlepším případě blížící se -1. Pearsonův korelační koeficient má jedinou zápornou hodnotu u standardního n-gramového modelu trénovaného na rozšířeném slovním druhu a všech morfologických značkách. Hodnota je ale malá a nemůžeme z ní přímo usuzovat existenci lineární závislosti mezi perplexitou a plynulostí.
 
-Směrnice přímky by měla být záporná, aby přímka klesala. Čím menší bude, tím bude klesat strměji a tím by měly být rozdíly v perplexitách jednotlivých plynulostí vyšší. Opět má nejlepší (nejnižší) hodnotu standardní model se slovním druhem a všemi značkami (tabulka \ref{tb:shrnutimorf}).
+Spearmanův koeficient má záporných hodnot už více. Jedná se o hodnoty u modelů s rozšířeným slovním druhem. Hodnocení Spearmanovým koeficientem víceméně koresponduje s našimi úsudky z grafického znázornění. Jako nejlepší vyšel maxentový model s rozšířeným slovním druhem a pádem.
 
-Ačkoliv modely maximální entropie obvykle dostávaly nižší perplexitu než standardní modely, korelace perplexity a ručně hodnocené plynulosti vycházela lépe u standardních modelů. Trénování modelů maximální entropie trvalo ve většině případů mnohonásobně déle a nepřineslo pro naše experimenty žádné výrazné zlepšení.
+Je zajímavé, že maxentové modely v rámci hodnocení Pearsonovým korelačním koeficientem nepřinášely takřka žádné zlepšení, dokonce byly naopak v některých případech horší. U Spearmanova koeficientu však zlepšení u úspěšných modelů (myšleno modelů se záporným Spearmanovým koeficientem) nastalo vždy, byť jen minimální.
+
+Na základě výpočetních nároků jsou na tom ale maxentové modely často až mnohonásobně hůře, přičemž jejich přínos pro naše experimenty nebyl dle naměřených výsledků (\ref{tb:shrnutimorf}) nijak velký.
 
 
 \chapter{Modely s vlastní množinou rysů}
