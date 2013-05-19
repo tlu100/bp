@@ -282,37 +282,47 @@ language modelling, German, n-gram, maximum entropy
 
 
 \chapter{Úvod}
-Už před několika desítkami let se zrodil nápad automatizovat překlad. Předpokládalo se, že to pro počítače nebude velký problém, a tak se hned po druhé světové válce začalo na této myšlence pracovat. Postupem času se ale ukázalo, že úkol to nebude vůbec lehký. První systémy byly velmi jednoduché, obsahovaly jen několik gramatických pravidel a malý slovník. Kvalita překladu proto byla špatná. Později se objevila myšlenka zašumněného kanálu, kde konečně přicházejí ke slovu jazykové modely. Překladový model z výchozího do cílového jazyka je nahrazen překladovým modelem obráceného směru tj. z jazyka cílového do jazyka zdrojového a jazykovým modelem cílového jazyka. Jazykový model přichází na řadu v době, kdy máme více možných hypotéz překladu a potřebujeme určit tu, která vypadá jako nejhezčí věta.
+Lidé si už od pradávna chtěli ulehčit překlady mezi různými jazyky. Prvopočátky se objevují už v 17. století, kdy se německý učenec Joachim Becher snažil usnadnit překlad mezi více jazyky tím, že slovům přidělil logický kód. Věty převedené na takový logický kód pak představovaly univerzální mezijazyk a do dalších jazyků se překládaly za pomoci speciálních slovníků. Mechanizace překladu ale přichází až později ve 20. století. Ve Francii ve 30. letech sestrojili první mechanický slovník pracující s děrovanými páskami. Teprve až s příchodem počítačů začíná éra strojového překladu. Po druhé světové válce se na zprovoznění funkčního systému intentzivně pracuje a předpokládá se, že pro počítače nemůže být překlad nic složitého. Při realizaci se ale naráží na spoustu problémů, jež se mimojiné nedokázalo úplně vyřešit dodnes, neboť dodnes nemáme překladový systém, který by byl schopen nahradit lidského překladatele. První systémy pracovaly jen s několika gramatickými pravidly a měly malý slovník. Kvalita překladu tak byla velmi špatná.
 
-+ pokračování
+Postupem času se začaly více uplatňovat statistické metody zpracování přirozeného jazyka. S příchodem myšlenky zašumněného kanálu, byly na světě konečně i jazykové modely, kterými se tato práce bude zabývat. Princip zašumněného kanálu spočíval v myšlence nahradit překladový model z výchozího do cílového jazyka modelem obráceným tj. z jazyka cílového do jazyka výchozího s využitím právě jazykového modelu. Ten má za úkol z více navrhovaných hypotéz vybrat tu, která vypadá jako nejhezčí věta.
 
-%Na celou tuto problematiku se dá pohlížet z hlediska lingvistiky nebo z hlediska statistiky. 
+Mimo strojový překlad se rozvíjely i další myšlenky jako např. rozpoznávání mluvené řeči nebo automatická oprava překlepů v psaném textu. I v těchto oblastech našly jazykové modely své uplatnění a jejich aplikace jsou dnes poměrně široké.
 
-%Myšlenka zašumněného kanálu, kdy se namísto 
+Jedny z nejrozšířenějších a stále nejpoužívanějších modelů jsou modely \textit{n-gramové}, které sledují jen krátké posloupnosti po sobě jdoucích slov a na základě několika slov se snaží předpovědět slovo následující. Takový přístup úspěšně funguje na analytické jazyky, které pro gramatické jevy nepoužívají ohýbání slov - flexi. Mezi takové jazyky se řadí např. angličtina, ta využívá flexi jen minimálně z historických důvodů. Flektivní jazyky, mezi které patří právě němčina nebo čeština, využívají časování, skloňování, předpony, přípony a další. Němčina navíc velice často dává nějaké slovo na konec věty, což krátká posloupnost slov nemůže zachytit.
 
-%Později se začaly objevovat chytřejší systémy, ale i nové myšlenky, jakou je třeba rozpoznávání mluvené řeči. Ať už se jednalo o překlad nebo jinou úlohu, začalo být potřeba umět z více hypotéz
+V této práci se proto budeme zabývat jazykovými modely pro němčinu. Vyzkoušíme jednak využít morfologickou analýzu pro natrénování \textit{n-gramových modelů} s morfologickými značkami. Modely založené na morfologických třídách zkoušely třeba Chaoui, Yvon, Mokbel, Chollet (ZDROJ) na arabštině. Využili kombinace se standardními n-gramovými modely a uvádějí zlepšení. Kladně hodnotí využití rozšířeného slovního druhu i Wakita, Kawai, Iida (ZDROJ). Na němčině zkoušel tento přístup třeba Geutner (ZDROJ). Za pomocí interpolace kombinuje modely se slovy a modely založené na slovních druzích. Trochu jiný způsob popisuje Popović (ZDROJ), který kombinuje slovní druhy a morfémy. S morfémy experimentovali i Fraser, Marion, Weller, Cap. Ti nejprve překládali kmen slova a poté predikovaly jeho formu za pomocí modelování pádu, rodu a čísla. S úspěšností predikce formy se dostali až téměř k 95 \%. My zkusíme využít jen modelů na morfologických značkách, u nichž budeme zkoumat korelaci automatického a ručního hodnocení s cílem korelaci zlepšit, aby hodnocení počítačem (perplexita) korelovalo s hodnocením lidmi (plynulost).
 
-%Mimo strojový překlad se začaly objevovat i pokusy o rozpoznávání mluvené řeči. Oba 
+Ručním hodnocením plynulosti se budeme zabývat i z jiné stránky a zkusíme navrhnout vlastní množinu rysů pro využití potenciálu modelů maximální entropie s cílem postihnout německou gramatiku. Gramatické rysy zkoušel využít např. Rukolaien (ZDROJ). Udává zlepšení perplexity o 16 \% a zkouší zároveň i kombinaci s n-gramovými modely se slovy. Amaya, Benedí (ZDROJ) využívají také gramatické rysy modelované za použití slovních druhů stochastickými bezkontextovými gramatikami. Naše modely budou sice také vycházet z gramatiky, ale nebudou modelovat správné gramatické jevy, nýbrž gramatické chyby. Na základě nich se pak budeme snažit predikovat ručně hodnocenou plynulost.
 
-%Až později se realizovala myšlenka frázového překladu, kdy se věta nejprve rozdělí na několik frází a teprve potom se dle naučených překladů těchto frází přeloží. Tím už ale začalo vznikat vždy velké množství překladových hypotéz a muselo se vymyslet, kterou z nich vybrat jako tu nejlepší. A právě zde se zrodil jazykový model, který tuto funkci v rámci překladu zajišťuje a snaží se z nabízených hypotéz vybrat tu nejlepší. Nejlepší ne ve smyslu přesnosti překladu, ale ve smyslu přirozeného slovosledu, gramatické správnosti a dalších zákonitostí daného cílového jazyka.
+Hlavní obsah práce je strukturován do čtyř kapitol. První z nich se zabývá jazykovými modely. Popisuje matematické základy a statistické metody, které se pro jazykové modelování používají. V další kapitole jsou pak stručně vysvětleny problematické jevy německé gramatiky s ukázkou analýzy chybných hypotéz. Následuje první kapitola s experimenty popisující princip a výsledky experimentů týkajících se jazykových modelů s morfologickými značkami. Takové modely trénujeme jednak jako standardní n-gramové a jednak metodou maximální entropie s n-gramovými rysy. Graficky srovnáváme korelaci perplexity a ručně hodnocené plynulosti u obou typů. Celkové srovnání je pak provedeno za pomocí korelačních koeficientů. Poslední kapitola se pak zabývá druhou sérií experimentů, kde je zkoumána korelace navrhnutých rysů s ručně hodnocenou plynulostí. Jsou zde natrénovány modely maximální entropie a také vlastní modely hodnotící jen na základě mediánů vypočtených dle jednotlivých plynulostí z trénovacích dat. Srovnání provádíme podle úspěšnosti predikce plynulosti.
 
-%Na strojový překlad se od dob jeho vzniku pohlíží dvěma způsoby - z hlediska lingvistiky a z hlediska statistiky. Statistické systémy dosahují obecně lepších výsledků, ačkoliv nevědí, jaké gramatické a morfologické zákonitosti jazyk má. Jsou vlastně založené jen na tom, jak pravděpodobný je výskyt daného úseku slov za sebou. Teoretické východisko pro omezení tohoto úseku na pevnou velikost formuloval už v roce 1912 
+
+
+
 
 %napsat o morf - ale přidali ke slovu | fluency - ale nezadařilo se mu
 
 %práce bude rozdílná v tom, že se budeme učit i na špatných větách, budeme se učit, kolik chyb může věta dané plynulosti obsahovat
 %díky tomu neurčujeme gramatické závislosti, které jsou správně - ale hledáme naopak chyby, ve správném textu bychom neměli co určovat
 
-
 %všechny tyto systémy se ale učí, co je správně - my zkusíme z druhé strany, učit se co je špatně, vše ostatní je správně
-
-
-
-%MaxEnt gramatické rysy - Rukolaien http://www.pinview.eu/files/Ruokolainen2010.pdf - modeloval gramatické závislosti slov - vyhodnocoval jako perplexitu (zlepšení 19 \%) a WER (word errorate), kde dopadly lépe modely s kombinací n-gramů na slovech).
 
 %Přímo němčina - http://eprints.pascal-network.org/archive/00009510/01/morphgen\_hmm.pdf - uvádí zlepšení, pokud modely naučíme slova ohýbat - modeloval pád, číslo a rod - nejprve překládá na kmen slova a poté predikuje jeho formu pomocí ohýbání. S úspěšností predikce formy se dostal až skoro na 95 \%. Využití v překladu pak vyhodnocoval pomocí BLEU, kde také uvádí zlepšení. 
 
+%Popović - Morphemes and POS tags for n-gram based evaluation metrics - kombinuje POS (slovní druh), morfémy (nejmenší jednotky nesoucí význam - předpony, přípony, kořen slova atp) udává zlepšení n-gramů
 
+%Arabština - on the use of morphological contraints in n-gram statistical language model - chaoui, yvon, mokbel, chollet - n-gramové modely kombinují s morfologickými modely (založené na morfologických třídách) - zlepšení
+
+%?Wakita, Kawai, Iida - an evaluation of statistical language modelling for speech recognition using a mixed category of both words and part-of-speech - potvrzují zlepšení při použití slovních druhů
+
+%Geutner - Fuzzy class rescoring - pomocí interpolace kombinuje modely na slovech s modely založenými na slovních druzích - němčina
+
+
+
+
+%Amaya, Benedí - improvement of whole sentence maximum entropy language model using grammatical features - využití gramatických rysů v maxentových modelech včetně slovního druhu za pomocí stochastické bezkontextové gramatiky - zlepšení až o 16 %
+
+%MaxEnt gramatické rysy - Rukolaien http://www.pinview.eu/files/Ruokolainen2010.pdf - modeloval gramatické závislosti slov - vyhodnocoval jako perplexitu (zlepšení 19 \%) a WER (word errorate), kde dopadly lépe modely s kombinací n-gramů na slovech).
 
 
 
@@ -836,7 +846,7 @@ Standardní n-gramové modely budeme vyrábět v již zmíněném SRILM toolkitu
 \section{Způsob vyhodnocení}
 U každého natrénovaného modelu bude změřena perplexita pro každou větu zvlášť. Výsledky pak vykreslíme do grafu společně s odpovídající plynulostí pro znázornění jejich korelace. Pro lepší znázornění bude u každé plynulosti vykreslen boxplot\footnote{Boxplot (krabicový graf) - vykreslí obdélník v oblasti, kde se vyskytuje 50 \% hodnot. Horní a dolní hranice obdélníku odpovídají hornímu a dolnímu kvartilu. Uprostřed obdélníku se vykresluje ještě tučně medián. Vertikálně vedou z obdélníků tzv. vousy, jejichž hranice leží v maximální (minimální) hodnotě, maximálně však v 1.5 násobku mezikvartilového rozmezí (horní - dolní kvartil) nad horním nebo pod dolním kvartilem. Body mimo tyto hranice se nazývají extrémní hodnoty a jsou vykresleny samostatně jako body.} znázorňující oblast s nejvyšším výskytem hypotéz ohodnocených danou perplexitou. Čím vyšší je plynulost, tím nižší by měla být perplexita. Jednotlivé boxploty by proto měly, co se perplexity týče, klesat. Mediány boxplotů bude ještě proložena přímka, aby byla jejich tendence více zřetelná.
 
-Srovnání standardních a maxentových modelů provedeme graficky umístěním dvou grafů přes sebe vykreslených odlišnou barvou. Mimo toho proveme ještě srovnání z hlediska výpočetních nároků\footnote{Všechny modely trénovány na netbooku Asus EEE 1201N - Intel Atom 330 - 1.6 GHz dual core, 2 GB RAM.}. Na závěr uvedeme shrnutí popisující naměřené hodnoty ze všech modelů.
+Srovnání standardních a maxentových modelů provedeme graficky umístěním dvou grafů přes sebe vykreslených odlišnou barvou. Mimo toho proveme ještě srovnání z hlediska výpočetních nároků\footnote{Všechny modely trénovány na netbooku Asus EEE 1201N - Intel Atom 330 - 1.6 GHz dual core, 2 GB RAM.}. Na závěr uvedeme shrnutí popisující naměřené hodnoty ze všech modelů a provedeme srovnání pomocí korelačních koeficientů.
 
 \section{Běžné modely se slovy}
 Jako první jsme zkusili natrénovat 6-gramové modely se slovy, abychom viděli, jak spolu souvisí perplexita a plynulost u takových modelů a mohli výsledek použít pro další srovnání.
@@ -1957,6 +1967,13 @@ Z tabulky \ref{tb:shrnutivlrysy} je patrné, že údaje lišící se o jedna pro
 % \include{ukazka}
 
 \chapter{Závěr}
+V práci byly popsány dvě série experimentů. První z nich se snažila modelovat jazyk jen na základě morfologických značek. Pro srovnání byly natrénovány i modely se slovy. Pokud jsme modelu předaly pouze značky z jedné morfologické třídy (rod, pád, číslo), dopadly hůře než modely se slovy. S přidáním rozšířeného slovního druhu došlo ale vždy ke zlepšení a modely vycházely lépe než běžné se slovy. Jako nejúspěšnější z hlediska Spearmanova korelačního koeficientu v korelaci perplexity a ručně hodnocené plynulosti vyšel maxentový model trénovaný na rozšířeném slovním druhu a pádu. Natrénování maxentových modelů trvalo někdy až mnohonásobně déle než standardních n-gramových, přičemž přínos maxentových modelů nebyl zvlášť výrazný. Obecně maxentové modely dostávaly nižší perplexitu, ale příliš nezlepšovaly korelaci s plynulostí.
+
+Druhá série experimentů se zabývala modely maximální entropie a vlastními mediánovými modely. Bylo navrženo 16 vlastních rysů reprezentujících počet chyb v dané větě. Samostatně rysy nekorelovaly s plynulostí, a proto byly rozděleny do několika skupin a jejich hodnoty jsme sečetli. Součtové rysy vycházely v korelaci lépe. Jako nejúspěšnější z hlediska korelace dopadly rysy \texttt{root} a \texttt{sum}, kde první představuje počet kořenů větného rozboru z parseru Parzu a druhý součet přes všechny rysy. Na základě toho jsme zkoušeli predikovat jenom dle hodnot mediánů jednotlivých plynulostí. Experimenty jsme prováděli na různých kombinacích těchto vlastních rysů. V přenosti predikce plynulosti nedopadl bohužel žádný model dobře. Všechny byly horší než baseline. Zkusili jsme proto i sledovat, v kolika případech se modely lišily v plynulosti jen o 1 a stanovili jsme kritérium, kdy tento údaj lze brát v potaz. V závěrečném shrnutí proto uvádíme tento údaj jen u těch, které nabídli pro každou plynulost alespoň jedno hodnocení. Po tomto vyhodnocení dopadl nejlépe náš mediánový model se všemi součtovými rysy a rysem \texttt{root}. Výsledky však nejsou tak dobré, jak bychom si přáli. Úspěšnost by bylo možné zvýšit odstraněním chyb jednotlivých nástrojů, které bylo potřeba použít při předzpracování dat pro identifikaci německých klauzí. Určitého zlepšení by se mohlo dosáhnout i v případě, kdy by německé hypotézy nebyly převedené jen na malá písmena, neboť to často dělalo parseru problémy a došlo ke špatnému určení slovního druhu, díky čemuž byla následně i špatně identifikována hodnota rysu. Mimo to by bylo možné dále navrhovat a testovat jiné rysy reprezentující chybu v gramatice. Vycházíme z předpokladu, že hodnotitelé posuzují plynulost právě na základě počtu vyskytujících se chyb.
+
+Modely z obou sérií experimentů potřebovaly data z parseru, kterému je potřeba předložit celou větu, aby správně určil morfologickou analýzu a větný rozbor. Jejich praktické využití by proto bylo např. při reskórování nbestlistů (n nejlepších hypotéz).
+
+
 
 %%% Seznam použité literatury
 \include{literatura}
