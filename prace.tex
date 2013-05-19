@@ -49,6 +49,9 @@
 \usepackage{float}
 \usepackage[font=scriptsize,labelfont=bf]{caption}
 
+\usepackage{caption}
+
+
 \definecolor{seda}{rgb}{0.7,0.7,0.7}
 \newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
 \DeclareFontFamily{OT1}{pzc}{}
@@ -56,7 +59,6 @@
 \DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
 
 \usepackage[usenames,dvipsnames]{xcolor}
-
 
 
 %% Zrušení odsazení odstavců
@@ -272,6 +274,11 @@ language modelling, German,
 %\include{uvod}
 %\include{kap1}
 %\include{kap2}
+
+
+\captionsetup[figure]{aboveskip=0pt, parskip=0pt}
+%\setlength{\belowcaptionskip}{-10pt}
+
 
 \chapter{Úvod}
 
@@ -796,11 +803,11 @@ Jako první jsme zkusili natrénovat 6-gramové modely se slovy, abychom viděli
 
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/text.svg.eps}
   \caption{Standardní 6-gramový model se slovy}\label{gr:ngrslova}
 \endminipage\quad
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/text.svg.eps}
   \caption{Maxentový 6-gramový model se slovy}\label{gr:maxslova}
 \endminipage
@@ -813,11 +820,15 @@ Jako první jsme zkusili natrénovat 6-gramové modely se slovy, abychom viděli
 
 Z obou grafů (obrázky \ref{gr:ngrslova}, \ref{gr:maxslova}) je patrné, že plynulost nekoreluje s perplexitou tak, jak bychom chtěli. Perplexita by měla se zvyšující se plynulostí klesat - čím nižší perplexita, tím lepší a tedy i plynulejší překlad. Na obou grafech však boxploty neklesají, nýbrž kolísají. Dokonce hypotézy hodnocené plynulostí 5 mají rozsah nejčastějších perplexit nejvyšší. To ale může být částečně způsobeno malým počtem hypotéz ohodnocených plynulostí 5.
 
+
 \begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/text.svg.eps}
+\minipage[t]{0.9\textwidth}
+	\centering
+	\includegraphics[width=75mm]{./grafy/morf/porovnani/text.svg.eps}
+	\caption{Porovnání modelů se slovy}\label{gr:porslova}
+\endminipage
 \end{center}
-\caption{Porovnání modelů se slovy}\label{gr:porslova}
 \end{figure}
 
 Srovnání ukazuje, že maxentový model dopadl o něco lépe, neboť jednotlivé boxploty mají nižší horní hranici nejčastějších perplexit než v případě standardních modelů. Rozdíly ve spodních hranicích jsou zanedbatelné. I proložená přímka stoupá v případě standardního n-gramového modelu více než v případě maxentového (obrázek \ref{gr:porslova}).
@@ -848,11 +859,11 @@ Příklad věty:
 
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/all.svg.eps}	
   \caption[Standardní 6-gramový model - rozšířený slovní druh + morf. zn.]{Standardní 6-gramový model - rozšířený slovní druh + morfologické značky}\label{gr:ngrrsd+morf}
 \endminipage\quad
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/all.svg.eps}	
   \caption[Maxentový 6-gramový model - rozšířený slovní druh + morf. zn.]{Maxentový 6-gramový model - rozšířený slovní druh + morfologické značky}\label{gr:maxrsd+morf}
 \endminipage
@@ -861,13 +872,16 @@ Příklad věty:
 
 Oba modely dopadly lépe než modely trénované na slovech. Boxploty vykazují lehce klesavou tendenci.
 
-\pagebreak
+%\pagebreak
 
 \begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/all.svg.eps}	
+\minipage[t]{0.9\textwidth}
+	\centering
+	\includegraphics[width=75mm]{./grafy/morf/porovnani/all.svg.eps}	
+	\caption{Porovnání modelů - rozšířený slovní druh + morfologické značky}\label{gr:porrsd+morf}
+\endminipage
 \end{center}
-\caption{Porovnání modelů - rozšířený slovní druh + morfologické značky}\label{gr:porrsd+morf}
 \end{figure}
 
 
@@ -899,17 +913,17 @@ Příklad věty:
 
 
 
-\pagebreak
+%\pagebreak
 
 
 
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd.svg.eps}
   \caption{Standardní 6-gramový model - rozšířený slovní druh}\label{gr:ngrrsd}
 \endminipage\quad
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd.svg.eps}
   \caption{Maxentový 6-gramový model - rozšířený slovní druh}\label{gr:maxrsd}
 \endminipage
@@ -919,12 +933,21 @@ Příklad věty:
 
 Modely dopadly o něco hůře než v případě, kdy byl rozšířený slovní druh ještě upřesněn další analýzou. Bez dalšího určení nemůžeme např. kontrolovat správné vyskloňování. Stále je to však lepší než při natrénování na slovech.
 
+
+
+\pagebreak
+
+
 \begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd.svg.eps}	
+\minipage[t]{0.9\textwidth}
+	\centering
+	\includegraphics[width=75mm]{./grafy/morf/porovnani/rsd.svg.eps}	
+	\caption{Porovnání modelů - rozšířený slovní druh}\label{gr:porrsd}
+\endminipage
 \end{center}
-\caption{Porovnání modelů - rozšířený slovní druh}\label{gr:porrsd}
 \end{figure}
+
 
 V porovnání je na tom maxentový model z hlediska perplexity opět mírně lépe. Stejně jako proložená přímka klesá u standardního n-gramového modelu strměji (obrázek \ref{gr:porrsd}).
 
@@ -950,13 +973,17 @@ Příklad věty:
 }
 \end{center}
 
+
+\pagebreak
+
+
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rod.svg.eps}
   \caption{Standardní 6-gramový model - rod}\label{gr:ngrrod}
 \endminipage\quad
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rod.svg.eps}
   \caption{Maxentový 6-gramový model - rod}\label{gr:maxrod}
 \endminipage
@@ -966,21 +993,29 @@ Příklad věty:
 Modely ale dopadly přesně obráceně, než jsme chtěli. Boxploty neklesají, ale stoupají (obrázky \ref{gr:ngrrod}, \ref{gr:maxrod}). S trochou nadsázky by se dalo říct, že zde čím je perplexita vyšší, tím je lepší plynulost. Ovšem skutečnost je taková, že perplexita pro plynulosti 1-4 vyšla velmi podobně a nejsme pouze na základě ní schopni rozlišit, o kterou plynulost by se mělo jednat.
 
 
-\pagebreak
+%\pagebreak
 
 
 
 \begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/rod.svg.eps}	
+\minipage[t]{0.9\textwidth}
+	\centering
+	\includegraphics[width=75mm]{./grafy/morf/porovnani/rod.svg.eps}	
+	\caption{Porovnání modelů - rod}\label{gr:porrod}
+\endminipage
 \end{center}
-\caption{Porovnání modelů - rod}\label{gr:porrod}
 \end{figure}
+
+
 
 Rozdíl mezi standardními a maxentovými n-gramovými modely je prakticky neznatelný (obrázek \ref{gr:porrod}). Stejně je tomu tentokrát i u výpočetních nároků. Standardní n-gramy potřebovaly k natrénování 3 sekundy, maxentové n-gramy pak sekundy 4.
 
 \subsection{Rod stejný s předchozím}
 Ačkoliv modely pouze s rodem nebyly úspěšné, zkusíme ještě slova nenahrazovat jenom rodem daného slova, ale pokusíme se sledovat, zda se rody za sebou shodují. Slova tedy nahradíme opět písmenem \texttt{w}, k němuž přidáme slovo \texttt{rod}, lze-li u slova určit, a slovo \texttt{stejne}, pokud lze jednak rod u slova určit a jednak, pokud se rod shoduje s předchozím slovem.
+
+
+\pagebreak
 
 
 Příklad věty:
@@ -999,16 +1034,16 @@ Příklad věty:
 \end{center}
 
 
-\pagebreak
+%\pagebreak
 
 
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rodstejny.eps}
   \caption{Standardní 6-gramový model - rod stejný s předchozím}\label{gr:ngrrodstejny}
 \endminipage\quad
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rodstejny.eps}
   \caption{Maxentový 6-gramový model - rod stejný s předchozím}\label{gr:maxrodstejny}
 \endminipage
@@ -1019,15 +1054,21 @@ Výsledky jsou ale stejně špatné jako v případě samotného rodu. Grafy se 
 
 \begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/rodstejny.eps}	
+\minipage[t]{0.9\textwidth}
+	\centering
+	\includegraphics[width=75mm]{./grafy/morf/porovnani/rodstejny.eps}	
+	\caption{Porovnání modelů - rod stejný s předchozím}\label{gr:porrodstejny}
+\endminipage
 \end{center}
-\caption{Porovnání modelů - rod stejný s předchozím}\label{gr:porrodstejny}
 \end{figure}
 
 Rozdíly mezi standardním n-gramovým a maxentovým n-gramovým modelem je taktéž nepatrný (obrázek \ref{gr:porrodstejny}). Doba nutná k natrénování obou typů byla v tomto případě shodně 3 sekundy.
 
 \subsection{S rozšířeným slovním druhem}
 Jelikož samotný rod byla pro model nedostatečná informace, zkusíme namísto písmene \texttt{w} slova nahrazovat rozšířeným slovním druhem a k němu přidávat za dvojtečku rod.
+
+
+\pagebreak
 
 Příklad věty:
 \begin{center}
@@ -1046,11 +1087,11 @@ Příklad věty:
 
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+rod.svg.eps}
   \caption{Standardní 6-gramový model - číslo}\label{gr:ngrcislo}
 \endminipage\quad
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+rod.svg.eps}
   \caption{Maxentový 6-gramový model - číslo}\label{gr:maxcislo}
 \endminipage
@@ -1062,15 +1103,22 @@ S rozšířeným slovním druhem už modely dopadly lépe, přesto perplexita s 
 
 \begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+rod.svg.eps}	
+\minipage[t]{0.9\textwidth}
+	\centering
+	\includegraphics[width=75mm]{./grafy/morf/porovnani/rsd+rod.svg.eps}	
+	\caption{Porovnání modelů - rozšířený slovní druh + rod}\label{gr:porrsd+rod}
+\endminipage
 \end{center}
-\caption{Porovnání modelů - rozšířený slovní druh + rod}\label{gr:porrsd+rod}
 \end{figure}
+
 
 Ve srovnání jsou oba typy modelů na tom podobně, maxentové dostávaly jen o něco málo nižší perplexitu (obrázek \ref{gr:porrsd+rod}). Z hlediska výpočetní náročnosti je ale rozdíl velký - 36 sekund standardní n-gramový model naproti 27 minutám u modelu maxentového.
 
 \section{Číslo}
 Stejné modely zkusíme natrénovat i v případě čísla. Jako první znovu zkusíme, zda bude modelu postačovat informace pouze o čísle daného slova tj. \texttt{wSg}, \texttt{wPl} nebo \texttt{w}.
+
+
+\pagebreak
 
 Příklad věty:
 \begin{center}
@@ -1089,11 +1137,11 @@ Příklad věty:
 
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/cislo.svg.eps}
   \caption{Standardní 6-gramový model - číslo}\label{gr:ngrcislo}
 \endminipage\quad
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/cislo.svg.eps}	
   \caption{Maxentový 6-gramový model - číslo}\label{gr:maxcislo}
 \endminipage
@@ -1105,15 +1153,21 @@ Výsledky ale dopadly obdobně špatně jako v případě rodu. Pomocí perplexi
 
 \begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/cislo.svg.eps}
+\minipage[t]{0.9\textwidth}
+	\centering
+	\includegraphics[width=75mm]{./grafy/morf/porovnani/cislo.svg.eps}
+	\caption{Porovnání modelů - číslo}\label{gr:porcislo}
+\endminipage
 \end{center}
-\caption{Porovnání modelů - číslo}\label{gr:porcislo}
 \end{figure}
 
 Oba typy modelů dopadly takřka stejně (obrázek \ref{gr:porcislo}). Stejná byla i doba nutná k natrénování - shodně po třech sekundách.
 
 \subsection{Přidání osoby}
 Číslo se bude často pojit s nějakou osobou. Zkusíme proto tuto informaci k číslu přidat. Slovo nahradíme písmenem \texttt{w}, poté bude následovat osoba a číslo, jdou-li u daného slova určit.
+
+\pagebreak
+
 
 Příklad věty:
 \begin{center}
@@ -1132,11 +1186,11 @@ Příklad věty:
 
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/osoba+cislo.svg.eps}
   \caption{Standardní 6-gramový model - osoba + číslo}\label{gr:ngros+cislo}
 \endminipage\quad
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/osoba+cislo.svg.eps}	
   \caption{Maxentový 6-gramový model - osoba + číslo}\label{gr:maxos+cislo}
 \endminipage
@@ -1147,15 +1201,21 @@ Modely ale nedopadly o nic lépe. Proložené přímky opět mírně stoupají, 
 
 \begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/osoba+cislo.svg.eps}	
+\minipage[t]{0.9\textwidth}
+	\centering
+	\includegraphics[width=75mm]{./grafy/morf/porovnani/osoba+cislo.svg.eps}	
+	\caption{Porovnání modelů - osoba + číslo}\label{gr:porosoba+cislo}
+\endminipage
 \end{center}
-\caption{Porovnání modelů - osoba + číslo}\label{gr:porosoba+cislo}
 \end{figure}
+
 
 Ve srovnání obou typů modelů opět nejsou patrné výrazné rozdíly (obrázek \ref{gr:porosoba+cislo}). Z hlediska výpočetních nároků se ale tentokrát trochu liší. Standardní n-gramové potřebovaly k natrénování 4 sekundy, maxentové 11 sekund.
 
 \subsection{S rozšířeným slovním druhem}
 Vzhledem k tomu, že přidání osoby žádné patrné zlepšení nepřineslo, zkusíme znovu přidat rozšířený slovní druh. Slova tedy budeme nahrazovat jejich druhem a číslem, lze-li určit.
+
+\pagebreak
 
 Příklad věty:
 \begin{center}
@@ -1173,16 +1233,16 @@ Příklad věty:
 \end{center}
 
 
-\pagebreak
+%\pagebreak
 
 
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+cislo.svg.eps}
   \caption{Standardní 6-gramový model - rozšířený slovní druh + číslo}\label{gr:ngrrsd+cislo}
 \endminipage\quad
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+cislo.svg.eps}
   \caption{Maxentový 6-gramový model - rozšířený slovní druh + číslo}\label{gr:maxrsd+cislo}
 \endminipage
@@ -1196,15 +1256,21 @@ Modely s rozšířeným slovním druhem dopadly znovu lépe. Ovšem výsledky st
 
 \begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+cislo.svg.eps}	
+\minipage[t]{0.9\textwidth}
+	\centering
+	\includegraphics[width=75mm]{./grafy/morf/porovnani/rsd+cislo.svg.eps}		
+	\caption{Porovnání modelů - rozšířený slovní druh + číslo}\label{gr:porrsd+cislo}
+\endminipage
 \end{center}
-\caption{Porovnání modelů - rozšířený slovní druh + číslo}\label{gr:porrsd+cislo}
 \end{figure}
+
 
 V porovnání dostávaly maxentové modely o něco nižší perplexitu. Čas potřebný k natrénování byl u standardních n-gramových modelů 33 s, u maxentových 24 minut.
 
 \section{Pád}
 Jako poslední zkusíme ještě natrénovat modely, kde slova nahradíme znovu písmenem \texttt{w} a přidáme k němu pád, lze-li u daného slova určit.
+
+\pagebreak
 
 Příklad věty:
 \begin{center}
@@ -1222,16 +1288,16 @@ Příklad věty:
 \end{center}
 
 
-\pagebreak
+%\pagebreak
 
 
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/pad.svg.eps}
   \caption{Standardní 6-gramový model - pád}\label{gr:ngpad}
 \endminipage\quad
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/pad.svg.eps}	
   \caption{Maxentový 6-gramový - pád}\label{gr:maxpad}
 \endminipage
@@ -1240,11 +1306,15 @@ Příklad věty:
 
 Výsledky opět nejsou dobré a jen potvrzují, že poskytnutí modelu značek pouze z jedné morfologické kategorie je nedostatečná informace.
 
+
 \begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/pad.svg.eps}	
+\minipage[t]{0.9\textwidth}
+	\centering
+	\includegraphics[width=75mm]{./grafy/morf/porovnani/pad.svg.eps}	
+	\caption{Porovnání modelů - pád}\label{gr:porpad}
+\endminipage
 \end{center}
-\caption{Porovnání modelů - pád}\label{gr:porpad}
 \end{figure}
 
 V porovnání jsou taktéž standardní n-gramové modely s modely maximálně entropie srovnatelné, bez větších rozdílů (obrázek \ref{gr:porpad}). Natrénování trvalo shodně 4 sekundy.
@@ -1255,11 +1325,11 @@ Jako v případech předchozích modelů se značkami z jedné morfologické kat
 
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+pad.svg.eps}
   \caption{Standardní 6-gramový model - rozšířený slovní druh + pád}\label{gr:ngrsd+pad}
 \endminipage\quad
-\minipage{0.45\textwidth}
+\minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+pad.svg.eps}
   \caption{Maxentový 6-gramový model - rozšířený slovní druh + pád}\label{gr:maxrsd+pad}
 \endminipage
@@ -1272,12 +1342,17 @@ Jako v případech předchozích modelů se značkami z jedné morfologické kat
 
 
 Zlepšení je znatelné a podobá se modelům s rozšířeným slovním druhem a všemi morfologickými značkami. Výsledky jsou prozatím nejlepší ze všech modelů se značkami jedné morfologické kategorie s rozšířeným slovním druhem.
+
 \begin{figure}[!htbp]
 \begin{center}
-	\includegraphics[width=90mm]{./grafy/morf/porovnani/rsd+pad.eps}
+\minipage[t]{0.9\textwidth}
+	\centering
+	\includegraphics[width=75mm]{./grafy/morf/porovnani/rsd+pad.eps}	
 	\caption{Porovnání modelů - rozšířený slovní druh + pád}\label{gr:porrsd+pad}
+\endminipage
 \end{center}
 \end{figure}
+
 
 
 Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Nicméně proložená přímka je strmější u standardních n-gramů (obrázek \ref{gr:porrsd+pad}). Výpočetní nároky se ale výrazně liší - 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
@@ -1389,22 +1464,22 @@ Pomocí programu Chyby, který vzniknul k této práci, jsme změřili na vývoj
 
 \subsection{Rysy typu chybi\_*}
 \begin{figure}[!htb]
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_infszu.eps}
   \caption{Korelace hodnoty rysu chybi\_infszu a plynulosti}\label{gr:infszu}
 \endminipage\hfill
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_podmet.eps}
   \caption{Korelace hodnoty rysu chybi\_podmet a plynulosti}\label{gr:podmet}
 \endminipage\hfill
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_vfin.eps}
   \caption{Korelace hodnoty rysu chybi\_vfin a plynulosti}\label{gr:vfin}
 \endminipage\hfill
 \end{figure}
 
 \begin{figure}[!htb]
-\centering\minipage{0.31\textwidth}
+\centering\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_sum.eps}
   \caption{Korelace součtového rysu chybi\_sum a plynulosti}\label{gr:chybi}
 \endminipage
@@ -1417,15 +1492,15 @@ Jednotlivé rysy samostatně neukázaly závislost s plynulostí (obrázky \ref{
 
 \subsection{Rysy typu *\_neni\_na\_konci}
 \begin{figure}[!htb]
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/inf_po_vm_neni_na_konci.eps}
   \caption{Korelace hodnoty rysu inf\_po\_vm\_neni\_na\_konci a plynulosti}\label{gr:vm}
 \endminipage\hfill
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/infszu_neni_na_konci.eps}
   \caption{Korelace hodnoty rysu infszu\_neni\_na\_konci a plynulosti}\label{gr:infszu_konec}
 \endminipage\hfill
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/vv_sloveso_neni_na_konci.eps}
   \caption{Korelace hodnoty rysu vv\_sloveso\_neni\_na\_konci a plynulosti}\label{gr:vvsloveso}
 \endminipage\hfill
@@ -1434,11 +1509,11 @@ Jednotlivé rysy samostatně neukázaly závislost s plynulostí (obrázky \ref{
 
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/pp_neni_na_konci.eps}
   \caption{Korelace hodnoty rysu pp\_neni\_na\_konci a plynulosti}\label{gr:pp_konec}
 \endminipage\quad
-\minipage{0.31\textwidth} 
+\minipage[t]{0.31\textwidth} 
   \centering\includegraphics[width=50mm]{./grafy/rysy/neni_na_konci_sum.eps}
   \caption{Korelace součtového rysu neni\_na\_konci\_sum a plynulosti}\label{gr:sumneni}
 \endminipage
@@ -1452,11 +1527,11 @@ Zde je situace podobná jako u předchozí skupiny rysů. Jednotlivé rysy samos
 \subsection{Rysy pp\_bez\_av a neshoda\_podmet\_prisudek}
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/pp_bez_av.eps}
   \caption{Korelace hodnoty rysu pp\_bez\_av a plynulosti}\label{gr:bezav}
 \endminipage\quad
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/neshoda_podmet_prisudek.eps}
   \caption{Korelace hodnoty rysu neshoda\_podmet\_prisudek a plynulosti}\label{gr:neshoda}
 \endminipage
@@ -1469,15 +1544,15 @@ Oba rysy opět nevykazují samostatně souvislost s plynulostí (obrázky \ref{g
 \subsection{Rysy typu vice\_*}
 
 \begin{figure}[!htb]
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/vice_osob.eps}
   \caption{Korelace hodnoty rysu vice\_osob a plynulosti}\label{gr:viceosob}
 \endminipage\hfill
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/vice_vfin.eps}
   \caption{Korelace hodnoty rysu vice\_vfin a plynulosti}\label{gr:vicevfin}
 \endminipage\hfill
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/vice_sum.eps}
   \caption{Korelace součtového rysu vice\_sum a plynulosti}\label{gr:vicesum}
 \endminipage\hfill
@@ -1488,11 +1563,11 @@ Shodně dopadly i rysy typu \texttt{vice\_*}. Mediány rysu \texttt{vice\_osob} 
 \subsection{Rysy sum a root}
 \begin{figure}[!htb]
 \begin{center}
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/root.eps}
   \caption{Korelace hodnoty rysu root a plynulosti}\label{gr:root}
 \endminipage\quad
-\minipage{0.31\textwidth}
+\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/sum.eps}
   \caption{Korelace hodnoty rysu sum a plynulosti}\label{gr:sum}
 \endminipage
