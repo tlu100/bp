@@ -51,6 +51,7 @@
 
 \usepackage{caption}
 
+\usepackage{url}
 
 \definecolor{seda}{rgb}{0.7,0.7,0.7}
 \newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
@@ -69,7 +70,7 @@
 %% Balíček hyperref, kterým jdou vyrábět klikací odkazy v PDF,
 %% ale hlavně ho používáme k uložení metadat do PDF (včetně obsahu).
 %% POZOR, nezapomeňte vyplnit jméno práce a autora.
-\usepackage[ps2pdf,unicode]{hyperref}   % Musí být za všemi ostatními balíčky
+\usepackage[ps2pdf,unicode,breaklinks]{hyperref}   % Musí být za všemi ostatními balíčky
 \hypersetup{pdftitle=Jazykové modelování pro němčinu}
 \hypersetup{pdfauthor=Marek Tlustý}
 
@@ -1139,17 +1140,17 @@ Příklad věty:
 \begin{center}
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+rod.svg.eps}
-  \caption{Standardní 6-gramový model - číslo}\label{gr:ngrcislo}
+  \caption{Standardní 6-gramový model - číslo}\label{gr:ngrrsd+rod}
 \endminipage\quad
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+rod.svg.eps}
-  \caption{Maxentový 6-gramový model - číslo}\label{gr:maxcislo}
+  \caption{Maxentový 6-gramový model - číslo}\label{gr:maxrsd+rod}
 \endminipage
 \end{center}
 \end{figure}
 
 
-S rozšířeným slovním druhem už modely dopadly lépe, přesto perplexita s rostoucí plynulostí neklesá nijak výrazně, což dokazuje proložená přímka (obrázky \ref{gr:ngrcislo}, \ref{gr:maxcislo}).
+S rozšířeným slovním druhem už modely dopadly lépe, přesto perplexita s rostoucí plynulostí neklesá nijak výrazně, což dokazuje proložená přímka (obrázky \ref{gr:ngrrsd+rod}, \ref{gr:maxrsd+rod}).
 
 \begin{figure}[!htbp]
 \begin{center}
