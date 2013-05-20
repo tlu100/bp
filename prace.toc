@@ -1,10 +1,10 @@
 \contentsline {chapter}{\IeC {\'U}vod}{7}{chapter*.2}
 \contentsline {chapter}{\numberline {1}Jazykov\IeC {\'e} modely}{9}{chapter.1}
-\contentsline {section}{\numberline {1.1}Pohled z Bayesovy v\IeC {\v e}ty}{9}{section.1.1}
+\contentsline {section}{\numberline {1.1}Pohled Bayesovy v\IeC {\v e}ty}{9}{section.1.1}
 \contentsline {section}{\numberline {1.2}N-gramov\IeC {\'e} modely}{9}{section.1.2}
-\contentsline {section}{\numberline {1.3}Good-Turing vyhlazov\IeC {\'a}n\IeC {\'\i }}{10}{section.1.3}
-\contentsline {section}{\numberline {1.4}Katz back-off n-gramov\IeC {\'e} modely}{12}{section.1.4}
-\contentsline {section}{\numberline {1.5}Kneser-Ney vyhlazov\IeC {\'a}n\IeC {\'\i }}{13}{section.1.5}
+\contentsline {section}{\numberline {1.3}Good-Turingovo vyhlazov\IeC {\'a}n\IeC {\'\i }}{10}{section.1.3}
+\contentsline {section}{\numberline {1.4}Katzovy back-off n-gramov\IeC {\'e} modely}{12}{section.1.4}
+\contentsline {section}{\numberline {1.5}Vyhlazov\IeC {\'a}n\IeC {\'\i } Kneser-Ney}{13}{section.1.5}
 \contentsline {section}{\numberline {1.6}Modely maxim\IeC {\'a}ln\IeC {\'\i } entropie}{14}{section.1.6}
 \contentsline {section}{\numberline {1.7}Vyhlazov\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} maxim\IeC {\'a}ln\IeC {\'\i } entropie}{16}{section.1.7}
 \contentsline {section}{\numberline {1.8}Hodnocen\IeC {\'\i } model\IeC {\r u}}{16}{section.1.8}
@@ -54,7 +54,7 @@
 \contentsline {subsection}{\numberline {4.9.1}Bez rysu root}{48}{subsection.4.9.1}
 \contentsline {section}{\numberline {4.10}Shrnut\IeC {\'\i }}{49}{section.4.10}
 \contentsline {chapter}{Z\IeC {\'a}v\IeC {\v e}r}{50}{chapter*.46}
-\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{51}{chapter*.47}
+\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{51}{chapter*.46}
 \contentsline {chapter}{Seznam obr\'azk\r {u}}{53}{chapter*.48}
 \contentsline {chapter}{Seznam tabulek}{54}{chapter*.49}
 \contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{55}{chapter*.50}

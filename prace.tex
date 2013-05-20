@@ -4,6 +4,7 @@
 % Okraje: levý 40mm, pravý 25mm, horní a dolní 25mm
 % (ale pozor, LaTeX si sám přidává 1in)
 \documentclass[12pt,a4paper]{report}
+
 \setlength\textwidth{145mm}
 \setlength\textheight{247mm}
 \setlength\oddsidemargin{15mm}
@@ -53,6 +54,8 @@
 
 \usepackage{url}
 
+
+ 
 \definecolor{seda}{rgb}{0.7,0.7,0.7}
 \newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
 \DeclareFontFamily{OT1}{pzc}{}
@@ -71,6 +74,8 @@
 %% ale hlavně ho používáme k uložení metadat do PDF (včetně obsahu).
 %% POZOR, nezapomeňte vyplnit jméno práce a autora.
 \usepackage[ps2pdf,unicode,breaklinks]{hyperref}   % Musí být za všemi ostatními balíčky
+\usepackage{breakurl}
+
 \hypersetup{pdftitle=Jazykové modelování pro němčinu}
 \hypersetup{pdfauthor=Marek Tlustý}
 
@@ -226,7 +231,7 @@ RNDr. Ondřej Bojar, Ph.D.
 
 Abstrakt:
 % abstrakt v rozsahu 80-200 slov; nejedná se však o opis zadání bakalářské práce
-Práce se zabývá specifiky německé gramatiky, které činí běžným n-gramovým modelům problémy. Nejprve popisuje statistické metody jazykového modelování a vysvětluje problematické jevy němčiny. Následně navrhuje vlastní varianty n-gramových jazykových modelů s cílem zlepšit korelaci ručně hodnocené plynulosti a automatického hodnocení - perplexity. Vlastní modely jsou trénovány jednak jako standardní n-gramové a jednak také metodou maximální entropie s n-gramovými rysy. Oba typy jsou vždy porovnány z hlediska úspěšnosti predikce a výpočetních nároků. Dále je navrhnuta množina vlastních rysů reprezentující počet gramatických chyb vybraných jevů. Úspěšnost se ověřuje na schopnosti predikovat ručně hodnocenou plynulost. Využito je modelů maximální entropie a vlastních modelů klasifikujících jen na základě mediánů hodnot rysů vypočtených z trénovacích dat.
+Práce se zabývá specifiky německé gramatiky, které činí běžným n-gramovým modelům problémy. Nejprve popisuje statistické metody jazykového modelování a vysvětluje problematické jevy němčiny. Následně navrhuje vlastní varianty n-gramových jazykových modelů s cílem zlepšit korelaci ručně hodnocené plynulosti a automatického hodnocení -- perplexity. Vlastní modely jsou trénovány jednak jako standardní n-gramové a jednak také metodou maximální entropie s n-gramovými rysy. Oba typy jsou vždy porovnány z hlediska úspěšnosti predikce a výpočetních nároků. Dále je navrhnuta množina vlastních rysů reprezentující počet gramatických chyb vybraných jevů. Úspěšnost se ověřuje na schopnosti predikovat ručně hodnocenou plynulost. Využito je modelů maximální entropie a vlastních modelů klasifikujících jen na základě mediánů hodnot rysů vypočtených z trénovacích dat.
 
 Klíčová slova:
 % 3 až 5 klíčových slov
@@ -289,9 +294,9 @@ Postupem času se začaly více uplatňovat statistické metody zpracování př
 
 Mimo strojový překlad se rozvíjely i další myšlenky jako např. rozpoznávání mluvené řeči nebo automatická oprava překlepů v psaném textu. I v těchto oblastech našly jazykové modely své uplatnění a jejich aplikace jsou dnes poměrně široké.
 
-Jedny z nejrozšířenějších a stále nejpoužívanějších modelů jsou modely \textit{n-gramové}, které sledují jen krátké posloupnosti po sobě jdoucích slov a na základě několika slov se snaží předpovědět slovo následující. Takový přístup úspěšně funguje na analytické jazyky, které pro gramatické jevy nepoužívají ohýbání slov - flexi. Mezi takové jazyky se řadí např. angličtina, ta využívá flexi jen minimálně z historických důvodů. Flektivní jazyky, mezi které patří právě němčina nebo čeština, využívají časování, skloňování, předpony, přípony a další. Němčina navíc velice často dává nějaké slovo na konec věty, což krátká posloupnost slov nemůže zachytit.
+Jedny z nejrozšířenějších a stále nejpoužívanějších modelů jsou modely \textit{n-gramové}, které sledují jen krátké posloupnosti po sobě jdoucích slov a na základě několika slov se snaží předpovědět slovo následující. Takový přístup úspěšně funguje na analytické jazyky, které pro gramatické jevy nepoužívají ohýbání slov -- flexi. Mezi takové jazyky se řadí např. angličtina, ta využívá flexi jen minimálně z historických důvodů. Flektivní jazyky, mezi které patří právě němčina nebo čeština, využívají časování, skloňování, předpony, přípony a další. Němčina navíc velice často dává nějaké slovo na konec věty, což krátká posloupnost slov nemůže zachytit.
 
-V této práci se proto budeme zabývat jazykovými modely pro němčinu. Vyzkoušíme jednak využít morfologickou analýzu pro natrénování \textit{n-gramových modelů} s morfologickými značkami. Modely založené na morfologických třídách zkoušely třeba Chaoui, Yvon, Mokbel, Chollet (ZDROJ) na arabštině. Využili kombinace se standardními n-gramovými modely a uvádějí zlepšení. Kladně hodnotí využití rozšířeného slovního druhu i Wakita, Kawai, Iida (ZDROJ). Na němčině zkoušel tento přístup třeba Geutner (ZDROJ). Za pomocí interpolace kombinuje modely se slovy a modely založené na slovních druzích. Trochu jiný způsob popisuje Popović (ZDROJ), který kombinuje slovní druhy a morfémy. S morfémy experimentovali i Fraser, Marion, Weller, Cap. Ti nejprve překládali kmen slova a poté predikovaly jeho formu za pomocí modelování pádu, rodu a čísla. S úspěšností predikce formy se dostali až téměř k 95 \%. My zkusíme využít jen modelů na morfologických značkách, u nichž budeme zkoumat korelaci automatického a ručního hodnocení s cílem korelaci zlepšit, aby hodnocení počítačem (perplexita) korelovalo s hodnocením lidmi (plynulost).
+V této práci se proto budeme zabývat jazykovými modely pro němčinu. Vyzkoušíme jednak využít morfologickou analýzu pro natrénování \textit{n-gramových modelů} s morfologickými značkami. Modely založené na morfologických třídách zkoušely třeba Chaoui, Yvon, Mokbel, Chollet (ZDROJ) na arabštině. Využili kombinace se standardními n-gramovými modely a uvádějí zlepšení. Kladně hodnotí využití rozšířeného slovního druhu i Wakita, Kawai, Iida (ZDROJ). Na němčině zkoušel tento přístup třeba Geutner (ZDROJ). Za pomocí interpolace kombinuje modely se slovy a modely založené na slovních druzích. Trochu jiný způsob popisuje Popović (ZDROJ), který kombinuje slovní druhy a morfémy. S morfémy experimentovali i Fraser, Marion, Weller, Cap \cite{fraser12}. Ti nejprve překládali kmen slova a poté predikovaly jeho formu za pomocí modelování pádu, rodu a čísla. S úspěšností predikce formy se dostali až téměř k 95 \%. My zkusíme využít jen modelů na morfologických značkách, u nichž budeme zkoumat korelaci automatického a ručního hodnocení s cílem korelaci zlepšit, aby hodnocení počítačem (perplexita) korelovalo s hodnocením lidmi (plynulost).
 
 Ručním hodnocením plynulosti se budeme zabývat i z jiné stránky a zkusíme navrhnout vlastní množinu rysů pro využití potenciálu modelů maximální entropie s cílem postihnout německou gramatiku. Gramatické rysy zkoušel využít např. Rukolaien (ZDROJ). Udává zlepšení perplexity o 16 \% a zkouší zároveň i kombinaci s n-gramovými modely se slovy. Amaya, Benedí (ZDROJ) využívají také gramatické rysy modelované za použití slovních druhů stochastickými bezkontextovými gramatikami. Naše modely budou sice také vycházet z gramatiky, ale nebudou modelovat správné gramatické jevy, nýbrž gramatické chyby. Na základě nich se pak budeme snažit predikovat ručně hodnocenou plynulost.
 
@@ -328,10 +333,10 @@ Hlavní obsah práce je strukturován do čtyř kapitol. První z nich se zabýv
 
 
 \chapter{Jazykové modely}
-Jazykový model se snaží charakterizovat a zachytit zákonitosti v přirozeném jazyce. K tomu je možné přistupovat z pohledu statistiky nebo z pohledu hlubší lingvistické analýzy. Statistický přístup automaticky určuje všechny parametry z velkého množství textu v daném jazyce. Tento proces se nazývá \textit{trénování modelu}. Modely opírající se hlavně o lingvistiku jsou tvořeny pravidly, která je potřeba naprogramovat ručně. Lze však využít i obou přístupů zároveň, a to například tak, že model nenecháme trénovat jenom na samotném textu, ale i na morfologických nebo jiných značkách či gramatických vztazích. Právě takovými modely se budeme zabývat.
+Jazykový model se snaží charakterizovat zákonitosti v přirozeném jazyce. K tomu je možné přistupovat za pomoci více či méně podrobné statistiky. Zákonitosti můžeme popisovat pravidly nebo je zkusit automaticky vypozorovat z velkého množství textů -- tzv. statistický přístup. Proces určování parametrů ve statistickém přístupu se nazývá \textit{trénování modelu}. Lingvistické znalosti pak můžeme do modelů přidat například tak, že model nenecháme trénovat jenom na samotném textu, ale i na morfologických nebo jiných značkách či gramatických vztazích. Právě takovými modely se budeme zabývat.
 
-\section{Pohled z Bayesovy věty}
-Na přirozený jazyk lze nahlížet jako na množinu kontextuálních jednotek (např. vět, slov nebo jejich částí), které jsou náhodnými proměnnými s určitým rozdělením pravděpodobnosti. Například při překladu hledáme takové slovo \(B\), které s největší pravděpodobností následuje po kontextu slov \(A\). Hledáme tedy takové \(B\), které maximalizuje podmíněnou pravděpodobnost \(P(B|A)\). S využitím Bayesovy věty máme:
+\section{Pohled Bayesovy věty}
+Na přirozený jazyk lze nahlížet jako na množinu jednotek (např. vět, slov nebo jejich částí), které jsou náhodnými proměnnými s určitým rozdělením pravděpodobnosti. Například při překladu hledáme takové slovo \(B\), které s největší pravděpodobností následuje po kontextu slov \(A\). Hledáme tedy takové \(B\), které maximalizuje podmíněnou pravděpodobnost \(P(B|A)\). S využitím Bayesovy věty máme:
 \begin{equation}
 \argmax{B} P(B|A) = \argmax{B} \frac{P(A|B) \cdot P(B)}{P(A)} 
 \end{equation}
@@ -341,9 +346,9 @@ Jmenovatel můžeme vynechat, neboť \(P(A)\) je v tuto chvíli pouze konstanta,
 \end{equation}
 
 \section{N-gramové modely}
-N-gramové modely jsou založené na statistickém pozorování dat. Využívají například skutečnosti, že některá slova se často vyskytují v určitých dvojících (obecně n-ticích) - pro němčinu typicky třeba člen a podstatné jméno. Jistě častěji spatříme v trénovacích datech \textit{der Hund} než \textit{das Hund}. Stejně jako po slovese \textit{fragen} uvidíme předložku \textit{nach} nebo \textit{um} spíše než \textit{auf} nebo \textit{an}.
+N-gramové jazykové modely nepotřebují téměř žádné lingvistické zpracování. Využívají skutečnosti, že některá slova se často vyskytují v určitých dvojících (obecně n-ticích) -- pro němčinu typicky třeba člen a podstatné jméno. Jistě častěji spatříme v trénovacích datech \textit{der Hund} než \textit{das Hund}. Stejně jako po slovese \textit{fragen} uvidíme předložku \textit{nach} nebo \textit{um} spíše než \textit{auf} nebo \textit{an}.
 
-Zajímá nás, jaká je pravděpodobnost výskytu takové posloupnosti slov $w_{1},\ldots,w_{m}$. Tuto pravděpodobnost vypočítáme tak, že spočítáme výskyty všech těchto posloupností v datech a normalizujeme je velikostí dat. Trénovací data jsou ale obvykle řídká\footnote{Řídkostí dat rozumíme počet různých kombinací slov v trénovacích datech vzhledem k celkovému počtu všech možných kombinací, kterých je nesrovnatelně více.}, a proto budeme chtít pozorované vlastnosti zobecnit.
+Pro danou posloupnost slov $w_{1},\ldots,w_{m}$ bychom rádi věděli, s jakou pravděpodobností je to správná německá věta. Tuto pravděpodobnost vypočítáme tak, že spočítáme výskyty všech těchto posloupností v datech a normalizujeme je velikostí dat. Trénovací data jsou ale obvykle řídká\footnote{Řídkostí dat rozumíme nízký počet různých kombinací slov, které můžeme pozorovat v trénovacích datech, vzhledem k celkovému počtu možných správných vět. Těch je totiž nesrovnatelně více.}, a proto budeme chtít pozorované vlastnosti zobecnit.
 
 Z Bayesovy věty víme, že
 \begin{equation}
@@ -359,11 +364,11 @@ P(w_{1},\ldots,w_{m}) = P(w_{1}) \cdot P(w_{2}|w_{1}) \cdot P(w_{3}|w_{1},w_{2})
 \end{equation}
 Tento postup se nazývá \textbf{pravidlo zřetězení} a díky němu můžeme pravděpodobnost $P(w_{1},\ldots,w_{m})$ modelovat postupně člen po členu (např. slovo po slově).
 
-\textbf{Markovův předpoklad} navíc říká, že každý člen posloupnosti $w_{1},\ldots,w_{m}$ závisí jen na $k$ předchozích. Potom tedy:
+Model můžeme dále zjednodušit tím, že přistoupíme na tzv. \textbf{Markovův předpoklad}. Ten říká, že každý člen posloupnosti $w_{1},\ldots,w_{m}$ závisí jen na $k$ předchozích. Potom tedy:
 \begin{equation}\label{eq:markov}
 P(w_{m}|w_{1} \ldots w_{m-1}) \simeq P(w_{m}|w_{m-k}, \ldots, w_{m-1})
 \end{equation}
-Toto tvrzení vede k zavedení pojmu n-gram a je vlastně předpokladem pro fungování n-gramových modelů.
+Toto tvrzení vede k zavedení pojmu n-gram a Markovovské chování vět v přirozeném jazyce je předpokladem pro fungování n-gramových modelů.
 
 \textbf{N-gram} je $n$ po sobě jdoucích členů $w_{1},\ldots,w_{n}$ z dané posloupnosti $w_{1},\ldots,w_{m}$ (např. $n$ po sobě jdoucích slov ve větě). Pro $n = 1, 2, 3$ používáme označení \textit{unigram}, \textit{bigram} a \textit{trigram}.
 
@@ -376,14 +381,14 @@ P_{MLE}(w_{m}|w_{m-k}, \ldots, w_{m-1}) = \frac{count(w_{m-k}, \ldots w_{m})}{\s
 \end{equation}
 Takto se rozdělí pravděpodobnost mezi všechny spatřené n-gramy v trénovacích datech a právě toto rozdělení pravděpodobnosti tvoří \textbf{n-gramový model}.
 
-Problémem však stále zůstává skutečnost, že pro neviděné n-gramy v testovacích datech, dostaneme nulovou pravděpodobnost.
+Problémem však stále zůstává skutečnost, že pro neviděné n-gramy v testovacích datech dostaneme nulovou pravděpodobnost celé věty.
 
-\section{Good-Turing vyhlazování}
-\textbf{Good-Turing vyhlazování} se snaží vyhradit část rozdělení pravděpodobnosti od více frekventovaných n-gramů pro ty méně frekventované a neviděné. Používá k tomu frekvenci frekvencí n-gramů $N_r$, které se v trénovacích datech vyskytly r-krát. Tedy například pro $r=3$ je $N_3$ rovno počtu n-gramů vyskytujících se v trénovacích datech právě třikrát. 
+\section{Good-Turingovo vyhlazování}
+\textbf{Good-Turingovo vyhlazování} se snaží vyhradit část rozdělení pravděpodobnosti od frekventovanějších n-gramů pro ty méně frekventované a neviděné. Používá k tomu frekvenci frekvencí n-gramů $N_r$, které se v trénovacích datech vyskytly r-krát. Tedy například pro $r=3$ je $N_3$ rovno počtu n-gramů vyskytujících se v trénovacích datech právě třikrát. 
 
-Zajímavějším příkladem je ale $N_0$ tj. počet neviděných n-gramů. Ty nemůžeme spočítat přímo, ovšem výpočet také není nijak složitý. Stačí vzít počet všech možných n-gramů a odečíst počet n-gramů viděných. Pokud uvažujeme model slov, pak pro $n=3$, velikost slovníku 100 a počet viděných n-gramů 350\,000 je $N_0 = 100^3 - 350\,000 = 650\,000$.
+Zajímavějším příkladem je ale $N_0$ tj. počet neviděných n-gramů. Ty nemůžeme spočítat přímo, ovšem výpočet také není nijak složitý. Stačí vzít počet všech možných n-gramů a odečíst počet n-gramů viděných. Pokud uvažujeme model slov, pak pro $n=3$, velikost slovníku 100 a počet viděných 3-gramů 350\,000 je $N_0 = 100^3 - 350\,000 = 650\,000$.
 
-Tato metoda bere n-gramy, které se vyskytly r-krát, jakoby se vyskytly r*-krát
+Good-Turingova metoda bere n-gramy, které se vyskytly v trénovacích datech r-krát, jakoby se vyskytly r*-krát:
 \begin{equation}\label{eq:gtr1}
 r^* = (r+1) \cdot \frac {N_{r+1}}{N_r}
 \end{equation}
@@ -409,7 +414,7 @@ Odhad pravděpodobnosti potom vypadá následovně:
 \begin{equation}
 P_{GT}(w_{1},\ldots,w_{n}) = \left\{
 \begin{array}{ll}
-\displaystyle \frac{N_1}{N_0 \cdot N} & \text{pro r = 0} \\
+\displaystyle \frac{N_1}{N_0 \cdot \sum_{r}r\cdot N_r} & \text{pro r = 0} \\
 &\\
 \displaystyle \frac{r^*}{\sum_{r}r\cdot N_r} & \text{jinak} 
 \end{array}\right.
@@ -421,10 +426,10 @@ Z_r = \frac{N_r}{0.5(t-q)}
 \end{equation}
 kde $q$, $r$ a $t$ jsou po sobě jdoucí indexy mající $N_q$, $N_r$ a $N_t$ nenulové. Je-li $N_r$ poslední nenulová frekvence n-gramů, dosadíme $t = 2r - q$. V případě, kdy $r = 1$, bereme $N_q = N_0$.
 
-Good-Turing vyhlazování podává dobré výsledky pro málo frekventované n-gramy, a proto se v praxi často používá. Je také výchozím nastavením SRILM toolkitu\footnote{Sada nástrojů pro jazykové modelování. V tomto toolkitu budeme také trénovat všechny n-gramové modely. Více viz (odkaz na zdroj)} při trénování n-gramových modelů. Podrobněji o Good-Turing vyhlazování píše třeba .....[x] nebo ....[y].
+Good-Turingovo vyhlazování podává dobré výsledky pro málo frekventované n-gramy, a proto se v praxi často používá. Je také výchozím nastavením SRILM toolkitu\footnote{Sada nástrojů pro jazykové modelování. V tomto toolkitu budeme také trénovat všechny n-gramové modely. Více viz (odkaz na zdroj)} při trénování n-gramových modelů. Podrobněji o Good-Turingově vyhlazování píše třeba .....[x] nebo ....[y].
 
-\section{Katz back-off n-gramové modely}
-V trénovacích datech se nemusel objevit n-gram, který zrovna chceme a bez použití vyhlazování bychom dostali nulovou pravděpodobnost. V trénovacích datech ale mohl být podobný n-gram lišící se jen délkou historie. Pro získání informace od kratších n-gramů se proto využívá kombinace n-gramových modelů nižších řádů pomocí \textbf{lineární interpolace}. 
+\section{Katzovy back-off n-gramové modely}
+V trénovacích datech se nemusel objevit n-gram, který zrovna chceme, a bez použití vyhlazování bychom dostali nulovou pravděpodobnost. V trénovacích datech ale mohl být podobný n-gram lišící se jen délkou historie. Pro zužitkování této informace od kratších n-gramů se proto využívá kombinace n-gramových modelů nižších řádů pomocí \textbf{lineární interpolace}. 
 
 K lineární interpolaci potřebujeme vektor vah $\lambda$, pro který platí:
 \begin{equation}
@@ -435,13 +440,13 @@ Výsledná pravděpodobnost pro trigramový model pak vypadá takto:
 P(w_3|w_1, w_2) = \lambda_3 P(w_3|w_1,w_2) + \lambda_2 P(w_3|w_2) + \lambda_1 P(w_3)
 \end{equation}
 
-Vektor vah je však zatím neznámý, existují algoritmy pro jeho automatické určení - např. \textit{EM algoritmus} (viz ZDROJ).
+Vektor vah lze určit např. pomocí \textit{EM algoritmu} (viz ZDROJ).
 
 Na podobné myšlence kombinace n-gramových modelů s různou délkou historie jsou právě založeny \textbf{back-off n-gramové modely}. Ty ovšem neurčují pravděpodobnost vždy podle všech n-gramových modelů nižších řádů, ale využívají nižší řády pouze, pokud ty vyšší neposkytují dostatečnou informaci. Začíná se u modelů s nejvyšším řádem, pokud tento n-gram nebyl spatřen, proběhne tzv. \textbf{back-off} k nižšímu řádu a n-gramu se zkrátí historie o poslední člen (např. slovo). Pokud ani tento nižší řád n-gram se zkrácenou historií nikdy neviděl, pokračuje se v back-off operacích, dokud takový řád není nalezen.
 
-Stejně jako v případě lineární interpolace se pravděpodobnosti jednotlivých modelů musely přenásobit vahami $\lambda$, aby se stále jednalo o validní rozdělení pravděpodobnosti, musíme najít takový způsob i u této metody. Zde musíme určit složitější normalizační faktor, neboť modelů nižších řádů nebudeme využívat vždy.
+Stejně jako se v případě lineární interpolace pravděpodobnosti jednotlivých modelů musely přenásobit vahami $\lambda$, aby se stále jednalo o validní rozdělení pravděpodobnosti, musíme najít takový způsob i u této metody. Zde musíme určit složitější normalizační faktor, neboť modelů nižších řádů nebudeme využívat vždy.
 
-\textbf{Katz back-off modely} proto odhadují pravděpodobnost n-gramu následovně:
+\textbf{Katzovy back-off modely} proto odhadují pravděpodobnost n-gramu následovně:
 \begin{equation}
 P_{BO}(w_n|w_1, \ldots, w_{n-1}) = \left\{
 \begin{array}{l}
@@ -457,11 +462,11 @@ kde \begin{itemize}
 \item{$\alpha$ je normalizační faktor přerozdělující zbývající část pravděpodobnosti}
 \end{itemize}
 
-Parametr $d$ je možné stanovit na základě popsaného Good-Turing vyhlazování následovně:
+Parametr $d$ je možné stanovit na základě popsaného Good-Turingova vyhlazování následovně:
 \begin{equation}
 d_{w_1, \ldots, w_n} = \frac{count(w_1, \ldots, w_n)^*}{count(w_1, \ldots, w_n)}
 \end{equation}
-přičemž $count(w_1, \ldots, w_n)^*$ se spočítá dle vzorce \eqref{eq:gtr1} nebo \eqref{eq:gtr2} z Good-Turing vyhlazování.
+přičemž $count(w_1, \ldots, w_n)^*$ se spočítá dle vzorce \eqref{eq:gtr1} nebo \eqref{eq:gtr2} z Good-Turingova vyhlazování.
 
 Výpočet normalizačního faktoru $\alpha$ je o něco složitější. Nejprve zavedeme $\beta$ jako doplněk pravděpodobnosti součtu všech n-gramů s počtem výskytu (count) vyšším než $k$. $\beta$ tak bude představovat zbývající vyhrazenou část pravděpodobnosti pro (n-1)-gramy.
 \begin{equation}
@@ -472,39 +477,39 @@ Potom se normalizační faktor $\alpha$ vypočítá jako podíl zbývající pra
 \alpha_{w_{1}, \cdots, w_{n -1}} = \frac{\beta_{w_{1}, \cdots, w_{n -1}}}        {\sum_{ \{ \text{n-gram} | count(\text{n-gram}) \leq k \} } P_{BO}(w_n | w_{2} \cdots w_{n-1})}
 \end{equation}
 
-Back-off n-gramové modely podávají dobré výsledky, a proto jsou v praxi často využívány. Tento typ modelů je výchozím nastavením nástroje \texttt{ngram-count} pro trénování modelu z již zmíněného SRILM toolkitu a právě takové modely budeme v této práci vyrábět.
+Back-off n-gramové modely podávají dobré výsledky, a proto jsou v praxi často využívány. Tento typ modelů je společně s Good-Turingovým vyhlazováním výchozím nastavením nástroje \texttt{ngram-count} pro trénování modelu z již zmíněného SRILM toolkitu a právě takové modely budeme v této práci vyrábět.
 
-\section{Kneser-Ney vyhlazování}
-\textbf{Kneser-Ney vyhlazování} se snaží nahradit unigramovou pravděpodobnost, která závisí pouze na frekvenci výskytu slova v trénovacím korpusu, chytřejší pravděpodobností, která bude zohledňovat, v kolika různých kontextech se toto slovo vyskytuje. Tato metoda předpokládá, že slovo vyskytující se ve více kontextech je pravděpodobnější i pro výskyt v kontextu novém.
+\section{Vyhlazování Kneser-Ney}
+\textbf{Vyhlazování Kneser-Ney} se snaží nahradit unigramovou pravděpodobnost, která závisí pouze na frekvenci výskytu slova v trénovacím korpusu, chytřejší pravděpodobností, která bude zohledňovat, v kolika různých kontextech se toto slovo vyskytuje. Tato metoda předpokládá, že slovo vyskytující se ve více kontextech je pravděpodobnější i pro výskyt v kontextu novém.
 
 Pro příklad se často uvádí věta se San Franciscem a brýlemi:
 \begin{itemize}
 \item{Mějme část věty: \textit{Nemohu najít své čtecí}}
 \item{Naším úkolem je uhádnout slovo, které bude následovat.}
 \item{Předpokládejme, že unigramový model by nabídnul slovo Francisco. Proč? Protože se v trénovacím textu vyskytovalo nejčastěji.}
-\item{Kneser-Ney vyhlazování zavádí pravděpodobnost zohledňující počet kontextů, kde se dané slovo vyskytlo. Tato pravděpodobnost proto odhalí, že ačkoliv se Francisco objevovalo často, pak jenom po slovu San. Naproti tomu brýle se vyskytovaly v o mnoho více kontextech, a proto jim bude přidělena vyšší pravděpodobnost.}
+\item{Vyhlazování Kneser-Ney zavádí pravděpodobnost zohledňující počet kontextů, kde se dané slovo vyskytlo. Tato pravděpodobnost proto odhalí, že ačkoliv se Francisco objevovalo často, pak jenom po slovu San. Naproti tomu brýle se vyskytovaly v o mnoho více kontextech, a proto jim bude přidělena vyšší pravděpodobnost.}
 \end{itemize}
 
 Pravděpodobnost zohledňující počet kontextů je definována jako:
 \begin{equation}
 P_{CONTINUATION}(w_i) = \frac{|\{w_{i-1} : count(w_{i-1}, w_i) > 0 \}|}{\sum_{w_j} |\{w_{i-1} : count(w_{i-1}, w_j) > 0 \}|}
 \end{equation}
-Čitatel představuje počet slov, které se v trénovacím textu objevily před slovem $w_i$. Jmenovatel pak celkový počet slov objevujících se před všemi možnými slovy.
+Čitatel představuje počet slov, která se v trénovacím textu objevila před slovem $w_i$. Jmenovatel pak celkový počet slov objevujících se před všemi možnými slovy.
 
 $P_{CONTINUATION}$ lze využít jak u interpolace, tak u back-off modelů jako náhrada unigramového modelu. Podrobnější informace se lze dočíst ve (ZDROJ: http://www.ee.columbia.edu/~stanchen/papers/h015a-techreport.pdf).
 
 \section{Modely maximální entropie}
 
-\textbf{Entropie} je minimální průměrný počet bitů potřebný k zakódování popisu výstupu nějaké náhodné veličiny. Pro náhodnou veličinu $X$ a její distribuci $P_X$ je dána entropie vztahem:
+\textbf{Entropie} je minimální průměrný počet bitů potřebný k zakódování popisu hodnoty nějaké náhodné veličiny. Pro náhodnou veličinu $X$ a její distribuci $P_X$ je dána entropie vztahem:
 \begin{equation}\label{eq:entropy}
 H(P_X) = - \sum_x P_X(x) \cdot log_2 P_X(x)
 \end{equation}
 
-Ideou modelů \textbf{maximální entropie} je najít podmíněné rozdělení pravděpodobnosti, které má za daných podmínek maximální entropii. Jinými slovy se snažíme najít co nejjednodušší popis na základě toho, co známe - \textit{princip Occamovy břitvy}. Díky tomu se popis co nejvíce blíží rovnoměrnému rozdělení a má tak co nejvyšší entropii.
+Ideou modelů \textbf{maximální entropie} (nebo též modelů \textbf{maxentových}) je najít podmíněné rozdělení pravděpodobnosti, které má za daných podmínek (pozorovaných dat) maximální entropii. Jinými slovy se snažíme najít co nejjednodušší popis na základě toho, co známe -- \textit{princip Occamovy břitvy}. Díky tomu se popis co nejvíce blíží rovnoměrnému rozdělení a má tak co nejvyšší entropii.
 
-Z trénovacího textu se budeme snažit napozorovat jen některé důležité vlastnosti, které jsou reprezentovány pomocí binárních funkcí a nazývají se \textbf{rysy} (features). Tyto funkce mohou být např. použity pro reprezentování nám již známých n-gramů. Pro trigram $w_1, w_2, w_3$ a historii $h$ může funkce vypadat následovně:
+Z trénovacího textu se budeme snažit napozorovat jen některé důležité vlastnosti, které jsou reprezentovány pomocí binárních funkcí (indikátorů) a nazývají se \textbf{rysy} (features). Tyto funkce mohou být např. použity pro reprezentování nám již známých n-gramů. Pro trigram $w_1, w_2, w_3$ a historii $h$ může funkce vypadat následovně:
 \begin{equation}
-f_{w_1, w_2, w_2}(h,w) = \left\{
+f_{w_1, w_2, w_3}(h,w) = \left\{
 \begin{array}{ll}
 1 & \text{pokud $h$ končí $w_1, w_2$ a $w = w_3$}\\
 \\
@@ -514,7 +519,7 @@ f_{w_1, w_2, w_2}(h,w) = \left\{
 
 Díky takovému popisu nejsme omezeni jen na n-gramy. Rysy mohou představovat jakoukoliv skutečnost z historie, ať už se jedná třeba o začáteční písmeno prvního slova věty nebo morfologickou třídu předchozího slova. Na takové rysy můžeme pohlížet jako na jednotlivé modely a budeme hledat jejich vhodné kombinace. Modely maximální entropie ale nestaví modely samostatně, nýbrž vytváří hned jediný kombinovaný model.
 
-Na základě toho nebudeme používat při určování pravděpodobnosti jen posloupnosti slov, ale zavedeme obecnější pojmy. \textbf{Kontextem} budeme rozumět jakousi historii tj. data, která máme k dispozici v době predikce. \textbf{Výsledkem} pak výstup, jež chceme predikovat. Dvojice kontext a výsledek je označována jako \textbf{událost}. V případě modelů čistě se slovy může být událostí n-gram $w_1, \ldots, w_n$, kde predikujeme slovo $w_n$ na základě historie slov $w_1, \ldots, w_{n-1}$.
+Na základě toho nebudeme používat při určování pravděpodobnosti jen posloupnosti slov, ale zavedeme obecnější pojmy. \textbf{Kontextem} budeme rozumět jakoukoli historii tj. data, která máme k dispozici v době predikce. \textbf{Výsledkem} pak výstup, jejž chceme predikovat. Dvojice kontext a výsledek je označována jako \textbf{událost}. V případě modelů čistě se slovy může být událostí n-gram $w_1, \ldots, w_n$, kde predikujeme slovo $w_n$ na základě historie slov $w_1, \ldots, w_{n-1}$.
 
 Výsledný model má následující podobu:
 \begin{equation}
@@ -532,11 +537,11 @@ Z(h) = \sum_{x_i \in V} e^{\sum_j \lambda_j f_j(x_i,h)}
 \item{V je množina všech možných výsledků (např. slov)}
 \end{itemize}
 
-Během trénování modelu maximální entropie se snažíme naučit optimální váhy $\lambda_i$ korespondující s funkcemi rysů $f_i$. To je ekvivalentní hledání odhadu maximální věrohodnosti vah $\Lambda$ s využitím logaritmu věrohodnostní funkce $\mathcal{L}(X|\Lambda)$ trénovacích dat $X$. Váhy jsou určovány speciálními metodami, nejčastěji \textit{GIS - Generalized Iterative Scaling} (Darroch, Ratcliff [ZDROJ]) nebo \textit{LBFGS - Limited Memory BFGS} (Liu, Nocedal [ZDROJ]). \textit{BFGS} jsou počáteční písmena příjmení autorů původní metody pro řešení neomezených nelineárních optimalizačních problémů - Broyden-Fletcher-Goldfarb-Shanno.
+Během trénování modelu maximální entropie se snažíme naučit optimální váhy $\lambda_i$ korespondující s funkcemi rysů $f_i$. To je ekvivalentní hledání odhadu maximální věrohodnosti vah $\Lambda$ s využitím logaritmu věrohodnostní funkce $\mathcal{L}(X|\Lambda)$ trénovacích dat $X$. Váhy jsou určovány speciálními metodami, nejčastěji \textit{GIS -- Generalized Iterative Scaling} (Darroch, Ratcliff [ZDROJ]) nebo \textit{LBFGS -- Limited Memory BFGS} (Liu, Nocedal [ZDROJ]). \textit{BFGS} jsou počáteční písmena příjmení autorů původní metody pro řešení neomezených nelineárních optimalizačních problémů -- Broyden-Fletcher-Goldfarb-Shanno.
 
 Stanovení optimálních vah je náročná a složitá operace, která může trvat dlouhou dobu, pokud se k ní přistupuje zcela přímočaře. V každé iteraci algoritmu se musí spočítat normalizační faktor $Z(h)$ pro všechny spatřené kontexty v trénovacích datech. Pro každý kontext je zapotřebí projít přes všechna slova ze slovníku, tedy i přes ta, která se neobjevila v daném kontextu.
 
-Jednou z technik jak snížit složitost počítání normalizačního faktoru jsou vnořené nepřekrývající se rysy - tedy např. n-gramové rysy. Pro ně totiž můžeme normalizační faktor spočítat takto - mějme historii $w_{i-1}$, $w_{i-2}$, pak
+Jednou z technik jak snížit složitost počítání normalizačního faktoru jsou vnořené nepřekrývající se rysy -- tedy např. n-gramové rysy. Pro ně totiž můžeme normalizační faktor spočítat takto: Mějme historii $w_{i-1}$, $w_{i-2}$, pak
 \begin{equation}
 \begin{split}
 Z(w_{i-1}, w_{i-2}) = \sum_{w_i \in V} & e^{fw_i} + \\ 
@@ -553,9 +558,9 @@ První suma nezávisí na kontextu a může být předpočítána. Druhá je ste
 
 \section{Vyhlazování modelů maximální entropie}
 
-Stejně jako u n-gramových modelů se u modelů maximální entropie (maxentových) používá vyhlazování. Technice vyhlazování se zde často říká \textbf{regularizace}. 
+Stejně jako u n-gramových modelů se u modelů maximální entropie používá vyhlazování. Technice vyhlazování se zde často říká \textbf{regularizace}. 
 
-Jednou z nejčastějších metod je \textbf{Gaussian priors}, která přidává ke všem vahám rysů apriorní pravděpodobnost s nulovou střední hodnotou a daným rozptylem $\sigma$. Optimalizační kritérium modelu se tak změní na:
+Jednou z nejčastějších je metoda \textbf{Gaussian priors}, která přidává ke všem vahám rysů apriorní pravděpodobnost s nulovou střední hodnotou a daným rozptylem $\sigma$. Optimalizační kritérium modelu se tak změní na:
 \begin{equation}
 \mathcal{L}'(X|\Lambda) = \mathcal{L}(X|\Lambda) - \sum_i \frac{\lambda_i^2}{2\sigma_i^2}
 \end{equation}
@@ -572,14 +577,15 @@ kde \begin{itemize}
 \item{D je počet trénovacích pozorování}
 \item{$\alpha$ a $\sigma$ jsou regularizační parametry}
 \end{itemize}
-Parametry $\alpha$ a $\sigma$ byly empiricky stanoveny na optimální hodnoty $\alpha = 0.5$ a $\sigma^2 = 6$ - viz Chen [ZDROJ]. ([4] z Tanela)
+
+Parametry $\alpha$ a $\sigma$ bývají stanoveny empiricky -- např. Chen [ZDROJ]. ([4] z Tanela)
 
 $\mathpzc{l}_1$ + $\mathpzc{l}_2^2$ regularizaci využívá rozšíření \textit{SRILM Toolkitu} od Tanela Alumäe a Mikko Kurima [ZDROJ]. Toto rozšíření slouží pro trénování maxentových modelů s n-gramovými rysy. Pomocí tohoto rozšíření budeme vyrábět i naše maxentové n-gramové modely.
 
 \section{Hodnocení modelů}
 Abychom mohli vyhodnotit a porovnat kvalitu jazykových modelů, potřebujeme zavést taková kritéria, která budou dostatečně vypovídající a vzájemně porovnatelná i při použití různých druhů modelů a metod trénování.
 \subsection{Křížová perplexita}
-Jedním z hlavních měřítek pro kvalitu jazykového modelu je \textbf{křížová perplexita}. Udává, jak moc jsme překvapeni z následujícího slova a je dána vztahem:
+Jedním z hlavních měřítek pro kvalitu jazykového modelu je \textbf{křížová perplexita}. Udává, jak moc jsme překvapeni z následujícího pozorování (např. slova) a je dána vztahem:
 \begin{equation}
 PPL = 2^{H(P_E, P_{LM})},
 \end{equation}
@@ -594,7 +600,7 @@ Distribuce testovacích dat bývá nejčastěji stanovena jako $P_E(x) = \frac{n
 Čím je perplexita nižší, tím lépe umí jazykový model předpovídat následující slovo a tím je samozřejmě lepší.
 
 \subsection{Adekvátnost a plynulost překladu}
-Kvalita jazykového modelu při překladu bývá hodnocena i ručně lidmi, a to především dvěma kritérii - adekvátností a plynulostí.
+Kvalita jazykového modelu při překladu bývá implicitně hodnocena i ručně lidmi, a to především dvěma kritérii -- adekvátností a plynulostí.
 
 \begin{itemize}
 \item{\textbf{Adekvátnost} (adequacy) udává, zda překlad zachovává význam, či zda je změněn nebo nekompletní.}
@@ -631,10 +637,10 @@ V našich experimentech se zkusíme podívat, jak spolu koreluje právě automat
 Jazykové modely mají široké využití. Používají se především ve strojovém překladu, kde se z nabízených překladových hypotéz snaží vybrat tu, co vypadá jako nejhezčí věta. Stejnou úlohu mají i v rozpoznávání mluvené řeči nebo tištěného textu. Mezi další patří např. obnovení diakritiky, korekce pravopisu nebo třeba prediktivní psaní SMS zpráv.
 
 \chapter{Problémy s němčinou}
-Němčina patří do skupiny flektivních jazyků tj. takových, které gramatické funkce vyjadřují pomocí flexe - ohýbání. Němčina používá mimo časování a skloňování složitý slovosled. Díky tomu mají tradiční n-gramy s němčinou problémy. V trénovacích datech se nám nemohou objevit všechny gramatické kombinace - např. spojení přídavného a podstatného jména ve všech pádech a kontextech. Techniky vyhlazování modelů gramatice nerozumí a nemohou určit v takovém případě za přídavné jméno daného tvaru správné podstatné jméno vhodného rodu, pádu a čísla.
+Němčina patří do skupiny flektivních jazyků tj. takových, které gramatické funkce vyjadřují pomocí flexe -- ohýbání. Němčina používá mimo časování a skloňování složitý slovosled. Díky tomu mají tradiční n-gramy s němčinou problémy. V trénovacích datech se nám nemohou objevit všechny gramatické kombinace -- např. spojení přídavného a podstatného jména ve všech pádech a kontextech. Techniky vyhlazování modelů gramatice nerozumí a nemohou určit v takovém případě za přídavné jméno daného tvaru správné podstatné jméno vhodného rodu, pádu a čísla.
 
 \section{Skloňování jmen}
-Německá gramatika zná 4 pády - \textit{nominativ}, \textit{genitiv}, \textit{dativ} a \textit{akuzativ}. Skloňování probíhá pomocí členů a koncovek. 
+Německá gramatika zná 4 pády -- \textit{nominativ}, \textit{genitiv}, \textit{dativ} a \textit{akuzativ}. Skloňování probíhá pomocí členů a koncovek. 
 \begin{itemize}
 \item
 \textbf{Podstatná jména}\\
@@ -654,43 +660,43 @@ V němčině se rozlišují dva pořádky slov, asice pořádek přímý a poř�
 \item
 \textbf{Pořádek přímý}\\
 Pořádek přímý se používá hlavně v oznamovacích větách. Musí být dodrženo pořadí podmět, přísudek na začátku věty.\\
-\textit{Např. Jsem doma. - Ich bin zu Hause.}
+\textit{Např. Jsem doma. -- Ich bin zu Hause.}
 
 \item
 \textbf{Pořádek nepřímý}\\
 Pořádek nepřímý se používá především v tázacích větách. Často se ale používá i ve větách oznamovacích, kde se předsune větný člen na začátek věty pro zdůraznění. Pořadí podmětu a přísudku se pak mění a podmět následuje hned za přísudkem.\\
-\textit{Např. Znáš ji? - Kennst du sie? Dnes jsem doma. - Heute bin ich zu Hause.}
+\textit{Např. Znáš ji -- Kennst du sie? Dnes jsem doma. -- Heute bin ich zu Hause.}
 
 \item
 \textbf{Pořádek ve vedlejší větě}\\
 Vedlejší věty mají speciální pořádek slov. Po podřadící spojce následuje hned podmět a sloveso jde až na konec věty.\\
-\textit{Např. Nevím, jestli ho zná. - Ich weiß nicht, ob sie ihn kennt.}
+\textit{Např. Nevím, jestli ho zná. -- Ich weiß nicht, ob sie ihn kennt.}
 \end{itemize}
 
 
 \section{Větný rámec}
-Němčina dává ve spoustě případů nějaké slovo na konec věty - nejčastěji se jedná o sloveso nebo odlučitelnou předponu. Tomuto jevu se říká větný rámec a k jeho tvorbě dochází v několika případech:
+Němčina dává ve spoustě případů nějaké slovo na konec věty -- nejčastěji se jedná o sloveso nebo odlučitelnou předponu. Tomuto jevu se říká větný rámec a k jeho tvorbě dochází v několika případech:
 \begin{itemize}
 \item
 \textbf{Způsobová slovesa}\\
 Po způsobovém slovesu jde sloveso plnovýznamové vždy na konec věty ve formě infinitivu. \\
-\textit{Např: Neumíme to říct. - Wir können es nicht sagen.}
+\textit{Např: Neumíme to říct. -- Wir können es nicht sagen.}
 \item
-\textbf{Minulý čas - perfektum}\\
+\textbf{Minulý čas -- perfektum}\\
 Perfektum se v němčině tvoří pomocí pomocného slovesa a příčestí minulého. Příčestí minulé patří na konec věty.\\
-\textit{Např. Neřekl jsem to. - Ich habe es nicht gesagt.}
+\textit{Např. Neřekl jsem to. -- Ich habe es nicht gesagt.}
 \item
 \textbf{Budoucí čas} \\
 Budoucí čas se tvoří pomocným slovesem werden a infinitivem, který jde na konec věty.\\
-\textit{Např. Řeknu mu to. - Ich werde es ihm sagen.}
+\textit{Např. Řeknu mu to. -- Ich werde es ihm sagen.}
 \item
 \textbf{Odlučitelné předpony sloves}\\
 Spousta německých sloves má odlučitelnou předponu, která se v určitých tvarech od zbytku slovesa odlučuje a patří opět na konec věty.\\
-\textit{Např. Zítra odjedu domů. - Morgen fahre ich nach Hause ab. (sloveso abfahren)}
+\textit{Např. Zítra odjedu domů. -- Morgen fahre ich nach Hause ab. (sloveso abfahren)}
 \item
 \textbf{Vedlejší věty}\\
 Jak už bylo zmíněno, vedlejší věty mají speciální pořádek slov a určité sloveso v nich patří na konec věty.\\
-\textit{Např. Ptám se, jestli jsi doma. - Ich frage, ob du zu Hause bist.}
+\textit{Např. Ptám se, jestli jsi doma. -- Ich frage, ob du zu Hause bist.}
 \end{itemize}
 
 K tvorbě větného rámce dochází i v dalších případech, jako je třeba trpný rod nebo čas předminulý (\textit{plusquamperfektum}). Platí však stejná pravidla, tj. sloveso plnovýznamové nebo příčestí minulé patří na konec věty.
@@ -750,7 +756,7 @@ Jak jsme popsali v předchozí kapitole, německá gramatika je díky shodě jme
 Předpokladem je, že pokud nahradíme slova jejich morfologickými značkami, dojde ke zhuštění dat a model se bude snažit dosadit slovo v patřičném tvaru vycházejícím z morfologické analýzy.
 
 \section{Zdrojová data}
-Modely budeme trénovat na německých datech z WMT\footnote{WORKSHOP ON STATISTICAL MACHINE TRANSLATION} 2012 - News Commentary (ZDROJ).
+Modely budeme trénovat na německých datech z WMT\footnote{WORKSHOP ON STATISTICAL MACHINE TRANSLATION} 2012 -- News Commentary (ZDROJ).
 
 Pro otestování použijeme data z výstupů překladových systémů z WMT 2006, které se účastnily překladu z angličtiny do němčiny. Některé z překladových hypotéz obsahovaly ručně ohodnocenou plynulost překladu. Právě takové hypotézy použijeme pro zkoumání korelace perplexity a plynulosti. Celkem jich je k dispozici 2028, z toho 58 je hodnoceno dvakrát a 2 třikrát, celkem tedy 2090 hodnocení. Následující tabulka \ref{tb:poctyfluency} ukazuje přesné počty hodnocení hypotéz:
 
@@ -774,7 +780,7 @@ Pro otestování použijeme data z výstupů překladových systémů z WMT 2006
 \end{center}
 \end{table}
 
-Počty jednotlivých plynulostí nejsou vyvážené. Díky malému vzorku ohodnocených hypotéz, především pak hodnocených plynulostí 1 a~5, nemusí mít výsledky vždy úplně vypovídající charakter. TAHLE VĚTA ZNÍ JAKO, ŽE TO BUDE K NIČEMU - JAK TO FORMULOVAT LÉPE?
+Počty jednotlivých plynulostí nejsou vyvážené. Díky malému vzorku ohodnocených hypotéz, především pak hodnocených plynulostí 1 a~5, nemusí mít výsledky vždy úplně vypovídající charakter. TAHLE VĚTA ZNÍ JAKO, ŽE TO BUDE K NIČEMU -- JAK TO FORMULOVAT LÉPE?
 
 \pagebreak
 
@@ -797,7 +803,7 @@ Hypotézy pochází ze 400 různých vět překládaných osmi systémy. Plynulo
 \caption{Přehled shody v hodnocení plynulosti}\label{tb:shoda}
 \end{center}\end{table}
 
-Dvě hypotézy hodnocené třikrát byly taktéž posouzeny dvěma hodnotiteli, třetí hodnocení bylo vždy vykonáno jedním z nich a slouží pouze jako kontrola - ta dopadla v obou případech úspěšně, tedy udělením stejného hodnocení. U jedné hypotézy se hodnotitelé shodli, u druhé se lišili o 1.
+Dvě hypotézy hodnocené třikrát byly taktéž posouzeny dvěma hodnotiteli, třetí hodnocení bylo vždy vykonáno jedním z nich a slouží pouze jako kontrola -- ta dopadla v obou případech úspěšně, tedy udělením stejného hodnocení. U jedné hypotézy se hodnotitelé shodli, u druhé se lišili o 1.
 
 Ačkoliv nevýhodou ručního hodnocení je vždy určitá míra subjektivity, výše udená tabulka \ref{tb:shoda} uvádí nadpoloviční shodu a budeme-li brát jako uspokojivé i případy, kdy se hodnocení lišilo o 1, pak jsme dokonce lehce nad 90 \%.
 
@@ -814,7 +820,7 @@ Princip experimentů bude následující
 
 Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German, formálněji známý také pod názvem Pro3GresDE}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger (ZDROJ) a morfologický analyzátor Morphisto (ZDROJ). Pro Morphisto použijeme předkompilovaný model \texttt{morphisto-02022011.a}\footnote{ZDROJ}. S využitím nástroje Morphisto uvádí ParZu přesnost 86.5 \% (ZDROJ).
 
-ParZu spouští nejprve vlastní tokenizér. Vzhledem k tomu, že data z WMT 06, která používáme, jsou již tokenizovaná, tento tokenizér vynecháme a pouze upravíme formát - jeden token na řádku, věty oddělené prázdným řádkem. Data z WMT 12 tokenizovaná nejsou, proto u nich tokenizér necháme běžet.
+ParZu spouští nejprve vlastní tokenizér. Vzhledem k tomu, že data z WMT 06, která používáme, jsou již tokenizovaná, tento tokenizér vynecháme a pouze upravíme formát -- jeden token na řádku, věty oddělené prázdným řádkem. Data z WMT 12 tokenizovaná nejsou, proto u nich tokenizér necháme běžet.
 
 
 \pagebreak
@@ -837,17 +843,17 @@ Příklad výstupu ParZu:
 }
 \end{center} 
 
-Pro účely následujících experimentů nás bude zajímat pátý a šestý sloupec - rozšířený slovní druh a morfologická analýza.
+Pro účely následujících experimentů nás bude zajímat pátý a šestý sloupec -- rozšířený slovní druh a morfologická analýza.
 
 Nahrazení slov různými morfologickými značkami z výstupu ParZu zajišťuje program MorfModel(VYMYSLET TŘEBA NĚJAKÝ TAKOVÝ NÁZEV), který vzniknul jako součást této práce a je k dispozici na přiloženém DVD. 
 
-Standardní n-gramové modely budeme vyrábět v již zmíněném SRILM toolkitu, nástrojem \texttt{ngram-count} s výchozím nastavením. Tj. technika back-off s Good-Turing vyhlazováním. Pro trénování modelů maximální entropie (maxentových) využijeme již taktéž zmíněné rozšíření SRILM toolkitu od Tanela Alumäe a Mikko Kurima. Pro vyhlazování používá toto rozšíření popsanou metodu $\mathpzc{l}_1+\mathpzc{l}_2^2$ regularizace.
+Standardní n-gramové modely budeme vyrábět v již zmíněném SRILM toolkitu, nástrojem \texttt{ngram-count} s výchozím nastavením. Tj. technika back-off s Good-Turingovým vyhlazováním. Pro trénování modelů maximální entropie (maxentových) využijeme již taktéž zmíněné rozšíření SRILM toolkitu od Tanela Alumäe a Mikko Kurima. Pro vyhlazování používá toto rozšíření popsanou metodu $\mathpzc{l}_1+\mathpzc{l}_2^2$ regularizace.
 
 
 \section{Způsob vyhodnocení}
-U každého natrénovaného modelu bude změřena perplexita pro každou větu zvlášť. Výsledky pak vykreslíme do grafu společně s odpovídající plynulostí pro znázornění jejich korelace. Pro lepší znázornění bude u každé plynulosti vykreslen boxplot\footnote{Boxplot (krabicový graf) - vykreslí obdélník v oblasti, kde se vyskytuje 50 \% hodnot. Horní a dolní hranice obdélníku odpovídají hornímu a dolnímu kvartilu. Uprostřed obdélníku se vykresluje ještě tučně medián. Vertikálně vedou z obdélníků tzv. vousy, jejichž hranice leží v maximální (minimální) hodnotě, maximálně však v 1.5 násobku mezikvartilového rozmezí (horní - dolní kvartil) nad horním nebo pod dolním kvartilem. Body mimo tyto hranice se nazývají extrémní hodnoty a jsou vykresleny samostatně jako body.} znázorňující oblast s nejvyšším výskytem hypotéz ohodnocených danou perplexitou. Čím vyšší je plynulost, tím nižší by měla být perplexita. Jednotlivé boxploty by proto měly, co se perplexity týče, klesat. Mediány boxplotů bude ještě proložena přímka, aby byla jejich tendence více zřetelná.
+U každého natrénovaného modelu bude změřena perplexita pro každou větu zvlášť. Výsledky pak vykreslíme do grafu společně s odpovídající plynulostí pro znázornění jejich korelace. Pro lepší znázornění bude u každé plynulosti vykreslen boxplot\footnote{Boxplot (krabicový graf) -- vykreslí obdélník v oblasti, kde se vyskytuje 50 \% hodnot. Horní a dolní hranice obdélníku odpovídají hornímu a dolnímu kvartilu. Uprostřed obdélníku se vykresluje ještě tučně medián. Vertikálně vedou z obdélníků tzv. vousy, jejichž hranice leží v maximální (minimální) hodnotě, maximálně však v 1.5 násobku mezikvartilového rozmezí (horní $-$ dolní kvartil) nad horním nebo pod dolním kvartilem. Body mimo tyto hranice se nazývají extrémní hodnoty a jsou vykresleny samostatně jako body.} znázorňující oblast s nejvyšším výskytem hypotéz ohodnocených danou perplexitou. Čím vyšší je plynulost, tím nižší by měla být perplexita. Jednotlivé boxploty by proto měly, co se perplexity týče, klesat. Mediány boxplotů bude ještě proložena přímka, aby byla jejich tendence více zřetelná.
 
-Srovnání standardních a maxentových modelů provedeme graficky umístěním dvou grafů přes sebe vykreslených odlišnou barvou. Mimo toho proveme ještě srovnání z hlediska výpočetních nároků\footnote{Všechny modely trénovány na netbooku Asus EEE 1201N - Intel Atom 330 - 1.6 GHz dual core, 2 GB RAM.}. Na závěr uvedeme shrnutí popisující naměřené hodnoty ze všech modelů a provedeme srovnání pomocí korelačních koeficientů.
+Srovnání standardních a maxentových modelů provedeme graficky umístěním dvou grafů přes sebe vykreslených odlišnou barvou. Mimo toho proveme ještě srovnání z hlediska výpočetních nároků\footnote{Všechny modely trénovány na netbooku Asus EEE 1201N -- Intel Atom 330 1.6 GHz dual core, 2 GB RAM.}. Na závěr uvedeme shrnutí popisující naměřené hodnoty ze všech modelů a provedeme srovnání pomocí korelačních koeficientů.
 
 \section{Běžné modely se slovy}
 Jako první jsme zkusili natrénovat 6-gramové modely se slovy, abychom viděli, jak spolu souvisí perplexita a plynulost u takových modelů a mohli výsledek použít pro další srovnání.
@@ -869,7 +875,7 @@ Jako první jsme zkusili natrénovat 6-gramové modely se slovy, abychom viděli
 %\pagebreak
 
 
-Z obou grafů (obrázky \ref{gr:ngrslova}, \ref{gr:maxslova}) je patrné, že plynulost nekoreluje s perplexitou tak, jak bychom chtěli. Perplexita by měla se zvyšující se plynulostí klesat - čím nižší perplexita, tím lepší a tedy i plynulejší překlad. Na obou grafech však boxploty neklesají, nýbrž kolísají. Dokonce hypotézy hodnocené plynulostí 5 mají rozsah nejčastějších perplexit nejvyšší. To ale může být částečně způsobeno malým počtem hypotéz ohodnocených plynulostí 5.
+Z obou grafů (obrázky \ref{gr:ngrslova}, \ref{gr:maxslova}) je patrné, že plynulost nekoreluje s perplexitou tak, jak bychom chtěli. Perplexita by měla se zvyšující se plynulostí klesat -- čím nižší perplexita, tím lepší a tedy i plynulejší překlad. Na obou grafech však boxploty neklesají, nýbrž kolísají. Dokonce hypotézy hodnocené plynulostí 5 mají rozsah nejčastějších perplexit nejvyšší. To ale může být částečně způsobeno malým počtem hypotéz ohodnocených plynulostí 5.
 
 
 \begin{figure}[!htbp]
@@ -884,7 +890,7 @@ Z obou grafů (obrázky \ref{gr:ngrslova}, \ref{gr:maxslova}) je patrné, že pl
 
 Srovnání ukazuje, že maxentový model dopadl o něco lépe, neboť jednotlivé boxploty mají nižší horní hranici nejčastějších perplexit než v případě standardních modelů. Rozdíly ve spodních hranicích jsou zanedbatelné. I proložená přímka stoupá v případě standardního n-gramového modelu více než v případě maxentového (obrázek \ref{gr:porslova}).
 
-Čas nutný k natrénování se však výrazně liší - natrénování standardního n-gramového trvalo zhruba 3 minuty oproti téměř 12 hodinám u modelu maxentového.
+Čas nutný k natrénování se však výrazně liší -- natrénování standardního n-gramového trvalo zhruba 3 minuty oproti téměř 12 hodinám u modelu maxentového.
 
 \section{Rozšířený slovní druh + morfologické značky}
 Nyní zkusíme natrénovat model, kde slova nahradíme rozšířeným slovním druhem a všemi morfologickými značkami z výstupu ParZu. Pro oddělení použijeme dvojtečku.
@@ -912,11 +918,11 @@ Příklad věty:
 \begin{center}
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/all.svg.eps}	
-  \caption[Standardní 6-gramový model - rozšířený slovní druh + morf. zn.]{Standardní 6-gramový model - rozšířený slovní druh + morfologické značky}\label{gr:ngrrsd+morf}
+  \caption[Standardní 6-gramový model -- rozšířený slovní druh + morf. zn.]{Standardní 6-gramový model -- rozšířený slovní druh + morfologické značky}\label{gr:ngrrsd+morf}
 \endminipage\quad
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/all.svg.eps}	
-  \caption[Maxentový 6-gramový model - rozšířený slovní druh + morf. zn.]{Maxentový 6-gramový model - rozšířený slovní druh + morfologické značky}\label{gr:maxrsd+morf}
+  \caption[Maxentový 6-gramový model -- rozšířený slovní druh + morf. zn.]{Maxentový 6-gramový model -- rozšířený slovní druh + morfologické značky}\label{gr:maxrsd+morf}
 \endminipage
 \end{center}
 \end{figure}
@@ -930,13 +936,13 @@ Oba modely (obrázky \ref{gr:ngrrsd+morf}, \ref{gr:maxrsd+morf}) dopadly lépe n
 \minipage[t]{0.9\textwidth}
 	\centering
 	\includegraphics[width=75mm]{./grafy/morf/porovnani/all.svg.eps}	
-	\caption{Porovnání modelů - rozšířený slovní druh + morfologické značky}\label{gr:porrsd+morf}
+	\caption{Porovnání modelů -- rozšířený slovní druh + morfologické značky}\label{gr:porrsd+morf}
 \endminipage
 \end{center}
 \end{figure}
 
 
-Maxentové modely opět, co se perplexity týče, dopadají lépe než standardní n-gramové. Avšak proložená přímka klesá u standardních modelů strměji (obrázek \ref{gr:porrsd+morf}). Z hlediska výpočetních nároků jsou na tom stadardní n-gramy oproti maxentovým znovu výrazně lépe - 72 sekund proti takřka 8 hodinám.
+Maxentové modely opět, co se perplexity týče, dopadají lépe než standardní n-gramové. Avšak proložená přímka klesá u standardních modelů strměji (obrázek \ref{gr:porrsd+morf}). Z hlediska výpočetních nároků jsou na tom stadardní n-gramy oproti maxentovým znovu výrazně lépe -- 72 sekund proti takřka 8 hodinám.
 
 Tyto modely sice obsahují morfologickou analýzu, ale nerozumí jejímu obsahu. Nedokáží rozlišit, zda se sousední jména shodují v rodě, ale už ne v pádě apod. Natrénování maxentového modelu na slovech s rysy, které by vycházely z morfologické analýzy (rod, pád, číslo, ...), rozšíření SRILMu od Tanela Alumäe a Mikko Kurima bohužel neumožňuje a jiné dostupné toolkity, např. Maxent toolkit od LeZhanga, nejsou vhodné z hlediska výpočetních nároků na velká data. Zkusíme proto natrénovat další n-gramové modely, ve kterých nahradíme slova vždy jedním z potencionálních rysů. Takové modely by potom bylo možné kombinovat.
 
@@ -972,11 +978,11 @@ Příklad věty:
 \begin{center}
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd.svg.eps}
-  \caption{Standardní 6-gramový model - rozšířený slovní druh}\label{gr:ngrrsd}
+  \caption{Standardní 6-gramový model -- rozšířený slovní druh}\label{gr:ngrrsd}
 \endminipage\quad
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd.svg.eps}
-  \caption{Maxentový 6-gramový model - rozšířený slovní druh}\label{gr:maxrsd}
+  \caption{Maxentový 6-gramový model -- rozšířený slovní druh}\label{gr:maxrsd}
 \endminipage
 \end{center}
 \end{figure}
@@ -994,7 +1000,7 @@ Modely dopadly (obrázky \ref{gr:ngrrsd}, \ref{gr:maxrsd}) o něco hůře než v
 \minipage[t]{0.9\textwidth}
 	\centering
 	\includegraphics[width=75mm]{./grafy/morf/porovnani/rsd.svg.eps}	
-	\caption{Porovnání modelů - rozšířený slovní druh}\label{gr:porrsd}
+	\caption{Porovnání modelů -- rozšířený slovní druh}\label{gr:porrsd}
 \endminipage
 \end{center}
 \end{figure}
@@ -1032,11 +1038,11 @@ Příklad věty:
 \begin{center}
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rod.svg.eps}
-  \caption{Standardní 6-gramový model - rod}\label{gr:ngrrod}
+  \caption{Standardní 6-gramový model -- rod}\label{gr:ngrrod}
 \endminipage\quad
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rod.svg.eps}
-  \caption{Maxentový 6-gramový model - rod}\label{gr:maxrod}
+  \caption{Maxentový 6-gramový model -- rod}\label{gr:maxrod}
 \endminipage
 \end{center}
 \end{figure}
@@ -1053,7 +1059,7 @@ Modely ale dopadly přesně obráceně, než jsme chtěli. Boxploty neklesají, 
 \minipage[t]{0.9\textwidth}
 	\centering
 	\includegraphics[width=75mm]{./grafy/morf/porovnani/rod.svg.eps}	
-	\caption{Porovnání modelů - rod}\label{gr:porrod}
+	\caption{Porovnání modelů -- rod}\label{gr:porrod}
 \endminipage
 \end{center}
 \end{figure}
@@ -1092,11 +1098,11 @@ Příklad věty:
 \begin{center}
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rodstejny.eps}
-  \caption{Standardní 6-gramový model - rod stejný s předchozím}\label{gr:ngrrodstejny}
+  \caption{Standardní 6-gramový model -- rod stejný s předchozím}\label{gr:ngrrodstejny}
 \endminipage\quad
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rodstejny.eps}
-  \caption{Maxentový 6-gramový model - rod stejný s předchozím}\label{gr:maxrodstejny}
+  \caption{Maxentový 6-gramový model -- rod stejný s předchozím}\label{gr:maxrodstejny}
 \endminipage
 \end{center}
 \end{figure}
@@ -1108,7 +1114,7 @@ Výsledky jsou ale stejně špatné jako v případě samotného rodu. Grafy se 
 \minipage[t]{0.9\textwidth}
 	\centering
 	\includegraphics[width=75mm]{./grafy/morf/porovnani/rodstejny.eps}	
-	\caption{Porovnání modelů - rod stejný s předchozím}\label{gr:porrodstejny}
+	\caption{Porovnání modelů -- rod stejný s předchozím}\label{gr:porrodstejny}
 \endminipage
 \end{center}
 \end{figure}
@@ -1140,11 +1146,11 @@ Příklad věty:
 \begin{center}
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+rod.svg.eps}
-  \caption{Standardní 6-gramový model - číslo}\label{gr:ngrrsd+rod}
+  \caption{Standardní 6-gramový model -- číslo}\label{gr:ngrrsd+rod}
 \endminipage\quad
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+rod.svg.eps}
-  \caption{Maxentový 6-gramový model - číslo}\label{gr:maxrsd+rod}
+  \caption{Maxentový 6-gramový model -- číslo}\label{gr:maxrsd+rod}
 \endminipage
 \end{center}
 \end{figure}
@@ -1157,13 +1163,13 @@ S rozšířeným slovním druhem už modely dopadly lépe, přesto perplexita s 
 \minipage[t]{0.9\textwidth}
 	\centering
 	\includegraphics[width=75mm]{./grafy/morf/porovnani/rsd+rod.svg.eps}	
-	\caption{Porovnání modelů - rozšířený slovní druh + rod}\label{gr:porrsd+rod}
+	\caption{Porovnání modelů -- rozšířený slovní druh + rod}\label{gr:porrsd+rod}
 \endminipage
 \end{center}
 \end{figure}
 
 
-Ve srovnání jsou oba typy modelů na tom podobně, maxentové dostávaly jen o něco málo nižší perplexitu (obrázek \ref{gr:porrsd+rod}). Z hlediska výpočetní náročnosti je ale rozdíl velký - 36 sekund standardní n-gramový model naproti 27 minutám u modelu maxentového.
+Ve srovnání jsou oba typy modelů na tom podobně, maxentové dostávaly jen o něco málo nižší perplexitu (obrázek \ref{gr:porrsd+rod}). Z hlediska výpočetní náročnosti je ale rozdíl velký -- 36 sekund standardní n-gramový model naproti 27 minutám u modelu maxentového.
 
 \section{Číslo}
 Stejné modely zkusíme natrénovat i v případě čísla. Jako první znovu zkusíme, zda bude modelu postačovat informace pouze o čísle daného slova tj. \texttt{wSg}, \texttt{wPl} nebo \texttt{w}.
@@ -1190,11 +1196,11 @@ Příklad věty:
 \begin{center}
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/cislo.svg.eps}
-  \caption{Standardní 6-gramový model - číslo}\label{gr:ngrcislo}
+  \caption{Standardní 6-gramový model -- číslo}\label{gr:ngrcislo}
 \endminipage\quad
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/cislo.svg.eps}	
-  \caption{Maxentový 6-gramový model - číslo}\label{gr:maxcislo}
+  \caption{Maxentový 6-gramový model -- číslo}\label{gr:maxcislo}
 \endminipage
 \end{center}
 \end{figure}
@@ -1207,12 +1213,12 @@ Výsledky ale dopadly obdobně špatně jako v případě rodu. Pomocí perplexi
 \minipage[t]{0.9\textwidth}
 	\centering
 	\includegraphics[width=75mm]{./grafy/morf/porovnani/cislo.svg.eps}
-	\caption{Porovnání modelů - číslo}\label{gr:porcislo}
+	\caption{Porovnání modelů -- číslo}\label{gr:porcislo}
 \endminipage
 \end{center}
 \end{figure}
 
-Oba typy modelů dopadly takřka stejně (obrázek \ref{gr:porcislo}). Stejná byla i doba nutná k natrénování - shodně po třech sekundách.
+Oba typy modelů dopadly takřka stejně (obrázek \ref{gr:porcislo}). Stejná byla i doba nutná k natrénování -- shodně po třech sekundách.
 
 \subsection{Přidání osoby}
 Číslo se bude často pojit s nějakou osobou. Zkusíme proto tuto informaci k číslu přidat. Slovo nahradíme písmenem \texttt{w}, poté bude následovat osoba a číslo, jdou-li u daného slova určit.
@@ -1239,11 +1245,11 @@ Příklad věty:
 \begin{center}
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/osoba+cislo.svg.eps}
-  \caption{Standardní 6-gramový model - osoba + číslo}\label{gr:ngros+cislo}
+  \caption{Standardní 6-gramový model -- osoba + číslo}\label{gr:ngros+cislo}
 \endminipage\quad
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/osoba+cislo.svg.eps}	
-  \caption{Maxentový 6-gramový model - osoba + číslo}\label{gr:maxos+cislo}
+  \caption{Maxentový 6-gramový model -- osoba + číslo}\label{gr:maxos+cislo}
 \endminipage
 \end{center}
 \end{figure}
@@ -1255,7 +1261,7 @@ Modely ale nedopadly o nic lépe. Proložené přímky opět mírně stoupají, 
 \minipage[t]{0.9\textwidth}
 	\centering
 	\includegraphics[width=75mm]{./grafy/morf/porovnani/osoba+cislo.svg.eps}	
-	\caption{Porovnání modelů - osoba + číslo}\label{gr:porosoba+cislo}
+	\caption{Porovnání modelů -- osoba + číslo}\label{gr:porosoba+cislo}
 \endminipage
 \end{center}
 \end{figure}
@@ -1291,11 +1297,11 @@ Příklad věty:
 \begin{center}
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+cislo.svg.eps}
-  \caption{Standardní 6-gramový model - rozšířený slovní druh + číslo}\label{gr:ngrrsd+cislo}
+  \caption{Standardní 6-gramový model -- rozšířený slovní druh + číslo}\label{gr:ngrrsd+cislo}
 \endminipage\quad
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+cislo.svg.eps}
-  \caption{Maxentový 6-gramový model - rozšířený slovní druh + číslo}\label{gr:maxrsd+cislo}
+  \caption{Maxentový 6-gramový model -- rozšířený slovní druh + číslo}\label{gr:maxrsd+cislo}
 \endminipage
 \end{center}
 \end{figure}
@@ -1310,7 +1316,7 @@ Modely s rozšířeným slovním druhem (obrázky \ref{gr:ngrrsd+cislo}, \ref{gr
 \minipage[t]{0.9\textwidth}
 	\centering
 	\includegraphics[width=75mm]{./grafy/morf/porovnani/rsd+cislo.svg.eps}		
-	\caption{Porovnání modelů - rozšířený slovní druh + číslo}\label{gr:porrsd+cislo}
+	\caption{Porovnání modelů -- rozšířený slovní druh + číslo}\label{gr:porrsd+cislo}
 \endminipage
 \end{center}
 \end{figure}
@@ -1346,11 +1352,11 @@ Příklad věty:
 \begin{center}
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/pad.svg.eps}
-  \caption{Standardní 6-gramový model - pád}\label{gr:ngpad}
+  \caption{Standardní 6-gramový model -- pád}\label{gr:ngpad}
 \endminipage\quad
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/pad.svg.eps}	
-  \caption{Maxentový 6-gramový - pád}\label{gr:maxpad}
+  \caption{Maxentový 6-gramový -- pád}\label{gr:maxpad}
 \endminipage
 \end{center}
 \end{figure}
@@ -1363,7 +1369,7 @@ Výsledky opět nejsou dobré (obrázky \ref{gr:ngpad}, \ref{gr:maxpad}) a jen p
 \minipage[t]{0.9\textwidth}
 	\centering
 	\includegraphics[width=75mm]{./grafy/morf/porovnani/pad.svg.eps}	
-	\caption{Porovnání modelů - pád}\label{gr:porpad}
+	\caption{Porovnání modelů -- pád}\label{gr:porpad}
 \endminipage
 \end{center}
 \end{figure}
@@ -1395,11 +1401,11 @@ Příklad věty:
 \begin{center}
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/ngram/rsd+pad.svg.eps}
-  \caption{Standardní 6-gramový model - rozšířený slovní druh + pád}\label{gr:ngrsd+pad}
+  \caption{Standardní 6-gramový model -- rozšířený slovní druh + pád}\label{gr:ngrsd+pad}
 \endminipage\quad
 \minipage[t]{0.45\textwidth}
   \centering\includegraphics[width=60mm]{./grafy/morf/maxent/rsd+pad.svg.eps}
-  \caption{Maxentový 6-gramový model - rozšířený slovní druh + pád}\label{gr:maxrsd+pad}
+  \caption{Maxentový 6-gramový model -- rozšířený slovní druh + pád}\label{gr:maxrsd+pad}
 \endminipage
 \end{center}
 \end{figure}
@@ -1411,17 +1417,17 @@ Zlepšení je znatelné (obrázky \ref{gr:ngrsd+pad}, \ref{gr:maxrsd+pad}) a pod
 \minipage[t]{0.9\textwidth}
 	\centering
 	\includegraphics[width=75mm]{./grafy/morf/porovnani/rsd+pad.eps}	
-	\caption{Porovnání modelů - rozšířený slovní druh + pád}\label{gr:porrsd+pad}
+	\caption{Porovnání modelů -- rozšířený slovní druh + pád}\label{gr:porrsd+pad}
 \endminipage
 \end{center}
 \end{figure}
 
 
 
-Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Nicméně proložená přímka je strmější u standardních n-gramů (obrázek \ref{gr:porrsd+pad}). Výpočetní nároky se ale výrazně liší - 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
+Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Nicméně proložená přímka je strmější u standardních n-gramů (obrázek \ref{gr:porrsd+pad}). Výpočetní nároky se ale výrazně liší -- 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
 
 \section{Shrnutí}
-Zde uvedeme všechny naměřené hodnoty do tabulky. Tabulka bude obsahovat od každého modelu Pearsonův korelační koeficient\footnote{Udává vztah mezi dvěma veličinami. Nabývá hodnot $<-1, 1>$, přičemž 1 značí závislost přímou a -1 závislost nepřímou. Hodnota 0 indikuje, že vztah mezi veličinami nelze vyjádřit lineární funkcí.}, Spearmanův korelační koeficient{Nabývá hodnot jako Pearsonův korelační koeficient. Spearmanův ale vyjadřuje, zda vztah mezi veličinami lze vyjádřit monotonní funkcí.} a čas potřebný k natrénování.
+Zde uvedeme všechny naměřené hodnoty do tabulky. Tabulka bude obsahovat od každého modelu Pearsonův korelační koeficient\footnote{Udává vztah mezi dvěma veličinami. Nabývá hodnot $<-1, 1>$, přičemž 1 značí závislost přímou a -1 závislost nepřímou. Hodnota 0 indikuje, že vztah mezi veličinami nelze vyjádřit lineární funkcí.}, Spearmanův korelační koeficient\footnote{Nabývá hodnot jako Pearsonův korelační koeficient. Spearmanův ale vyjadřuje, zda vztah mezi veličinami lze vyjádřit monotonní funkcí.} a čas potřebný k natrénování.
 
 
 
@@ -1474,7 +1480,7 @@ Na základě výpočetních nároků jsou na tom ale maxentové modely často a�
 
 
 \chapter{Modely s vlastní množinou rysů}
-Problémy s německou gramatikou jsme se prozatím snažili řešit nahrazením slov morfologickými značkami. Modely s rozšířeným slovním druhem + morfologická analýza dopadly sice lépe než běžné modely trénované na slovech, přesto zlepšení není nijak výrazné. V následující kapitole se proto pokusíme upustit od n-gramů a postihnout gramatiku z jiné stránky - vlastní množinou rysů.
+Problémy s německou gramatikou jsme se prozatím snažili řešit nahrazením slov morfologickými značkami. Modely s rozšířeným slovním druhem + morfologická analýza dopadly sice lépe než běžné modely trénované na slovech, přesto zlepšení není nijak výrazné. V následující kapitole se proto pokusíme upustit od n-gramů a postihnout gramatiku z jiné stránky -- vlastní množinou rysů.
 
 \section{Zdrojová data}
 
@@ -1501,32 +1507,32 @@ Pro následující experimenty používáme stejná data s ručně hodnocenou pl
 \caption{Rozdělení hodnocení hypotéz na vývojová a testovací data}\label{tb:rozdeleni}
 \end{center}\end{table}
 
-Vzhledem k tomu, že budou rysy vycházet z německé gramatiky, budeme často potřebovat znát hranice klauzí dané věty. Určit klauze z hypotézy, která není gramaticky správně, je však obtížné - parser je v takovém případě zmatený a neudělá větný rozbor správně. Na základě toho používáme identifikované klauze z výchozího anglického textu, který je gramaticky správně, a na německé je pak převádíme pomocí zarovnání na úrovni slov. 
+Vzhledem k tomu, že budou rysy vycházet z německé gramatiky, budeme často potřebovat znát hranice klauzí dané věty. Určit klauze z hypotézy, která není gramaticky správně, je však obtížné -- parser je v takovém případě zmatený a neudělá větný rozbor správně. Na základě toho používáme identifikované klauze z výchozího anglického textu, který je gramaticky správně, a na německé je pak převádíme pomocí zarovnání na úrovni slov. 
 
 \section{Vlastní rysy}
 Vlastní množina rysů sestává především z gramatických jevů, které n-gramy nemají možnost zachytit. Jedná se hlavně o tvorbu větného rámce. Mimo to ale budeme zkoumat, zda se ve větě třeba nevyskytuje více určitých sloves nebo naopak sloveso úplně chybí.
 
-Celkem jsme sestavili 16 následujících rysů, u kterých vysvětlíme, jak fungují a co kontrolují, neboť ačkoliv jejich názvy intuitivně funkci napovídají, může být omezena jen na některé případy.
+Celkem jsme sestavili následujících 16 rysů, u kterých vysvětlíme, jak fungují a co kontrolují, neboť ačkoliv jejich názvy intuitivně funkci napovídají, může být omezena jen na některé případy.
 \begin{enumerate}
-\item{\texttt{chybi\_infszu} - kontroluje, zda byla klauze uvozena spojkou vyžadující infinitiv s zu (rozšířený slovní druh \textit{KOUI}\footnote{ParZu používá pro označení rozšířeného slovního druhu Stuttgart/Tübinger Tagsets ZDROJ http://www.coli.uni-saarland.de/projects/sfb378/negra-corpus/stts.asc}), typicky se jedná o zkrácené vedlejší věty, a sleduje, zda ve větě takový infinitiv byl}
-\item{\texttt{chybi\_podmet} - označuje skutečnost, že se v klauzi nevyskytlo slovo v prvním pádě}
-\item{\texttt{chybi\_vfin} - v klauzi chybí určité sloveso}
-\item{\texttt{chybi\_sum} - sčítá hodnoty všech rysů typu \texttt{chybi\_*}}
-\item{\texttt{inf\_po\_vm\_neni\_na\_konci} - kontroluje, zda se za infinitivem po modálním slovese nevyskytlo ještě další slovo mimo sloves}
-\item{\texttt{infszu\_neni\_na\_konci} - byla-li spojka vyžadující infinitiv s zu a zároveň se za infinitivem ještě vyskytlo další slovo mimo sloves}
-\item{\texttt{vv\_sloveso\_neni\_na\_konci} - po podřadících spojkách (\textit{KOUS}, \textit{PRELS}, \textit{PRELAT}) kontroluje, zda po určitém slovesu nešlo ještě další slovo mimo sloves}
-\item{\texttt{pp\_neni\_na\_konci} - pokud věta obsahovala pomocné sloveso, očekáváme příčestí minulé a kontrolujeme proto, zda se za ním ještě nevyskytlo další slovo mimo sloves}
-\item{\texttt{neni\_na\_konci\_sum} - sčítá hodnoty všech rysů typu \texttt{*\_neni\_na\_konci}}
-\item{\texttt{pp\_bez\_av} - bylo-li ve větě příčestí minulé bez pomocného slovesa a zároveň nebyla před příčestím minulým souřadící spojka, která by mohla oddělovat dvě věty se dvěma příčestími minulými, ale pomocným slovesem jen v první z nich (\textit{např.: Ich habe gekocht und gelernt.})}
-\item{\texttt{neshoda\_podmet\_prisudek} - sledujeme výskyt prvního slova v nominativu nebo prvního slovesa, od těchto prvních výskytů si zapamatujeme číslo a osobu (u podstatných jmen ručně nastavíme, že se jedná o třetí osobu), pokud se nenajde shoda v čísle a osobě mezi prvním nalezeným nominativem a slovesem, pak daná klauze dostane tento rys}
-\item{\texttt{vice\_osob} - funguje stejně jako předchozí, jenom s jiným vyhodnocením - tj. tehdy, když po první nalezené osobě nalezneme ještě další (samozřejmě v prvním pádě)}
-\item{\texttt{vice\_vfin} - indikuje výskyt více určitých sloves v jedné klauzi}
-\item{\texttt{vice\_sum} - sčítá hodnoty všech rysů typu \texttt{vice\_*}}
-\item{\texttt{root} - projde větný rozbor z výstupu ParZu a spočítá počet kořenů, je-li totiž věta gramaticky správně, nalezneme kořen pouze jeden, v opačném případě je jich více a představují pomyslný počet chyb ve větě}
-\item{\texttt{sum} - sčítá hodnoty všech předchozích rysů včetně rysu \texttt{root}}
+\item{\texttt{chybi\_infszu} -- kontroluje, zda byla klauze uvozena spojkou vyžadující infinitiv s zu (rozšířený slovní druh \textit{KOUI}\footnote{ParZu používá pro označení rozšířeného slovního druhu Stuttgart/Tübinger Tagsets ZDROJ http://www.coli.uni-saarland.de/projects/sfb378/negra-corpus/stts.asc}), typicky se jedná o zkrácené vedlejší věty, a sleduje, zda ve větě takový infinitiv byl}
+\item{\texttt{chybi\_podmet} -- označuje skutečnost, že se v klauzi nevyskytlo slovo v prvním pádě}
+\item{\texttt{chybi\_vfin} -- v klauzi chybí určité sloveso}
+\item{\texttt{chybi\_sum} -- sčítá hodnoty všech rysů typu \texttt{chybi\_*}}
+\item{\texttt{inf\_po\_vm\_neni\_na\_konci} -- kontroluje, zda se za infinitivem po modálním slovese nevyskytlo ještě další slovo mimo sloves}
+\item{\texttt{infszu\_neni\_na\_konci} -- byla-li spojka vyžadující infinitiv s zu a zároveň se za infinitivem ještě vyskytlo další slovo mimo sloves}
+\item{\texttt{vv\_sloveso\_neni\_na\_konci} -- po podřadících spojkách (\textit{KOUS}, \textit{PRELS}, \textit{PRELAT}) kontroluje, zda po určitém slovesu nešlo ještě další slovo mimo sloves}
+\item{\texttt{pp\_neni\_na\_konci} -- pokud věta obsahovala pomocné sloveso, očekáváme příčestí minulé a kontrolujeme proto, zda se za ním ještě nevyskytlo další slovo mimo sloves}
+\item{\texttt{neni\_na\_konci\_sum} -- sčítá hodnoty všech rysů typu \texttt{*\_neni\_na\_konci}}
+\item{\texttt{pp\_bez\_av} -- bylo-li ve větě příčestí minulé bez pomocného slovesa a zároveň nebyla před příčestím minulým souřadící spojka, která by mohla oddělovat dvě věty se dvěma příčestími minulými, ale pomocným slovesem jen v první z nich (\textit{např.: Ich habe gekocht und gelernt.})}
+\item{\texttt{neshoda\_podmet\_prisudek} -- sledujeme výskyt prvního slova v nominativu nebo prvního slovesa, od těchto prvních výskytů si zapamatujeme číslo a osobu (u podstatných jmen ručně nastavíme, že se jedná o třetí osobu), pokud se nenajde shoda v čísle a osobě mezi prvním nalezeným nominativem a slovesem, pak daná klauze dostane tento rys}
+\item{\texttt{vice\_osob} -- funguje stejně jako předchozí, jenom s jiným vyhodnocením -- tj. tehdy, když po první nalezené osobě nalezneme ještě další (samozřejmě v prvním pádě)}
+\item{\texttt{vice\_vfin} -- indikuje výskyt více určitých sloves v jedné klauzi}
+\item{\texttt{vice\_sum} -- sčítá hodnoty všech rysů typu \texttt{vice\_*}}
+\item{\texttt{root} -- projde větný rozbor z výstupu ParZu a spočítá počet kořenů, je-li totiž věta gramaticky správně, nalezneme kořen pouze jeden, v opačném případě je jich více a představují pomyslný počet chyb ve větě}
+\item{\texttt{sum} -- sčítá hodnoty všech předchozích rysů včetně rysu \texttt{root}}
 \end{enumerate}
 
-Pomocí programu Chyby, který vzniknul k této práci, jsme změřili na vývojových datech korelaci každého rysu s ručně hodnocenou plynulostí. Každý rys kromě rysů součtových a rysu \texttt{root} jsou určovány pro každou klauzi zvlášť a mohou v ní vždy dostat jen hodnotu \texttt{true}/\texttt{false}. Rysy celé věty jsou pak součtem hodnot rysů ze všech klauzí - přičteme vždy jedničku, když daný rys nabyl v klauzi hodnoty \texttt{true}.
+Pomocí programu Chyby, který vzniknul k této práci, jsme změřili na vývojových datech korelaci každého rysu s ručně hodnocenou plynulostí. Každý rys kromě rysů součtových a rysu \texttt{root} jsou určovány pro každou klauzi zvlášť a mohou v ní vždy dostat jen hodnotu \texttt{true}/\texttt{false}. Rysy celé věty jsou pak součtem hodnot rysů ze všech klauzí -- přičteme vždy jedničku, když daný rys nabyl v klauzi hodnoty \texttt{true}.
 
 \subsection{Rysy typu chybi\_*}
 \begin{figure}[!htb]
@@ -1672,11 +1678,11 @@ ok	&vv\_sloveso\_neni\_na\_konci:0\\
 \end{tabular}
 \end{center}
 
-Ve sloupci nalevo od názvu rysu je uvedeno stanovisko - ok označuje souhlas, kladná hodnota udává, o kolik měla být hodnota rysu vyšší, záporná udává opak tj. o kolik měla být hodnota nižší. Součtové rysy hodnoceny nebyly, neboť vychází z ostatních. Stejně jako rys \texttt{root} nebyl hodnocen, neboť ten stanovujeme pouze na základě výstupu z ParZu.
+Ve sloupci nalevo od názvu rysu je uvedeno stanovisko -- ok označuje souhlas, kladná hodnota udává, o kolik měla být hodnota rysu vyšší, záporná udává opak tj. o kolik měla být hodnota nižší. Součtové rysy hodnoceny nebyly, neboť vychází z ostatních. Stejně jako rys \texttt{root} nebyl hodnocen, neboť ten stanovujeme pouze na základě výstupu z ParZu.
 
 Stanovení, zda je některý rys správně či špatně, je někdy sporné, neboť mnoho hypotéz nedává smysl a spoustu věcí tak musíme jen odhadovat. V této hypotéze například nevíme, zda se jedná o dvě nebo tři klauze, proto jsme rys \texttt{chybi\_vfin} mohli ohodnotit jako +1 nebo +2. Zde jsme zvolili +1, pokud bychom ohodnotili jako +2, pak bychom zase u \texttt{chybi\_podmet} museli namísto -1 zvolit ok.
 
-Vyhodnocení jsme potom stanovili jako součet hodnot rysů, jaké byly stanoveny programem, a součet hodnot, jaké měly být ve skutečnosti. Podílem jsme potom získali číslo okolo 53 \%. Toto číslo ale udává jen úspěšnost rysů, které nabyly hodnoty vyšší než nula. Abychom zohlednili i rysy, které měly být hodnocené nulou a nulu dostaly, zvýšíme všem rysům hodnocení o jedna. Hodnoty znovu sečteme a vydělíme. Výpočet udává necelých 87 \%.
+Vyhodnocení jsme poté stanovili jako součet hodnot rysů, jaké byly stanoveny programem, a součet hodnot, jaké měly být ve skutečnosti. Podílem jsme pak získali číslo okolo 53 \%. Toto číslo ale udává jen úspěšnost rysů, které nabyly hodnoty vyšší než nula. Abychom zohlednili i rysy, které měly být hodnocené nulou a nulu dostaly, zvýšíme všem rysům hodnocení o jedna. Hodnoty znovu sečteme a vydělíme. Výpočet udává necelých 87 \%.
 
 \section{Princip experimentů}
 
@@ -1709,7 +1715,7 @@ Jak vidíme z příkladu, druhý řádek nám říká, že hypotéza hodnocená 
 
 Maxentové modely budeme trénovat v MaxentToolkitu(ZDROJ) od Le Zhanga. Pro určení vah rysů využijeme výchozího nastavení tj. metody LBFGS.
 
-V úvodním seznamu kroků této sekce jsme se zmínili o mediánovém modelu. U korelací rysů root a sum jsme uvedli, že zkusíme, zda lze plynulost predikovat jen na základě mediánů jednotlivých plynulostí. Za tímto účelem jsme vytvořili vlastní takový klasifikátor. Z trénovacích dat si vypočítá pro každý rys a každou plynulost medián. Souhrn mediánů je pak zapsán jako model. Při testování vycházíme z těchto mediánů - každý rys vydá jeden návrh plynulosti, tyto návrhy zprůměrujeme a dostaneme výslednou navrhovanou plynulost. Pokud jsou mediány některého z rysů u dvou plynulostí stejné, zvýšíme ten, který patří horší plynulosti, o jedna. Vstupní formát je shodný s formátem pro maxentové modely.
+V úvodním seznamu kroků této sekce jsme se zmínili o mediánovém modelu. U korelací rysů root a sum jsme uvedli, že zkusíme, zda lze plynulost predikovat jen na základě mediánů jednotlivých plynulostí. Za tímto účelem jsme vytvořili vlastní takový klasifikátor. Z trénovacích dat si vypočítá pro každý rys a každou plynulost medián. Souhrn mediánů je pak zapsán jako model. Při testování vycházíme z těchto mediánů -- každý rys vydá jeden návrh plynulosti, tyto návrhy zprůměrujeme a dostaneme výslednou navrhovanou plynulost. Pokud jsou mediány některého z rysů u dvou plynulostí stejné, zvýšíme ten, který patří horší plynulosti, o jedna. Vstupní formát je shodný s formátem pro maxentové modely.
 
 \section{Způsob vyhodnocení}
 U obou typů modelů budeme vyhodnocovat hlavně přesnost predikce tj. procentuálně vyjádříme, v kolika případech se model trefil do správné plynulosti. Mimo to budeme ještě zkoumat, v kolika případech se plynulost navrhovaná modelem lišila od skutečnosti jen o 1. Abychom ale mohli brát tento údaj v potaz, vypíšeme vždy ještě počty jednotlivých plynulostí, které model nabídnul. Pokud bychom tyto počty nezohlednili, mohlo by se stát, že model bude slepě tipovat vždy plynulost 3, kterých je nejvíce (44.6 \%). Potom by lišící se o jedna byly hypotézy s plynulostí 2 a 4, kterých je dohromady 38 \%. Dopředu proto stanovíme, že údaj, kdy se navrhovaná plynulost od skutečnosti lišila jen o jedna, budeme brát v potaz pouze za předpokladu, že model nabídnul každou plynulost alespoň jednou. 
@@ -1739,7 +1745,7 @@ lišící se o 1 & 38.85 \% & 47.94 \%  \\
 \end{center}
 \end{table}
 
-Přesnost obou modelů je nižší než, kdybychom slepě tipovali samé trojky (44.6~\% - tuto hodnotu budeme dále označovat jako \textit{baseline}). Ani jeden z modelů nenabídnul každou plynulost alespoň jednou, a proto dle stanoveného kritéria, nebereme údaje lišící se o 1 jako relevantní (tabulka \ref{tb:all}).
+Přesnost obou modelů je nižší než, kdybychom slepě tipovali samé trojky (44.6~\% -- tuto hodnotu budeme dále označovat jako \textit{baseline}). Ani jeden z modelů nenabídnul každou plynulost alespoň jednou, a proto dle stanoveného kritéria, nebereme údaje lišící se o 1 jako relevantní (tabulka \ref{tb:all}).
 
 
 \section{Modely se součtovými rysy}
@@ -1900,7 +1906,7 @@ lišící se o 1 & 39.14 \% & 49.19 \%  \\
 Bohužel maxentový model nedosáhl ani na baseline. Mediánový je na tom ještě takřka o polovinu hůře, ale u něho lze toto očekávat, neboť jednotlivé rysy samostatně nevykazovaly korelaci s plynulostí. Ani jeden z modelů nenabízel všechny plynulosti (tabulka \ref{tb:woutsums}).
 
 \subsection{Bez rysu root}
-Mimo naše součtové rysy máme ještě jeden rys, který sčítá kořeny větného rozboru - rys \texttt{root}. Zkusíme tedy vynechat i ten a uvidíme, zda se situace zlepší nebo zhorší.
+Mimo naše součtové rysy máme ještě jeden rys, který sčítá kořeny větného rozboru -- rys \texttt{root}. Zkusíme tedy vynechat i ten a uvidíme, zda se situace zlepší nebo zhorší.
 
 \begin{table}[!htbp]
 \begin{center}
@@ -1968,12 +1974,11 @@ Z tabulky \ref{tb:shrnutivlrysy} je patrné, že údaje lišící se o jedna pro
 % \include{ukazka}
 
 \chapwithtoc{Závěr}
-V práci byly popsány dvě série experimentů. První z nich se snažila modelovat jazyk jen na základě morfologických značek. Pro srovnání byly natrénovány i modely se slovy. Pokud jsme modelu předaly pouze značky z jedné morfologické třídy (rod, pád, číslo), dopadly hůře než modely se slovy. S přidáním rozšířeného slovního druhu došlo ale vždy ke zlepšení a modely vycházely lépe než běžné se slovy. Jako nejúspěšnější z hlediska Spearmanova korelačního koeficientu v korelaci perplexity a ručně hodnocené plynulosti vyšel maxentový model trénovaný na rozšířeném slovním druhu a pádu. Natrénování maxentových modelů trvalo někdy až mnohonásobně déle než standardních n-gramových, přičemž přínos maxentových modelů nebyl zvlášť výrazný. Obecně maxentové modely dostávaly nižší perplexitu, ale příliš nezlepšovaly korelaci s plynulostí.
+V práci byly popsány dvě série experimentů. První z nich se snažila modelovat jazyk jen na základě morfologických značek. Pro srovnání byly natrénovány i modely se slovy. Pokud jsme modelu předaly pouze značky z jedné morfologické třídy (rod, pád, číslo), dopadly hůře než modely se slovy. S přidáním rozšířeného slovního druhu došlo ale vždy ke zlepšení a modely vycházely lépe než běžné modely se slovy. Jako nejúspěšnější z hlediska Spearmanova korelačního koeficientu v korelaci perplexity a ručně hodnocené plynulosti vyšel maxentový model trénovaný na rozšířeném slovním druhu a pádu. Natrénování maxentových modelů trvalo někdy až mnohonásobně déle než standardních n-gramových, přičemž přínos maxentových modelů nebyl zvlášť výrazný. Obecně maxentové modely dostávaly nižší perplexitu, ale příliš nezlepšovaly korelaci s plynulostí.
 
-Druhá série experimentů se zabývala modely maximální entropie a vlastními mediánovými modely. Bylo navrženo 16 vlastních rysů reprezentujících počet chyb v dané větě. Samostatně rysy nekorelovaly s plynulostí, a proto byly rozděleny do několika skupin a jejich hodnoty jsme sečetli. Součtové rysy vycházely v korelaci lépe. Jako nejúspěšnější z hlediska korelace dopadly rysy \texttt{root} a \texttt{sum}, kde první představuje počet kořenů větného rozboru z parseru Parzu a druhý součet přes všechny rysy. Na základě toho jsme zkoušeli predikovat jenom dle hodnot mediánů jednotlivých plynulostí. Experimenty jsme prováděli na různých kombinacích těchto vlastních rysů. V přenosti predikce plynulosti nedopadl bohužel žádný model dobře. Všechny byly horší než baseline. Zkusili jsme proto i sledovat, v kolika případech se modely lišily v plynulosti jen o 1 a stanovili jsme kritérium, kdy tento údaj lze brát v potaz. V závěrečném shrnutí proto uvádíme tento údaj jen u těch, které nabídly pro každou plynulost alespoň jedno hodnocení. Po tomto vyhodnocení dopadl nejlépe náš mediánový model se všemi součtovými rysy a rysem \texttt{root}. Výsledky však nejsou tak dobré, jak bychom si přáli. Úspěšnost by bylo možné zvýšit odstraněním chyb jednotlivých nástrojů, které bylo potřeba použít při předzpracování dat pro identifikaci německých klauzí. Určitého zlepšení by se mohlo dosáhnout i v případě, kdy by německé hypotézy nebyly převedené jen na malá písmena, neboť to často dělalo parseru problémy a došlo ke špatnému určení slovního druhu, díky čemuž byla následně i špatně identifikována hodnota rysu. Mimo to by bylo možné dále navrhovat a testovat jiné rysy reprezentující chybu v gramatice. Vycházíme z předpokladu, že hodnotitelé posuzují plynulost právě na základě počtu vyskytujících se chyb.
+Druhá série experimentů se zabývala modely maximální entropie a vlastními mediánovými modely. Bylo navrženo 16 vlastních rysů reprezentujících počet chyb v dané větě. Samostatně rysy nekorelovaly s plynulostí, a proto byly rozděleny do několika skupin a jejich hodnoty jsme sečetli. Součtové rysy vycházely v korelaci lépe. Jako nejúspěšnější z hlediska korelace dopadly rysy \texttt{root} a \texttt{sum}, kde první představuje počet kořenů větného rozboru z parseru Parzu a druhý součet přes všechny rysy. Na základě toho jsme zkoušeli predikovat pouze dle hodnot mediánů jednotlivých plynulostí. Experimenty jsme prováděli na různých kombinacích těchto vlastních rysů. V přenosti predikce plynulosti nedopadl bohužel žádný model dobře. Všechny byly horší než baseline. Zkusili jsme proto i sledovat, v kolika případech se modely lišily v plynulosti jen o 1 a stanovili jsme kritérium, kdy tento údaj lze brát v potaz. V závěrečném shrnutí proto uvádíme tento údaj jen u těch, které nabídly pro každou plynulost alespoň jedno hodnocení. Po tomto vyhodnocení dopadl nejlépe náš mediánový model se všemi součtovými rysy a rysem \texttt{root}. Výsledky však nejsou tak dobré, jak bychom si přáli. Úspěšnost by bylo možné zvýšit odstraněním chyb jednotlivých nástrojů, které bylo potřeba použít při předzpracování dat pro identifikaci německých klauzí. Určitého zlepšení by se mohlo dosáhnout i v případě, kdy by německé hypotézy nebyly převedené jen na malá písmena, neboť to často dělalo parseru problémy a došlo ke špatnému určení slovního druhu, díky čemuž byla následně i špatně identifikována hodnota rysu. Mimo to by bylo možné dále navrhovat a testovat jiné rysy reprezentující chybu v gramatice. Vycházíme z předpokladu, že hodnotitelé posuzují plynulost právě na základě počtu vyskytujících se chyb.
 
 Modely z obou sérií experimentů potřebovaly data z parseru, kterému musíme předložit celou větu, aby správně určil morfologickou analýzu a větný rozbor. Jejich praktické využití by proto bylo např. při reskórování nbestlistů (n nejlepších hypotéz).
-
 
 
 %%% Seznam použité literatury

@@ -1,10 +1,12 @@
 all: prace.pdf
 
+
 # Vyroba PDF primo z DVI by byla prijemnejsi, ale vetsina verzi dvipdfm nici obrazky
 # prace.pdf: prace.dvi
 #	dvipdfm -o $@ -p a4 -r 600 $<
 
-prace.pdf: prace.ps
+
+prace.pdf: prace.ps 
 	ps2pdf $< $@
 
 prace.ps: prace.dvi
