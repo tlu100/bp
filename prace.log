@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  21 MAY 2013 15:09
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  21 MAY 2013 22:52
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -652,7 +652,7 @@ Kapitola 1.
 [9
 
 ] [10]
-Overfull \hbox (24.6314pt too wide) detected at line 460
+Overfull \hbox (5.53014pt too wide) detected at line 460
 []\OML/cmm/m/it/12 P[]\IL2/cmr/m/n/12 (\OML/cmm/m/it/12 w[]\OMS/cmsy/m/n/12 j\O
 ML/cmm/m/it/12 w[]; [] ; w[]\IL2/cmr/m/n/12 ) = []
  []
@@ -2601,4 +2601,4 @@ Here is how much of TeX's memory you used:
  24 hyphenation exceptions out of 8191
  38i,17n,73p,2012b,518s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (55 pages, 332704 bytes).
+Output written on prace.dvi (55 pages, 332900 bytes).
