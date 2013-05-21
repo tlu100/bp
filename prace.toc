@@ -1,16 +1,15 @@
 \contentsline {chapter}{\IeC {\'U}vod}{7}{chapter*.2}
 \contentsline {chapter}{\numberline {1}Jazykov\IeC {\'e} modely}{9}{chapter.1}
-\contentsline {section}{\numberline {1.1}Pohled Bayesovy v\IeC {\v e}ty}{9}{section.1.1}
-\contentsline {section}{\numberline {1.2}N-gramov\IeC {\'e} modely}{9}{section.1.2}
-\contentsline {section}{\numberline {1.3}Good-Turingovo vyhlazov\IeC {\'a}n\IeC {\'\i }}{10}{section.1.3}
-\contentsline {section}{\numberline {1.4}Katzovy back-off n-gramov\IeC {\'e} modely}{12}{section.1.4}
-\contentsline {section}{\numberline {1.5}Vyhlazov\IeC {\'a}n\IeC {\'\i } Kneser-Ney}{13}{section.1.5}
-\contentsline {section}{\numberline {1.6}Modely maxim\IeC {\'a}ln\IeC {\'\i } entropie}{14}{section.1.6}
-\contentsline {section}{\numberline {1.7}Vyhlazov\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} maxim\IeC {\'a}ln\IeC {\'\i } entropie}{16}{section.1.7}
-\contentsline {section}{\numberline {1.8}Hodnocen\IeC {\'\i } model\IeC {\r u}}{16}{section.1.8}
-\contentsline {subsection}{\numberline {1.8.1}K\IeC {\v r}\IeC {\'\i }\IeC {\v z}ov\IeC {\'a} perplexita}{16}{subsection.1.8.1}
-\contentsline {subsection}{\numberline {1.8.2}Adekv\IeC {\'a}tnost a plynulost p\IeC {\v r}ekladu}{17}{subsection.1.8.2}
-\contentsline {section}{\numberline {1.9}Aplikace jazykov\IeC {\'y}ch model\IeC {\r u}}{17}{section.1.9}
+\contentsline {section}{\numberline {1.1}N-gramov\IeC {\'e} modely}{9}{section.1.1}
+\contentsline {section}{\numberline {1.2}Good-Turingovo vyhlazov\IeC {\'a}n\IeC {\'\i }}{10}{section.1.2}
+\contentsline {section}{\numberline {1.3}Katzovy back-off n-gramov\IeC {\'e} modely}{11}{section.1.3}
+\contentsline {section}{\numberline {1.4}Vyhlazov\IeC {\'a}n\IeC {\'\i } Kneser-Ney}{12}{section.1.4}
+\contentsline {section}{\numberline {1.5}Modely maxim\IeC {\'a}ln\IeC {\'\i } entropie}{13}{section.1.5}
+\contentsline {section}{\numberline {1.6}Vyhlazov\IeC {\'a}n\IeC {\'\i } model\IeC {\r u} maxim\IeC {\'a}ln\IeC {\'\i } entropie}{15}{section.1.6}
+\contentsline {section}{\numberline {1.7}Hodnocen\IeC {\'\i } model\IeC {\r u}}{16}{section.1.7}
+\contentsline {subsection}{\numberline {1.7.1}K\IeC {\v r}\IeC {\'\i }\IeC {\v z}ov\IeC {\'a} perplexita}{16}{subsection.1.7.1}
+\contentsline {subsection}{\numberline {1.7.2}Adekv\IeC {\'a}tnost a plynulost p\IeC {\v r}ekladu}{16}{subsection.1.7.2}
+\contentsline {section}{\numberline {1.8}Aplikace jazykov\IeC {\'y}ch model\IeC {\r u}}{17}{section.1.8}
 \contentsline {chapter}{\numberline {2}Probl\IeC {\'e}my s n\IeC {\v e}m\IeC {\v c}inou}{18}{chapter.2}
 \contentsline {section}{\numberline {2.1}Sklo\IeC {\v n}ov\IeC {\'a}n\IeC {\'\i } jmen}{18}{section.2.1}
 \contentsline {section}{\numberline {2.2}Po\IeC {\v r}\IeC {\'a}dek slov}{18}{section.2.2}

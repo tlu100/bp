@@ -335,15 +335,16 @@ Hlavní obsah práce je strukturován do čtyř kapitol. První z nich se zabýv
 \chapter{Jazykové modely}
 Jazykový model se snaží charakterizovat zákonitosti v přirozeném jazyce. K tomu je možné přistupovat za pomoci více či méně podrobné statistiky. Zákonitosti můžeme popisovat pravidly nebo je zkusit automaticky vypozorovat z velkého množství textů -- tzv. statistický přístup. Proces určování parametrů ve statistickém přístupu se nazývá \textit{trénování modelu}. Lingvistické znalosti pak můžeme do modelů přidat například tak, že model nenecháme trénovat jenom na samotném textu, ale i na morfologických nebo jiných značkách či gramatických vztazích. Právě takovými modely se budeme zabývat.
 
-\section{Pohled Bayesovy věty}
-Na přirozený jazyk lze nahlížet jako na množinu jednotek (např. vět, slov nebo jejich částí), které jsou náhodnými proměnnými s určitým rozdělením pravděpodobnosti. Například při překladu hledáme takové slovo \(B\), které s největší pravděpodobností následuje po kontextu slov \(A\). Hledáme tedy takové \(B\), které maximalizuje podmíněnou pravděpodobnost \(P(B|A)\). S využitím Bayesovy věty máme:
-\begin{equation}
-\argmax{B} P(B|A) = \argmax{B} \frac{P(A|B) \cdot P(B)}{P(A)} 
-\end{equation}
-Jmenovatel můžeme vynechat, neboť \(P(A)\) je v tuto chvíli pouze konstanta, která hledání maxima nijak neovlivní. Dostáváme tedy:
-\begin{equation}
-\argmax{B} P(B|A) = \argmax{B} P(A|B) \cdot P(B)
-\end{equation}
+%
+%\section{Pohled Bayesovy věty}
+%Na přirozený jazyk lze nahlížet jako na množinu jednotek (např. vět, slov nebo jejich částí), které jsou náhodnými proměnnými s určitým rozdělením pravděpodobnosti. Například při překladu hledáme takové slovo \(B\), které s největší pravděpodobností následuje po kontextu slov \(A\). Hledáme tedy takové \(B\), které maximalizuje podmíněnou pravděpodobnost \(P(B|A)\). S využitím Bayesovy věty máme:
+%\begin{equation}
+%\argmax{B} P(B|A) = \argmax{B} \frac{P(A|B) \cdot P(B)}{P(A)} 
+%\end{equation}
+%Jmenovatel můžeme vynechat, neboť \(P(A)\) je v tuto chvíli pouze konstanta, která hledání maxima nijak neovlivní. Dostáváme tedy:
+%\begin{equation}
+%\argmax{B} P(B|A) = \argmax{B} P(A|B) \cdot P(B)
+%\end{equation}
 
 \section{N-gramové modely}
 N-gramové jazykové modely nepotřebují téměř žádné lingvistické zpracování. Využívají skutečnosti, že některá slova se často vyskytují v určitých dvojících (obecně n-ticích) -- pro němčinu typicky třeba člen a podstatné jméno. Jistě častěji spatříme v trénovacích datech \textit{der Hund} než \textit{das Hund}. Stejně jako po slovese \textit{fragen} uvidíme předložku \textit{nach} nebo \textit{um} spíše než \textit{auf} nebo \textit{an}.
@@ -405,26 +406,28 @@ P_{GT}(w_{1},\ldots,w_{n}) = \left\{
 
 Pokud bychom počítali pravděpodobnost pro všechny n-gramy podle prvního vzorce, nejen pro $r < k$, dostaly by ty nejvíce spatřené nulovou pravděpodobnost, neboť pro ně bude $N_{r+1} = 0$. Z tohoto důvodu je potřeba vhodně volit konstantu $k$ a pro $r >= k$ počítat pravděpodobnost standardně odhadem maximální věrohodnosti (MLE), který dává dobré výsledky.
 
-Ve složitější variantě se namísto konstanty $k$ volí funkce $S(r)$ podle zjištěných hodnot $r$ a $N_r$.
-\begin{equation}\label{eq:gtr2}
-r^* = (r+1) \cdot \frac {S(r+1)}{S(r)}
-\end{equation}
+Důkaz, že takto přerozdělíme jenom zbývající část pravděpodobnosti, se lze dočíst v původním dokumentu -- Good (ZDROJ).
 
-Odhad pravděpodobnosti potom vypadá následovně:
-\begin{equation}
-P_{GT}(w_{1},\ldots,w_{n}) = \left\{
-\begin{array}{ll}
-\displaystyle \frac{N_1}{N_0 \cdot \sum_{r}r\cdot N_r} & \text{pro r = 0} \\
-&\\
-\displaystyle \frac{r^*}{\sum_{r}r\cdot N_r} & \text{jinak} 
-\end{array}\right.
-\end{equation}
+%Ve složitější variantě se namísto konstanty $k$ volí funkce $S(r)$ podle zjištěných hodnot $r$ a $N_r$.
+%\begin{equation}\label{eq:gtr2}
+%r^* = (r+1) \cdot \frac {S(r+1)}{S(r)}
+%\end{equation}
 
-Jedním ze způsobů určení funkce $S(r)$ je vykreslit $\log N_r$ proti $\log r$ a pomocí lineární regrese proložit přímku. Hodnoty $S(r)$ se potom určují podle této přímky. Spoustu hodnot $N_r$ je ale nulových, proto se namísto $\log N_r$ používá $\log Z_r$:
-\begin{equation}
-Z_r = \frac{N_r}{0.5(t-q)}
-\end{equation}
-kde $q$, $r$ a $t$ jsou po sobě jdoucí indexy mající $N_q$, $N_r$ a $N_t$ nenulové. Je-li $N_r$ poslední nenulová frekvence n-gramů, dosadíme $t = 2r - q$. V případě, kdy $r = 1$, bereme $N_q = N_0$.
+%Odhad pravděpodobnosti potom vypadá následovně:
+%\begin{equation}
+%P_{GT}(w_{1},\ldots,w_{n}) = \left\{
+%\begin{array}{ll}
+%\displaystyle \frac{N_1}{N_0 \cdot \sum_{r}r\cdot N_r} & \text{pro r = 0} \\
+%&\\
+%\displaystyle \frac{r^*}{\sum_{r}r\cdot N_r} & \text{jinak} 
+%\end{array}\right.
+%\end{equation}
+
+%Jedním ze způsobů určení funkce $S(r)$ je vykreslit $\log N_r$ proti $\log r$ a pomocí lineární regrese proložit přímku. Hodnoty $S(r)$ se potom určují podle této přímky. Spoustu hodnot $N_r$ je ale nulových, proto se namísto $\log N_r$ používá $\log Z_r$:
+%\begin{equation}
+%Z_r = \frac{N_r}{0.5(t-q)}
+%\end{equation}
+%kde $q$, $r$ a $t$ jsou po sobě jdoucí indexy mající $N_q$, $N_r$ a $N_t$ nenulové. Je-li $N_r$ poslední nenulová frekvence n-gramů, dosadíme $t = 2r - q$. V případě, kdy $r = 1$, bereme $N_q = N_0$.
 
 Good-Turingovo vyhlazování podává dobré výsledky pro málo frekventované n-gramy, a proto se v praxi často používá. Je také výchozím nastavením SRILM toolkitu\footnote{Sada nástrojů pro jazykové modelování. V tomto toolkitu budeme také trénovat všechny n-gramové modely. Více viz (odkaz na zdroj)} při trénování n-gramových modelů. Podrobněji o Good-Turingově vyhlazování píše třeba .....[x] nebo ....[y].
 
@@ -466,7 +469,7 @@ Parametr $d$ je možné stanovit na základě popsaného Good-Turingova vyhlazov
 \begin{equation}
 d_{w_1, \ldots, w_n} = \frac{count(w_1, \ldots, w_n)^*}{count(w_1, \ldots, w_n)}
 \end{equation}
-přičemž $count(w_1, \ldots, w_n)^*$ se spočítá dle vzorce \eqref{eq:gtr1} nebo \eqref{eq:gtr2} z Good-Turingova vyhlazování.
+přičemž $count(w_1, \ldots, w_n)^*$ se spočítá dle vzorce \eqref{eq:gtr1} z Good-Turingova vyhlazování.
 
 Výpočet normalizačního faktoru $\alpha$ je o něco složitější. Nejprve zavedeme $\beta$ jako doplněk pravděpodobnosti součtu všech n-gramů s počtem výskytu (count) vyšším než $k$. $\beta$ tak bude představovat zbývající vyhrazenou část pravděpodobnosti pro (n-1)-gramy.
 \begin{equation}
@@ -477,17 +480,18 @@ Potom se normalizační faktor $\alpha$ vypočítá jako podíl zbývající pra
 \alpha_{w_{1}, \cdots, w_{n -1}} = \frac{\beta_{w_{1}, \cdots, w_{n -1}}}        {\sum_{ \{ \text{n-gram} | count(\text{n-gram}) \leq k \} } P_{BO}(w_n | w_{2} \cdots w_{n-1})}
 \end{equation}
 
-Back-off n-gramové modely podávají dobré výsledky, a proto jsou v praxi často využívány. Tento typ modelů je společně s Good-Turingovým vyhlazováním výchozím nastavením nástroje \texttt{ngram-count} pro trénování modelu z již zmíněného SRILM toolkitu a právě takové modely budeme v této práci vyrábět.
+Back-off n-gramové modely podávají dobré výsledky, a proto jsou v praxi často využívány. Tento typ modelů je ve spojení s Good-Turingovým vyhlazováním výchozím nastavením nástroje \texttt{ngram-count} pro trénování modelu z již zmíněného SRILM toolkitu a právě takové modely budeme v této práci vyrábět.
 
 \section{Vyhlazování Kneser-Ney}
 \textbf{Vyhlazování Kneser-Ney} se snaží nahradit unigramovou pravděpodobnost, která závisí pouze na frekvenci výskytu slova v trénovacím korpusu, chytřejší pravděpodobností, která bude zohledňovat, v kolika různých kontextech se toto slovo vyskytuje. Tato metoda předpokládá, že slovo vyskytující se ve více kontextech je pravděpodobnější i pro výskyt v kontextu novém.
 
 Pro příklad se často uvádí věta se San Franciscem a brýlemi:
+Pro příklad uvedeme větu se San Franciscem a psacím strojem:
 \begin{itemize}
-\item{Mějme část věty: \textit{Nemohu najít své čtecí}}
+\item{Mějme část věty: \textit{V muzeu se mi líbil starý psací \ldots}}
 \item{Naším úkolem je uhádnout slovo, které bude následovat.}
 \item{Předpokládejme, že unigramový model by nabídnul slovo Francisco. Proč? Protože se v trénovacím textu vyskytovalo nejčastěji.}
-\item{Vyhlazování Kneser-Ney zavádí pravděpodobnost zohledňující počet kontextů, kde se dané slovo vyskytlo. Tato pravděpodobnost proto odhalí, že ačkoliv se Francisco objevovalo často, pak jenom po slovu San. Naproti tomu brýle se vyskytovaly v o mnoho více kontextech, a proto jim bude přidělena vyšší pravděpodobnost.}
+\item{Vyhlazování Kneser-Ney zavádí pravděpodobnost zohledňující počet kontextů, kde se dané slovo vyskytlo. Tato pravděpodobnost proto odhalí, že ačkoliv se Francisco objevovalo často, pak jenom po slovu San. Naproti tomu stroj se vyskytoval v o mnoho více kontextech, a proto mu bude přidělena vyšší pravděpodobnost.}
 \end{itemize}
 
 Pravděpodobnost zohledňující počet kontextů je definována jako:
@@ -541,7 +545,7 @@ Během trénování modelu maximální entropie se snažíme naučit optimální
 
 Stanovení optimálních vah je náročná a složitá operace, která může trvat dlouhou dobu, pokud se k ní přistupuje zcela přímočaře. V každé iteraci algoritmu se musí spočítat normalizační faktor $Z(h)$ pro všechny spatřené kontexty v trénovacích datech. Pro každý kontext je zapotřebí projít přes všechna slova ze slovníku, tedy i přes ta, která se neobjevila v daném kontextu.
 
-Jednou z technik jak snížit složitost počítání normalizačního faktoru jsou vnořené nepřekrývající se rysy -- tedy např. n-gramové rysy. Pro ně totiž můžeme normalizační faktor spočítat takto: Mějme historii $w_{i-1}$, $w_{i-2}$, pak
+Jednou z technik jak snížit složitost počítání normalizačního faktoru jsou vnořené nepřekrývající se rysy -- tedy např. n-gramové rysy. Pro ně totiž můžeme normalizační faktor spočítat takto: Mějme historii trigramového modelu $w_{i-1}$, $w_{i-2}$, pak
 \begin{equation}
 \begin{split}
 Z(w_{i-1}, w_{i-2}) = \sum_{w_i \in V} & e^{fw_i} + \\ 
@@ -580,7 +584,7 @@ kde \begin{itemize}
 
 Parametry $\alpha$ a $\sigma$ bývají stanoveny empiricky -- např. Chen [ZDROJ]. ([4] z Tanela)
 
-$\mathpzc{l}_1$ + $\mathpzc{l}_2^2$ regularizaci využívá rozšíření \textit{SRILM Toolkitu} od Tanela Alumäe a Mikko Kurima [ZDROJ]. Toto rozšíření slouží pro trénování maxentových modelů s n-gramovými rysy. Pomocí tohoto rozšíření budeme vyrábět i naše maxentové n-gramové modely.
+$\mathpzc{l}_1$ + $\mathpzc{l}_2^2$ regularizaci využívá rozšíření\footnote{Od verze SRILM 1.7.1 je toto rozšíření již součástí základní instalace.} \textit{SRILM Toolkitu} od Tanela Alumäe a Mikko Kurima [ZDROJ]. Toto rozšíření slouží pro trénování maxentových modelů s n-gramovými rysy. Pomocí tohoto rozšíření budeme vyrábět i naše maxentové n-gramové modely.
 
 \section{Hodnocení modelů}
 Abychom mohli vyhodnotit a porovnat kvalitu jazykových modelů, potřebujeme zavést taková kritéria, která budou dostatečně vypovídající a vzájemně porovnatelná i při použití různých druhů modelů a metod trénování.
@@ -600,7 +604,7 @@ Distribuce testovacích dat bývá nejčastěji stanovena jako $P_E(x) = \frac{n
 Čím je perplexita nižší, tím lépe umí jazykový model předpovídat následující slovo a tím je samozřejmě lepší.
 
 \subsection{Adekvátnost a plynulost překladu}
-Kvalita jazykového modelu při překladu bývá implicitně hodnocena i ručně lidmi, a to především dvěma kritérii -- adekvátností a plynulostí.
+Pro hodnocení jazykových modelů se můžeme také opřít o data z ručního hodnocení strojového překladu. Jedna ze zavedených technik totiž hodnotí překlad dvěma kritérii  -- adekvátností a plynulostí.
 
 \begin{itemize}
 \item{\textbf{Adekvátnost} (adequacy) udává, zda překlad zachovává význam, či zda je změněn nebo nekompletní.}
