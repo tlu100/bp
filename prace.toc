@@ -40,20 +40,20 @@
 \contentsline {subsection}{\numberline {4.2.3}Rysy pp\_bez\_av a neshoda\_podmet\_prisudek}{41}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}Rysy typu vice\_*}{42}{subsection.4.2.4}
 \contentsline {subsection}{\numberline {4.2.5}Rysy sum a root}{42}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}P\IeC {\v r}esnost ur\IeC {\v c}en\IeC {\'\i } rys\IeC {\r u}}{42}{subsection.4.2.6}
-\contentsline {section}{\numberline {4.3}Princip experiment\IeC {\r u}}{43}{section.4.3}
-\contentsline {section}{\numberline {4.4}Zp\IeC {\r u}sob vyhodnocen\IeC {\'\i }}{44}{section.4.4}
-\contentsline {section}{\numberline {4.5}Modely se v\IeC {\v s}emi rysy}{45}{section.4.5}
-\contentsline {section}{\numberline {4.6}Modely se sou\IeC {\v c}tov\IeC {\'y}mi rysy}{45}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}S rysem root}{46}{subsection.4.6.1}
-\contentsline {section}{\numberline {4.7}Modely s rysem root}{46}{section.4.7}
-\contentsline {section}{\numberline {4.8}Modely s rysem sum}{47}{section.4.8}
-\contentsline {subsection}{\numberline {4.8.1}S rysem root}{47}{subsection.4.8.1}
-\contentsline {section}{\numberline {4.9}Modely se v\IeC {\v s}emi rysy krom\IeC {\v e} rys\IeC {\r u} sou\IeC {\v c}tov\IeC {\'y}ch}{48}{section.4.9}
-\contentsline {subsection}{\numberline {4.9.1}Bez rysu root}{48}{subsection.4.9.1}
-\contentsline {section}{\numberline {4.10}Shrnut\IeC {\'\i }}{49}{section.4.10}
-\contentsline {chapter}{Z\IeC {\'a}v\IeC {\v e}r}{50}{chapter*.46}
-\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{51}{chapter*.46}
-\contentsline {chapter}{Seznam obr\'azk\r {u}}{53}{chapter*.48}
-\contentsline {chapter}{Seznam tabulek}{54}{chapter*.49}
-\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{55}{chapter*.50}
+\contentsline {subsection}{\numberline {4.2.6}P\IeC {\v r}esnost ur\IeC {\v c}en\IeC {\'\i } rys\IeC {\r u}}{43}{subsection.4.2.6}
+\contentsline {section}{\numberline {4.3}Princip experiment\IeC {\r u}}{44}{section.4.3}
+\contentsline {section}{\numberline {4.4}Zp\IeC {\r u}sob vyhodnocen\IeC {\'\i }}{45}{section.4.4}
+\contentsline {section}{\numberline {4.5}Modely se v\IeC {\v s}emi rysy}{46}{section.4.5}
+\contentsline {section}{\numberline {4.6}Modely se sou\IeC {\v c}tov\IeC {\'y}mi rysy}{46}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}S rysem root}{47}{subsection.4.6.1}
+\contentsline {section}{\numberline {4.7}Modely s rysem root}{47}{section.4.7}
+\contentsline {section}{\numberline {4.8}Modely s rysem sum}{48}{section.4.8}
+\contentsline {subsection}{\numberline {4.8.1}S rysem root}{48}{subsection.4.8.1}
+\contentsline {section}{\numberline {4.9}Modely se v\IeC {\v s}emi rysy krom\IeC {\v e} rys\IeC {\r u} sou\IeC {\v c}tov\IeC {\'y}ch}{49}{section.4.9}
+\contentsline {subsection}{\numberline {4.9.1}Bez rysu root}{49}{subsection.4.9.1}
+\contentsline {section}{\numberline {4.10}Shrnut\IeC {\'\i }}{50}{section.4.10}
+\contentsline {chapter}{Z\IeC {\'a}v\IeC {\v e}r}{51}{chapter*.47}
+\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{52}{chapter*.47}
+\contentsline {chapter}{Seznam obr\'azk\r {u}}{54}{chapter*.49}
+\contentsline {chapter}{Seznam tabulek}{55}{chapter*.50}
+\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{56}{chapter*.51}
