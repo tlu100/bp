@@ -974,9 +974,6 @@ Příklad věty:
 
 
 
-%\pagebreak
-
-
 
 \begin{figure}[!htb]
 \begin{center}
@@ -1527,7 +1524,14 @@ Celkem jsme sestavili následujících 16 rysů, u kterých vysvětlíme, jak fu
 \item{\texttt{vv\_sloveso\_neni\_na\_konci} -- po podřadících spojkách (\textit{KOUS}, \textit{PRELS}, \textit{PRELAT}) kontroluje, zda po určitém slovesu nešlo ještě další slovo mimo sloves}
 \item{\texttt{pp\_neni\_na\_konci} -- pokud věta obsahovala pomocné sloveso, očekáváme příčestí minulé a kontrolujeme proto, zda se za ním ještě nevyskytlo další slovo mimo sloves}
 \item{\texttt{neni\_na\_konci\_sum} -- sčítá hodnoty všech rysů typu \texttt{*\_neni\_na\_konci}}
-\item{\texttt{pp\_bez\_av} -- bylo-li ve větě příčestí minulé bez pomocného slovesa a zároveň nebyla před příčestím minulým souřadící spojka, která by mohla oddělovat dvě věty se dvěma příčestími minulými, ale pomocným slovesem jen v první z nich (\textit{např.: Ich habe gekocht und gelernt.})}
+\item{\texttt{pp\_bez\_av} -- kontroluje přítomnost a pozici pomocného slovesa před příčestím minulým -- neplatí ve vedlejších větách a po souřadících spojkách, které by mohly oddělovat dvě věty se dvěma příčestími minulými, ale pomocným slovesem jen v první z nich (\textit{např.: Ich habe gekocht und gelernt.})}
+
+
+%nebylo-li před příčestím minulým ve větě pomocné sloveso -- neplatí, pokud před příčestím minulým byla spojka, neboť ve vedlejších větách může 
+
+%která by mohla oddělovat dvě věty se dvěma příčestími minulými, ale pomocným slovesem jen v první z nich (\textit{např.: Ich habe gekocht und gelernt.})
+
+%bylo-li ve větě příčestí minulé bez pomocného slovesa a zároveň nebyla před příčestím minulým souřadící spojka, která by mohla oddělovat dvě věty se dvěma příčestími minulými, ale pomocným slovesem jen v první z nich (\textit{např.: Ich habe gekocht und gelernt.})}
 \item{\texttt{neshoda\_podmet\_prisudek} -- sledujeme výskyt prvního slova v nominativu nebo prvního slovesa, od těchto prvních výskytů si zapamatujeme číslo a osobu (u podstatných jmen ručně nastavíme, že se jedná o třetí osobu), pokud se nenajde shoda v čísle a osobě mezi prvním nalezeným nominativem a slovesem, pak daná klauze dostane tento rys}
 \item{\texttt{vice\_osob} -- funguje stejně jako předchozí, jenom s jiným vyhodnocením -- tj. tehdy, když po první nalezené osobě nalezneme ještě další (samozřejmě v prvním pádě)}
 \item{\texttt{vice\_vfin} -- indikuje výskyt více určitých sloves v jedné klauzi}
@@ -1650,7 +1654,7 @@ Shodně dopadly i rysy typu \texttt{vice\_*}. Mediány rysu \texttt{vice\_osob} 
 \end{center}
 \end{figure}
 
-Oba rysy vykazují závislost jejich hodnot s plynulostí (obrázky \ref{gr:root}, \ref{gr:sum}). Mediány mají pro různé plynulosti odlišné hodnoty (až na plynulosti 4 a 5). V následujících experimentech proto zkusíme, zda se dá predikovat plynulost třeba jen na základě mediánu vypočteného pro jednotlivé plynulosti v trénovacích datech.
+Oba rysy vykazují závislost jejich hodnot s plynulostí (obrázky \ref{gr:root}, \ref{gr:sum}). Mediány mají pro různé plynulosti odlišné hodnoty (až na plynulosti 1 a 2). V následujících experimentech proto zkusíme, zda se dá predikovat plynulost třeba jen na základě mediánu vypočteného pro jednotlivé plynulosti v trénovacích datech.
 
 
 \subsection{Přesnost určení rysů}
