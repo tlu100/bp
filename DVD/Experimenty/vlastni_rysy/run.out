@@ -1,0 +1,178 @@
+./modely/all/
+Maxent:
+Presna shoda: 41.0526 % (429/1045)
+Shoda nebo +-1: 80.0957 % (837/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+    250 2
+    795 3
+********
+Median:
+Presna shoda: 29.8565 % (312/1045)
+Shoda nebo +-1: 77.6077 % (811/1045)
+Shoda v plynulosti 5: 34.0909 % (30/88)
+      1 2
+    299 3
+    672 4
+     73 5
+-------------------------------------------
+./modely/allsums/
+Maxent:
+Presna shoda: 40.9569 % (428/1045)
+Shoda nebo +-1: 80.0957 % (837/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+    231 2
+    814 3
+********
+Median:
+Presna shoda: 34.067 % (356/1045)
+Shoda nebo +-1: 80.3828 % (840/1045)
+Shoda v plynulosti 5: 46.5909 % (41/88)
+      2 1
+    139 2
+    359 3
+    407 4
+    138 5
+-------------------------------------------
+./modely/allsums+root/
+Maxent:
+Presna shoda: 41.7225 % (436/1045)
+Shoda nebo +-1: 81.1483 % (848/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+    148 2
+    897 3
+********
+Median:
+Presna shoda: 34.8325 % (364/1045)
+Shoda nebo +-1: 84.1148 % (879/1045)
+Shoda v plynulosti 5: 38.6364 % (34/88)
+      4 1
+    244 2
+    339 3
+    368 4
+     90 5
+-------------------------------------------
+./modely/root/
+Maxent:
+Presna shoda: 44.5933 % (466/1045)
+Shoda nebo +-1: 84.4019 % (882/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+   1045 3
+********
+Median:
+Presna shoda: 23.5407 % (246/1045)
+Shoda nebo +-1: 62.2967 % (651/1045)
+Shoda v plynulosti 5: 54.5455 % (48/88)
+    316 1
+     99 2
+    132 3
+    310 4
+    188 5
+********
+Linearni regrese:
+Presna shoda: 44.689 % (467/1045)
+Shoda nebo +-1: 85.3589 % (892/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+      2 1
+     89 2
+    954 3
+-------------------------------------------
+./modely/root+sum/
+Maxent:
+Presna shoda: 44.5933 % (466/1045)
+Shoda nebo +-1: 84.4019 % (882/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+   1045 3
+********
+Median:
+Presna shoda: 27.5598 % (288/1045)
+Shoda nebo +-1: 74.2584 % (776/1045)
+Shoda v plynulosti 5: 39.7727 % (35/88)
+    185 1
+    245 2
+    195 3
+    312 4
+    108 5
+-------------------------------------------
+./modely/sum/
+Maxent:
+Presna shoda: 40.9569 % (428/1045)
+Shoda nebo +-1: 77.7033 % (812/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+    115 1
+    930 3
+********
+Median:
+Presna shoda: 21.5311 % (225/1045)
+Shoda nebo +-1: 66.2201 % (692/1045)
+Shoda v plynulosti 5: 57.9545 % (51/88)
+    137 1
+    205 2
+     97 3
+    361 4
+    245 5
+********
+Linearni regrese:
+Presna shoda: 44.9761 % (470/1045)
+Shoda nebo +-1: 84.5933 % (884/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+     32 2
+   1013 3
+-------------------------------------------
+./modely/sumr/
+Maxent:
+Presna shoda: 44.5933 % (466/1045)
+Shoda nebo +-1: 84.4019 % (882/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+   1045 3
+********
+Median:
+Presna shoda: 28.8995 % (302/1045)
+Shoda nebo +-1: 73.2057 % (765/1045)
+Shoda v plynulosti 5: 77.2727 % (68/88)
+     62 1
+    341 2
+    155 3
+    195 4
+    292 5
+********
+Linearni regrese:
+Presna shoda: 44.8804 % (469/1045)
+Shoda nebo +-1: 84.9761 % (888/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+      1 1
+     79 2
+    965 3
+-------------------------------------------
+./modely/woutsums/
+Maxent:
+Presna shoda: 41.0526 % (429/1045)
+Shoda nebo +-1: 80 % (836/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+    255 2
+    790 3
+********
+Median:
+Presna shoda: 23.8278 % (249/1045)
+Shoda nebo +-1: 72.7273 % (760/1045)
+Shoda v plynulosti 5: 34.0909 % (30/88)
+    115 3
+    857 4
+     73 5
+-------------------------------------------
+./modely/woutsumsroot/
+Maxent:
+Presna shoda: 38.0861 % (398/1045)
+Shoda nebo +-1: 75.5981 % (790/1045)
+Shoda v plynulosti 5: 0 % (0/88)
+    115 1
+    182 2
+    748 3
+********
+Median:
+Presna shoda: 19.8086 % (207/1045)
+Shoda nebo +-1: 69.1866 % (723/1045)
+Shoda v plynulosti 5: 42.0455 % (37/88)
+     41 3
+    889 4
+    115 5
+-------------------------------------------

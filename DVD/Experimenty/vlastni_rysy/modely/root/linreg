@@ -1,0 +1,9 @@
+ #!/bin/bash
+
+cut -f 1 -d ":" test > tmpfl
+cut -f 2 -d ":" test > tmpva
+
+paste tmpva tmpfl | awk 'BEGIN{acc=0; dif=0; tot=0; best=0; fl5=0}
+{ print int(3.4610 - 0.1000 * $1 + 0.5); }' > regres_test_predict_detail
+ 
+rm tmpfl tmpva

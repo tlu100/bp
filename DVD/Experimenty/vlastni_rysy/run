@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # cesta ke klasifikatoru podle medianu
-klasifikator="/home/marek/bp/DVD/Nastroje/Klasifikator/bin/klasifikator"
+klasifikator="/home/maltik/bp/DVD/Nastroje/Klasifikator/bin/klasifikator"
 
 for i in $(ls -1d ./modely/*/)
 do
@@ -16,7 +16,15 @@ do
 	cat $i"maxent_test_predict_detail" | sort | uniq -c >> $i"maxent_test_predict"
 	cat $i"maxent_test_predict"
 	cat $i"median_test_predict_detail" | sort | uniq -c >> $i"median_test_predict"	
+	echo "********"
 	echo "Median:"
 	cat $i"median_test_predict"
+	if [ -e $i"regres_test_predict_detail" ]; then
+		paste $i"regres_test_predict_detail" $i"test_fluency" | ./accuracy-differing > $i"regres_test_predict"	
+		cat $i"regres_test_predict_detail" | sort | uniq -c >> $i"regres_test_predict"	
+		echo "********"
+		echo "Linearni regrese:"
+		cat $i"regres_test_predict"		
+	fi
 	echo "-------------------------------------------"
 done
