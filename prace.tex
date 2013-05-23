@@ -1752,7 +1752,7 @@ Maxentové modely budeme trénovat v MaxentToolkitu(ZDROJ) od Le Zhanga. Pro ur�
 V úvodním seznamu kroků této sekce jsme se zmínili o mediánovém modelu. U korelací rysů root a sum jsme uvedli, že zkusíme, zda lze plynulost predikovat jen na základě mediánů jednotlivých plynulostí. Za tímto účelem jsme vytvořili vlastní takový klasifikátor. Z trénovacích dat si vypočítá pro každý rys a každou plynulost medián. Souhrn mediánů je pak zapsán jako model. Při testování vycházíme z těchto mediánů -- každý rys vydá jeden návrh plynulosti, tyto návrhy zprůměrujeme a dostaneme výslednou navrhovanou plynulost. Pokud jsou mediány některého z rysů u dvou plynulostí stejné, zvýšíme ten, který patří horší plynulosti, o jedna. Vstupní formát je shodný s formátem pro maxentové modely.
 
 \section{Způsob vyhodnocení}
-U obou typů modelů budeme vyhodnocovat hlavně přesnost predikce tj. procentuálně vyjádříme, v kolika případech se model trefil do správné plynulosti (níže označeno jako \textit{přesná shoda}). Mimo to budeme ještě zkoumat, v kolika případech se plynulost navrhovaná modelem lišila od skutečnosti jen o 1 (\textit{shoda nebo $\pm$ 1}. Vzhledem k tomu, že plynulost 3 je nejčastější, můžeme za základní (baseline) prohlásit postup, který právě hodnotu 3 přiřkne každé hypotéze. Baseline dosahuje úspěšnosti 44.59 \% při vyhodnocení \textit{přesná shoda} a dokonce 84.4 \% pri vyhodnocení \textit{shoda nebo $\pm$ 1}.
+U obou typů modelů budeme vyhodnocovat hlavně přesnost predikce tj. procentuálně vyjádříme, v kolika případech se model trefil do správné plynulosti (níže označeno jako \textit{přesná shoda}). Mimo to budeme ještě zkoumat, v kolika případech se plynulost navrhovaná modelem lišila od skutečnosti jen o 1 (\textit{shoda nebo $\pm$ 1}). Vzhledem k tomu, že plynulost 3 je nejčastější, můžeme za základní (baseline) prohlásit postup, který právě hodnotu 3 přiřkne každé hypotéze. Baseline dosahuje úspěšnosti 44.59 \% při vyhodnocení \textit{přesná shoda} a dokonce 84.4 \% pri vyhodnocení \textit{shoda nebo $\pm$ 1}.
 
 
 % Abychom ale mohli brát tento údaj v potaz, vypíšeme vždy ještě počty jednotlivých plynulostí, které model nabídnul. Pokud bychom tyto počty nezohlednili, mohlo by se stát, že model bude slepě tipovat vždy plynulost 3, kterých je nejvíce (44.6 \%). Potom by lišící se o jedna byly hypotézy s plynulostí 2 a 4, kterých je dohromady 38 \%. Dopředu proto stanovíme, že údaj, kdy se navrhovaná plynulost od skutečnosti lišila jen o jedna, budeme brát v potaz pouze za předpokladu, že model nabídnul každou plynulost alespoň jednou. 
@@ -1767,14 +1767,14 @@ Jako první zkusíme natrénovat modely se všemi šestnácti rysy.
 \hline
  & \textbf{Maxentový model} & \textbf{Mediánový model} \\
  \hline
-přesnost & 41.34 \%  & 27.66 \%  \\
+přesná shoda & 41.05 \%  & 29.86 \%  \\
 \hline
-lišící se o 1 & 38.95 \% & 48.04 \%  \\
+shoda nebo $\pm$1 & 80.10 \% & 77.61 \%  \\
 \hline
 \textbf{počty} \quad 1 & \color{red}0 & \color{red}0 \\
-\textbf{plynulostí} \quad 2 & 265 & 1 \\
- 3 & 780 & 226 \\
- 4 & \color{red}0 & 745 \\
+\textbf{plynulostí} \quad 2 & 250 & 1 \\
+ 3 & 795 & 299 \\
+ 4 & \color{red}0 & 672 \\
  5 & \color{red}0 & 73 \\
 \hline
 \end{tabular}
@@ -1782,7 +1782,7 @@ lišící se o 1 & 38.95 \% & 48.04 \%  \\
 \end{center}
 \end{table}
 
-Přesnost obou modelů je nižší než, kdybychom slepě tipovali samé trojky (44.59~\% -- tuto hodnotu budeme dále označovat jako \textit{baseline}). Pro zajímavost sledujeme, které hodnoty plynulosti model kolikrát nabídl (tabulka \ref{tb:all}).
+Přesnost obou modelů je nižší než, kdybychom slepě tipovali samé trojky, tedy baseline. Pro zajímavost ještě navíc sledujeme, které hodnoty plynulosti model kolikrát nabídl (tabulka \ref{tb:all}). Pokud byly nabídnuty všechny plynulosti, označíme je zeleně a pak budou takto odlišené i ve shrnutí. U takových modelů lze více hledět na vyhodnocení \textit{shoda nebo $\pm$1}, neboť se nejednalo jen o slepé tipování.
 
 
 \section{Modely se součtovými rysy}
@@ -1794,15 +1794,15 @@ Při znázorňování korelace rysů a plynulosti vždy vyšly o něco lépe sou
 \hline
  & \textbf{Maxentový model} & \textbf{Mediánový model} \\
  \hline
-     přesnost & 42.49 \%  & 34.16 \%  \\
+přesná shoda & 40.96 \%  & 34.07 \%  \\
 \hline
-lišící se o 1 & 39.14 \% & 45.45 \%  \\
+shoda nebo $\pm$1 & 80.10 \% & 80.38 \%  \\
 \hline
      \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}2   \\
-\textbf{plynulostí} \quad 2 & 123 & \color{OliveGreen}63   \\
-                          3 & 922 & \color{OliveGreen}390 \\
-                          4 & \color{red}0   & \color{OliveGreen}439 \\
-                          5 & \color{red}0   & \color{OliveGreen}141  \\
+\textbf{plynulostí} \quad 2 & 231 & \color{OliveGreen}139   \\
+                          3 & 814 & \color{OliveGreen}359 \\
+                          4 & \color{red}0   & \color{OliveGreen}407 \\
+                          5 & \color{red}0   & \color{OliveGreen}138  \\
 \hline
 \end{tabular}
 \caption{Naměřené hodnoty modelů se všemi součtovými rysy}\label{tb:allsums}
@@ -1820,14 +1820,14 @@ Mimo součtové rysy, co se korelace týče, dopadnul dobře i rys \texttt{root}
 \hline
  & \textbf{Maxentový model} & \textbf{Mediánový model} \\
  \hline
-     přesnost & 40.67 \%  & 35.89 \%  \\
+přesná shoda & 41.73 \%  & 34.83 \%  \\
 \hline
-lišící se o 1 & 40.00 \% & 48.04 \%  \\
+shoda nebo $\pm$1 & 81.15 \% & 84.11 \%  \\
 \hline
      \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}4   \\
-\textbf{plynulostí} \quad 2 & 202 & \color{OliveGreen}172   \\
-                          3 & 843 & \color{OliveGreen}376 \\
-                          4 & \color{red}0   & \color{OliveGreen}403 \\
+\textbf{plynulostí} \quad 2 & 148 & \color{OliveGreen}244   \\
+                          3 & 897 & \color{OliveGreen}339 \\
+                          4 & \color{red}0   & \color{OliveGreen}368 \\
                           5 & \color{red}0   & \color{OliveGreen}90  \\
 \hline
 \end{tabular}
@@ -1847,9 +1847,9 @@ Rys \texttt{root} vypadal v korelaci s plynulostí slibně. Se součtovými rysy
 \hline
  & \textbf{Maxentový model} & \textbf{Mediánový model} \\
  \hline
-     přesnost & 44.59 \%  & 23.54 \%  \\
+  přesná shoda & 44.59 \%  & 23.54 \%  \\
 \hline
-lišící se o 1 & 39.81 \% & 38.76 \%  \\
+shoda nebo $\pm$1 & 84.40 \% & 62.30 \%  \\
 \hline
      \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}316   \\
 \textbf{plynulostí} \quad 2 & \color{red}0 & \color{OliveGreen}99   \\
@@ -1873,22 +1873,23 @@ Vedle na pohled dobře korelujícího rysu \texttt{root}, dobře dopadl i součt
 \hline
  & \textbf{Maxentový model} & \textbf{Mediánový model} \\
  \hline
-     přesnost & 44.59 \%  & 28.90 \%  \\
+ přesná shoda & 40.96 \%  & 21.53 \%  \\
 \hline
-lišící se o 1 & 39.81 \% & 44.31 \%  \\
+shoda nebo $\pm$1 & 77.70 \% & 66.22 \%  \\
 \hline
-     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}62   \\
-\textbf{plynulostí} \quad 2 & \color{red}0 & \color{OliveGreen}341   \\
-                          3 & 1045 & \color{OliveGreen}155 \\
-                          4 & \color{red}0   & \color{OliveGreen}195 \\
-                          5 & \color{red}0   & \color{OliveGreen}292  \\
+     \textbf{počty} \quad 1 & 115   & \color{OliveGreen}137   \\
+\textbf{plynulostí} \quad 2 & \color{red}0 & \color{OliveGreen}205   \\
+                          3 & 930 & \color{OliveGreen}97 \\
+                          4 & \color{red}0   & \color{OliveGreen}361 \\
+                          5 & \color{red}0   & \color{OliveGreen}245  \\
 \hline
 \end{tabular}
 \caption{Naměřené hodnoty modelů s rysem sum}\label{tb:sum}
 \end{center}
 \end{table}
 
-Od maxentového modelu jsme dostali znovu stejnou odpověď jako v případě rysu \texttt{root}. Mediánový model si o 5.36 \% oproti rysu \texttt{root} v přesnosti polepšil. Znovu nabídnul od všech plynulostí minimálně jedno hodnocení. Procentuální počet lišících se o jedna se zvýšil o 4.07 \% (tabulka \ref{tb:sum}).
+
+
 
 \subsection{S rysem root}
 Jelikož rysy \texttt{root} a \texttt{sum} se zdály být nejúspěšnější v rámci korelace s plynulostí, zkusíme natrénovat modely na obou najednou.
@@ -1899,15 +1900,15 @@ Jelikož rysy \texttt{root} a \texttt{sum} se zdály být nejúspěšnější v 
 \hline
  & \textbf{Maxentový model} & \textbf{Mediánový model} \\
  \hline
-     přesnost & 41.44 \%  & 24.59 \%  \\
+přesná shoda & 44.59 \%  & 27.56 \%  \\
 \hline
-lišící se o 1 & 40.00 \% & 42.01 \%  \\
+shoda nebo $\pm$1 & 84.40 \% & 74.26 \%  \\
 \hline
-     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}304   \\
-\textbf{plynulostí} \quad 2 & 115 & \color{OliveGreen}145   \\
-                          3 & 930 & \color{OliveGreen}156 \\
-                          4 & \color{red}0   & \color{OliveGreen}275 \\
-                          5 & \color{red}0   & \color{OliveGreen}165  \\
+     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}185   \\
+\textbf{plynulostí} \quad 2 & \color{red}0   & \color{OliveGreen}245   \\
+                          3 & 1045           & \color{OliveGreen}195 \\
+                          4 & \color{red}0   & \color{OliveGreen}312 \\
+                          5 & \color{red}0   & \color{OliveGreen}108  \\
 \hline
 \end{tabular}
 \caption{Naměřené hodnoty modelů se rysy sum a root}\label{tb:sumroot}
@@ -1915,6 +1916,38 @@ lišící se o 1 & 40.00 \% & 42.01 \%  \\
 \end{table}
 
 Přidáním druhého rysu maxentový model už nabízí alespoň dvě různé plynulosti. V přesnosti je však horší než baseline a tedy i horší než v případě se samostatnými rysy root nebo sum. Přenost mediánového modelu zůstává podobná, počet lišících se o jedna je ale z modelů s rysem \texttt{root}, \texttt{sum} a jejich kombinace nejlepší. Mediánový model nabízel všechny plynulosti, a proto můžeme jeho údaj o počtu lišících se o jedna brát v potaz (tabulka \ref{tb:sumroot}).
+
+
+
+
+
+\section{Modely s rysem sumr}
+Vedle na pohled dobře korelujícího rysu \texttt{root}, dobře dopadl i součtový rys \texttt{sumr}, který rys \texttt{root} obsahuje v sobě započítaný. Zkusíme znovu jako v případě rysu \texttt{root}, natrénovat modely na jediném rysu \texttt{sumr}.
+
+\begin{table}[!htbp]
+\begin{center}
+\begin{tabular}{|r|c|c|}
+\hline
+ & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ \hline
+ přesná shoda & 44.59 \%  & 28.90 \%  \\
+\hline
+shoda nebo $\pm$1 & 39.81 \% & 44.31 \%  \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}62   \\
+\textbf{plynulostí} \quad 2 & \color{red}0 & \color{OliveGreen}341   \\
+                          3 & 1045 & \color{OliveGreen}155 \\
+                          4 & \color{red}0   & \color{OliveGreen}195 \\
+                          5 & \color{red}0   & \color{OliveGreen}292  \\
+\hline
+\end{tabular}
+\caption{Naměřené hodnoty modelů s rysem sumr}\label{tb:sumr}
+\end{center}
+\end{table}
+
+Od maxentového modelu jsme dostali znovu stejnou odpověď jako v případě rysu \texttt{root}. Mediánový model si o 5.36 \% oproti rysu \texttt{root} v přesnosti polepšil. Znovu nabídnul od všech plynulostí minimálně jedno hodnocení. Procentuální počet lišících se o jedna se zvýšil o 4.07 \% (tabulka \ref{tb:sumr}).
+
+
 
 \section{Modely se všemi rysy kromě rysů součtových}
 Namísto úspěšných rysů, které vycházely ze součtu jiných, zkusíme nechat natrénovat modely na všech rysech kromě těch součtových. Může se stát, že si pro ně maxentový model najde váhy, které budou podávat lepší výsledky než námi podané součty v rysech.
@@ -1925,15 +1958,15 @@ Namísto úspěšných rysů, které vycházely ze součtu jiných, zkusíme nec
 \hline
  & \textbf{Maxentový model} & \textbf{Mediánový model} \\
  \hline
-     přesnost & 40.77 \%  & 23.54 \%  \\
+přesná shoda & 41.06 \%  & 23.83 \%  \\
 \hline
-lišící se o 1 & 39.43 \% & 49.09 \%  \\
+shoda nebo $\pm$1 & 80.00 \% & 72.72 \%  \\
 \hline
      \textbf{počty} \quad 1 & \color{red}0   & \color{red}0   \\
-\textbf{plynulostí} \quad 2 & 252 & \color{red}0   \\
-                          3 & 793 & 104 \\
-                          4 & \color{red}0   & 867 \\
-                          5 & \color{red}0   & 74  \\
+\textbf{plynulostí} \quad 2 & 255 & \color{red}0   \\
+                          3 & 790 & 115 \\
+                          4 & \color{red}0   & 857 \\
+                          5 & \color{red}0   & 73  \\
 \hline
 \end{tabular}
 \caption{Naměřené hodnoty modelů se všemi rysy kromě rysů součtových}\label{tb:woutsums}
@@ -1951,15 +1984,15 @@ Mimo naše součtové rysy máme ještě jeden rys, který sčítá kořeny vět
 \hline
  & \textbf{Maxentový model} & \textbf{Mediánový model} \\
  \hline
-     přesnost & 39.04 \%  & 20.29 \%  \\
+přesná shoda & 38.09 \%  & 19.81 \%  \\
 \hline
-lišící se o 1 & 35.70 \% & 47.85 \%  \\
+shoda nebo $\pm$1 & 75.60 \% & 69.19 \%  \\
 \hline
-     \textbf{počty} \quad 1 & 132   & \color{red} 0   \\
-\textbf{plynulostí} \quad 2 & 171 & \color{red}0   \\
-                          3 & 742 & 41 \\
-                          4 & \color{red}0   & 872 \\
-                          5 & \color{red}0   & 132  \\
+     \textbf{počty} \quad 1 & 115   & \color{red} 0   \\
+\textbf{plynulostí} \quad 2 & 182 & \color{red}0   \\
+                          3 & 748 & 41 \\
+                          4 & \color{red}0   & 889 \\
+                          5 & \color{red}0   & 115  \\
 \hline
 \end{tabular}
 \caption{Naměřené hodnoty modelů se všemi rysy kromě součtových a kromě root}\label{tb:woutsumsroot}
@@ -1977,24 +2010,26 @@ Zde shrneme všechny naměřené hodnoty do tabulky. Ve sloupci lišící se o 1
 \begin{center}
 \begin{tabular}{|M{4.5cm}|c|c|c|c|}
 \hline
-\multirow{2}*{\textbf{Model}} & \multicolumn{2}{c|}{\textbf{Přesnost}} & \multicolumn{2}{c|}{\textbf{Lišící se o 1}} \\ \cline{2-5}
+\multirow{2}*{\textbf{Model}} & \multicolumn{2}{c|}{\textbf{Přesná shoda}} & \multicolumn{2}{c|}{\textbf{Shoda nebo $\pm$1}} \\ \cline{2-5}
 & {\tiny maxentový} & {\tiny mediánový} & {\tiny maxentový} & {\tiny mediánový} \\
 \hline 
-Všechny rysy & 41.34 \% & 27.66 \% & X & X \\
+Všechny rysy & 41.05 \% & 29.86 \% & 80.10 \% & 77.61 \% \\
 \hline
-Součtové rysy & 42.49 \% & 34.16 \% & X & 45.45 \% \\
+Součtové rysy & 40.96 \% & 34.07 \% & 80.10 \% & \color{OliveGreen} 80.38 \% \\
 \hline
-Součtové rysy a root & 40.67 \% & 35.89 \% & X & 48.04 \% \\
+Součtové rysy a root & 41.73 \% & 34.83 \% & 81.15 \% & \color{OliveGreen} 84.11 \% \\
 \hline
-Rys root & 44.59 \% & 23.54 \% & X & 38.76 \% \\
+Rys root & 44.59 \% & 23.54 \% & 84.40 \% & \color{OliveGreen} 62.30 \% \\
 \hline
-Rys sum & 44.59 \% & 28.90 \% & X & 44.31 \% \\
+Rys sum & 40.96 \% & 21.53 \% & 77.70 \% & \color{OliveGreen} 66.22 \% \\
 \hline
-Rysy root a sum & 41.44 \% & 24.59 \% & X & 42.01 \%\\
+Rysy root a sum & 44.59 \% & 27.56 \% & 84.40 \% & \color{OliveGreen} 74.26 \%\\
 \hline
-Všechny rysy kromě součtových & 40.77 \% & 23.54 \% & X & X \\
+Rys sumr & 44.59 \% & 28.90 \% & 84.40 \% & \color{OliveGreen} 73.21 \% \\
 \hline
-Všechny rysy kromě součtových a kromě root & 39.04 \% & 20.29 \% & X & X\\
+Všechny rysy kromě součtových & 41.06 \% & 23.83 \% & 80.00 \% & 72.72 \% \\
+\hline
+Všechny rysy kromě součtových a kromě root & 38.09 \% & 19.81 \% & 75.60 \% & 69.19 \% \\
 \hline
 \end{tabular}
 \caption{Shrnutí výsledků modelů s vlastními rysy}\label{tb:shrnutivlrysy}

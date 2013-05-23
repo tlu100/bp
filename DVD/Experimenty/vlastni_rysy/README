@@ -19,7 +19,8 @@ vice_osob - ve vete se objevilo vice jmen/zajmen a sloves v ruznych osobach a ci
 vice_vfin - vice urcitych sloves
 vice_sum - soucet rysu vice_*
 
-sum - soucet vsech rysu krome *_sum
+sum - soucet vsech rysu krome *_sum a root
+sum - jako sum, ale s root
 
 
 Skript
@@ -41,6 +42,7 @@ popis adresaru s rysy:
 	- root
 	- root+sum
 	- sum
+	- sumr
 	- woutsums - vsechny rysy krome vsech *_sum
 
 popis ostatnich adresaru:	
