@@ -177,8 +177,8 @@ Praha 2013
 
 \noindent
 Poděkování.
-Ondřejovi Bojarovi
-Rudolfovi Rosovi za identifikaci anglických klauzí.
+Ondřeji Bojarovi
+Rudolfu Rosovi za identifikaci anglických klauzí.
 Daniel Zeman - nbestlisty
 
 \newpage
@@ -200,7 +200,7 @@ práce jako školního díla podle §60 odst. 1 autorského zákona.
 \vspace{10mm}
 
 \hbox{\hbox to 0.5\hsize{%
-V ........ dne ............
+V Praze dne 24. 5. 2013
 \hss}\hbox to 0.5\hsize{%
 Podpis autora
 \hss}}
@@ -1519,7 +1519,9 @@ Abychom mohli následující experimenty provést, bylo zapotřebí naimplemento
 
 \subsection{Nástroj Klauze}
 
-K dispozici pro převod anglických klauzí na německé máme vždy identifikované anglické klauze a zarovnání na úrovni slov. Data vypadají následovně:
+K dispozici pro převod anglických klauzí na německé máme vždy identifikované anglické klauze a zarovnání na úrovni slov. Ze zarovnání bereme jen ty nejvíce jisté shody (intersection tj. průnik dvou směrů slovního zarovnání GIZA++, více viz [ZDROJ]), neboť nám nejde o kompletní zarovnání, ale jen o hranice klauzí.
+
+Data vypadají následovně:
 
 \line(1,0){400}
 
@@ -1778,7 +1780,11 @@ Vzhledem k tomu, že tyto rysy mají větší rozsah hodnot než rysy předchoz�
 \end{figure}
 
 
-Rysy \texttt{sum} a \texttt{root} vykazují souvislost svých hodnot s plynulostí (obrázky \ref{gr:sum}, \ref{gr:root}). Mediány mají pro různé plynulosti odlišné hodnoty (až na plynulosti 1 a 2). Jejich součet -- rys \texttt{sumr} (obrázek \ref{gr:sumr})  V následujících experimentech proto zkusíme, zda se dá predikovat plynulost třeba jen na základě mediánu vypočteného pro jednotlivé plynulosti v trénovacích datech. Nejprve je však potřeba podívat se na přesnost určení hodnot rysů jako takových.
+
+
+Všechny tři rysy \texttt{sum}, \texttt{root} a jejich součet \texttt{sumr} vykazují souvislost svých hodnot s plynulostí (obrázky \ref{gr:sum}, \ref{gr:root}, \ref{gr:sumr}). Proložené přímky mají klesavou tendenci, nejvýraznější u rysu \texttt{root}.
+
+V následujících experimentech proto zkusíme, zda se dá predikovat plynulost třeba jen na základě mediánu vypočteného pro jednotlivé plynulosti v trénovacích datech. Nejprve je však potřeba podívat se na přesnost určení hodnot rysů jako takových.
 
 \subsection{Přesnost určení rysů}
 Jak jsme již zmínili, určování rysů se musí spoléhat na další výstupy nástrojů, které taktéž nepracují bezchybně. Abychom alespoň orientačně věděli, jak přesné určení rysů je, analyzovali jsme ručně 15 náhodných vět a kontrolovali, zda se hodnota rysu shoduje se skutečností. V rámci ruční kontroly jsme přišli na to, že spoustu chyb v určení zapříčiňuje špatná identifikace slovního druhu parserem ParZu. K chybě dochází především z důvodu, že německé hypotézy jsou psané pouze malými písmeny. V němčině ale často právě velké písmeno rozhodne o tom, zda se jedná o sloveso nebo podstatné jméno, \textit{např. zahlen $\times$ Zahlen}.
@@ -1826,15 +1832,15 @@ Princip experimentů bude následující:
 \item{provést stejný postup na testovacích datech a modely otestovat}
 \end{itemize}
 
-Pro identifikaci klauzí vznikl k bakalářské práci program \textbf{Klauze}, který na základě anglických klauzí a zarovnání na úrovni slov identifikuje klauze německé a vydá na výstup jejich hranice. Ze zarovnání bereme jen ty nejvíce jisté shody (intersection tj. průnik dvou směrů slovního zarovnání GIZA++, více viz [ZDROJ]), neboť nám nejde o kompletní zarovnání, ale jen o hranice klauzí. Na základě anglických klauzí jsou nejdříve slova roztříděna podle zarovnání do klauzí. Slova v klauzích se potom setřídí podle pořadí, v jakém byly v hypotéze. Poté se dle minimálního a maximálního indexu slova (počítáno zleva od nuly) rozhoduje, zda se jedná o větu vloženou nebo zda má začínat až pozdějším slovem, neboť se kryje s větou předchozí. Tímto způsobem se určí hranice klauzí tak, aby zahrnuly všechna slova ve větě.
+U experimentů využijeme tří implementovaných nástrojů, které jsme popsali tj. Klauze pro identifikaci německých klauzí, Chyby pro vyhledání hodnot rysů a Klasifikátor pro trénování mediánových modelů.
 
 Na morfologickou analýzu a větný rozbor použijeme opět parser ParZu. Tentokrát ale využijeme ještě dalších informací, které poskytuje. Zkusíme využít v náš prospěch i skutečnosti, že u gramaticky špatné věty postaví větný rozbor chybně (pro rys \texttt{root}).
 
-Pro hledání chyb v jednotlivých klauzích jsme stvořili program Chyby. Ten se na základě provedené analýzy z ParZu a hranicí klauzí snaží určit některé gramatické chyby, pro celou větu pak vydá tyto chyby jako součet všech klauzí. Výstupem je soubor ve formátu ihned použitelném pro natrénování v Maxent Toolkitu od Le Zhanga. Za pomocí rysů vycházejících z gramatiky se budeme snažit predikovat plynulost. 
+%Pro hledání chyb v jednotlivých klauzích jsme stvořili program Chyby. Ten se na základě provedené analýzy z ParZu a hranicí klauzí snaží určit některé gramatické chyby, pro celou větu pak vydá tyto chyby jako součet všech klauzí. Výstupem je soubor ve formátu ihned použitelném pro natrénování v Maxent Toolkitu od Le Zhanga. Za pomocí rysů vycházejících z gramatiky se budeme snažit predikovat plynulost. 
 
 Maxentové modely budeme trénovat v MaxentToolkitu(ZDROJ) od Le Zhanga. Pro určení vah rysů využijeme výchozího nastavení tj. metody LBFGS.
 
-V úvodním seznamu kroků této sekce jsme se zmínili o mediánovém modelu. U korelací rysů root a sum jsme uvedli, že zkusíme, zda lze plynulost predikovat jen na základě mediánů jednotlivých plynulostí. Za tímto účelem jsme vytvořili vlastní takový klasifikátor. Z trénovacích dat si vypočítá pro každý rys a každou plynulost medián. Souhrn mediánů je pak zapsán jako model. Při testování vycházíme z těchto mediánů -- každý rys vydá jeden návrh plynulosti, tyto návrhy zprůměrujeme a dostaneme výslednou navrhovanou plynulost. Pokud jsou mediány některého z rysů u dvou plynulostí stejné, zvýšíme ten, který patří horší plynulosti, o jedna. Vstupní formát je shodný s formátem pro maxentové modely.
+%V úvodním seznamu kroků této sekce jsme se zmínili o mediánovém modelu. U korelací rysů root a sum jsme uvedli, že zkusíme, zda lze plynulost predikovat jen na základě mediánů jednotlivých plynulostí. Za tímto účelem jsme vytvořili vlastní takový klasifikátor. Z trénovacích dat si vypočítá pro každý rys a každou plynulost medián. Souhrn mediánů je pak zapsán jako model. Při testování vycházíme z těchto mediánů -- každý rys vydá jeden návrh plynulosti, tyto návrhy zprůměrujeme a dostaneme výslednou navrhovanou plynulost. Pokud jsou mediány některého z rysů u dvou plynulostí stejné, zvýšíme ten, který patří horší plynulosti, o jedna. Vstupní formát je shodný s formátem pro maxentové modely.
 
 \section{Způsob vyhodnocení}
 U obou typů modelů budeme vyhodnocovat hlavně přesnost predikce tj. procentuálně vyjádříme, v kolika případech se model trefil do správné plynulosti (níže označeno jako \textit{přesná shoda}). Mimo to budeme ještě zkoumat, v kolika případech se plynulost navrhovaná modelem lišila od skutečnosti jen o 1 (\textit{shoda nebo $\pm$ 1}). Vzhledem k tomu, že plynulost 3 je nejčastější, můžeme za základní (baseline) prohlásit postup, který právě hodnotu 3 přiřkne každé hypotéze. Baseline dosahuje úspěšnosti 44.59 \% při vyhodnocení \textit{přesná shoda} a dokonce 84.4 \% pri vyhodnocení \textit{shoda nebo $\pm$ 1}.
@@ -1871,7 +1877,7 @@ Přesnost obou modelů je nižší než, kdybychom slepě tipovali samé trojky,
 
 
 \section{Modely se součtovými rysy}
-Při znázorňování korelace rysů a plynulosti vždy vyšly o něco lépe součtové rysy. Konkrétně se jedná o rysy \texttt{chybi\_sum}, \texttt{neni\_na\_konci\_sum}, \texttt{sum}, \texttt{vice\_sum}. Zkusíme proto modely natrénovat právě jenom na nich. 
+Při znázorňování korelace rysů a plynulosti vždy vyšly o něco lépe součtové rysy. Konkrétně se jedná o rysy \texttt{chybi\_sum}, \texttt{neni\_na\_konci\_sum}, \texttt{sum}, \texttt{sumr} \texttt{vice\_sum}. Zkusíme proto modely natrénovat právě jenom na nich. 
 
 \begin{table}[!htbp]
 \begin{center}
@@ -1894,7 +1900,7 @@ shoda nebo $\pm$1 & 80.10 \% & 80.38 \%  \\
 \end{center}
 \end{table}
 
-Maxentový model se dotýká hranice baseline, bohužel ji ale nepřekonává. Mediánový model je na tom s přesností hůře, ovšem nabídnul každou plynulost alespoň jednou. Můžeme proto u něj brát i v potaz, že počet hypotéz, kdy se lišil o jedna, je 45.45 \% (tabulka \ref{tb:allsums}).
+Maxentový model se dotýká hranice baseline, bohužel ji ale nepřekonává. Mediánový model je na tom s přesností hůře, ovšem nabídnul každou plynulost alespoň jednou. Počty plynulostí jsme proto označili zeleně (tabulka \ref{tb:allsums}).
 
 \subsection{S rysem root}
 Mimo součtové rysy, co se korelace týče, dopadnul dobře i rys \texttt{root}. Zkusíme jej proto přidat k součtovým rysům.
@@ -1920,7 +1926,7 @@ shoda nebo $\pm$1 & 81.15 \% & 84.11 \%  \\
 \end{center}
 \end{table}
 
-Toto přidání se ale projevilo negativně u maxentových modelů a jen o 1.73 \% si polepšil mediánový model v přesnosti. Znovu ale nabídnul všechny hodnoty plynulosti. V počtu lišících se o 1 si polepšil o 2.59 \% (tabulka \ref{tb:allsumsroot}).
+Přidání se projevilo pozitivně na obou typech modelů. Maxentový si ve shodě nebo $\pm$1 polepšil o 1.05 \%, mediánový o 3.73 \% (tabulka \ref{tb:allsumsroot}). Mediánový model znovu narozdíl od maxentového nabídnul všechny plynulosti
 
 
 \section{Modely s rysem root}
@@ -1947,10 +1953,10 @@ shoda nebo $\pm$1 & 84.40 \% & 62.30 \%  \\
 \end{center}
 \end{table}
 
-Zde došlo u maxentového modelu k popisovanému slepému tipování. Údaj o lišících se o jedna je tedy u něj naprosto irelevantní. Mediánový model nabídnul znovu celou škálu plynulostí, a proto u něj v potaz údaj o lišících se o 1 brát můžeme (tabulka \ref{tb:root}).
+Zde došlo u maxentového modelu k popisovanému slepému tipování a jen díky tomu dosáhnul na baseline. Mediánový model nabídnul znovu celou škálu plynulostí (tabulka \ref{tb:root}), ovšem jeho výsledky shody jsou nízké.
 
 \section{Modely s rysem sum}
-Vedle na pohled dobře korelujícího rysu \texttt{root}, dobře dopadl i součtový rys \texttt{sum}, který rys \texttt{root} obsahuje v sobě započítaný. Zkusíme znovu jako v případě rysu \texttt{root}, natrénovat modely na jediném rysu \texttt{sum}.
+Vedle na pohled dobře korelujícího rysu \texttt{root}, dobře dopadl i součtový rys \texttt{sum}, který je součtem ostatních rysů kromě těch součtových a rysu \texttt{root}. Zkusíme proto znovu jako v případě rysu \texttt{root}, natrénovat modely na jediném rysu \texttt{sum}.
 
 \begin{table}[!htbp]
 \begin{center}
@@ -1973,11 +1979,12 @@ shoda nebo $\pm$1 & 77.70 \% & 66.22 \%  \\
 \end{center}
 \end{table}
 
+Zde je na výsledcích zajímavé rozložení plynulostí, které tipoval maxentový model. Netipoval totiž ani jednou plynulost 2, přitom tipoval plynulosti 1 a 3. K tomu jevu u žádného jiného modelu nedošlo. Mediánový model opět nabídl všechny plynulosti, s přesností je na tom ale špatně (tabulka \ref{tb:sum}).
 
 
 
 \subsection{S rysem root}
-Jelikož rysy \texttt{root} a \texttt{sum} se zdály být nejúspěšnější v rámci korelace s plynulostí, zkusíme natrénovat modely na obou najednou.
+Jelikož rysy \texttt{root} a \texttt{sum} se zdály být dvěma ze tří nejúspěšnějších v rámci korelace s plynulostí, zkusíme natrénovat modely na obou najednou.
 
 \begin{table}[!htbp]
 \begin{center}
@@ -2000,14 +2007,16 @@ shoda nebo $\pm$1 & 84.40 \% & 74.26 \%  \\
 \end{center}
 \end{table}
 
-Přidáním druhého rysu maxentový model už nabízí alespoň dvě různé plynulosti. V přesnosti je však horší než baseline a tedy i horší než v případě se samostatnými rysy root nebo sum. Přenost mediánového modelu zůstává podobná, počet lišících se o jedna je ale z modelů s rysem \texttt{root}, \texttt{sum} a jejich kombinace nejlepší. Mediánový model nabízel všechny plynulosti, a proto můžeme jeho údaj o počtu lišících se o jedna brát v potaz (tabulka \ref{tb:sumroot}).
+%Přidáním druhého rysu maxentový model už nabízí alespoň dvě různé plynulosti. V přesnosti je však horší než baseline a tedy i horší než v případě se samostatnými rysy root nebo sum. Přenost mediánového modelu zůstává podobná, počet lišících se o jedna je ale z modelů s rysem \texttt{root}, \texttt{sum} a jejich kombinace nejlepší. Mediánový model nabízel všechny plynulosti, a proto můžeme jeho údaj o počtu lišících se o jedna brát v potaz (tabulka \ref{tb:sumroot}).
+
+Přidání druhého rysu ale u maxentového modelu znamenalo slepé tipování pouze do plynulostí 3, proto dosáhl na baseline. U mediánových modelů se zvýšila shoda nebo $\pm$1 oproti samostatným modelům s rysy \texttt{root} a \texttt{sum} polepšil zhruba o 10 \% (tabulka \ref{tb:sumroot}).
 
 
 
 
 
 \section{Modely s rysem sumr}
-Vedle na pohled dobře korelujícího rysu \texttt{root}, dobře dopadl i součtový rys \texttt{sumr}, který rys \texttt{root} obsahuje v sobě započítaný. Zkusíme znovu jako v případě rysu \texttt{root}, natrénovat modely na jediném rysu \texttt{sumr}.
+Vedle na pohled dobře korelujících rysů \texttt{root} a \texttt{sum}, dobře dopadl i součtový rys \texttt{sumr}, který rys \texttt{root} a \texttt{sum} obsahuje v sobě započítaný. Zkusíme znovu jako v případě rysu \texttt{root} a \texttt{sum}, natrénovat modely na jediném rysu \texttt{sumr}.
 
 \begin{table}[!htbp]
 \begin{center}
@@ -2030,7 +2039,7 @@ shoda nebo $\pm$1 & 39.81 \% & 44.31 \%  \\
 \end{center}
 \end{table}
 
-Od maxentového modelu jsme dostali znovu stejnou odpověď jako v případě rysu \texttt{root}. Mediánový model si o 5.36 \% oproti rysu \texttt{root} v přesnosti polepšil. Znovu nabídnul od všech plynulostí minimálně jedno hodnocení. Procentuální počet lišících se o jedna se zvýšil o 4.07 \% (tabulka \ref{tb:sumr}).
+Od maxentového modelu jsme dostali znovu stejnou odpověď jako v případě rysu \texttt{root} -- tedy slepé tipování jen plynulostí 3 (tabulka \ref{tb:sumr}). Mediánový model znovu nabídnul od všech plynulostí minimálně jedno hodnocení a oproti rysu \texttt{root} si polepšil o 5.36 \% v přesné shodě, ve shodě nebo $\pm$ ale propadl takřka o 18 \% níže. Podobně dopadl i ve srovnání s rysem \texttt{sum}.
 
 
 
@@ -2084,9 +2093,9 @@ shoda nebo $\pm$1 & 75.60 \% & 69.19 \%  \\
 \end{center}
 \end{table}
 
-Zde se ale výsledky ve všech parametrech zhoršily. Jedinou možná trochu lepší zprávou je to, že maxentový model nabízel 4 různé plynulosti. To však přesto nevyhovuje námi stanovenému kritériu pro uznání hodnocení lišících se o 1 (tabulka \ref{tb:woutsumsroot}).
+Zde se ale výsledky ve všech parametrech zhoršily. Jedinou možná trochu lepší zprávou je to, že maxentový model nabízel 3 různé plynulosti (tabulka \ref{tb:woutsumsroot}).
 
-\pagebreak
+%\pagebreak
 
 \section{Shrnutí}
 Zde shrneme všechny naměřené hodnoty do tabulky. Ve sloupci lišící se o 1 uvedeme počet procent, pokud model vyhověl našemu stanovenému kritériu, nebo X v případě opačném.
