@@ -1515,9 +1515,54 @@ Pro následující experimenty používáme stejná data s ručně hodnocenou pl
 Vzhledem k tomu, že budou rysy vycházet z německé gramatiky, budeme často potřebovat znát hranice klauzí dané věty. Určit klauze z hypotézy, která není gramaticky správně, je však obtížné -- parser je v takovém případě zmatený a neudělá větný rozbor správně. Na základě toho používáme klauze identifikované z výchozího anglického textu, který je gramaticky správně, a na německou stranu je pak převádíme pomocí zarovnání na úrovni slov. 
 
 \section{Implementované nástroje}
-Abychom mohli následující experimenty provést, bylo zapotřebí naimplementovat několik nástrojů. Jako první potřebujeme nástroj pro projekci anglických klauzí pomocí zarovnání slov na německou stranu. Pro tyto účely jsme vytvořili nástroj \textbf{Klauze}. Díky identifikovaným německým klauzím jsme se mohli už zaměřit na programování hledání chyb v hypotézách, k tomu slouží nástroj \textbf{Chyby}. Na základě identifikovaných chyb už stačí jen tyto hodnoty použít jako rysy pro natrénování modelů. Zmínili jsme se však, že zkusíme predikovat plynulost i jenom na základě mediánů. Vzniknul proto nástroj na trénování a testování mediánových modelů -- \textbf{Klasifikátor}. V následující sekci si všechny nástroje popíšeme.
+Abychom mohli následující experimenty provést, bylo zapotřebí naimplementovat několik nástrojů. Jako první potřebujeme nástroj pro projekci anglických klauzí pomocí zarovnání slov na německou stranu. Pro tyto účely jsme vytvořili nástroj \textbf{Klauze}. Díky identifikovaným německým klauzím jsme se mohli zaměřit na programování hledání chyb v hypotézách, k tomu slouží nástroj \textbf{Chyby}. Na základě identifikovaných chyb už stačí jen tyto hodnoty použít jako rysy pro natrénování modelů. Zmínili jsme se však, že zkusíme predikovat plynulost i jenom na základě mediánů. Vzniknul proto nástroj na trénování a testování mediánových modelů -- \textbf{Klasifikátor}. V následující sekci si všechny nástroje popíšeme.
 
 \subsection{Nástroj Klauze}
+
+K dispozici pro převod anglických klauzí na německé máme vždy identifikované anglické klauze a zarovnání na úrovni slov. Data vypadají následovně:
+
+\line(1,0){400}
+
+Příklad anglické věty s identifikovanými klauzemi:
+
+
+\textit{\color{blue} I\textbar 1 think\textbar 1 this\textbar 2 is\textbar 2 a\textbar 2 mistake\textbar 2 which\textbar 3 must\textbar 3 be\textbar 3 set\textbar 3 right\textbar 3 .\textbar}
+
+
+
+Ke stejné větě příslušející zarovnání:
+
+\textit{\color{blue} 
+I think this is a mistake which must be set right .}
+
+\textit{\color{red}
+ich denke , dies ist ein fehler , der zu recht setzen .}
+
+\texttt{{\color{blue} 0}-{\color{red}0} {\color{blue}1}-{\color{red}1} {\color{blue}2}-{\color{red}3} {\color{blue}3}-{\color{red}4} {\color{blue}4}-{\color{red}5} {\color{blue}5}-{\color{red}6} {\color{blue}6}-{\color{red}8} {\color{blue}7}-{\color{red}9} {\color{blue}9}-{\color{red}11} {\color{blue}10}-{\color{red}10} {\color{blue}11}-{\color{red}12}}
+
+\line(1,0){400}
+
+U každého slova anglické věty, vidíme číslo klauze, do které patří -- tedy např. slovo \textit{mistake} patří do druhé klauze. Zarovnání je tvořeno páry odpovídajících slov číslovaných od nuly. Z páru \texttt{\color{blue}4}-{\color{red}5} vidíme, že páté slovo anglické věty (\textit{\color{blue}a}) odpovídá šestému slovu (\textit{\color{red}ein}) věty německé.
+
+%Hranice německých klauzí budeme určovat průchodem přes anglické klauze zleva tj. půjdeme po větě slovo po slovu. Na základě čísla klauze se snažíme rozdělit i německou větu. U každého anglického slova zkontrolujeme, zda pro něj máme údaj o zarovnání. Pokud ano, pak do dané německé klauze přidáme zarovnané slovo, ovšem jenom za předpokladu, že už jsme toto slovo někde nepoužili. Pokud ne, pokračujeme dalším slovem. Na konci dostaneme německé klauze, ve kterých mohou některá slova chybět. Tyto klauze setřídíme jednotlivě podle indexů slov, abychom neporušili původní pořadí v německé větě. Tím dostaneme i minimální a maximální index slova v rámci klauze. Pakliže zjistíme, že ze zarovnání jsme nezískali ani jednu klauzi, vyrobíme hranice od začátku do konce věty.
+
+%Cílem je identifikovat hranice klauzí tak, aby pokryly celou větu, což se zatím nemuselo stát, neboť zarovnání neobsahuje pokaždé všechna slova. Pokrytí proto vyrobíme tak, že mezeru mezi klauzemi přiřkneme klauzi, která stojí více vlevo (v pořadí braném z německé věty). V uvedené vzorové větě třeba nemáme zarovnání pro čárku mezi druhou a třetí klauzí, vznikne nám proto mezi nimi mezera. Čárku tímto způsobem přiřadíme ke druhé klauzi. Chybějící zarovnání slov uvnitř klauzí nám nevadí, neboť chceme získat pouze jejich hranice.
+
+%Mimo mezer se ale může také stát, že se klauze budou překrývat. Zde budeme sledovat, zda se jedná o větu vloženou či nikoliv. To zjistíme poměrně jednoduše, pokud by měla mít klauze hranice uvnitř hranicí klauze jiné, pak se jedná o vloženou větu. V opačném případě se nám dvě věty překrývají a tuto situaci řešíme tak, že klauzi upravíme její levou hranici, která se posune až za konec klauze předcházející. Opět zarovnáváme tedy zleva stejně jako při vyplňování mezer. Tento způsob se osvědčil při testování na vývojových datech.
+
+Hranice klauzí budeme určovat následovně:
+\begin{itemize}
+\item{Půjdeme po anglické větě s identifikovanými klauzemi zleva.}
+\item{Pro každé slovo se podíváme, zda je k dispozici zarovnání. Pokud ano, pak slovo přidáme do příslušné německé klauze -- ovšem jenom za předpokladu, že jsme toto slovo už nepoužili. V případě, že zarovnání nemáme, pokračujeme dalším slovem.}
+\item{Při přidávání do klauzí si všímáme, zda číslo klauze není 0. Nulu dostávají obvykle spojky oddělující dvě věty. Pokud na takové slovo narazíme, nepřidáváme ho do nulté klauze, ale zapamatujeme si ho a přidáme ho do první následující klauze, neboť chceme aby nám německé vedlejší věty začínaly podřadící spojkou, jinak bychom je nemohli vyhodnotit jako vedlejší.}
+\item{Po projití celé anglické věty máme náznak německých klauzí. Každou klauzi nejprve setřídíme podle indexů slov, které obsahují -- tím zajistíme, že se neporuší pořádek slov německé věty a zároveň dostaneme minimální a maximální index slova v klauzi, tedy jakýsi návrh na hranice.}
+\item{Podle navržených hranic projdeme všechny klauze a kontrolujeme, zda se některé nepřekrývají. V případě, že jsou hranice uvnitř hranic klauze jiné, jedná se o vloženou větu a hranice jim prozatím necháme beze změny. Může se ale stát, že se dvě klauze překrývají, aniž by jedna byla vložena do druhé. V takovém případě provedeme zarovnání zleva tj. větě, která začíná více vpravo upravíme počáteční hranici, kterou posuneme až za konec klauze, jež byla vlevo.}
+\item{Zarovnání neobsahuje vždy nutně všechna slova, a proto mohou vznikat mezi klauzemi mezery. Cílem je však identifikovat hranice, které pokryjí celou větu. Opět se proto přikloníme k zarovnání zleva a mezery přiřkneme klauzi, která stojí více vlevo. Tento postup se osvědčil na vývojových datech.}
+
+Například pro výše uvedenou větu nebyla zarovnána čárka mezi druhou a třetí klauzí. Díky tomu nám zde vznikla mezera. Čárku dle našeho pravidla přiřadíme druhé klauzi, neboť stojí více vlevo.
+\end{itemize}
+
+
 
 
 
