@@ -40,6 +40,7 @@
 \usepackage[utf8]{inputenc}
 
 %% Ostatní balíčky
+
 \usepackage{graphicx}
 \usepackage{amsthm}
 \usepackage{amsmath}
@@ -53,7 +54,6 @@
 \usepackage{caption}
 
 \usepackage{url}
-
 
  
 \definecolor{seda}{rgb}{0.7,0.7,0.7}
@@ -176,10 +176,38 @@ Praha 2013
 \openright
 
 \noindent
-Poděkování.
-Ondřeji Bojarovi
-Rudolfu Rosovi za identifikaci anglických klauzí.
-Daniel Zeman - nbestlisty
+\begin{center}
+
+\textit{
+Rád bych poděkoval především vedoucímu práce}
+
+\textit{RNDr. Ondřeji Bojarovi, Ph.D.}
+
+\textit{za cenné rady a připomínky při vedení práce.}
+
+\vspace{50mm}
+
+
+
+\textit{Dále bych rád poděkoval}
+
+\textit{RNDr. Danielu Zemanovi, Ph.D.}
+
+\textit{za poskytnutí německých nbestlistů}
+
+\textit{Bc. Rudolfu Rosovi}
+
+\textit{za identifikaci anglických klauzí. }
+
+
+
+\vspace{50mm}
+
+\textit{
+Velký dík patří i mé rodině, přátelům a známým za jejich podporu při studiu.
+}
+
+\end{center}
 
 \newpage
 
@@ -231,7 +259,7 @@ RNDr. Ondřej Bojar, Ph.D.
 
 Abstrakt:
 % abstrakt v rozsahu 80-200 slov; nejedná se však o opis zadání bakalářské práce
-Práce se zabývá jazykovým modelováním pro němčinu. Soustředí se na specifika německé gramatiky, které činí běžným n-gramovým modelům problémy. Nejprve popisuje statistické metody jazykového modelování a vysvětluje problematické jevy němčiny. Následně navrhuje vlastní varianty n-gramových jazykových modelů s cílem tyto problémy zlepšit. Vlastní modely jsou trénovány jednak jako standardní n-gramové, a jednak také metodou maximální entropie s n-gramovými rysy. Oba typy jsou vždy porovnány z hlediska korelace ručně hodnocené plynulosti vět a automatického hodnocení -- perplexity. Srovnány jsou zároveň výpočetní nároky potřebné k natrénování jednotlivých modelů. Dále je navrhnuta množina vlastních rysů reprezentující počet gramatických chyb vybraných jevů. Úspěšnost se ověřuje na schopnosti predikovat ručně hodnocenou plynulost. Využito je modelů maximální entropie a vlastních modelů klasifikujících jen na základě mediánů hodnot rysů vypočtených z trénovacích dat. 
+Práce se zabývá jazykovým modelováním pro němčinu. Soustředí se na specifika německé gramatiky, která činí běžným n-gramovým modelům problémy. Nejprve popisuje statistické metody jazykového modelování a vysvětluje problematické jevy němčiny. Následně navrhuje vlastní varianty n-gramových jazykových modelů s cílem tyto problémy zlepšit. Vlastní modely jsou trénovány jednak jako standardní n-gramové, a jednak také metodou maximální entropie s n-gramovými rysy. Oba typy jsou vždy porovnány z hlediska korelace ručně hodnocené plynulosti vět a automatického hodnocení -- perplexity. Srovnány jsou zároveň výpočetní nároky potřebné k natrénování jednotlivých modelů. Dále je navrhnuta množina vlastních rysů reprezentující počet gramatických chyb vybraných jevů. Úspěšnost se ověřuje na schopnosti predikovat ručně hodnocenou plynulost. Využito je modelů maximální entropie a vlastních modelů klasifikujících jen na základě mediánů hodnot rysů vypočtených z trénovacích dat. U rysů, jejichž hodnota dobře koreluje s plynulostí, zkoušíme taktéž predikci pomocí lineární regrese. Výsledky n-gramových modelů ukazují určité zlepšení. S vlastními rysy se dařilo predikovat plynulost alespoň přibližně.
 
 Klíčová slova:
 % 3 až 5 klíčových slov
@@ -825,14 +853,13 @@ Princip experimentů bude následující
 \item{změříme perplexitu na testovacích datech a provedeme vyhodnocení}
 \end{itemize}
 
-Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German, formálněji známý také pod názvem Pro3GresDE}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger (ZDROJ) a morfologický analyzátor Morphisto (ZDROJ). Pro Morphisto použijeme předkompilovaný model \texttt{morphisto-02022011.a}\footnote{ZDROJ}. S využitím nástroje Morphisto uvádí ParZu přesnost parsingu 86.5 \% (ZDROJ). Allauzen a Bonneau-Maynard uvádějí přenost taggingu u Tree-Taggeru okolo 96 \%(ZDROJ - http://www.lrec-conf.org/proceedings/lrec2008/pdf/856_paper.pdf)
+Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German, formálněji známý také pod názvem Pro3GresDE}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger (ZDROJ) a morfologický analyzátor Morphisto (ZDROJ). Pro Morphisto použijeme předkompilovaný model \texttt{morphisto-02022011.a}\footnote{ZDROJ}. S využitím nástroje Morphisto uvádí ParZu přesnost parsingu 86.5 \% (ZDROJ). Allauzen a Bonneau-Maynard uvádějí přenost taggingu u Tree-Taggeru okolo 96 \%(ZDROJ - http://www.lrec-conf.org/proceedings/lrec2008/pdf/856\_paper.pdf)
 
 ParZu spouští nejprve vlastní tokenizér. Vzhledem k tomu, že data z WMT 06, která používáme, jsou již tokenizovaná, tento tokenizér vynecháme a pouze upravíme formát -- jeden token na řádku, věty oddělené prázdným řádkem. Data z WMT 12 tokenizovaná nejsou, proto u nich tokenizér necháme běžet.
 
 
 \pagebreak
-
-
+ 
 Příklad výstupu ParZu:
 \begin{center}
 \texttt{%
@@ -1782,9 +1809,7 @@ Vzhledem k tomu, že tyto rysy mají větší rozsah hodnot než rysy předchoz�
 
 
 
-Všechny tři rysy \texttt{sum}, \texttt{root} a jejich součet \texttt{sumr} vykazují souvislost svých hodnot s plynulostí (obrázky \ref{gr:sum}, \ref{gr:root}, \ref{gr:sumr}). Proložené přímky mají klesavou tendenci, nejvýraznější u rysu \texttt{root}.
-
-V následujících experimentech proto zkusíme, zda se dá predikovat plynulost třeba jen na základě mediánu vypočteného pro jednotlivé plynulosti v trénovacích datech. Nejprve je však potřeba podívat se na přesnost určení hodnot rysů jako takových.
+Všechny tři rysy \texttt{sum}, \texttt{root} a jejich součet \texttt{sumr} vykazují souvislost svých hodnot s plynulostí (obrázky \ref{gr:sum}, \ref{gr:root}, \ref{gr:sumr}). Proložené přímky mají klesavou tendenci, nejvýraznější u rysu \texttt{root}. Na základě toho zkusíme jednak už zmíněnou predikci dle hodnot mediánů, ale také predikci podle lineární regrese. Nejprve je však potřeba podívat se na přesnost určení hodnot rysů jako takových.
 
 \subsection{Přesnost určení rysů}
 Jak jsme již zmínili, určování rysů se musí spoléhat na další výstupy nástrojů, které taktéž nepracují bezchybně. Abychom alespoň orientačně věděli, jak přesné určení rysů je, analyzovali jsme ručně 15 náhodných vět a kontrolovali, zda se hodnota rysu shoduje se skutečností. V rámci ruční kontroly jsme přišli na to, že spoustu chyb v určení zapříčiňuje špatná identifikace slovního druhu parserem ParZu. K chybě dochází především z důvodu, že německé hypotézy jsou psané pouze malými písmeny. V němčině ale často právě velké písmeno rozhodne o tom, zda se jedná o sloveso nebo podstatné jméno, \textit{např. zahlen $\times$ Zahlen}.
@@ -1818,7 +1843,11 @@ Ve sloupci nalevo od názvu rysu je uvedeno stanovisko -- ok označuje souhlas, 
 
 Stanovení, zda je některý rys správně či špatně, je někdy sporné, neboť mnoho hypotéz nedává smysl a spoustu věcí tak musíme jen odhadovat. V této hypotéze například nevíme, zda se jedná o dvě nebo tři klauze, proto jsme rys \texttt{chybi\_vfin} mohli ohodnotit jako +1 nebo +2. Zde jsme zvolili +1, pokud bychom ohodnotili jako +2, pak bychom zase u \texttt{chybi\_podmet} museli namísto -1 zvolit ok.
 
-Vyhodnocení jsme poté stanovili jako součet hodnot rysů, jaké byly stanoveny programem, a součet hodnot, jaké měly být ve skutečnosti. Podílem jsme pak získali číslo okolo 53 \%. Toto číslo ale nezohledňuje případy, kdy měla být hodnota 0 a skutečně 0 byla -- k tomu došlo celkem ve 110 případech. Po přičtení tohoto čísla k součtu hodnot, jaké měly být a jaké byly ve skutečnosti, jsme získali téměř 81 \%.
+Vyhodnocení jsme poté stanovili jako precision a recall (viz. ZDROJ) tak, že jsme vždy vzali minimum z vyhodnocení každého rysu, tato minima sečetli a vydělili součtem hodnot, které byly stanoveny programem, v případě precision, a součtem hodnot, které měly být, v případě recall. Vyšly následující hodnoty: 41.1 \% precision a 76.92 \% recall. Kompletní přehled výsledků je na přiloženém DVD.
+
+Nutno však podotknout, že obě metriky předpokládají, že pokud se ruční hodnocení shodlo s hodnocením od nástroje Chyby, pak se jednalo o ten samý jev na shodném úseku hypotézy. Vzhledem k tomu, že jsme nepozorovali, kdy a na kterou část hypotézy program rys nahlásil jako pravdivý, ale pouze už konkrétní výsledky na celé hypotéze, nemusí být vždy tento předpoklad splněn.
+
+%Vyhodnocení jsme poté stanovili jako součet hodnot rysů, jaké byly stanoveny programem, a součet hodnot, jaké měly být ve skutečnosti. Podílem jsme pak získali číslo okolo 53 \%. Toto číslo ale nezohledňuje případy, kdy měla být hodnota 0 a skutečně 0 byla -- k tomu došlo celkem ve 110 případech. Po přičtení tohoto čísla k součtu hodnot, jaké měly být a jaké byly ve skutečnosti, jsme získali téměř 81 \%.
 
 
 \section{Princip experimentů}
@@ -1830,6 +1859,7 @@ Princip experimentů bude následující:
 \item{uplatnit naše pravidla pro hledání gramatických chyb a použít je jako rysy}
 \item{natrénovat maxentový a mediánový\footnote{Mediánovým modelem rozumíme model pro náš klasifikátor hodnotící jen na základě mediánů vypočtených z hodnot rysů v trénovacích datech.} model s těmito rysy}
 \item{provést stejný postup na testovacích datech a modely otestovat}
+\item{u rysů, kde byla zjištěna znázorněnou korelací závislost s plynulostí tj. \texttt{root}, \texttt{sum} a \texttt{sumr}, vyzkoušíme také spočítat lineární regresi v závislosti na hodnotě rysu v trénovacích datech a predikovat podle ní plynulost}
 \end{itemize}
 
 U experimentů využijeme tří implementovaných nástrojů, které jsme popsali tj. Klauze pro identifikaci německých klauzí, Chyby pro vyhledání hodnot rysů a Klasifikátor pro trénování mediánových modelů.
@@ -1844,6 +1874,8 @@ Maxentové modely budeme trénovat v MaxentToolkitu(ZDROJ) od Le Zhanga. Pro ur�
 
 \section{Způsob vyhodnocení}
 U obou typů modelů budeme vyhodnocovat hlavně přesnost predikce tj. procentuálně vyjádříme, v kolika případech se model trefil do správné plynulosti (níže označeno jako \textit{přesná shoda}). Mimo to budeme ještě zkoumat, v kolika případech se plynulost navrhovaná modelem lišila od skutečnosti jen o 1 (\textit{shoda nebo $\pm$ 1}). Vzhledem k tomu, že plynulost 3 je nejčastější, můžeme za základní (baseline) prohlásit postup, který právě hodnotu 3 přiřkne každé hypotéze. Baseline dosahuje úspěšnosti 44.59 \% při vyhodnocení \textit{přesná shoda} a dokonce 84.4 \% pri vyhodnocení \textit{shoda nebo $\pm$ 1}.
+
+Znázornění hodnot rysů jednotlivých plynulostí ukázalo, že hypotézy hodnocené plynulostí 5, dostávají správně nízké (nejlépe nulové) hodnoty rysů. Tím bychom mohli alespoň odlišit nejlepší (nejplynulejší) hypotézy od těch méně kvalitních. Při vyhodnocení si budeme proto i všímat úspěšnosti modelu predikovat právě plynulost 5. Hypotéz hodnocených touto plynulostí je v trénovacích i testovacích datech shodně 88 z celkového počtu 1045 hypotéz. Pokud bychom tedy tipovali samé 5, pak by úspěšnost byla pouhých 8.42 \%. Naším cílem proto bude se nad tuto hranici dostat.
 
 
 % Abychom ale mohli brát tento údaj v potaz, vypíšeme vždy ještě počty jednotlivých plynulostí, které model nabídnul. Pokud bychom tyto počty nezohlednili, mohlo by se stát, že model bude slepě tipovat vždy plynulost 3, kterých je nejvíce (44.6 \%). Potom by lišící se o jedna byly hypotézy s plynulostí 2 a 4, kterých je dohromady 38 \%. Dopředu proto stanovíme, že údaj, kdy se navrhovaná plynulost od skutečnosti lišila jen o jedna, budeme brát v potaz pouze za předpokladu, že model nabídnul každou plynulost alespoň jednou. 
@@ -1862,6 +1894,8 @@ přesná shoda & 41.05 \%  & 29.86 \%  \\
 \hline
 shoda nebo $\pm$1 & 80.10 \% & 77.61 \%  \\
 \hline
+shoda v plynulosti 5 &\color{red} 0 \% & 34.09 \%  \\
+\hline
 \textbf{počty} \quad 1 & \color{red}0 & \color{red}0 \\
 \textbf{plynulostí} \quad 2 & 250 & 1 \\
  3 & 795 & 299 \\
@@ -1873,7 +1907,7 @@ shoda nebo $\pm$1 & 80.10 \% & 77.61 \%  \\
 \end{center}
 \end{table}
 
-Přesnost obou modelů je nižší než, kdybychom slepě tipovali samé trojky, tedy baseline. Pro zajímavost ještě navíc sledujeme, které hodnoty plynulosti model kolikrát nabídl (tabulka \ref{tb:all}). Pokud byly nabídnuty všechny plynulosti, označíme je zeleně a pak budou takto odlišené i ve shrnutí. U takových modelů lze více hledět na vyhodnocení \textit{shoda nebo $\pm$1}, neboť se nejednalo jen o slepé tipování.
+Přesnost obou modelů je nižší než, kdybychom slepě tipovali samé trojky, tedy baseline. Pro zajímavost ještě navíc sledujeme, které hodnoty plynulosti model kolikrát nabídl (tabulka \ref{tb:all}). Shoda u hypotéz s hodnocením 5 dopadla u maxentového modelu velice špatně, neboť ji nanabídnul ani jednou a dostal tak 0 \%. Mediánový model je na tom lépe a podařilo se mu správně predikovat 34.09 \% nejplynulejších hypotéz.
 
 
 \section{Modely se součtovými rysy}
@@ -1889,18 +1923,20 @@ přesná shoda & 40.96 \%  & 34.07 \%  \\
 \hline
 shoda nebo $\pm$1 & 80.10 \% & 80.38 \%  \\
 \hline
-     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}2   \\
-\textbf{plynulostí} \quad 2 & 231 & \color{OliveGreen}139   \\
-                          3 & 814 & \color{OliveGreen}359 \\
-                          4 & \color{red}0   & \color{OliveGreen}407 \\
-                          5 & \color{red}0   & \color{OliveGreen}138  \\
+shoda v plynulosti 5 & \color{red}0 \% & 46.59 \%  \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & 2   \\
+\textbf{plynulostí} \quad 2 & 231 & 139   \\
+                          3 & 814 & 359 \\
+                          4 & \color{red}0   & 407 \\
+                          5 & \color{red}0   & 138  \\
 \hline
 \end{tabular}
 \caption{Naměřené hodnoty modelů se všemi součtovými rysy}\label{tb:allsums}
 \end{center}
 \end{table}
 
-Maxentový model se dotýká hranice baseline, bohužel ji ale nepřekonává. Mediánový model je na tom s přesností hůře, ovšem nabídnul každou plynulost alespoň jednou. Počty plynulostí jsme proto označili zeleně (tabulka \ref{tb:allsums}).
+Maxentový model se dotýká hranice baseline, bohužel ji ale nepřekonává. Mediánový model je na tom s přesností hůře, ovšem nabídnul každou plynulost alespoň jednou (tabulka \ref{tb:allsums}). Shoda v plynulosti 5 dopadla u maxentového modelu opět na nula procent. Mediánový si naopak polepšil na 46.59 \%.
 
 \subsection{S rysem root}
 Mimo součtové rysy, co se korelace týče, dopadnul dobře i rys \texttt{root}. Zkusíme jej proto přidat k součtovým rysům.
@@ -1909,98 +1945,106 @@ Mimo součtové rysy, co se korelace týče, dopadnul dobře i rys \texttt{root}
 \begin{center}
 \begin{tabular}{|r|c|c|}
 \hline
- & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ & \textbf{Maxentový model} & \textbf{Mediánový model}\\
  \hline
 přesná shoda & 41.73 \%  & 34.83 \%  \\
 \hline
 shoda nebo $\pm$1 & 81.15 \% & 84.11 \%  \\
 \hline
-     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}4   \\
-\textbf{plynulostí} \quad 2 & 148 & \color{OliveGreen}244   \\
-                          3 & 897 & \color{OliveGreen}339 \\
-                          4 & \color{red}0   & \color{OliveGreen}368 \\
-                          5 & \color{red}0   & \color{OliveGreen}90  \\
+shoda v plynulosti 5 & \color{red}0 \% & 38.64 \%  \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & 4   \\
+\textbf{plynulostí} \quad 2 & 148 & 244   \\
+                          3 & 897 & 339 \\
+                          4 & \color{red}0   & 368 \\
+                          5 & \color{red}0   & 90  \\
 \hline
 \end{tabular}
 \caption{Naměřené hodnoty modelů se součtovými rysy a rysem root}\label{tb:allsumsroot}
 \end{center}
 \end{table}
 
-Přidání se projevilo pozitivně na obou typech modelů. Maxentový si ve shodě nebo $\pm$1 polepšil o 1.05 \%, mediánový o 3.73 \% (tabulka \ref{tb:allsumsroot}). Mediánový model znovu narozdíl od maxentového nabídnul všechny plynulosti
+Přidání se projevilo pozitivně na obou typech modelů. Maxentový si ve shodě nebo $\pm$1 polepšil o 1.05 \%, mediánový o 3.73 \% (tabulka \ref{tb:allsumsroot}). Mediánový model znovu narozdíl od maxentového nabídnul všechny plynulosti. Shoda v hypotézách hodnocených plynulostí 5 dopadla hůře, neboť mediánovému modelu klesla o 7.95 \%.
 
 
 \section{Modely s rysem root}
-Rys \texttt{root} vypadal v korelaci s plynulostí slibně. Se součtovými rysy přílišné zlepšení nepřinesl, zkusíme jej proto použít zcela samostatně.
+Rys \texttt{root} vypadal v korelaci s plynulostí slibně. Se součtovými rysy přílišné zlepšení nepřinesl, zkusíme jej proto použít zcela samostatně a poprvé také zkusíme predikovat za pomoci lineární regrese.
 
 \begin{table}[!htbp]
 \begin{center}
-\begin{tabular}{|r|c|c|}
+\begin{tabular}{|r|c|c|c|}
 \hline
- & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ & \textbf{\scriptsize{ Maxentový model}} & \textbf{\scriptsize Mediánový model} & \textbf{\scriptsize Lineární regrese} \\
  \hline
-  přesná shoda & 44.59 \%  & 23.54 \%  \\
+  {\small přesná shoda} & 44.59 \%  & 23.54 \%  & 44.69 \% \\
 \hline
-shoda nebo $\pm$1 & 84.40 \% & 62.30 \%  \\
+{\small shoda nebo $\pm$1} & 84.40 \% & 62.30 \% & 85.36 \% \\
 \hline
-     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}316   \\
-\textbf{plynulostí} \quad 2 & \color{red}0 & \color{OliveGreen}99   \\
-                          3 & 1045 & \color{OliveGreen}132 \\
-                          4 & \color{red}0   & \color{OliveGreen}310 \\
-                          5 & \color{red}0   & \color{OliveGreen}188  \\
+{\small shoda v plynulosti 5} & \color{red}0 \% & 54.55 \% &\color{red} 0 \% \\
+\hline
+     \textbf{\small počty} \quad 1 & \color{red}0   & 316  & 2 \\
+\textbf{\small plynulostí} \quad 2 & \color{red}0 & 99 & 89 \\
+                          3 & 1045 & 132 & 954 \\
+                          4 & \color{red}0   & 310 & \color{red}0\\
+                          5 & \color{red}0   & 188 & \color{red}0 \\
 \hline
 \end{tabular}
 \caption{Naměřené hodnoty modelů s rysem root}\label{tb:root}
 \end{center}
 \end{table}
 
-Zde došlo u maxentového modelu k popisovanému slepému tipování a jen díky tomu dosáhnul na baseline. Mediánový model nabídnul znovu celou škálu plynulostí (tabulka \ref{tb:root}), ovšem jeho výsledky shody jsou nízké.
+Zde došlo u maxentového modelu k popisovanému slepému tipování a jen díky tomu dosáhnul na baseline. Mediánový model nabídnul znovu celou škálu plynulostí (tabulka \ref{tb:root}), ovšem jeho výsledky shody jsou nízké. Lineární regresí jsme se dostali lehce nad baseline, což je určitě dobrá zpráva. V predikci plynulostí 5 ale maxentový model i lineární regrese selhaly a nenabídly ji ani jednou, proto mají shodu 0 \%. Naopak mediánovému modelu se podařilo dostat až na 54.55 \%.
 
 \section{Modely s rysem sum}
-Vedle na pohled dobře korelujícího rysu \texttt{root}, dobře dopadl i součtový rys \texttt{sum}, který je součtem ostatních rysů kromě těch součtových a rysu \texttt{root}. Zkusíme proto znovu jako v případě rysu \texttt{root}, natrénovat modely na jediném rysu \texttt{sum}.
+Vedle na pohled dobře korelujícího rysu \texttt{root}, dobře dopadl i součtový rys \texttt{sum}, který je součtem ostatních rysů kromě těch součtových a rysu \texttt{root}. Zkusíme proto znovu jako v případě rysu \texttt{root}, natrénovat modely na jediném rysu \texttt{sum}. Znovu využijeme lineární regrese.
 
 \begin{table}[!htbp]
 \begin{center}
-\begin{tabular}{|r|c|c|}
+\begin{tabular}{|r|c|c|c|}
 \hline
- & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ & \textbf{\scriptsize{ Maxentový model}} & \textbf{\scriptsize Mediánový model} & \textbf{\scriptsize Lineární regrese} \\
  \hline
- přesná shoda & 40.96 \%  & 21.53 \%  \\
+ přesná shoda & 40.96 \%  & 21.53 \% & 44.98 \% \\
 \hline
-shoda nebo $\pm$1 & 77.70 \% & 66.22 \%  \\
+shoda nebo $\pm$1 & 77.70 \% & 66.22 \%  & 84.59 \% \\
 \hline
-     \textbf{počty} \quad 1 & 115   & \color{OliveGreen}137   \\
-\textbf{plynulostí} \quad 2 & \color{red}0 & \color{OliveGreen}205   \\
-                          3 & 930 & \color{OliveGreen}97 \\
-                          4 & \color{red}0   & \color{OliveGreen}361 \\
-                          5 & \color{red}0   & \color{OliveGreen}245  \\
+shoda v plynulosti 5 & \color{red}0 \% & 57.95 \% & \color{red}0 \% \\
+\hline
+     \textbf{počty} \quad 1 & 115   & 137   & \color{red} 0\\
+\textbf{plynulostí} \quad 2 & \color{red}0 & 205  & 32 \\
+                          3 & 930 & 97 & 1013 \\
+                          4 & \color{red}0   & 361 & \color{red} 0 \\
+                          5 & \color{red}0   & 245 & \color{red} 0  \\
 \hline
 \end{tabular}
 \caption{Naměřené hodnoty modelů s rysem sum}\label{tb:sum}
 \end{center}
 \end{table}
 
-Zde je na výsledcích zajímavé rozložení plynulostí, které tipoval maxentový model. Netipoval totiž ani jednou plynulost 2, přitom tipoval plynulosti 1 a 3. K tomu jevu u žádného jiného modelu nedošlo. Mediánový model opět nabídl všechny plynulosti, s přesností je na tom ale špatně (tabulka \ref{tb:sum}).
+Zde je na výsledcích zajímavé rozložení plynulostí, které tipoval maxentový model. Netipoval totiž ani jednou plynulost 2, přitom tipoval plynulosti 1 a 3. K tomu jevu u žádného jiného modelu nedošlo. Mediánový model opět nabídl všechny plynulosti, s přesností je na tom ale špatně (tabulka \ref{tb:sum}). Zato lineární regresí jsme znovu lehce nad baseline. Shoda v plynulosti 5 se povedla jen mediánovému modelu -- 57.95 \%.
 
 
 
 \subsection{S rysem root}
 Jelikož rysy \texttt{root} a \texttt{sum} se zdály být dvěma ze tří nejúspěšnějších v rámci korelace s plynulostí, zkusíme natrénovat modely na obou najednou.
-
+ 
 \begin{table}[!htbp]
 \begin{center}
 \begin{tabular}{|r|c|c|}
 \hline
- & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+& \textbf{Maxentový model} & \textbf{Mediánový model} \\
  \hline
-přesná shoda & 44.59 \%  & 27.56 \%  \\
+přesná shoda & 44.59 \%  & 27.56 \%   \\
 \hline
-shoda nebo $\pm$1 & 84.40 \% & 74.26 \%  \\
+shoda nebo $\pm$1 & 84.40 \% & 74.26  \% \\
 \hline
-     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}185   \\
-\textbf{plynulostí} \quad 2 & \color{red}0   & \color{OliveGreen}245   \\
-                          3 & 1045           & \color{OliveGreen}195 \\
-                          4 & \color{red}0   & \color{OliveGreen}312 \\
-                          5 & \color{red}0   & \color{OliveGreen}108  \\
+shoda v plynulosti 5 & \color{red}0 \% & 39.77 \%   \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & 185   \\
+\textbf{plynulostí} \quad 2 & \color{red}0   & 245  \\
+                          3 & 1045           & 195  \\
+                          4 & \color{red}0   & 312 \\
+                          5 & \color{red}0   & 108  \\
 \hline
 \end{tabular}
 \caption{Naměřené hodnoty modelů se rysy sum a root}\label{tb:sumroot}
@@ -2009,37 +2053,39 @@ shoda nebo $\pm$1 & 84.40 \% & 74.26 \%  \\
 
 %Přidáním druhého rysu maxentový model už nabízí alespoň dvě různé plynulosti. V přesnosti je však horší než baseline a tedy i horší než v případě se samostatnými rysy root nebo sum. Přenost mediánového modelu zůstává podobná, počet lišících se o jedna je ale z modelů s rysem \texttt{root}, \texttt{sum} a jejich kombinace nejlepší. Mediánový model nabízel všechny plynulosti, a proto můžeme jeho údaj o počtu lišících se o jedna brát v potaz (tabulka \ref{tb:sumroot}).
 
-Přidání druhého rysu ale u maxentového modelu znamenalo slepé tipování pouze do plynulostí 3, proto dosáhl na baseline. U mediánových modelů se zvýšila shoda nebo $\pm$1 oproti samostatným modelům s rysy \texttt{root} a \texttt{sum} polepšil zhruba o 10 \% (tabulka \ref{tb:sumroot}).
+Přidání druhého rysu ale u maxentového modelu znamenalo slepé tipování pouze do plynulostí 3, proto dosáhl na baseline. U mediánových modelů se zvýšila shoda nebo $\pm$1 oproti samostatným modelům s rysy \texttt{root} a \texttt{sum} zhruba o 10 \% (tabulka \ref{tb:sumroot}). Shoda v plynulostech 5 naopak poklesla na 39.77 \%.
 
 
 
 
 
 \section{Modely s rysem sumr}
-Vedle na pohled dobře korelujících rysů \texttt{root} a \texttt{sum}, dobře dopadl i součtový rys \texttt{sumr}, který rys \texttt{root} a \texttt{sum} obsahuje v sobě započítaný. Zkusíme znovu jako v případě rysu \texttt{root} a \texttt{sum}, natrénovat modely na jediném rysu \texttt{sumr}.
+Vedle na pohled dobře korelujících rysů \texttt{root} a \texttt{sum}, dobře dopadl i součtový rys \texttt{sumr}, který rys \texttt{root} a \texttt{sum} obsahuje v sobě započítaný. Zkusíme znovu jako v případě rysu \texttt{root} a \texttt{sum}, natrénovat modely na jediném rysu \texttt{sumr}. Znovu využijeme lineární regrese.
 
 \begin{table}[!htbp]
 \begin{center}
-\begin{tabular}{|r|c|c|}
+\begin{tabular}{|r|c|c|c|}
 \hline
- & \textbf{Maxentový model} & \textbf{Mediánový model} \\
+ & \textbf{\scriptsize{ Maxentový model}} & \textbf{\scriptsize Mediánový model} & \textbf{\scriptsize Lineární regrese} \\
  \hline
- přesná shoda & 44.59 \%  & 28.90 \%  \\
+ přesná shoda & 44.59 \%  & 28.90 \%  & 44.88 \% \\
 \hline
-shoda nebo $\pm$1 & 39.81 \% & 44.31 \%  \\
+shoda nebo $\pm$1 & 84.40 \% & 73.21 \%  & 84.98 \% \\
 \hline
-     \textbf{počty} \quad 1 & \color{red}0   & \color{OliveGreen}62   \\
-\textbf{plynulostí} \quad 2 & \color{red}0 & \color{OliveGreen}341   \\
-                          3 & 1045 & \color{OliveGreen}155 \\
-                          4 & \color{red}0   & \color{OliveGreen}195 \\
-                          5 & \color{red}0   & \color{OliveGreen}292  \\
+shoda v plynulosti 5 & \color{red}0 \% & 77.27 \% & \color{red}0 \% \\
+\hline
+     \textbf{počty} \quad 1 & \color{red}0   & 62  & 1 \\
+\textbf{plynulostí} \quad 2 & \color{red}0 & 341   & 79\\
+                          3 & 1045 & 155  & 965\\
+                          4 & \color{red}0   & 195 & \color{red}0 \\
+                          5 & \color{red}0   & 292 & \color{red}0 \\
 \hline
 \end{tabular}
 \caption{Naměřené hodnoty modelů s rysem sumr}\label{tb:sumr}
 \end{center}
 \end{table}
 
-Od maxentového modelu jsme dostali znovu stejnou odpověď jako v případě rysu \texttt{root} -- tedy slepé tipování jen plynulostí 3 (tabulka \ref{tb:sumr}). Mediánový model znovu nabídnul od všech plynulostí minimálně jedno hodnocení a oproti rysu \texttt{root} si polepšil o 5.36 \% v přesné shodě, ve shodě nebo $\pm$ ale propadl takřka o 18 \% níže. Podobně dopadl i ve srovnání s rysem \texttt{sum}.
+Od maxentového modelu jsme dostali znovu stejnou odpověď jako v případě rysu \texttt{root} -- tedy slepé tipování jen plynulostí 3 (tabulka \ref{tb:sumr}). Mediánový model znovu nabídnul od všech plynulostí minimálně jedno hodnocení a oproti rysu \texttt{root} si polepšil o 5.36 \% v přesné shodě, ve shodě nebo $\pm$ ale propadl takřka o 18 \% níže. Podobně dopadl i ve srovnání s rysem \texttt{sum}. Lineární regrese se pohybuje lehce nad baseline. Zajímavá je ale i hodnota shody plynulosti 5 u mediánového modelu, který dosáhnul 77.27 \%.
 
 
 
@@ -2056,6 +2102,8 @@ přesná shoda & 41.06 \%  & 23.83 \%  \\
 \hline
 shoda nebo $\pm$1 & 80.00 \% & 72.72 \%  \\
 \hline
+shoda v plynulosti 5 &\color{red} 0 \% & 34.09 \%   \\
+\hline
      \textbf{počty} \quad 1 & \color{red}0   & \color{red}0   \\
 \textbf{plynulostí} \quad 2 & 255 & \color{red}0   \\
                           3 & 790 & 115 \\
@@ -2067,7 +2115,7 @@ shoda nebo $\pm$1 & 80.00 \% & 72.72 \%  \\
 \end{center}
 \end{table}
 
-Bohužel maxentový model nedosáhl ani na baseline. Mediánový je na tom ještě takřka o polovinu hůře, ale u něho lze toto očekávat, neboť jednotlivé rysy samostatně nevykazovaly korelaci s plynulostí. Ani jeden z modelů nenabízel všechny plynulosti (tabulka \ref{tb:woutsums}).
+Bohužel maxentový model nedosáhl ani na baseline. Mediánový je na tom ještě takřka o polovinu hůře, ale u něho lze toto očekávat, neboť jednotlivé rysy samostatně nevykazovaly korelaci s plynulostí. Ani jeden z modelů nenabízel všechny plynulosti (tabulka \ref{tb:woutsums}). Shoda v plynulosti 5 se opět podařila jen u mediánového modelu.
 
 \subsection{Bez rysu root}
 Mimo naše součtové rysy máme ještě jeden rys, který sčítá kořeny větného rozboru -- rys \texttt{root}. Zkusíme tedy vynechat i ten a uvidíme, zda se situace zlepší nebo zhorší.
@@ -2082,6 +2130,8 @@ přesná shoda & 38.09 \%  & 19.81 \%  \\
 \hline
 shoda nebo $\pm$1 & 75.60 \% & 69.19 \%  \\
 \hline
+shoda v plynulosti 5 & \color{red}0 \% & 42.05 \%   \\
+\hline
      \textbf{počty} \quad 1 & 115   & \color{red} 0   \\
 \textbf{plynulostí} \quad 2 & 182 & \color{red}0   \\
                           3 & 748 & 41 \\
@@ -2093,7 +2143,7 @@ shoda nebo $\pm$1 & 75.60 \% & 69.19 \%  \\
 \end{center}
 \end{table}
 
-Zde se ale výsledky ve všech parametrech zhoršily. Jedinou možná trochu lepší zprávou je to, že maxentový model nabízel 3 různé plynulosti (tabulka \ref{tb:woutsumsroot}).
+Zde se ale výsledky ve všech parametrech kromě shody v hypotézách hodnocených plynulostí 5 u mediánového modelu zhoršily (tabulka \ref{tb:woutsumsroot}).
 
 %\pagebreak
 
@@ -2102,35 +2152,60 @@ Zde shrneme všechny naměřené hodnoty do tabulky. Ve sloupci lišící se o 1
 
 \begin{table}[!htbp]
 \begin{center}
-\begin{tabular}{|M{4.5cm}|c|c|c|c|}
+\begin{tabular}{|M{2.5cm}|c|c|c|c|c|c|}
 \hline
-\multirow{2}*{\textbf{Model}} & \multicolumn{2}{c|}{\textbf{Přesná shoda}} & \multicolumn{2}{c|}{\textbf{Shoda nebo $\pm$1}} \\ \cline{2-5}
-& {\tiny maxentový} & {\tiny mediánový} & {\tiny maxentový} & {\tiny mediánový} \\
+\multirow{2}*{\textbf{Model}} & \multicolumn{2}{c|}{\textbf{\scriptsize Přesná shoda}} & \multicolumn{2}{c|}{\textbf{\scriptsize Shoda nebo $\pm$1}} & \multicolumn{2}{c|}{\textbf{\scriptsize Shoda v plynulosti 5}} \\ \cline{2-7}
+& {\tiny maxentový} & {\tiny mediánový} & {\tiny maxentový} & {\tiny mediánový} & {\tiny maxentový} & {\tiny mediánový} \\
 \hline 
-Všechny rysy & 41.05 \% & 29.86 \% & 80.10 \% & 77.61 \% \\
+\textit{\scriptsize Baseline} & \multicolumn{2}{c|}{44.59 \%} & \multicolumn{2}{c|}{ 84.40 \%} & \multicolumn{2}{c|}{$\times$}  \\
+\hline 
+\scriptsize Všechny rysy & 41.05 \% & 29.86 \% & 80.10 \% & 77.61 \% & 0 \% & 34.09 \% \\
 \hline
-Součtové rysy & 40.96 \% & 34.07 \% & 80.10 \% & \color{OliveGreen} 80.38 \% \\
+\scriptsize Součtové rysy & 40.96 \% & 34.07 \% & 80.10 \% &  80.38 \% & 0 \% & 46.59 \% \\
 \hline
-Součtové rysy a root & 41.73 \% & 34.83 \% & 81.15 \% & \color{OliveGreen} 84.11 \% \\
+\scriptsize Součtové rysy a root & 41.73 \% & \textbf{34.83} \% & 81.15 \% & \textbf{84.11 \%} & 0 \% & 38.64 \% \\
 \hline
-Rys root & 44.59 \% & 23.54 \% & 84.40 \% & \color{OliveGreen} 62.30 \% \\
+\scriptsize Rys root & \textbf{44.59 \%} & 23.54 \% & \textbf{84.40 \%} & 62.30 \% & 0 \% & 54.55 \% \\
 \hline
-Rys sum & 40.96 \% & 21.53 \% & 77.70 \% & \color{OliveGreen} 66.22 \% \\
+\scriptsize Rys sum & 40.96 \% & 21.53 \% & 77.70 \% &  66.22 \% & 0 \% & 57.95 \% \\
 \hline
-Rysy root a sum & 44.59 \% & 27.56 \% & 84.40 \% & \color{OliveGreen} 74.26 \%\\
+\scriptsize Rysy root a sum & \textbf{44.59} \% & 27.56 \% & \textbf{84.40 \%} &  74.26 \% & 0 \% & 39.77 \%\\
 \hline
-Rys sumr & 44.59 \% & 28.90 \% & 84.40 \% & \color{OliveGreen} 73.21 \% \\
+\scriptsize Rys sumr & \textbf{44.59} \% & 28.90 \% & \textbf{84.40 \%} &  73.21 \% & 0 \% & \textbf{77.27 \%} \\
 \hline
-Všechny rysy kromě součtových & 41.06 \% & 23.83 \% & 80.00 \% & 72.72 \% \\
+\scriptsize Všechny rysy kromě součtových & 41.06 \% & 23.83 \% & 80.00 \% & 72.72 \% & 0 \% & 34.09 \% \\
 \hline
-Všechny rysy kromě součtových a kromě root & 38.09 \% & 19.81 \% & 75.60 \% & 69.19 \% \\
+\scriptsize Všechny rysy kromě součtových a kromě root & 38.09 \% & 19.81 \% & 75.60 \% & 69.19 \% & 0 \% & 42.05 \% \\
 \hline
 \end{tabular}
-\caption{Shrnutí výsledků modelů s vlastními rysy}\label{tb:shrnutivlrysy}
+\caption{Shrnutí výsledků maxentových a mediánových modelů s vlastními rysy}\label{tb:shrnutivlrysy}
 \end{center}
 \end{table}
 
-Z tabulky \ref{tb:shrnutivlrysy} je patrné, že údaje lišící se o jedna prošly stanoveným kritériem jen u našich mediánových modelů. Maxentové kritérium nesplnili ani jednou. Celkově jsme se s přesností bohužel nedostali přes baseline. Pokud budeme brát v potaz plynulosti lišící o jedna, pak můžeme plynulost přibližně predikovat nejlépe pomocí mediánového modelu se všemi součtovými rysy společně s rysem \texttt{root}. Sečteme-li přesnost a počet procent, kdy se lišil o jedna od očekávaného výsledku, dostaneme se na 83.93 \%.
+Z tabulky \ref{tb:shrnutivlrysy} vidíme, že ani v jednom případě jsme nebyli lepší než baseline. Baseline dosáhl maxentový model ve třech případech, vždy se ale jednalo o slepé tipování, kdy všechny hypotézy ohodnotil plynulostí 3. Pokud se ale podíváme na kritérium shody u hypotéz hodnocených plynulostí 5, pak zde maxentové modely úplně propadly, neboť dostaly ve všech případech 0 \%. Zato mediánovým se v tomto ohledu lišilo lépe a v případě modelu s rysem \texttt{sumr} jsme se dostali na shodu 77.27 \%. Mediánové modely by proto byly spíše vhodné pro použití v případech, kdy nás zajímá právě ta nejplynulejší hypotéza.
+
+Mimo to jsme ale zkoušeli predikovat i pomocí lineární regrese a výsledky v přesné shodě i shodě nebo $\pm$1 dopadly nejlépe ze všech a lehce překročily baseline. Jejich výsledky shrnuje následující tabulka \ref{tb:linreg}:
+
+\begin{table}[!htbp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{\scriptsize Model} & \textbf{\scriptsize Přesná shoda} & \textbf{\scriptsize Shoda nebo $\pm$1} & \textbf{\scriptsize Shoda v plynulosti 5} \\
+\hline
+\scriptsize \textit{Baseline} & 44.59 \% & 84.40 \% &  $\times$ \\
+\hline
+\scriptsize Rys root & 44.69 \% & \textbf{85.36 \%} & 0 \% \\
+\hline
+\scriptsize Rys sum &\textbf{ 44.98 \%} & 84.59 \% & 0 \% \\
+\hline
+\scriptsize Rys sumr & 44.88 \% & 84.98 \% & 0 \% \\
+\hline
+\end{tabular}
+\caption{Shrnutí výsledků predikce pomocí lineární regrese}\label{tb:linreg}
+\end{center}
+\end{table}
+
+S predikcí pomocí lineární regrese jsme se vždy dostali nad baseline, ačkoliv zlepšení zde není nijak vysoké -- 0.39 \% u přesné shody a 0.96 \% u shody nebo $\pm$1. Metoda stejně jako maxentové modely neuspěla při predikci hypotéz hodnocených plynulostí 5.
 
 
 
@@ -2165,6 +2240,7 @@ Modely z obou sérií experimentů potřebovaly data z parseru, kterému musíme
 %%% diagramy apod.). Každá příloha musí být alespoň jednou odkazována z vlastního
 %%% textu práce. Přílohy se číslují.
 \chapwithtoc{Přílohy}
+
 
 \openright
 \end{document}
