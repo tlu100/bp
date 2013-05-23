@@ -1,0 +1,41 @@
+*** MORFMODEL - pomocny program pro vyrobu dat k natrenovani modelu s morfologickymi znackami ***
+
+Ke zprovozneni je zapotrebi mit nainstalovany parser ParZu - https://github.com/rsennrich/ParZu
+
+MorfModel je jednoduchy program pro nahrazovani slov ruznymi morfologickymi znackami. Vyuziva dat z parseru ParZu. Na parseru jsme testovali u slovnich druhu, v kolika pripadech morfologicka analyza obsahovala nejake blizsi urceni - viz. stss-prehled.pdf - merili jsme na 50 tisicich vetach, v kolika pripadech morfologicka analyza nic neurcila tj. dostali jsme vystup _, _|_| apod. Na zaklade toho jsme stanovili, od kterych slovnich druhu nebudeme brat morfologickou analyzu v potaz. Vyloucili jsme slovni druhy, kde se pocet urcenych pohyboval pod 50 % z celkoveho poctu a zaroven byl vetsi nez nula - CARD, FM, KOUS, KON, KOKOM. Mimo to jsme jeste vyloucili TRUNC (napr. An- [und Abreise]). Nebot se u nich casto urcil treba pad, v jinem kontextu ale muze byt v odlisnem pade, pritom se tvar nezmeni.
+
+V adresari stss-prehled jsou prehledy od jednotlivych slovnich druhu zvlast. Prehled vytvaren na hornich 50 tisicich vetach z WMT12 News Commentary.
+
+
+INSTALACE
+*********
+- ve skriptu ./morfmodel musime nastavit promennou ParZu
+- pomoci make se program zkompiluje
+
+
+POUZITI
+*******
+Program se spousti pres skript ./morfmodel, ktery zajisti predani dat parseru a spusti program MorfModel.
+Pouziti je jednoduche: ./morfmodel vstup vystup
+	- vstup = vstupni vety (tokenizovane - radek=veta)
+	- vystup = vystupni adresar, kam se ulozi 10 vystupnich souboru, adresar nemusi existovat
+Pro vyuziti tokenizeru od ParZu je zapotrebi upravit skript ./morfmodel - u spousteni ParZu odebrat parametr -i tokenized a zakomentovat radek prevadejici tokenizovana data na format pro ParZu - viz komentare ve skriptu.
+
+
+VYSTUP
+******
+Vystupem je 10 souboru se slovy nahrazenymi morfologickymi znackami:
+cislo - slova se nahradi pismenem w a cislem, lze-li urcit - napr. wSg w wPl
+pad - slova se nahradi pismenem w a padem, lze-li urcit - napr. wNom w wDat
+rodstejny - slova se nahradi pismenem w a slovem rod nebo stejny, podle toho, zda se rod shoduje s predchozim slovem - napr. wrod wstejny w
+rsd+cislo - slova se nahradi rozsirenym slovnim druhem a cislem - napr. NN:Sg ADV VMFIN
+rsd+pad - slova se nahradi rozsirenym slovnim druhem a padem - napr. NN:Dat ADV VMFIN
+osoba+cislo - slova se nahradi pismenem w, osobou a cislem, jdou-li urcit - napr. w3Sg w w2Pl
+rod - slova se nahradi pismenem w a rodem - napr. wFem w wNeut
+rsd - slova se nahradi rozsirenym slovnim druhem, ke clenum se prida, zda jsou urcite nebo neurcite - napr. ATRDef NN ADJA
+rsd+morf - slova se nahradi rozsirenym slovnim druhem a vsemi morfologickymi znackami - napr. NN:Masc|Akk|Sg APPR:Dat $,:_
+rsd+rod - slova se nahradi rozsirenym slovnim druhem a rodem, lze-li urcit - napr. NN:Fem APPR KON
+
+
+
+

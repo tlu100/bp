@@ -1,0 +1,20 @@
+*** KLASIFIKATOR - nastroj pro trenovani a testovani modelu predikujicich jen na zaklade hodnot medianu rysu vypoctenych z trenovacich dat ***
+
+Dle predlozenych trenovacich dat vyrobi model, ktery obsahuje vypocitane mediany hodnot rysu pro dane vystupy (v nasem pripade fluency). Model pak muze byt otestovan, nastroj vrati nabizene vystupy a spocita uspesnost predikce.
+
+
+INSTALACE
+*********
+- vyzaduje knihovny Boost - http://www.boost.org/
+- staci zkompilovat pomoci make
+
+
+POUZITI
+*******
+./bin/klasifikator -m model -t train/-p predict
+- model je nazev souboru s modelem - v pripade pouziti s -t bude ulozen, v pripade s -p nacten
+- train je soubor s trenovacimi daty ve formatu "vystup rys:hodnota rys:hodnota" - napr. z naseho programu Chyby - pro optimalni cinnost predpoklada vyskyt jednotlivych vystupu od nejhorsiho po nejlepsi (v nasem pripade fluency od 1 po 5) - je to z duvodu, kdy jsou mediany dvou stejne, potom se tomu horsimu median zvysi
+- test je soubor s testovacimi daty ve stejnem formatu jako train
+
+- pri volbe -t se z trenovaciho textu vypocitaji mediany a ulozi se do souboru model
+- pri volbe -p se tento model nacte, ulozi si do pameti vypoctene mediany a hodnoty mezi nimi rozdeli dane mediany - v pripade licheho poctu, dostane vice pozic horsi vystup

@@ -1,0 +1,18 @@
+*** KLAUZE - program pro identifikaci nemeckych klauzi za pomoci anglickych a alignmentu ***
+
+Program Klauze na zaklade anglickych klauzi a alignmentu na urovni slov identifikuje hranice klauzi v nemeckych vetach. Nejprve si zapamatuje zarovnani slov, potom podle anglickych klauzi rozdeluje do klauzi nemeckych. V tech jsou potom slova zpet serazena tak, jak je ve vstupni nemecke vete. Na zaklade nejnizsiho a nejvyssiho indexu slova v klauzi stanovime hranice. V pripade vnorenych vet sledujeme, zda je skutecne vlozena a nepresahuje hranice nadrazene vety, pokud ano, upravime ji pocatecni hranici a nepovazujeme ji za vnorenou. Vystupem jsou hranice ve formatu: 0-6+12-20|7-11|21-38| - znamena, ze prvni klauze zacina nultym slovem a konci dvacatym, je do ni vlozena veta pocinajici sedmym a koncici jedenactym slovem, treti klauze pak zacina slovem s indexem 21 a konci poslednim s indexem 38. Program Klauze vzdy hranicemi pokryje celou vetu.
+
+Pro zprovozneni nejsou zapotrebi zadne nestandardni knihovny.
+
+
+INSTALACE
+*********
+- pomoci prikazu make
+
+
+POUZITI
+*******
+- ./bin/klauze alignment klauze vystup
+- alignment pocita s vystupem ze systemu GIZA++ - viz slozka /data/alignment
+- klauze s vystupem ze systemu TREEX - viz slozka /data/clauses_txt
+- vystup oznacuje nazev vystupniho souboru, do ktereho budou hranice zapsany

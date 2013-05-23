@@ -1,0 +1,60 @@
+Vlastni rysy
+------------
+chybi_infszu - byla spojka vyzadujici infinitiv s zu, ktery ve vete ale chybel
+chybi_podmet - ve vete se neobjevilo zadne slovo v prvnim pade
+chybi_vfin - ve vete chybi urcite sloveso
+chybi_sum - soucet vsech rysu chybi_*
+
+inf_po_vm_neni_na_konci - infinitiv po modalnim slovesu nebyl na konci vety
+infszu_neni_na_konci - infinitiv s zu nebyl na konci vety
+pp_neni_na_konci - pricesti minule nebylo na konci vety
+vv_sloveso_neni_na_konci - sloveso ve vedlejsi vete nebylo na konci vety
+neni_na_konci_sum - soucet rysu *_neni_na_konci
+
+neshoda_podmet_prisudek - ve vete se neobjevilo sloveso shodujici se v osobe a cisle s prvnim nalezenym jmenem/zajmenem v prvnim pade
+pp_bez_av - pricesti minule bez pomocneho slovesa
+root - pocet stromu(korenu) ve vystupu z parseru ParZu
+
+vice_osob - ve vete se objevilo vice jmen/zajmen a sloves v ruznych osobach a cislech
+vice_vfin - vice urcitych sloves
+vice_sum - soucet rysu vice_*
+
+sum - soucet vsech rysu krome *_sum
+
+
+Skript
+------
+./accurancy-differing - jednoduchy awk skript, ktery spocita presnost predikce a pocet tech plynulosti,
+				  u kterych se model netrefil jen o jedna
+				- vstup - na kazdem radku dva sloupce s plynulosti
+				- napr. paste ./all/test_fluency ./all/maxent_test_predict_detail | ./accurancy-differing
+./run - spusti experimenty - natrenuje a vyhodnoti modely s vlastinimi rysy a vypise vysledky
+	 - pro spusteni je zapotrebi mit nainstalovan MaxEnt toolkit od LeZhanga - http://homepages.inf.ed.ac.uk/lzhang10/maxent_toolkit.html
+	 - je zapotrebi nastavit promennou ve skriptu - klasifikator, ktera obsahuje cestu ke Klasifikatoru hodnoticiho podle medianu (prilozen na DVD)
+
+
+Struktura
+---------
+popis adresaru s rysy:
+	- all - vsechny rysy
+	- allsums - vsechny *_sum rysy
+	- root
+	- root+sum
+	- sum
+	- woutsums - vsechny rysy krome vsech *_sum
+
+popis ostatnich adresaru:	
+	- data - obsahuje alignment, anglicke klauze a identifikovane nemecke klauze (z naseho nastroje Klauze)
+	- presnost - obsahuje rucni analyzu vet s vyhodnocenim presnosti urceni rysu
+	
+obsah adresaru s rysy:
+	- maxent_model - model natrenovany v MaxentToolkitu od LeZhanga
+	- maxent_test_predict - prehled vysledku predikce, pocet presne predikovanych a pocet lisicich
+					    se o jedna + prehled poctu jednotlivych plynulosti, ktere model nabidnul
+	- maxent_test_predict_detail - detailni prehled plynulosti, ktere model nabidnul konkretnim vetam
+	- median_model - model natrenovany vlastnim klasifikatorem hodnoticim podle medianu
+	- median_test_predict - stejne jako u maxent_test_predict
+	- median_test_predict_detail - stejne jako u maxent_test_predict_detail
+	- test - testovaci soubor s plynulosti a rysy
+	- test_fluency - plynulost z test souboru, slouzi pro spusteni skriptu accurancy-differing pro vyhodnoceni predikce
+	- train - trenovaci soubor s plynulosti a rysy

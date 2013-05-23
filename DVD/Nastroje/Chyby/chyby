@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# ./chyby file1 file2
+# file1 - soubor s vetami a fluency - format fluency|veta (5|ich bin nicht hier .) - vety tokenizovane
+# file2 - soubor s hranicemi klauzi - format klauze|klauze|klauze|
+#							   klauze - zacatek-konec (index slova, cislovano od nuly), je-li do ni vlozena jina klauze, pak zacatek1-konec1+zacatek2-konec2
+#							   napr. 0-3+6-10|4-5|
+
+# parzu
+parzu=/home/maltik/bp/ParZu/parzu
+
+# odebrani prvniho sloupce s fluency, prevod tokenizovaneho textu na format pro parzu - radek = token, prazdny radek = konec vety
+cut -f2 -d "|" $1 | perl -i -p -e "s/\n/\n\n/g" | tr " " "\n" > tmp
+# spusteni parzu, vystrizeni potrebnych sloupcu a nrahrazeni \$_ za slovni nazvy
+cat tmp | $parzu -i tokenized | cut -f2,5,6,7 | sed "s/\$,/KOMMA/g" | sed "s/\$\./INTERP/g" | sed "s/\$(/SONST/g" > tmp0
+rm tmp
+./bin/chyby $2 > tmp1
+# vystrizeni sloupce s fluency
+cut -f1 -d "|" $1 > tmp2
+# pridani fluency k nalezenym rysum
+paste tmp2 -d " " tmp1
+rm tmp0 tmp1 tmp2
+
+
+

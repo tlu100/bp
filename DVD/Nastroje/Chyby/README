@@ -1,0 +1,61 @@
+*** CHYBY - nastroj na identifikaci hodnot rysu predstavujicich gramaticke chyby ***
+
+Dle predem identifikovanych klauzi a vet ohodnocenych plynulosti vyhleda chyby a vypise je jako hodnoty nize popsanych rysu.
+
+Nastroj vyuziva parser ParZu, ktery je potreba mit nainstalovan - https://github.com/rsennrich/ParZu
+
+
+INSTALACE
+*********
+- vyzaduje knihovny Boost - http://www.boost.org/
+- staci zkompilovat pomoci make
+
+
+POUZITI
+*******
+- spousti se pres skript ./chyby, ktery nejdrive preda data ParZu a potom spusti nastroj Chyby
+
+./chyby file1 file2
+file1 - soubor s vetami a fluency - format fluency|veta (5|ich bin nicht hier .) - vety tokenizovane
+file2 - soubor s hranicemi klauzi - format klauze|klauze|klauze| (lze vyrobit nastrojem Klauze z tohoto DVD)
+						      klauze - zacatek-konec (index slova, cislovano od nuly), je-li do ni vlozena jina klauze, pak zacatek1-konec1+zacatek2-konec2
+						      napr. 0-3+6-10|4-5|
+
+- vystup ve tvaru "fluency rys:hodnota rys:hodnota" je pak vypsan na standardni vystup
+- format vystupu odpovida formatu pro pouziti a natrenovani modelu v MaxEnt toolkitu od Le Zhanga, stejne jako v nasem medianovem Klasifikatoru
+
+
+POPIS RYSU
+**********
+1. chybi infszu – kontroluje, zda byla klauze uvozena spojkou vyžadující infinitiv s zu (rozšířený slovní druh KOUI 1), typicky se jedná o zkrácené vedlejší věty, a sleduje, zda ve větě takový infinitiv byl
+
+2. chybi podmet – označuje skutečnost, že se v klauzi nevyskytlo slovo v prvním pádě
+
+3. chybi vfin – v klauzi chybí určité sloveso
+
+4. chybi sum – sčítá hodnoty všech rysů typu chybi_*
+
+5. inf po vm neni na konci – kontroluje, zda se za infinitivem po modálním slovese nevyskytlo ještě další slovo mimo sloves
+
+6. infszu neni na konci – byla-li spojka vyžadující infinitiv s zu a zároveň se za infinitivem ještě vyskytlo další slovo mimo sloves
+
+7. vv sloveso neni na konci – po podřadících spojkách (KOUS, PRELS,PRELAT) kontroluje, zda po určitém slovesu nešlo ještě další slovo mimo sloves
+
+8. pp neni na konci – pokud věta obsahovala pomocné sloveso, očekáváme příčestí minulé a kontrolujeme proto, zda se za ním ještě nevyskytlo další slovo mimo sloves
+
+9. neni na konci sum – sčítá hodnoty všech rysů typu * neni na konci
+
+10. pp bez av – kontroluje přítomnost a pozici pomocného slovesa před příčestím minulým – neplatí ve vedlejších větách a po souřadících spojkách, které by mohly oddělovat dvě věty se dvěma příčestími minulými, ale pomocným slovesem jen v první z nich (např.: Ich habe gekocht und gelernt.)
+
+11. neshoda podmet prisudek – sledujeme výskyt prvního slova v nominativu nebo prvního slovesa, od těchto prvních výskytů si zapamatujeme číslo a osobu (u podstatných jmen ručně nastavíme, že se jedná o třetí osobu), pokud se nenajde shoda v čísle a osobě mezi prvním nalezeným nominativem a slovesem, pak daná klauze dostane tento rys
+
+12. vice osob – funguje stejně jako předchozí, jenom s jiným vyhodnocením – tj. tehdy, když po první nalezené osobě nalezneme ještě další (samozřejmě v prvním pádě)
+
+13. vice vfin – indikuje výskyt více určitých sloves v jedné klauzi
+
+14. vice sum – sčítá hodnoty všech rysů typu vice *
+
+15. root – projde větný rozbor z výstupu ParZu a spočítá počet kořenů, je-li totiž věta gramaticky správně, nalezneme kořen pouze jeden, v opačném případě je jich více a představují pomyslný počet chyb ve větě
+
+16. sum – sčítá hodnoty všech předchozích rysů včetně rysu root
+

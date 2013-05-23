@@ -1,0 +1,401 @@
+ok	chybi_infszu:0
+-1	chybi_podmet:1 - zrejme bere "und um 15.00 uhr wiederaufgenommen" jako klauzi
+	chybi_sum:1
+ok	chybi_vfin:0
+ok	inf_po_vm_neni_na_konci:0
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:0
+-1	neshoda_podmet_prisudek:1 - stejne jako chybi_podmet, proto nenalezl shodu
+ok	pp_bez_av:0
+ok	pp_neni_na_konci:0
+	root:1
+	sum:3
+ok	vice_osob:0
+	vice_sum:0
+ok	vice_vfin:0
+ok	vv_sloveso_neni_na_konci:0
+( die sitzung wird um 13.50 uhr unterbrochen und um 15.00 uhr wiederaufgenommen ) 
+SONST ART NN VAFIN APPR CARD NN VVPP KON APPR CARD NN VVPP SONST 
+
+ok	chybi_infszu:0
+-1	chybi_podmet:2 - prvni klauze chybi, jinak ne (fall/dieser mann), Fall chybne urceno jako PDAT
+	chybi_sum:2
+ok	chybi_vfin:0
+ok	inf_po_vm_neni_na_konci:0
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:2
+-1	neshoda_podmet_prisudek:2 - v prvni klauzi nema suche podmet
+ok	pp_bez_av:0
+ok	pp_neni_na_konci:0
+	root:10
+	sum:18
+ok	vice_osob:0
+	vice_sum:2
+-2	vice_vfin:2 - chybne urceni slovniho druhu - melo byt zrejme Zahlen podstatne jmeno, Sharon vlastni jmeno
+-1	vv_sloveso_neni_na_konci:2 - -2 v pripade, ze der Fall ma der jako clen a ne jako spojku vztazne vety
+in einer welt der suche nach providential führer , der fall ist sowohl symbolisch und paradox , dass dieser mann ist nach wie vor eine der umstrittensten zahlen in den letzten jahrzehnten ariel sharon universell . 
+APPR ART NN ART VVFIN APPR ADJA NN KOMMA PRELS VVIMP VAFIN KON ADJD KON ADJD KOMMA KOUS PDAT ADJA VAFIN ADV KOKOM APPR PIS ART ADJA VVFIN APPR ART ADJA ADJA NE VVFIN ADJD INTERP 
+
+ok	chybi_infszu:0
++1	chybi_podmet:0 - je zde rozkaz, ale tak, jak je rys nastaven by mel hlasit 1 - zrejme zde vzal Europa nebo Amerika jako podmet
+	chybi_sum:0
+ok	chybi_vfin:0
+ok	inf_po_vm_neni_na_konci:0
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:0
+ok	neshoda_podmet_prisudek:1 - je zde rozkaz, podmet neni treba
+ok	pp_bez_av:0
+ok	pp_neni_na_konci:0
+	root:3
+	sum:4
+ok	vice_osob:0
+	vice_sum:0
+ok	vice_vfin:0
+ok	vv_sloveso_neni_na_konci:0
+in diesem fall , europa sei so sehr die übeltäter wie amerika . 
+APPR PDAT VVIMP KOMMA NE VAFIN ADV ADV ART NN KOKOM NE INTERP 
+
+ok	chybi_infszu:0
+ok	chybi_podmet:0
+	chybi_sum:0
+ok	chybi_vfin:0
+ok	inf_po_vm_neni_na_konci:0
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:1
+ok	neshoda_podmet_prisudek:0
+ok	pp_bez_av:0
+ok	pp_neni_na_konci:1 - umarmt ma byt na konci
+	root:2
+	sum:3
+ok	vice_osob:0
+	vice_sum:0
+ok	vice_vfin:0
+ok	vv_sloveso_neni_na_konci:0
+haben sie umarmt die 
+VAFIN PPER VVPP PRELS 
+
+
+ok	chybi_infszu:0
+ok	chybi_podmet:0 - patri-li tedy schlagen k Änderungen
+	chybi_sum:0
+ok	chybi_vfin:0
+ok	inf_po_vm_neni_na_konci:0
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:1
+ok	neshoda_podmet_prisudek:0
+ok	pp_bez_av:0
+ok	pp_neni_na_konci:0
+	root:3
+	sum:5
+ok	vice_osob:0
+	vice_sum:1
+-1	vice_vfin:1 - spatne urceni druhu Verkäufe - zde to melo byt zrejme podstatne jmeno
+-1 	vv_sloveso_neni_na_konci:1
+erstens änderungen nr . 1 , schlagen 8 und 18 vor , die gebrauchtwaren zu befreien , die durch nächstenliebegeschäfte und gemeinnützige organisationen verkauft werden , privatpersonen , flohmärkt und autoaufladung verkäufe , wie herr whitehead gesagt hat , von der verpflichtung , informationen und unterlagen auf produktgefahr und produktursprung zur verfügung zu stellen . 
+ADV NN NE INTERP CARD KOMMA VVFIN CARD KON CARD PTKVZ KOMMA ART NN PTKZU VVINF KOMMA PRELS APPR ADJA KON ADJA NN VVPP VAFIN KOMMA NN KOMMA TRUNC KON NN VVFIN KOMMA KOKOM NN NE VVPP VAFIN KOMMA APPR ART NN KOMMA NN KON VVFIN APPR TRUNC KON NN APPRART NN PTKZU VVINF INTERP 
+
+
+ok	chybi_infszu:0
+-1	chybi_podmet:2 - mozna je podmet der wto, pak se ale neshoduje s haben
+	chybi_sum:3
+-1	chybi_vfin:1 - v druhe klauzi spatne urcene werden jako infinitiv
+ok	inf_po_vm_neni_na_konci:0
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:1
+ok	neshoda_podmet_prisudek:2
+-2	pp_bez_av:2 - zpusobeno spatnym poradkem slov v prvni klauzi a urcenim werden v druhe
+ok	pp_neni_na_konci:1
+	root:2
+	sum:11
+ok	vice_osob:0
+	vice_sum:1
+-1	vice_vfin:1 - der Rahmen spatne urceno jako sloveso misto podstatneho jmena
+ok	vv_sloveso_neni_na_konci:0
+zum beispiel in internationalen gremien wie der wto verändert haben und den rahmen für die wirtschaftlichen entscheidungen getroffen werden . 
+APPRART NN APPR ADJA NN KOKOM ART NN VVPP VAFIN KON PDS VVFIN APPR ART ADJA NN VVPP VAINF INTERP 
+
+ok	chybi_infszu:0
+-1	chybi_podmet:1 - prvni klauze in vielen ländern
+	chybi_sum:1
++1	chybi_vfin:0 - pokud jsou to tri klauze
+ok	inf_po_vm_neni_na_konci:0
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:0
+ok	neshoda_podmet_prisudek:1 - jedna-li se o tri klauze
+ok	pp_bez_av:0
+ok	pp_neni_na_konci:0
+	root:3
+	sum:5
+ok	vice_osob:0
+	vice_sum:0
+ok	vice_vfin:0
+ok	vv_sloveso_neni_na_konci:0
+in vielen ländern , aber die politischen parteien sich schwer vorstellen , daß solche debatten auch . 
+APPR PIAT NN KOMMA KON ART ADJA NN PRF ADJD VVINF KOMMA KOUS PIAT NN ADV INTERP 
+
+ok	chybi_infszu:0
+-3	chybi_podmet:3 - die Demokratie, zrejme group, es
+	chybi_sum:4
+-1	chybi_vfin:1 - zrejme spatne urcene klauze
+ok	inf_po_vm_neni_na_konci:0
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:1
+-3	neshoda_podmet_prisudek:3
+ok	pp_bez_av:0
+-1	pp_neni_na_konci:1
+	root:6
+	sum:15
+ok	vice_osob:0
+	vice_sum:1
+-1	vice_vfin:1 - melo byt zrejme Tat - podstatne jmeno
+ok	vv_sloveso_neni_na_konci:0
+die demokratie in der tat ist heutzutage eine einreisegenehmigung popkultur einer raschen verabschiedung fad ; heute ' s group hysteria-generating popstars vergessen wird morgen , und es gibt immer mehr in die flügel abzuwarten . 
+ART NN APPR ART VVFIN VAFIN ADV ART ADJA NN ART ADJA NN ADJD INTERP ADV SONST NN NN ADJA NN VVINF VAFIN ADV KOMMA KON PPER VVFIN ADV ADV APPR ART NN VVIZU INTERP 
+
+ok	chybi_infszu:0
+ok	chybi_podmet:0
+	chybi_sum:0
+ok	chybi_vfin:0
+ok	inf_po_vm_neni_na_konci:0
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:0
+ok	neshoda_podmet_prisudek:0
+ok	pp_bez_av:0
+ok	pp_neni_na_konci:0
+	root:1
+	sum:1
+ok	vice_osob:0
+	vice_sum:0
+ok	vice_vfin:0
+ok	vv_sloveso_neni_na_konci:0
+natürlich gibt es keine einfache kausale verbindung zwischen armut und ungleichheit zu gewalt . 
+ADV VVFIN PPER PIAT ADJA ADJA NN APPR NN KON NN APPR NN INTERP 
+
+ok	chybi_infszu:0
+-2	chybi_podmet:2
+	chybi_sum:2
++1	chybi_vfin:0 - v posledni klauzi atop amerika vorgänger
+-1	inf_po_vm_neni_na_konci:1
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:1
+ok	neshoda_podmet_prisudek:2 - v prvni chybi pomocne sloveso, v druhe regierungen könnte
+ok	pp_bez_av:1 - prvni klauze
+ok	pp_neni_na_konci:0
+	root:9
+	sum:16
+ok	vice_osob:0
+	vice_sum:1
+ok	vice_vfin:1 - verhindern könnte
++1	vv_sloveso_neni_na_konci:0 - pokud je klauze od daß az po tecku
+bereits im 1933 irving fisher --milton friedman ' s ' s monetaristischen schule des economists-- angekündigt , daß regierungen verhindern könnte depressions tiefe von deflation vermeidet . atop amerika vorgänger 
+ADV APPRART CARD NN NE NN ADJD SONST NN SONST NN ADJA VVFIN ART TRUNC VVPP KOMMA KOUS NN VVINF VMFIN ADJA ADJA APPR NN VVFIN INTERP ADJA ADJA NN 
+
+ok	chybi_infszu:0
+ok	chybi_podmet:0
+	chybi_sum:0
+ok	chybi_vfin:0
+ok	inf_po_vm_neni_na_konci:1
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:1
+-1	neshoda_podmet_prisudek:1
+ok	pp_bez_av:0
+ok	pp_neni_na_konci:0
+	root:3
+	sum:9
+-1	vice_osob:2 - müssen wir aber denken sie
+	vice_sum:4
+-2	vice_vfin:2
++1	vv_sloveso_neni_na_konci:0 - was herr glavany ... hat
+in all unseren beratungen müssen wir aber denken sie an das gesamte versorgungskette , das heißt , wir brauchen , was herr glavany hat der französische präsident des rates , ist ein guter qualität pakt zwischen gesellschaft und industrie und landwirtschaft . 
+APPR PIAT PPOSAT NN VMFIN PPER ADV VVINF PPER APPR ART ADJA NN KOMMA PRELS VVFIN KOMMA PPER VVFIN KOMMA PWS NN NE VAFIN ART ADJA NN ART NN KOMMA VAFIN ART ADJA ADJA NN APPR NN KON NN KON NN INTERP
+
+ok	chybi_infszu:1
+-2	chybi_podmet:4
+	chybi_sum:7
++1	chybi_vfin:2
+ok	inf_po_vm_neni_na_konci:0
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:1
+-1	neshoda_podmet_prisudek:5
++1	pp_bez_av:1
+ok	pp_neni_na_konci:0
+	root:12
+	sum:26
+ok	vice_osob:0
+	vice_sum:0
+ok	vice_vfin:0
+-1	vv_sloveso_neni_na_konci:1
+zusammen mit rechtlichen ungleichheit für die opposition und zugänglichem staatliche gewalt manifestiert sich dies auch , weil befürchtet gefestigt und die menschen in serbien gegenüber den großen übel dieser welt außerhalb und daß menschen , die das regime angeprangert wurden , um ihrem eigenen land verräter verkündet . 
+ADV APPR ADJA NN APPR ART ADJA KON ADJA ADJA NN VVFIN PRF PDS ADV KOMMA KOUS VVPP VVPP KON ART ADJA APPR NE APPR ART ADJA ADJD PDAT NN APPR KON KOUS ADJA KOMMA PRELS ART NN VVPP VAFIN KOMMA KOUI PPOSAT ADJA ADJA NN VVPP INTERP
+
+ok 	chybi_infszu:0
+ok 	chybi_podmet:0
+	chybi_sum:0
+ok	chybi_vfin:0
+-1	inf_po_vm_neni_na_konci:1
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:1
+ok	neshoda_podmet_prisudek:0
+ok	pp_bez_av:0
+ok	pp_neni_na_konci:0
+	root:1
+	sum:3
+ok	vice_osob:0
+	vice_sum:1
+-1	vice_vfin:1
+ok	vv_sloveso_neni_na_konci:0
+energieerzeugung und verteilung muß weiter intensiviert werden , während die umweltstandards einhalten . 
+NN KON NN VMFIN ADV VVPP VAINF KOMMA KOUS ART NN VVFIN INTERP 
+
+ok	chybi_infszu:0
+ok	chybi_podmet:1
+	chybi_sum:1
++1	chybi_vfin:0 sowohl die - nema sloveso
+ok	inf_po_vm_neni_na_konci:0
+-1	infszu_neni_na_konci:1 - zrejme spatne identifikovane klauze
+	neni_na_konci_sum:3
+ok	neshoda_podmet_prisudek:1 - neni prisudek, neni shoda
+ok	pp_bez_av:0
+-2	pp_neni_na_konci:2
+	root:9
+	sum:15
+ok	vice_osob:0
+	vice_sum:1
+-1	vice_vfin:1 - Maßnahmen ma byt zrejme podstatne jmeno
+ok	vv_sloveso_neni_na_konci:0
+es ist auch wichtig zu gewährleisten , eine bessere soziale situation , und eine bessere umwelt für alle - die dritte system legislative maßnahmen notwendig sind , um dafür zu sorgen , sowohl die langlebigkeit der außenwirksamkeit dieser neuen ära wirtschaft der solidarität und wirtschaftliche und steuerliche - und die qualität der gesundheit . 
+PPER VAFIN ADV ADJD PTKZU VVINF KOMMA ART ADJA ADJA NN KOMMA KON ART ADJA NN APPR PIAT SONST ART ADJA NN ADJA VVFIN ADJD VAFIN KOMMA KOUI PAV PTKZU VVINF KOMMA KON ART NN ART NN PDAT ADJA NN NN ART NN KON ADJA KON ADJA SONST KON ART NN ART NN INTERP 
+
+ok	chybi_infszu:0
+ok	chybi_podmet:1 - chybi prvni pad
+	chybi_sum:2
+ok	chybi_vfin:1
+ok	inf_po_vm_neni_na_konci:0
+ok	infszu_neni_na_konci:0
+	neni_na_konci_sum:0
+ok	neshoda_podmet_prisudek:1 - chybi prisudek
+ok	pp_bez_av:0
+ok	pp_neni_na_konci:0
+	root:1
+	sum:4
+ok	vice_osob:0
+	vice_sum:0
+ok	vice_vfin:0
+ok	vv_sloveso_neni_na_konci:0
+eingereichten änderungsanträge zu diesem zweck . 
+ADJA NN APPR PDAT NN INTERP 
+
+chybi_infszu:0
+chybi_podmet:1
+chybi_sum:1
+chybi_vfin:0
+inf_po_vm_neni_na_konci:0
+infszu_neni_na_konci:0
+neni_na_konci_sum:0
+neshoda_podmet_prisudek:1
+pp_bez_av:0
+pp_neni_na_konci:0
+root:7
+sum:9
+vice_osob:0
+vice_sum:0
+vice_vfin:0
+vv_sloveso_neni_na_konci:0
+gleichzeitig ist es das land , in dem die höchste zahl buchstaben der tag geliefert werden , nachdem sie bekanntgegeben worden sind . 
+ADJD VAFIN PPER ART ADJA KOMMA APPR PRELS ART ADJA VVIMP NN ART VVIMP VVPP VAFIN KOMMA KOUS PPER VVPP VAPP VAFIN INTERP 
+
+chybi_infszu:0
+chybi_podmet:0
+chybi_sum:0
+chybi_vfin:0
+inf_po_vm_neni_na_konci:0
+infszu_neni_na_konci:0
+neni_na_konci_sum:0
+neshoda_podmet_prisudek:0
+pp_bez_av:0
+pp_neni_na_konci:0
+root:1
+sum:1
+vice_osob:0
+vice_sum:0
+vice_vfin:0
+vv_sloveso_neni_na_konci:0
+es ist ja offensichtlich verachtung für syrien in washington . 
+PPER VAFIN ADV ADJD NN APPR ADJA APPR ADJD INTERP 
+
+chybi_infszu:0
+chybi_podmet:3
+chybi_sum:5
+chybi_vfin:2
+inf_po_vm_neni_na_konci:0
+infszu_neni_na_konci:0
+neni_na_konci_sum:2
+neshoda_podmet_prisudek:3
+pp_bez_av:0
+pp_neni_na_konci:2
+root:14
+sum:25
+vice_osob:0
+vice_sum:1
+vice_vfin:1
+vv_sloveso_neni_na_konci:0
+es ist aufgabe der präsident der sitzung zu leiten und interpretieren die fragen und dann ist es im ermessen der amtierende ratspräsident darüber zu diskutieren bzw. darauf eingehen , mit ausnahme der fragen , bei dem unsinnigen oder nichts zu tun haben mit dem thema . 
+PPER VAFIN NN ART NN ART NN PTKZU VVINF KON VVFIN ART VVINF KON ADV VAFIN PPER APPRART VVINF ART ADJA NN PAV PTKZU VVINF KOKOM PAV VVINF KOMMA APPR NN ART VVINF KOMMA APPR ART ADJA KON PIS PTKZU VVINF VAFIN APPR ART NN INTERP 
+
+chybi_infszu:1
+chybi_podmet:3
+chybi_sum:4
+chybi_vfin:0
+inf_po_vm_neni_na_konci:0
+infszu_neni_na_konci:0
+neni_na_konci_sum:3
+neshoda_podmet_prisudek:4
+pp_bez_av:0
+pp_neni_na_konci:0
+root:15
+sum:29
+vice_osob:1
+vice_sum:3
+vice_vfin:2
+vv_sloveso_neni_na_konci:3
+herr präsident , herr kommissar , liebe kolleginnen und kollegen , wie die vorredner hoffe ich , dass diese initiative betrachtet werden , ohne die x-te europäische organisation , sondern daß man diese initiative ernst nehmen , und daraus folgt , wird ihn eine chance zur genüge . 
+NN NN KOMMA NN ADJD KOMMA VVFIN ADJD KON ADJD KOMMA KOUS ART NN VVFIN PPER KOMMA KOUS PDAT ADJA VVPP VAFIN KOMMA KOUI ART ADJA ADJA NN KOMMA KON KOUS PIS PDAT ADJA ADJD VVFIN KOMMA KON PAV VVFIN KOMMA VAFIN PPER ART NN APPRART VVFIN INTERP 
+
+chybi_infszu:1
+chybi_podmet:0
+chybi_sum:1
+chybi_vfin:0
+inf_po_vm_neni_na_konci:1
+infszu_neni_na_konci:0
+neni_na_konci_sum:1
+neshoda_podmet_prisudek:0
+pp_bez_av:0
+pp_neni_na_konci:0
+root:4
+sum:6
+vice_osob:0
+vice_sum:0
+vice_vfin:0
+vv_sloveso_neni_na_konci:0
+daher denke ich , müssen wir fördern die türkischen behörden vorantreiben , um die erforderliche einhaltung der politischen kriterien von kopenhagen . 
+PAV VVFIN PPER KOMMA VMFIN PPER VVINF ART ADJA NN VVINF KOMMA KOUI ART ADJA NN ART ADJA NN APPR NN INTERP 
+
+chybi_infszu:0
+chybi_podmet:2
+chybi_sum:3
+chybi_vfin:1
+inf_po_vm_neni_na_konci:0
+infszu_neni_na_konci:0
+neni_na_konci_sum:1
+neshoda_podmet_prisudek:2
+pp_bez_av:0
+pp_neni_na_konci:0
+root:7
+sum:14
+vice_osob:0
+vice_sum:1
+vice_vfin:1
+vv_sloveso_neni_na_konci:1
+dies entspricht , oder besser gesagt , sehr nahe kommt , was vom parlament vorgeschlagenen während der vorigen haushaltsverfahrens , d. h. summe von 196 millionen euro . 
+PDS VVFIN KOMMA KON ADJD VVPP KOMMA ADV PTKVZ VVFIN KOMMA PRELS APPRART ADJA ADJA APPR ART ADJA NN KOMMA PDS VVFIN VVFIN APPR CARD NN NE INTERP 
+

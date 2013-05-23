@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# cesta ke klasifikatoru podle medianu
+klasifikator="/home/marek/bp/DVD/Nastroje/Klasifikator/bin/klasifikator"
+
+for i in $(ls -1d ./modely/*/)
+do
+	echo $i
+	maxent -m $i"maxent_model" $i"train" -i 10
+	$klasifikator -m $i"median_model" -t $i"train"
+	maxent -m $i"maxent_model" -p $i"test" -o $i"maxent_test_predict_detail" > /dev/null
+	$klasifikator -m $i"median_model" -p $i"test" > $i"median_test_predict_detail" 2> /dev/null
+	paste $i"maxent_test_predict_detail" $i"test_fluency" | ./accuracy-differing > $i"maxent_test_predict"
+	paste $i"median_test_predict_detail" $i"test_fluency" | ./accuracy-differing > $i"median_test_predict"	
+	echo "Maxent:"
+	cat $i"maxent_test_predict_detail" | sort | uniq -c >> $i"maxent_test_predict"
+	cat $i"maxent_test_predict"
+	cat $i"median_test_predict_detail" | sort | uniq -c >> $i"median_test_predict"	
+	echo "Median:"
+	cat $i"median_test_predict"
+	echo "-------------------------------------------"
+done

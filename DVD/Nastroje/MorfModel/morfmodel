@@ -1,0 +1,36 @@
+#!/bin/bash
+
+### SPOUSTECI SKRIPT PRO MORFMODEL ###
+# pouziti: ./morfmodel vstup vystup
+# vstup - soubor se vstupnimi vetami (tokenizovanymi - radek=veta) - pro pouziti tokenizeru z ParZu staci u $ParZu odstranit parametr -i tokenized
+# vystp - adresar, kam se maji vystupni soubory ulozit - adresar nemusi existovat
+
+# cesta k parseru ParZu
+ParZu=/home/marek/bp/ParZu/parzu
+
+# pokud vystupni adresar neexistuje, vytvorime ho
+if [ ! -d $2 ]; then 
+	mkdir $2
+fi
+
+# prevod na format ParZu - radek=token, vety oddelene prazdnym radkem
+# pokud chceme vyuzit tokenizer ParZu, musime nasledujici radek zakomentovat
+cat $1 | perl -i -p -e "s/\n/\n\n/" | tr " " "\n" > ./$2/tmp0
+
+# spustime ParZu
+cat ./$2/tmp0 | $ParZu -i tokenized > ./$2/tmp
+
+# uprava vystupu ParZu, zajimaji nas sloupce 5 a 6
+# prazdne radky (oddeluji vety) nejprve nahradime za @, potom konce radku nahradime mezerou, ze zavinacu udelame zpatky konec radku a tabulatory nahradime dvojteckou
+# tim dostaneme vystup - radek = veta a namisto slov RozsirenySlovniDruh:MorfologickaAnalyza oddelene mezerou = vstupni data pro modely s rozsirenym slovnim druhem a vsemi morfologickymi znackami
+cut -f5,6 ./$2/tmp | sed "s/^$/@/" | tr $'\n' ' ' | tr '@' $'\n' | tr $'\t' ':' > ./$2/rsd+morf
+
+# odebereme docasne soubory
+rm ./$2/tmp ./$2/tmp0
+
+# spustime MorfModel
+./bin/morfmodel $2
+
+
+
+

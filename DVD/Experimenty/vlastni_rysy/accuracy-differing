@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# vypise accurancy a pocet lisicich se o jedna
+
+awk 'BEGIN{acc=0; dif=0; tot=0;}
+{if ($1-$2==1 || $1-$2==-1) dif++;
+ else if ($1==$2) acc++;
+ tot++;}
+END{
+ print "Presna shoda: " (acc/tot)*100 " % (" acc "/" tot ")"; 
+ print "Shoda nebo +-1: " ((dif+acc)/tot)*100 " % (" dif+acc "/" tot ")"; 
+ }'
