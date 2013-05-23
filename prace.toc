@@ -37,14 +37,14 @@
 \contentsline {section}{\numberline {4.2}Implementovan\IeC {\'e} n\IeC {\'a}stroje}{39}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}N\IeC {\'a}stroj Klauze}{40}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}N\IeC {\'a}stroj Chyby}{41}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}N\IeC {\'a}stroj Klasifik\IeC {\'a}tor}{41}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Vlastn\IeC {\'\i } rysy}{41}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Rysy typu chybi\_*}{42}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Rysy typu *\_neni\_na\_konci}{44}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Rysy pp\_bez\_av a neshoda\_podmet\_prisudek}{44}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Rysy typu vice\_*}{45}{subsection.4.3.4}
-\contentsline {subsection}{\numberline {4.3.5}Rysy sum a root}{45}{subsection.4.3.5}
-\contentsline {subsection}{\numberline {4.3.6}P\IeC {\v r}esnost ur\IeC {\v c}en\IeC {\'\i } rys\IeC {\r u}}{46}{subsection.4.3.6}
+\contentsline {subsection}{\numberline {4.2.3}N\IeC {\'a}stroj Klasifik\IeC {\'a}tor}{42}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Vlastn\IeC {\'\i } rysy}{42}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Rysy typu chybi\_*}{44}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Rysy typu *\_neni\_na\_konci}{45}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Rysy pp\_bez\_av a neshoda\_podmet\_prisudek}{45}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Rysy typu vice\_*}{46}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Rysy sum a root}{46}{subsection.4.3.5}
+\contentsline {subsection}{\numberline {4.3.6}P\IeC {\v r}esnost ur\IeC {\v c}en\IeC {\'\i } rys\IeC {\r u}}{47}{subsection.4.3.6}
 \contentsline {section}{\numberline {4.4}Princip experiment\IeC {\r u}}{47}{section.4.4}
 \contentsline {section}{\numberline {4.5}Zp\IeC {\r u}sob vyhodnocen\IeC {\'\i }}{48}{section.4.5}
 \contentsline {section}{\numberline {4.6}Modely se v\IeC {\v s}emi rysy}{49}{section.4.6}

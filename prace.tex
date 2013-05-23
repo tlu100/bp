@@ -1542,7 +1542,7 @@ ich denke , dies ist ein fehler , der zu recht setzen .}
 
 \line(1,0){400}
 
-U každého slova anglické věty, vidíme číslo klauze, do které patří -- tedy např. slovo \textit{mistake} patří do druhé klauze. Zarovnání je tvořeno páry odpovídajících slov číslovaných od nuly. Z páru \texttt{\color{blue}4}-{\color{red}5} vidíme, že páté slovo anglické věty (\textit{\color{blue}a}) odpovídá šestému slovu (\textit{\color{red}ein}) věty německé.
+U každého slova anglické věty vidíme číslo klauze, do které patří -- tedy např. slovo \textit{\color{blue}mistake} patří do druhé klauze. Zarovnání je tvořeno páry odpovídajících si slov číslovaných od nuly. Z páru \texttt{\color{blue}4}-{\color{red}5} vidíme, že páté slovo anglické věty (\textit{\color{blue}a}) odpovídá šestému slovu (\textit{\color{red}ein}) věty německé.
 
 %Hranice německých klauzí budeme určovat průchodem přes anglické klauze zleva tj. půjdeme po větě slovo po slovu. Na základě čísla klauze se snažíme rozdělit i německou větu. U každého anglického slova zkontrolujeme, zda pro něj máme údaj o zarovnání. Pokud ano, pak do dané německé klauze přidáme zarovnané slovo, ovšem jenom za předpokladu, že už jsme toto slovo někde nepoužili. Pokud ne, pokračujeme dalším slovem. Na konci dostaneme německé klauze, ve kterých mohou některá slova chybět. Tyto klauze setřídíme jednotlivě podle indexů slov, abychom neporušili původní pořadí v německé větě. Tím dostaneme i minimální a maximální index slova v rámci klauze. Pakliže zjistíme, že ze zarovnání jsme nezískali ani jednu klauzi, vyrobíme hranice od začátku do konce věty.
 
@@ -1562,14 +1562,48 @@ Hranice klauzí budeme určovat následovně:
 Například pro výše uvedenou větu nebyla zarovnána čárka mezi druhou a třetí klauzí. Díky tomu nám zde vznikla mezera. Čárku dle našeho pravidla přiřadíme druhé klauzi, neboť stojí více vlevo.
 \end{itemize}
 
+Výstupní formát je pak ve formě hranicí klauzí, které jsou reprezentovány pomocí indexů slov. Začáteční hranice je od koncové oddělena pomlčkou a mezi klauzemi je znak \texttt{\textbar}. V případě vložené věty může mít jedna klauze více začátečních i koncových hranic -- ty jsou potom odděleny znakem \texttt{+}.
 
-
+Příklad výstupu:\\
+\texttt{0-8+13-20|9-12|21-24}
 
 
 \subsection{Nástroj Chyby}
 
-\subsection{Nástroj Klasifikátor}
+Pro spuštění nástroje Chyby potřebujeme hranice klauzí německých vět z právě popsaného nástroje Klauze a hypotézy ohodnocené plynulostí.
 
+Soubor s hypotézami by měl být ve formátu \texttt{plynulost \textbar ~hypotéza}. Hypotézám se nejprve odebere plynulost a pošlou se parseru ParZu. S výstupem už začne pracovat nástroj Chyby následujícím způsobem:
+
+\begin{itemize}
+\item{Načteme do paměti slova a k nim morfologickou analýzu z parseru.}
+\item{Na základě hranicí klauzí postupně sestavujeme ze slov dané klauze.}
+\item{V klauzích se na základě morfologické analýzy a implementovaných pravidel začnou vyhledávat chyby. Klauze délky 1 jsou přeskočeny, neboť by se v nich našly chyby hlásicí nepřítomnost podmětu, slovesa apod. Výsledná věta by tak dostala zbytečně horší skóre. Jednoslovné klauze přitom mohly vzniknout jenom špatnou identifikací a nemusejí se zakládat na skutečné délce klauzí. Jednotlivá pravidla budou blíže popsána v sekci Vlastní rysy, kde proběhne i jejich vyhodnocení na trénovacích datech.}
+\item{Z každé klauze získáme pravdivostní hodnoty o jednotlivých pravidlech. Celá věta je pak součtem všech klauzí -- tj. byla-li hodnota pravidla \texttt{true}, přičteme jedničku.}
+\item{Na závěr jsou všechny hodnoty pravidel vypsány na výstup.}
+\end{itemize}
+
+K výstupu se vrátí odebraná plynulost a vznikne formát ihned použitelný k natrénování maxentového i mediánového modelu.
+
+Výstupní formát bude např. následující:
+
+\begin{center}
+\begin{tabular}{llll}
+\hline
+\texttt{1} & \texttt{chybi\_vfin:2} & \texttt{pp\_bez\_av:3} & \texttt{chybi\_infszu:1} \\
+\texttt{4} & \texttt{chybi\_vfin:0} & \texttt{pp\_bez\_av:0} & \texttt{chybi\_infszu:1} \\
+\texttt{2} & \texttt{chybi\_vfin:1} & \texttt{pp\_bez\_av:2} & \texttt{chybi\_infszu:0} \\
+\hline
+\end{tabular}
+\end{center}
+
+Jak vidíme z příkladu, druhý řádek nám říká, že hypotéza hodnocená plynulostí 4 má hodnotu rysu \texttt{chybi\_vfin} 0, \texttt{pp\_bez\_av} 0 a \texttt{chybi\_infszu} 1.
+
+\subsection{Nástroj Klasifikátor}
+Pokud se nám podaří najít takové rysy, které budou vhodně korelovat s plynulostí, mohli bychom být schopni predikovat plynulost právě jen na základě mediánů hodnot rysů jednotlivých plynulostí vypočtených z trénovacích dat. Trénovací data by měla být pro optimální funkčnost seřazena podle hodnocení plynulosti od nejhorší po nejlepší.
+
+Nástroj Klasifikátor funguje jednoduchým způsobem. Začneme načítat všechny hodnoty rysů z trénovacích dat a hned je rozdělujeme podle plynulosti dané hypotézy. Poté najdeme medián pro každý rys a každou plynulost. Mediány zapíšeme do souboru jako model použitelný pro predikci.
+
+Predikce si zpětně pro každý rys a každou plynulost načte medián. Hodnoty mezi mediány jsou rozděleny na polovinu mezi dvě nejbližší hodnoty, přičemž v případě lichého počtu bude přidělena horší plynulosti jedna hodnota navíc. Pokud mají dvě plynulosti stejný medián, zvýšíme hodnotu odpovídající horší plynulosti o jedna. Právě kvůli tomu je vhodné mít trénovací data seřazena podle plynulostí od nejhorších po nejlepší. Potom už jenom na základě hodnoty mediánu predikujeme plynulost. U modelů s více rysy navrhne každý z rysů jednu plynulost, návrhy jsou potom zprůměrovány. Při počítání průměru používáme celočíselného dělení, hodnoty jsou proto zaokrouhleny dolů směrem k horší hodnotě plynulosti.
 
 
 
@@ -1744,7 +1778,6 @@ Rysy \texttt{sum} a \texttt{root} vykazují souvislost svých hodnot s plynulost
 \subsection{Přesnost určení rysů}
 Jak jsme již zmínili, určování rysů se musí spoléhat na další výstupy nástrojů, které taktéž nepracují bezchybně. Abychom alespoň orientačně věděli, jak přesné určení rysů je, analyzovali jsme ručně 15 náhodných vět a kontrolovali, zda se hodnota rysu shoduje se skutečností. V rámci ruční kontroly jsme přišli na to, že spoustu chyb v určení zapříčiňuje špatná identifikace slovního druhu parserem ParZu. K chybě dochází především z důvodu, že německé hypotézy jsou psané pouze malými písmeny. V němčině ale často právě velké písmeno rozhodne o tom, zda se jedná o sloveso nebo podstatné jméno, \textit{např. zahlen $\times$ Zahlen}.
 
-\pagebreak
 
 Příklad ruční analýzy:
 
@@ -1792,19 +1825,7 @@ Pro identifikaci klauzí vznikl k bakalářské práci program \textbf{Klauze}, 
 
 Na morfologickou analýzu a větný rozbor použijeme opět parser ParZu. Tentokrát ale využijeme ještě dalších informací, které poskytuje. Zkusíme využít v náš prospěch i skutečnosti, že u gramaticky špatné věty postaví větný rozbor chybně (pro rys \texttt{root}).
 
-Pro hledání chyb v jednotlivých klauzích jsme stvořili program Chyby. Ten se na základě provedené analýzy z ParZu a hranicí klauzí snaží určit některé gramatické chyby, pro celou větu pak vydá tyto chyby jako součet všech klauzí. Výstupem je soubor ve formátu ihned použitelném pro natrénování v Maxent Toolkitu od Le Zhanga. Za pomocí rysů vycházejících z gramatiky se budeme snažit predikovat plynulost. Výstupní formát bude tedy např. následující:
-
-\begin{center}
-\begin{tabular}{llll}
-\hline
-\texttt{1} & \texttt{chybi\_vfin:2} & \texttt{pp\_bez\_av:3} & \texttt{chybi\_infszu:1} \\
-\texttt{4} & \texttt{chybi\_vfin:0} & \texttt{pp\_bez\_av:0} & \texttt{chybi\_infszu:1} \\
-\texttt{2} & \texttt{chybi\_vfin:1} & \texttt{pp\_bez\_av:2} & \texttt{chybi\_infszu:0} \\
-\hline
-\end{tabular}
-\end{center}
-
-Jak vidíme z příkladu, druhý řádek nám říká, že hypotéza hodnocená plynulostí 4 má hodnotu rysu \texttt{chybi\_vfin} 0, \texttt{pp\_bez\_av} 0 a \texttt{chybi\_infszu} 1.
+Pro hledání chyb v jednotlivých klauzích jsme stvořili program Chyby. Ten se na základě provedené analýzy z ParZu a hranicí klauzí snaží určit některé gramatické chyby, pro celou větu pak vydá tyto chyby jako součet všech klauzí. Výstupem je soubor ve formátu ihned použitelném pro natrénování v Maxent Toolkitu od Le Zhanga. Za pomocí rysů vycházejících z gramatiky se budeme snažit predikovat plynulost. 
 
 Maxentové modely budeme trénovat v MaxentToolkitu(ZDROJ) od Le Zhanga. Pro určení vah rysů využijeme výchozího nastavení tj. metody LBFGS.
 
