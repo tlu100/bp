@@ -1514,6 +1514,20 @@ Pro následující experimenty používáme stejná data s ručně hodnocenou pl
 
 Vzhledem k tomu, že budou rysy vycházet z německé gramatiky, budeme často potřebovat znát hranice klauzí dané věty. Určit klauze z hypotézy, která není gramaticky správně, je však obtížné -- parser je v takovém případě zmatený a neudělá větný rozbor správně. Na základě toho používáme klauze identifikované z výchozího anglického textu, který je gramaticky správně, a na německou stranu je pak převádíme pomocí zarovnání na úrovni slov. 
 
+\section{Implementované nástroje}
+Abychom mohli následující experimenty provést, bylo zapotřebí naimplementovat několik nástrojů. Jako první potřebujeme nástroj pro projekci anglických klauzí pomocí zarovnání slov na německou stranu. Pro tyto účely jsme vytvořili nástroj \textbf{Klauze}. Díky identifikovaným německým klauzím jsme se mohli už zaměřit na programování hledání chyb v hypotézách, k tomu slouží nástroj \textbf{Chyby}. Na základě identifikovaných chyb už stačí jen tyto hodnoty použít jako rysy pro natrénování modelů. Zmínili jsme se však, že zkusíme predikovat plynulost i jenom na základě mediánů. Vzniknul proto nástroj na trénování a testování mediánových modelů -- \textbf{Klasifikátor}. V následující sekci si všechny nástroje popíšeme.
+
+\subsection{Nástroj Klauze}
+
+
+
+\subsection{Nástroj Chyby}
+
+\subsection{Nástroj Klasifikátor}
+
+
+
+
 \section{Vlastní rysy}
 Vlastní množina rysů sestává především z gramatických jevů, které n-gramy nemají možnost zachytit. Jedná se hlavně o tvorbu větného rámce. Mimo to ale budeme zkoumat, zda se ve větě třeba nevyskytuje více určitých sloves nebo naopak sloveso úplně chybí.
 
