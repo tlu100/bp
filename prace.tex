@@ -1603,7 +1603,7 @@ Pokud se nám podaří najít takové rysy, které budou vhodně korelovat s ply
 
 Nástroj Klasifikátor funguje jednoduchým způsobem. Začneme načítat všechny hodnoty rysů z trénovacích dat a hned je rozdělujeme podle plynulosti dané hypotézy. Poté najdeme medián pro každý rys a každou plynulost. Mediány zapíšeme do souboru jako model použitelný pro predikci.
 
-Predikce si zpětně pro každý rys a každou plynulost načte medián. Hodnoty mezi mediány jsou rozděleny na polovinu mezi dvě nejbližší hodnoty, přičemž v případě lichého počtu bude přidělena horší plynulosti jedna hodnota navíc. Pokud mají dvě plynulosti stejný medián, zvýšíme hodnotu odpovídající horší plynulosti o jedna. Právě kvůli tomu je vhodné mít trénovací data seřazena podle plynulostí od nejhorších po nejlepší. Potom už jenom na základě hodnoty mediánu predikujeme plynulost. U modelů s více rysy navrhne každý z rysů jednu plynulost, návrhy jsou potom zprůměrovány. Při počítání průměru používáme celočíselného dělení, hodnoty jsou proto zaokrouhleny dolů směrem k horší hodnotě plynulosti.
+Predikce si zpětně pro každý rys a každou plynulost načte medián. Hodnoty mezi mediány jsou rozděleny na polovinu mezi dvě nejbližší hodnoty mediánů, přičemž v případě lichého počtu bude přidělena horší plynulosti jedna hodnota navíc. Pokud mají dvě plynulosti stejný medián, zvýšíme hodnotu odpovídající horší plynulosti o jedna. Právě kvůli tomu je vhodné mít trénovací data seřazena podle plynulostí od nejhorších po nejlepší. Potom už jenom na základě hodnoty mediánu predikujeme plynulost. U modelů s více rysy navrhne každý z rysů jednu plynulost, návrhy jsou potom zprůměrovány. Při počítání průměru používáme celočíselného dělení, hodnoty jsou proto zaokrouhleny dolů směrem k horší hodnotě plynulosti.
 
 
 
@@ -1638,7 +1638,9 @@ Celkem jsme navrhli a implementovali následujících 17 rysů, u kterých vysv�
 \item{\texttt{sumr} -- jako \texttt{sum}, ale včetně \texttt{root}}
 \end{enumerate}
 
-Pomocí programu Chyby, který vzniknul k této práci, jsme změřili na vývojových datech korelaci každého rysu s ručně hodnocenou plynulostí. Každý rys kromě rysů součtových a rysu \texttt{root} jsou určovány pro každou klauzi zvlášť a mohou v ní vždy dostat jen hodnotu \texttt{true}/\texttt{false}. Rysy celé věty jsou pak součtem hodnot rysů ze všech klauzí -- přičteme vždy jedničku, když daný rys nabyl v klauzi hodnoty \texttt{true}.
+Pomocí programu Chyby, o kterém jsme se již zmínili, jsme změřili na vývojových datech korelaci každého rysu s ručně hodnocenou plynulostí. Každý rys kromě rysů součtových a rysu \texttt{root} jsou určovány pro každou klauzi zvlášť a mohou v ní vždy dostat jen hodnotu \texttt{true}/\texttt{false}. Rysy celé věty jsou pak součtem hodnot rysů ze všech klauzí -- přičteme vždy jedničku, když daný rys nabyl v klauzi hodnoty \texttt{true}.
+
+Znázornění provedeme pomocí tzv. bublinových grafů. V místě střetu plynulosti a dané hodnoty rysu se vždy vykreslí kruh (bublina) velká tak, kolik procent hodnot dané plynulosti dostalo tuto hodnotu rysu. Bubliny jsou navíc barevně odstupňované podle počtu procent -- čím světlejší, tím menší výskyt. Uvnitř každé bubliny je navíc vypsáno toto procentuální vyjádření.
 
 \subsection{Rysy typu chybi\_*}
 \begin{figure}[!htb]
@@ -1663,7 +1665,7 @@ Pomocí programu Chyby, který vzniknul k této práci, jsme změřili na vývoj
 \endminipage
 \end{figure}
 
-Jednotlivé rysy samostatně neukázaly závislost s plynulostí (obrázky \ref{gr:infszu}, \ref{gr:podmet}, \ref{gr:vfin}). V součtu je u hypotéz s plynulostí 5 medián na nule, což je správně, neboť tyto hypotézy by měly být úplně bez chyb (obrázek \ref{gr:chybi}). Hodnoty nad nulou jsou způsobené jednak chybami v hranicích klauzí, protože se v nich spoléháme na identifikaci klauzí anglických a na zarovnání slov. Jednak také chybami při morfologické analýze z ParZu a samozřejmě také speciálními případy, se kterými náš program na vyhledávání hodnot rysů nepočítá.
+Jednotlivé rysy samostatně neukázaly souvislost s plynulostí (obrázky \ref{gr:infszu}, \ref{gr:podmet}, \ref{gr:vfin}), neboť hodnoty se pohybují hlavně okolo nuly. V součtu je u hypotéz s plynulostí nejvíce hodnot na nule, což je správně, neboť tyto hypotézy by měly být úplně bez chyb (obrázek \ref{gr:chybi}). Hodnoty nad nulou jsou způsobené jednak chybami v hranicích klauzí, protože se v nich spoléháme na identifikaci klauzí anglických a na zarovnání slov. Jednak také chybami při morfologické analýze z ParZu a samozřejmě také speciálními případy, se kterými náš program na vyhledávání hodnot rysů nepočítá.
 
 \pagebreak
 
@@ -1699,7 +1701,7 @@ Jednotlivé rysy samostatně neukázaly závislost s plynulostí (obrázky \ref{
 \end{figure}
 
 
-Zde je situace podobná jako u předchozí skupiny rysů. Jednotlivé rysy samostatně (obrázky \ref{gr:vm}, \ref{gr:infszu_konec}, \ref{gr:vvsloveso}, \ref{gr:pp_konec}) mají mediány na nule. U součtového rysu (obrázek \ref{gr:sumneni}) alespoň hypotézy s hodnocením plynulosti 5 dostávaly oproti ostatním plynulostem častěji nulu.
+Zde je situace podobná jako u předchozí skupiny rysů. Jednotlivé rysy samostatně (obrázky \ref{gr:vm}, \ref{gr:infszu_konec}, \ref{gr:vvsloveso}, \ref{gr:pp_konec}) mají hodnoty nejčastěji okolo nuly. U součtového rysu (obrázek \ref{gr:sumneni}) alespoň hypotézy s hodnocením plynulosti 5 dostávaly oproti ostatním plynulostem častěji nulu.
 
 
 \subsection{Rysy pp\_bez\_av a neshoda\_podmet\_prisudek}
@@ -1736,7 +1738,7 @@ Oba rysy opět nevykazují samostatně souvislost s plynulostí (obrázky \ref{g
 \endminipage\hfill
 \end{figure}
 
-Shodně dopadly i rysy typu \texttt{vice\_*}. Mediány rysu \texttt{vice\_osob} jsou nulové (obrázek \ref{gr:viceosob}). U rysu \texttt{vice\_vfin} mediány kolísají mezi nulou a jedničkou (obrázek \ref{gr:vicevfin}), stejně jako i u součtového rysu (obrázek \ref{gr:vicesum}).
+Shodně dopadly i rysy typu \texttt{vice\_*}. Nejčastější hodnoty rysu \texttt{vice\_osob} jsou nulové (obrázek \ref{gr:viceosob}). U rysu \texttt{vice\_vfin} kolísají hlavně mezi nulou a jedničkou (obrázek \ref{gr:vicevfin}), stejně jako i u součtového rysu (obrázek \ref{gr:vicesum}).
 
 \subsection{Rysy sum a root}
 \begin{figure}[!htb]
@@ -1756,6 +1758,8 @@ Shodně dopadly i rysy typu \texttt{vice\_*}. Mediány rysu \texttt{vice\_osob} 
 \end{center}
 \end{figure}
 
+Vzhledem k tomu, že tyto rysy mají větší rozsah hodnot než rysy předchozí a bublinový graf zde situaci spíše znepřehledňuje, vykreslíme pro ně standardní box\-plot. Všemi hodnotami ještě proložíme přímku.
+
 \begin{figure}[!htb]
 \begin{center}
 \minipage[t]{0.31\textwidth}
@@ -1772,6 +1776,7 @@ Shodně dopadly i rysy typu \texttt{vice\_*}. Mediány rysu \texttt{vice\_osob} 
 \endminipage
 \end{center}
 \end{figure}
+
 
 Rysy \texttt{sum} a \texttt{root} vykazují souvislost svých hodnot s plynulostí (obrázky \ref{gr:sum}, \ref{gr:root}). Mediány mají pro různé plynulosti odlišné hodnoty (až na plynulosti 1 a 2). Jejich součet -- rys \texttt{sumr} (obrázek \ref{gr:sumr})  V následujících experimentech proto zkusíme, zda se dá predikovat plynulost třeba jen na základě mediánu vypočteného pro jednotlivé plynulosti v trénovacích datech. Nejprve je však potřeba podívat se na přesnost určení hodnot rysů jako takových.
 

@@ -45,15 +45,15 @@
 \contentsline {subsection}{\numberline {4.3.4}Rysy typu vice\_*}{46}{subsection.4.3.4}
 \contentsline {subsection}{\numberline {4.3.5}Rysy sum a root}{46}{subsection.4.3.5}
 \contentsline {subsection}{\numberline {4.3.6}P\IeC {\v r}esnost ur\IeC {\v c}en\IeC {\'\i } rys\IeC {\r u}}{47}{subsection.4.3.6}
-\contentsline {section}{\numberline {4.4}Princip experiment\IeC {\r u}}{47}{section.4.4}
-\contentsline {section}{\numberline {4.5}Zp\IeC {\r u}sob vyhodnocen\IeC {\'\i }}{48}{section.4.5}
+\contentsline {section}{\numberline {4.4}Princip experiment\IeC {\r u}}{48}{section.4.4}
+\contentsline {section}{\numberline {4.5}Zp\IeC {\r u}sob vyhodnocen\IeC {\'\i }}{49}{section.4.5}
 \contentsline {section}{\numberline {4.6}Modely se v\IeC {\v s}emi rysy}{49}{section.4.6}
 \contentsline {section}{\numberline {4.7}Modely se sou\IeC {\v c}tov\IeC {\'y}mi rysy}{49}{section.4.7}
 \contentsline {subsection}{\numberline {4.7.1}S rysem root}{50}{subsection.4.7.1}
 \contentsline {section}{\numberline {4.8}Modely s rysem root}{50}{section.4.8}
 \contentsline {section}{\numberline {4.9}Modely s rysem sum}{51}{section.4.9}
 \contentsline {subsection}{\numberline {4.9.1}S rysem root}{51}{subsection.4.9.1}
-\contentsline {section}{\numberline {4.10}Modely s rysem sumr}{51}{section.4.10}
+\contentsline {section}{\numberline {4.10}Modely s rysem sumr}{52}{section.4.10}
 \contentsline {section}{\numberline {4.11}Modely se v\IeC {\v s}emi rysy krom\IeC {\v e} rys\IeC {\r u} sou\IeC {\v c}tov\IeC {\'y}ch}{52}{section.4.11}
 \contentsline {subsection}{\numberline {4.11.1}Bez rysu root}{52}{subsection.4.11.1}
 \contentsline {section}{\numberline {4.12}Shrnut\IeC {\'\i }}{54}{section.4.12}
