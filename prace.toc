@@ -52,13 +52,12 @@
 \contentsline {subsection}{\numberline {4.7.1}S rysem root}{50}{subsection.4.7.1}
 \contentsline {section}{\numberline {4.8}Modely s rysem root}{50}{section.4.8}
 \contentsline {section}{\numberline {4.9}Modely s rysem sum}{51}{section.4.9}
-\contentsline {subsection}{\numberline {4.9.1}S rysem root}{51}{subsection.4.9.1}
-\contentsline {section}{\numberline {4.10}Modely s rysem sumr}{52}{section.4.10}
-\contentsline {section}{\numberline {4.11}Modely se v\IeC {\v s}emi rysy krom\IeC {\v e} rys\IeC {\r u} sou\IeC {\v c}tov\IeC {\'y}ch}{52}{section.4.11}
-\contentsline {subsection}{\numberline {4.11.1}Bez rysu root}{53}{subsection.4.11.1}
-\contentsline {section}{\numberline {4.12}Shrnut\IeC {\'\i }}{53}{section.4.12}
-\contentsline {chapter}{Z\IeC {\'a}v\IeC {\v e}r}{55}{chapter*.49}
-\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{56}{chapter*.49}
-\contentsline {chapter}{Seznam obr\'azk\r {u}}{58}{chapter*.51}
-\contentsline {chapter}{Seznam tabulek}{59}{chapter*.52}
-\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{60}{chapter*.53}
+\contentsline {subsection}{\numberline {4.9.1}S rysem root}{52}{subsection.4.9.1}
+\contentsline {section}{\numberline {4.10}Modely s rysem sumr}{53}{section.4.10}
+\contentsline {section}{\numberline {4.11}Modely se v\IeC {\v s}emi rysy krom\IeC {\v e} rys\IeC {\r u} sou\IeC {\v c}tov\IeC {\'y}ch}{54}{section.4.11}
+\contentsline {subsection}{\numberline {4.11.1}Bez rysu root}{54}{subsection.4.11.1}
+\contentsline {section}{\numberline {4.12}Shrnut\IeC {\'\i }}{55}{section.4.12}
+\contentsline {chapter}{Z\IeC {\'a}v\IeC {\v e}r}{56}{chapter*.49}
+\contentsline {chapter}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{57}{chapter*.49}
+\contentsline {chapter}{Seznam obr\'azk\r {u}}{60}{chapter*.51}
+\contentsline {chapter}{Seznam tabulek}{61}{chapter*.52}

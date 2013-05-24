@@ -178,33 +178,43 @@ Praha 2013
 \noindent
 \begin{center}
 
+\vspace{50mm}
+
 \textit{
 Rád bych poděkoval především vedoucímu práce}
+\vspace{5mm}
 
 \textit{RNDr. Ondřeji Bojarovi, Ph.D.}
 
-\textit{za cenné rady a připomínky při vedení práce.}
+\textit{za cenné rady, připomínky a trpělivost.}
 
-\vspace{50mm}
+\vspace{30mm}
 
 
 
-\textit{Dále bych rád poděkoval}
+\textit{dále bych rád poděkoval}
+
+\vspace{10mm}
 
 \textit{RNDr. Danielu Zemanovi, Ph.D.}
 
 \textit{za poskytnutí německých nbestlistů}
 
+\vspace{10mm}
+
 \textit{Bc. Rudolfu Rosovi}
 
-\textit{za identifikaci anglických klauzí. }
+\textit{za identifikaci anglických klauzí}
 
 
 
-\vspace{50mm}
+\vspace{30mm}
 
 \textit{
-Velký dík patří i mé rodině, přátelům a známým za jejich podporu při studiu.
+Velký dík patří i mé rodině, přátelům a známým }
+
+\textit{
+za jejich podporu při studiu.
 }
 
 \end{center}
@@ -230,7 +240,7 @@ práce jako školního díla podle §60 odst. 1 autorského zákona.
 \hbox{\hbox to 0.5\hsize{%
 V Praze dne 24. 5. 2013
 \hss}\hbox to 0.5\hsize{%
-Podpis autora
+%Podpis autora
 \hss}}
 
 \vspace{20mm}
@@ -240,7 +250,7 @@ Podpis autora
 
 \vbox to 0.5\vsize{
 \setlength\parindent{0mm}
-\setlength\parskip{5mm}
+\setlength\parskip{3mm}
 
 Název práce:
 Jazykové modelování pro němčinu
@@ -259,15 +269,13 @@ RNDr. Ondřej Bojar, Ph.D.
 
 Abstrakt:
 % abstrakt v rozsahu 80-200 slov; nejedná se však o opis zadání bakalářské práce
-Práce se zabývá jazykovým modelováním pro němčinu. Soustředí se na specifika německé gramatiky, která činí běžným n-gramovým modelům problémy. Nejprve popisuje statistické metody jazykového modelování a vysvětluje problematické jevy němčiny. Následně navrhuje vlastní varianty n-gramových jazykových modelů s cílem tyto problémy zlepšit. Vlastní modely jsou trénovány jednak jako standardní n-gramové, a jednak také metodou maximální entropie s n-gramovými rysy. Oba typy jsou vždy porovnány z hlediska korelace ručně hodnocené plynulosti vět a automatického hodnocení -- perplexity. Srovnány jsou zároveň výpočetní nároky potřebné k natrénování jednotlivých modelů. Dále je navrhnuta množina vlastních rysů reprezentující počet gramatických chyb vybraných jevů. Úspěšnost se ověřuje na schopnosti predikovat ručně hodnocenou plynulost. Využito je modelů maximální entropie a vlastních modelů klasifikujících jen na základě mediánů hodnot rysů vypočtených z trénovacích dat. U rysů, jejichž hodnota dobře koreluje s plynulostí, zkoušíme taktéž predikci pomocí lineární regrese. Výsledky n-gramových modelů ukazují určité zlepšení. S vlastními rysy se dařilo predikovat plynulost alespoň přibližně.
+Práce se zabývá jazykovým modelováním pro němčinu. Soustředí se na specifika německé gramatiky, která činí běžným n-gramovým modelům problémy. Nejprve popisuje statistické metody jazykového modelování a vysvětluje problematické jevy němčiny. Následně navrhuje vlastní varianty n-gramových jazykových modelů s cílem tyto problémy zlepšit. Vlastní modely jsou trénovány jednak jako standardní n-gramové, a jednak také metodou maximální entropie s n-gramovými rysy. Oba typy jsou vždy porovnány z hlediska korelace ručně hodnocené plynulosti vět a automatického hodnocení -- perplexity. Srovnány jsou zároveň výpočetní nároky potřebné k natrénování jednotlivých modelů. Dále je navrhnuta množina vlastních rysů reprezentující počet gramatických chyb vybraných jevů. Úspěšnost se ověřuje na schopnosti predikovat ručně hodnocenou plynulost. Využito je modelů maximální entropie a vlastních modelů klasifikujících jen na základě mediánů hodnot rysů vypočtených z trénovacích dat. Zkoušíme taktéž predikci pomocí lineární regrese. Výsledky n-gramových modelů ukazují určité zlepšení. S vlastními rysy se dařilo predikovat plynulost alespoň přibližně.
 
-Klíčová slova:
-% 3 až 5 klíčových slov
-jazykové modelování, němčina, n-gram, maximální entropie
+Klíčová slova: jazykové modelování, němčina, n-gram, maximální entropie
 
 \vss}\nobreak\vbox to 0.49\vsize{
 \setlength\parindent{0mm}
-\setlength\parskip{5mm}
+\setlength\parskip{3mm}
 
 Title: Language Modelling for German
 % přesný překlad názvu práce v angličtině
@@ -287,6 +295,7 @@ RNDr. Ondřej Bojar, Ph.D.
 Abstract:
 % abstrakt v rozsahu 80-200 slov v angličtině; nejedná se však o překlad
 % zadání bakalářské práce
+The topic of work is the language modelling for German. The main concerns are the specifics of German language that trouble the typical n-gram models. First the statistical methods of language modelling are described and language phenomena of german are explained. Following that suggests own variants of n-gram language models with an aim to improve these problems. The models themselves are trained using the standard n-gram methods as well as using the method of maximal entropy with n-gram features. Both possibilities are compared using corelation metrics of hand-evaluated fluency of sentences and automatic evaluation -- the perplexity. Also, the computation requirements for training individual components are compared. Next, thesis presents a set of own observable phenomena that represent the count of grammatical errors of chosen phenomena. Success rate is verified on ability to predict the hand-evaluated fluency. Models of maximum entropy and own models that classify only using the medians of phenomena values computed from training data are used. Also the prediction using the linear regression is attempted. Results of n-gram models show certain improvement. Usage of own phenomena varieties has succeeded in prediction of fluency at least to some aproximate extent.
 
 Keywords:
 % 3 až 5 klíčových slov v angličtině
@@ -324,11 +333,11 @@ Mimo strojový překlad se rozvíjely i další aplikace zpracování přirozen�
 
 Jedny z nejrozšířenějších a stále nejpoužívanějších modelů jsou modely \textit{n-gramové}, které sledují jen krátké posloupnosti po sobě jdoucích slov a na základě několika slov se snaží předpovědět slovo následující. Takový přístup úspěšně funguje na analytické jazyky, které pro gramatické jevy nepoužívají ohýbání slov -- flexi. Mezi takové jazyky se řadí např. angličtina, ta využívá flexi jen minimálně z historických důvodů. Flektivní jazyky, mezi které patří právě němčina nebo čeština, využívají časování, skloňování, předpony, přípony a další, což podstatně zvyšuje počet přípustných slovních tvarů, a tedy i počet platných n-gramů, které by model potřeboval v trénovacích datech vidět. Němčina navíc velice často dává nějaké slovo na konec věty, což krátká posloupnost slov nemůže zachytit.
 
-V této práci se proto budeme zabývat jazykovými modely pro němčinu. Vyzkoušíme jednak využít morfologickou analýzu pro natrénování \textit{n-gramových modelů} s morfologickými značkami. Modely založené na morfologických třídách zkoušely třeba Chaoui, Yvon, Mokbel, Chollet (ZDROJ) na arabštině. Využili kombinace se standardními n-gramovými modely a uvádějí zlepšení. Kladně hodnotí využití rozšířeného slovního druhu i Wakita, Kawai, Iida (ZDROJ). Na němčině zkoušel tento přístup třeba Geutner (ZDROJ). Za pomocí interpolace kombinuje modely se slovy a modely založené na slovních druzích. Trochu jiný způsob popisuje Popović (ZDROJ), která kombinuje slovní druhy a morfémy. S morfémy experimentovali i Fraser, Marion, Weller, Cap \cite{fraser12}. Ti nejprve překládali kmen slova a poté predikovali jeho formu za pomocí modelování pádu, rodu a čísla. S úspěšností predikce formy se dostali až téměř k 95 \%. My zkusíme využít jen modelů na morfologických značkách, u nichž budeme zkoumat korelaci automatického a ručního hodnocení s cílem korelaci zlepšit, aby hodnocení počítačem (perplexita) korelovalo s hodnocením lidmi (plynulost vět).
+V této práci se proto budeme zabývat jazykovými modely pro němčinu. Vyzkoušíme využít morfologickou analýzu pro natrénování \textit{n-gramových modelů} s morfologickými značkami. Modely založené na morfologických třídách zkoušely třeba Chaoui, Yvon, Mokbel, Chollet \cite{ghaoui} na arabštině. Využili kombinace se standardními n-gramovými modely a uvádějí zlepšení. Kladně hodnotí využití rozšířeného slovního druhu i Wakita, Kawai, Iida \cite{wakita}. Na němčině zkoušela tento přístup třeba Geutner \cite{geutner}. Za pomocí interpolace kombinuje modely se slovy a modely založené na slovních druzích. Trochu jiný způsob popisuje Popović \cite{popovic}, která kombinuje slovní druhy a morfémy. S morfémy experimentovali i Fraser, Marion, Weller, Cap \cite{fraser12}. Ti nejprve překládali kmen slova a poté predikovali jeho formu za pomocí modelování pádu, rodu a čísla. S úspěšností predikce formy se dostali až téměř k 95 \%. My zkusíme využít jen modelů na morfologických značkách, u nichž budeme zkoumat korelaci automatického a ručního hodnocení s cílem korelaci zlepšit, aby hodnocení počítačem (perplexita) korelovalo s hodnocením lidmi (plynulost vět).
 
-Ručním hodnocením plynulosti se budeme zabývat i z jiné stránky a zkusíme navrhnout vlastní množinu rysů pro využití potenciálu modelů maximální entropie s cílem postihnout německou gramatiku. Gramatické rysy zkoušel využít např. Rukolaien (ZDROJ). Udává zlepšení perplexity o 16 \% a zkouší zároveň i kombinaci s n-gramovými modely se slovy. Amaya, Benedí (ZDROJ) využívají také gramatické rysy modelované za použití slovních druhů stochastickými bezkontextovými gramatikami. Naše modely budou sice také vycházet z gramatiky, ale nebudou modelovat správné gramatické jevy, nýbrž gramatické chyby. Na základě nich se pak budeme snažit predikovat ručně hodnocenou plynulost.
+Ručním hodnocením plynulosti se budeme zabývat i z jiné stránky a zkusíme navrhnout vlastní množinu rysů pro využití potenciálu modelů maximální entropie s cílem postihnout německou gramatiku. Gramatické rysy zkoušel využít např. Ruokolainen \cite{ruokolainen}. Udává zlepšení perplexity o 16 \% a zkouší zároveň i kombinaci s n-gramovými modely se slovy. Amaya, Benedí \cite{amaya} využívají také gramatické rysy modelované za použití slovních druhů stochastickými bezkontextovými gramatikami. Naše modely budou sice také vycházet z gramatiky, ale nebudou modelovat správné gramatické jevy, nýbrž gramatické chyby. Na základě nich se pak budeme snažit predikovat ručně hodnocenou plynulost.
 
-Hlavní obsah práce je strukturován do čtyř kapitol. První z nich se zabývá jazykovými modely. Popisuje matematické základy a statistické metody, které se pro jazykové modelování používají. V další kapitole jsou pak stručně vysvětleny problematické jevy německé gramatiky s ukázkou analýzy chybných hypotéz. Následuje první kapitola s experimenty popisující princip a výsledky experimentů týkajících se jazykových modelů s morfologickými značkami. Takové modely trénujeme jednak jako standardní n-gramové, a jednak metodou maximální entropie s n-gramovými rysy. Graficky srovnáváme korelaci perplexity a ručně hodnocené plynulosti u obou typů. Celkové srovnání je pak provedeno za pomocí korelačních koeficientů. Poslední kapitola se pak zabývá druhou sérií experimentů, kde je zkoumána korelace navrhnutých rysů s ručně hodnocenou plynulostí. Jsou zde natrénovány modely maximální entropie a také vlastní modely hodnotící jen na základě mediánů vypočtených dle jednotlivých plynulostí z trénovacích dat. Srovnání provádíme podle úspěšnosti predikce plynulosti.
+Hlavní obsah práce je strukturován do čtyř kapitol. První z nich se zabývá jazykovými modely. Popisuje matematické základy a statistické metody, které se pro jazykové modelování používají. V další kapitole jsou pak stručně vysvětleny problematické jevy německé gramatiky s ukázkou analýzy chybných hypotéz. Následuje první kapitola s experimenty popisující princip a výsledky experimentů týkajících se jazykových modelů s morfologickými značkami. Takové modely trénujeme jednak jako standardní n-gramové, a jednak metodou maximální entropie s n-gramovými rysy. Graficky srovnáváme korelaci perplexity a ručně hodnocené plynulosti u obou typů. Celkové srovnání je pak provedeno za pomocí korelačních koeficientů. Poslední kapitola se zabývá druhou sérií experimentů, kde je zkoumána korelace navrhnutých rysů s ručně hodnocenou plynulostí. Jsou zde natrénovány modely maximální entropie a také vlastní modely hodnotící jen na základě mediánů vypočtených dle jednotlivých plynulostí z trénovacích dat. Srovnání provádíme podle úspěšnosti predikce plynulosti.
 
 
 
@@ -422,7 +431,7 @@ Good-Turingova metoda bere n-gramy, které se vyskytly v trénovacích datech r-
 r^* = (r+1) \cdot \frac {N_{r+1}}{N_r}
 \end{equation}
 
-V jednodušší variantě se pro vhodně zvolenou konstantu $k$ pravděpodobnost n-gramu vypočítá jako:
+Pro vhodně zvolenou konstantu $k$ se pravděpodobnost n-gramu vypočítá jako:
 \begin{equation}
 P_{GT}(w_{1},\ldots,w_{n}) = \left\{
 \begin{array}{ll}
@@ -434,7 +443,7 @@ P_{GT}(w_{1},\ldots,w_{n}) = \left\{
 
 Pokud bychom počítali pravděpodobnost pro všechny n-gramy podle prvního vzorce, nejen pro $r < k$, dostaly by ty nejvíce spatřené nulovou pravděpodobnost, neboť pro ně bude $N_{r+1} = 0$. Z tohoto důvodu je potřeba vhodně volit konstantu $k$ a pro $r >= k$ počítat pravděpodobnost standardně odhadem maximální věrohodnosti (MLE), který dává dobré výsledky.
 
-Důkaz, že takto přerozdělíme jenom zbývající část pravděpodobnosti, se lze dočíst v původním dokumentu -- Good (ZDROJ).
+Důkaz, že takto přerozdělíme jenom zbývající část pravděpodobnosti, se lze dočíst v původním dokumentu -- Good \cite{turing}.
 
 %Ve složitější variantě se namísto konstanty $k$ volí funkce $S(r)$ podle zjištěných hodnot $r$ a $N_r$.
 %\begin{equation}\label{eq:gtr2}
@@ -457,7 +466,8 @@ Důkaz, že takto přerozdělíme jenom zbývající část pravděpodobnosti, s
 %\end{equation}
 %kde $q$, $r$ a $t$ jsou po sobě jdoucí indexy mající $N_q$, $N_r$ a $N_t$ nenulové. Je-li $N_r$ poslední nenulová frekvence n-gramů, dosadíme $t = 2r - q$. V případě, kdy $r = 1$, bereme $N_q = N_0$.
 
-Good-Turingovo vyhlazování podává dobré výsledky pro málo frekventované n-gramy, a proto se v praxi často používá. Je také výchozím nastavením SRILM toolkitu\footnote{Sada nástrojů pro jazykové modelování. V tomto toolkitu budeme také trénovat všechny n-gramové modely. Více viz (odkaz na zdroj)} při trénování n-gramových modelů. Podrobněji o Good-Turingově vyhlazování píše třeba .....[x] nebo ....[y].
+Good-Turingovo vyhlazování podává dobré výsledky pro málo frekventované n-gramy, a proto se v praxi často používá. Je také výchozím nastavením SRILM toolkitu\footnote{Sada nástrojů pro jazykové modelování. V tomto toolkitu budeme také trénovat všechny n-gramové modely. Více viz \cite{srilm}} při trénování n-gramových modelů.
+
 
 \section{Katzovy back-off n-gramové modely}
 V trénovacích datech se nemusel objevit n-gram, který zrovna chceme, a bez použití vyhlazování bychom dostali nulovou pravděpodobnost. V trénovacích datech ale mohl být podobný n-gram lišící se jen délkou historie. Pro zužitkování této informace od kratších n-gramů se proto využívá kombinace n-gramových modelů nižších řádů pomocí \textbf{lineární interpolace}. 
@@ -471,7 +481,7 @@ Výsledná pravděpodobnost pro trigramový model pak vypadá takto:
 P(w_3|w_1, w_2) = \lambda_3 P(w_3|w_1,w_2) + \lambda_2 P(w_3|w_2) + \lambda_1 P(w_3)
 \end{equation}
 
-Vektor vah lze určit např. pomocí \textit{EM algoritmu} (viz ZDROJ).
+Vektor vah lze určit např. pomocí \textit{EM algoritmu} (viz. SINGH \cite{emal}).
 
 Na podobné myšlence kombinace n-gramových modelů s různou délkou historie jsou právě založeny \textbf{back-off n-gramové modely}. Ty ovšem neurčují pravděpodobnost vždy podle všech n-gramových modelů nižších řádů, ale využívají nižší řády pouze, pokud ty vyšší neposkytují dostatečnou informaci. Začíná se u modelů s nejvyšším řádem, pokud tento n-gram nebyl spatřen, proběhne tzv. \textbf{back-off} k nižšímu řádu a n-gramu se zkrátí historie o poslední člen (např. slovo). Pokud ani tento nižší řád n-gram se zkrácenou historií nikdy neviděl, pokračuje se v back-off operacích, dokud takový řád není nalezen.
 
@@ -513,7 +523,6 @@ Back-off n-gramové modely podávají dobré výsledky, a proto jsou v praxi ča
 \section{Vyhlazování Kneser-Ney}
 \textbf{Vyhlazování Kneser-Ney} se snaží nahradit unigramovou pravděpodobnost, která závisí pouze na frekvenci výskytu slova v trénovacím korpusu, chytřejší pravděpodobností, která bude zohledňovat, v kolika různých kontextech se toto slovo vyskytuje. Tato metoda předpokládá, že slovo vyskytující se ve více kontextech je pravděpodobnější i pro výskyt v kontextu novém.
 
-Pro příklad se často uvádí věta se San Franciscem a brýlemi:
 Pro příklad uvedeme větu se San Franciscem a psacím strojem:
 \begin{itemize}
 \item{Mějme část věty: \textit{V muzeu se mi líbil starý psací \ldots}}
@@ -528,7 +537,7 @@ P_{CONTINUATION}(w_i) = \frac{|\{w_{i-1} : count(w_{i-1}, w_i) > 0 \}|}{\sum_{w_
 \end{equation}
 Čitatel představuje počet slov, která se v trénovacím textu objevila před slovem $w_i$. Jmenovatel pak celkový počet slov objevujících se před všemi možnými slovy.
 
-$P_{CONTINUATION}$ lze využít jak u interpolace, tak u back-off modelů jako náhrada unigramového modelu. Podrobnější informace se lze dočíst ve (ZDROJ: http://www.ee.columbia.edu/~stanchen/papers/h015a-techreport.pdf).
+$P_{CONTINUATION}$ lze využít jak u interpolace, tak u back-off modelů jako náhrada unigramového modelu. Podrobnější informace se lze dočíst v Chen, Goodman \cite{chen}.
 
 \section{Modely maximální entropie}
 
@@ -569,11 +578,13 @@ Z(h) = \sum_{x_i \in V} e^{\sum_j \lambda_j f_j(x_i,h)}
 \item{V je množina všech možných výsledků (např. slov)}
 \end{itemize}
 
-Během trénování modelu maximální entropie se snažíme naučit optimální váhy $\lambda_i$ korespondující s funkcemi rysů $f_i$. To je ekvivalentní hledání odhadu maximální věrohodnosti vah $\Lambda$ s využitím logaritmu věrohodnostní funkce $\mathcal{L}(X|\Lambda)$ trénovacích dat $X$. Váhy jsou určovány speciálními metodami, nejčastěji \textit{GIS -- Generalized Iterative Scaling} (Darroch, Ratcliff [ZDROJ]) nebo \textit{LBFGS -- Limited Memory BFGS} (Liu, Nocedal [ZDROJ]). \textit{BFGS} jsou počáteční písmena příjmení autorů původní metody pro řešení neomezených nelineárních optimalizačních problémů -- Broyden-Fletcher-Goldfarb-Shanno.
+Během trénování modelu maximální entropie se snažíme naučit optimální váhy $\lambda_i$ korespondující s funkcemi rysů $f_i$. To je ekvivalentní hledání odhadu maximální věrohodnosti vah $\Lambda$ s využitím logaritmu věrohodnostní funkce $\mathcal{L}(X|\Lambda)$ trénovacích dat $X$. Váhy jsou určovány speciálními metodami, nejčastěji \textit{GIS -- Generalized Iterative Scaling} (Darroch, Ratcliff \cite{gis}) nebo \textit{LBFGS -- Limited Memory BFGS} (Liu, Nocedal \cite{lbfgs}). \textit{BFGS} jsou počáteční písmena příjmení autorů původní metody pro řešení neomezených nelineárních optimalizačních problémů -- Broyden-Fletcher-Goldfarb-Shanno.
 
 Stanovení optimálních vah je náročná a složitá operace, která může trvat dlouhou dobu, pokud se k ní přistupuje zcela přímočaře. V každé iteraci algoritmu se musí spočítat normalizační faktor $Z(h)$ pro všechny spatřené kontexty v trénovacích datech. Pro každý kontext je zapotřebí projít přes všechna slova ze slovníku, tedy i přes ta, která se neobjevila v daném kontextu.
 
-Jednou z technik jak snížit složitost počítání normalizačního faktoru jsou vnořené nepřekrývající se rysy -- tedy např. n-gramové rysy. Pro ně totiž můžeme normalizační faktor spočítat takto: Mějme historii trigramového modelu $w_{i-1}$, $w_{i-2}$, pak
+Jednou z technik jak snížit složitost počítání normalizačního faktoru jsou vnořené nepřekrývající se rysy -- tedy např. n-gramové rysy. Pro ně totiž můžeme normalizační faktor spočítat takto:
+
+Mějme historii trigramového modelu $w_{i-1}$, $w_{i-2}$, pak
 \begin{equation}
 \begin{split}
 Z(w_{i-1}, w_{i-2}) = \sum_{w_i \in V} & e^{fw_i} + \\ 
@@ -598,7 +609,7 @@ Jednou z nejčastějších je metoda \textbf{Gaussian priors}, která přidává
 \end{equation}
 Typicky se používá $\sigma_i = \sigma$ pro všechny parametry. Optimální rozptyl je obvykle stanoven z vývojových dat.
 
-Vyhlazování Gaussian Prior je implementováno i v \textit{MaxEnt Toolkitu} od Le Zhanga [ZDROJ], který také budeme využívat pro trénování maxentových modelů s~vlastní množinou rysů.
+Vyhlazování Gaussian Prior je implementováno i v \textit{MaxEnt Toolkitu} od Le Zhanga \cite{lzhang}, který také budeme využívat pro trénování maxentových modelů s~vlastní množinou rysů.
 
 Složitější technikou vyhlazování je \textbf{$\mathpzc{l}_1$ + $\mathpzc{l}_2^2$ regularizace}. Zde má optimalizační kritérium následující podobu:
 
@@ -610,9 +621,9 @@ kde \begin{itemize}
 \item{$\alpha$ a $\sigma$ jsou regularizační parametry}
 \end{itemize}
 
-Parametry $\alpha$ a $\sigma$ bývají stanoveny empiricky -- např. Chen [ZDROJ]. ([4] z Tanela)
+Parametry $\alpha$ a $\sigma$ bývají stanoveny empiricky -- např. Chen \cite{chen2}.
 
-$\mathpzc{l}_1$ + $\mathpzc{l}_2^2$ regularizaci využívá rozšíření\footnote{Od verze SRILM 1.7.1 je toto rozšíření již součástí základní instalace.} \textit{SRILM Toolkitu} od Tanela Alumäe a Mikko Kurima [ZDROJ]. Toto rozšíření slouží pro trénování maxentových modelů s n-gramovými rysy. Pomocí tohoto rozšíření budeme vyrábět i naše maxentové n-gramové modely.
+$\mathpzc{l}_1$ + $\mathpzc{l}_2^2$ regularizaci využívá rozšíření\footnote{Od verze SRILM 1.7.1 je toto rozšíření již součástí základní instalace.} \textit{SRILM Toolkitu} od Tanela Alumäe a Mikko Kurima \cite{tanel}. Toto rozšíření slouží pro trénování maxentových modelů s n-gramovými rysy. Pomocí tohoto rozšíření budeme vyrábět i naše maxentové n-gramové modely.
 
 \section{Hodnocení modelů}
 Abychom mohli vyhodnotit a porovnat kvalitu jazykových modelů, potřebujeme zavést taková kritéria, která budou dostatečně vypovídající a vzájemně porovnatelná i při použití různých druhů modelů a metod trénování.
@@ -786,7 +797,7 @@ V první klauzi se vyskytují dvě určitá slovesa, v poslední naopak sloveso 
 \chapter{Modely s morfologickými značkami}
 Jak jsme popsali v předchozí kapitole, německá gramatika je díky požadavku na shodu jmen, pořádku slov a tvorbě větného rámce složitá. Běžné n-gramové modely, které sledují jen posloupnosti po sobě jdoucích slov nezachycují gramatiku jako takovou. Vyzkoušíme proto, zda dopadnou lépe modely, které budeme trénovat a testovat na datech, v nichž nahradíme slova různými morfologickými značkami. Budeme na nich zkoumat, jak spolu souvisí perplexita a ručně hodnocená plynulost.
 
-Předpokladem je, že pokud nahradíme slova jejich morfologickými značkami, dojde ke zhuštění\footnote{Zhuštěním dat rozumíme zvýšení počtu správných kombinací slov (v tomto případě morfologických značek), které můžeme pozorovat v trénovacích datech, vůči všem možným správným kombinacím.} dat a model se bude schopen doporučit slovo v patřičném tvaru vycházejícím z morfologické analýzy.
+Předpokladem je, že pokud nahradíme slova jejich morfologickými značkami, dojde ke zhuštění\footnote{Zhuštěním dat rozumíme zvýšení počtu správných kombinací slov (v tomto případě morfologických značek), které můžeme pozorovat v trénovacích datech, vůči všem možným správným kombinacím.} dat a model bude schopen doporučit slovo v patřičném tvaru vycházejícím z morfologické analýzy.
 
 \section{Zdrojová data}
 Modely budeme trénovat na německých datech z WMT\footnote{WORKSHOP ON STATISTICAL MACHINE TRANSLATION} 2012 -- News Commentary\footnote{http://statmt.org/wmt12/training-parallel.tgz - soubor news-commentary-v7.de-en.de}.
@@ -849,13 +860,13 @@ Princip experimentů bude následující
 \item{na trénovacích datech provedeme morfologickou analýzu}
 \item{slova trénovacího textu nahradíme odpovídajícími morfologickými značkami}
 \item{natrénujeme standardní 6-gramový model a maxentový 6-gramový model}
-\item{stejně jako trénovací data, připravíme i data testovací}
+\item{stejně jako trénovací data připravíme i data testovací}
 \item{změříme perplexitu na testovacích datech a provedeme vyhodnocení}
 \end{itemize}
 
-Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German, formálněji známý také pod názvem Pro3GresDE}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger (ZDROJ) a morfologický analyzátor Morphisto (ZDROJ). Pro Morphisto použijeme předkompilovaný model \texttt{morphisto-02022011.a}\footnote{ZDROJ}. S využitím nástroje Morphisto uvádí ParZu přesnost parsingu 86.5 \% (ZDROJ). Allauzen a Bonneau-Maynard uvádějí přenost taggingu u Tree-Taggeru okolo 96 \%(ZDROJ - http://www.lrec-conf.org/proceedings/lrec2008/pdf/856\_paper.pdf)
+Pro morfologickou analýzu použijeme parser ParZu\footnote{The Zurich Dependency Parser for German, formálněji známý také pod názvem Pro3GresDE}. Jedná se o nástroj, který kombinuje tagger Tree-Tagger \cite{treetagger} a morfologický analyzátor Morphisto \cite{morphisto}. Pro Morphisto použijeme předkompilovaný model \texttt{morphisto-02022011.a}\footnote{https://code.google.com/p/morphisto/downloads/detail?name=morphisto-02022011.a}. S využitím nástroje Morphisto uvádí ParZu přesnost parsingu 86.5 \% \cite{parzu}. Allauzen a Bonneau-Maynard uvádějí přenost taggingu u Tree-Taggeru okolo 96 \% \cite{tager}.
 
-ParZu spouští nejprve vlastní tokenizér. Vzhledem k tomu, že data z WMT 06, která používáme, jsou již tokenizovaná, tento tokenizér vynecháme a pouze upravíme formát -- jeden token na řádku, věty oddělené prázdným řádkem. Data z WMT 12 tokenizovaná nejsou, proto u nich tokenizér necháme běžet.
+ParZu spouští nejprve vlastní tokenizér. Vzhledem k tomu, že data z WMT 06, která používáme, jsou již tokenizovaná, tento tokenizér vynecháme a pouze upravíme formát -- jeden token na řádku, věty oddělené prázdným řádkem. Dalším důvodem, proč tokenizér vynecháváme, je problém s dalším dělením již tokenizovaných dat na více vět, se kterým jsme se v rámci zkoušení setkali. Data z WMT 12 tokenizovaná nejsou, proto u nich tokenizér necháme běžet.
 
 
 \pagebreak
@@ -1410,7 +1421,7 @@ V porovnání jsou taktéž standardní n-gramové modely s modely maximálně e
 
 
 \subsection{S rozšířeným slovním druhem}
-Jako v případech předchozích modelů se značkami z jedné morfologické kategorie, zkusíme ještě přidat k pádu ještě rozšířený slovní druh.
+Jako v případech předchozích modelů se značkami z jedné morfologické kategorie, zkusíme ještě přidat k pádu rozšířený slovní druh.
 
 \pagebreak
 
@@ -1459,7 +1470,7 @@ Zlepšení je znatelné (obrázky \ref{gr:ngrsd+pad}, \ref{gr:maxrsd+pad}) a pod
 Maxentové modely dopadly o něco lépe a zvláště hypotézy hodnocené plynulostí 5 posunuly v perplexitě níže, což je správně. Nicméně proložená přímka je strmější u standardních n-gramů (obrázek \ref{gr:porrsd+pad}). Výpočetní nároky se ale výrazně liší -- 34 sekund v případě standardních n-gramových modelů oproti 27 minutám v případě modelů maxentových.
 
 \section{Shrnutí}
-Souhrný pohled nabízí tabulka \ref{tb:shrnutimorf}. Tabulka uvádí pro od každý model Pearsonův korelační koeficient\footnote{Udává vztah mezi dvěma veličinami. Nabývá hodnot $<-1, 1>$, přičemž 1 značí závislost přímou a -1 závislost nepřímou. Hodnota 0 indikuje, že vztah mezi veličinami nelze vyjádřit lineární funkcí.}, Spearmanův korelační koeficient\footnote{Spearmanův korelační koeficient nabývá hodnot jako Pearsonův, Spearmanův ale vyjadřuje, zda vztah mezi veličinami lze vyjádřit monotonní funkcí.} a čas potřebný k natrénování. Zkratka RSD v tabulce označuje rozšířený slovní druh.
+Souhrný pohled nabízí tabulka \ref{tb:shrnutimorf}. Tabulka uvádí pro každý model Pearsonův korelační koeficient\footnote{Udává vztah mezi dvěma veličinami. Nabývá hodnot $<-1, 1>$, přičemž 1 značí závislost přímou a -1 závislost nepřímou. Hodnota 0 indikuje, že vztah mezi veličinami nelze vyjádřit lineární funkcí.}, Spearmanův korelační koeficient\footnote{Spearmanův korelační koeficient nabývá hodnot jako Pearsonův, Spearmanův ale vyjadřuje, zda vztah mezi veličinami lze vyjádřit monotonní funkcí.} a čas potřebný k natrénování. Zkratka RSD v tabulce označuje rozšířený slovní druh.
 
 
 
@@ -1546,7 +1557,7 @@ Abychom mohli následující experimenty provést, bylo zapotřebí naimplemento
 
 \subsection{Nástroj Klauze}
 
-K dispozici pro převod anglických klauzí na německé máme vždy identifikované anglické klauze a zarovnání na úrovni slov. Ze zarovnání bereme jen ty nejvíce jisté shody (intersection tj. průnik dvou směrů slovního zarovnání GIZA++, více viz [ZDROJ]), neboť nám nejde o kompletní zarovnání, ale jen o hranice klauzí.
+K dispozici pro převod anglických klauzí na německé máme vždy identifikované anglické klauze a zarovnání na úrovni slov. Ze zarovnání bereme jen ty nejvíce jisté shody (intersection tj. průnik dvou směrů slovního zarovnání GIZA++, více viz Bojar \cite{bojar}), neboť nám nejde o kompletní zarovnání, ale jen o hranice klauzí.
 
 Data vypadají následovně:
 
@@ -1584,7 +1595,7 @@ Hranice klauzí budeme určovat následovně:
 \item{Půjdeme po anglické větě s identifikovanými klauzemi zleva.}
 \item{Pro každé slovo se podíváme, zda je k dispozici zarovnání. Pokud ano, pak slovo přidáme do příslušné německé klauze -- ovšem jenom za předpokladu, že jsme toto slovo už nepoužili. V případě, že zarovnání nemáme, pokračujeme dalším slovem.}
 \item{Při přidávání do klauzí si všímáme, zda číslo klauze není 0. Nulu dostávají obvykle spojky oddělující dvě věty. Pokud na takové slovo narazíme, nepřidáváme ho do nulté klauze, ale zapamatujeme si ho a přidáme ho do první následující klauze, neboť chceme aby nám německé vedlejší věty začínaly podřadící spojkou, jinak bychom je nemohli vyhodnotit jako vedlejší.}
-\item{Po projití celé anglické věty máme náznak německých klauzí. Každou klauzi nejprve setřídíme podle indexů slov, které obsahují -- tím zajistíme, že se neporuší pořádek slov německé věty a zároveň dostaneme minimální a maximální index slova v klauzi, tedy jakýsi návrh na hranice.}
+\item{Po projití celé anglické věty máme náznak německých klauzí. Každou klauzi nejprve setřídíme podle indexů slov, která obsahují -- tím zajistíme, že se neporuší pořádek slov německé věty a zároveň dostaneme minimální a maximální index slova v klauzi, tedy jakýsi návrh na hranice.}
 \item{Podle navržených hranic projdeme všechny klauze a kontrolujeme, zda se některé nepřekrývají. V případě, že jsou hranice uvnitř hranic klauze jiné, jedná se o vloženou větu a hranice jim prozatím necháme beze změny. Může se ale stát, že se dvě klauze překrývají, aniž by jedna byla vložena do druhé. V takovém případě provedeme zarovnání zleva tj. větě, která začíná více vpravo upravíme počáteční hranici, kterou posuneme až za konec klauze, jež byla vlevo.}
 \item{Zarovnání neobsahuje vždy nutně všechna slova, a proto mohou vznikat mezi klauzemi mezery. Cílem je však identifikovat hranice, které pokryjí celou větu. Opět se proto přikloníme k zarovnání zleva a mezery přiřkneme klauzi, která stojí více vlevo. Tento postup se osvědčil na vývojových datech.}
 
@@ -1641,7 +1652,7 @@ Vlastní množina rysů sestává především z gramatických jevů, které n-g
 
 Celkem jsme navrhli a implementovali následujících 17 rysů, u kterých vysvětlíme, jak fungují a co kontrolují, neboť ačkoliv jejich názvy intuitivně funkci napovídají, může být omezena jen na některé případy.
 \begin{enumerate}
-\item{\texttt{chybi\_infszu} -- kontroluje, zda byla klauze uvozena spojkou vyžadující infinitiv s zu (rozšířený slovní druh \textit{KOUI}\footnote{ParZu používá pro označení rozšířeného slovního druhu Stuttgart/Tübinger Tagsets ZDROJ http://www.coli.uni-saarland.de/projects/sfb378/negra-corpus/stts.asc}), typicky se jedná o zkrácené vedlejší věty, a sleduje, zda ve větě takový infinitiv byl}
+\item{\texttt{chybi\_infszu} -- kontroluje, zda byla klauze uvozena spojkou vyžadující infinitiv s zu (rozšířený slovní druh \textit{KOUI}\footnote{ParZu používá pro označení rozšířeného slovního druhu Stuttgart/Tübinger Tagsets -- http://www.coli.uni-saarland.de/projects/sfb378/negra-corpus/stts.asc}), typicky se jedná o zkrácené vedlejší věty, a sleduje, zda ve větě takový infinitiv byl}
 \item{\texttt{chybi\_podmet} -- označuje skutečnost, že se v klauzi nevyskytlo slovo v prvním pádě}
 \item{\texttt{chybi\_vfin} -- v klauzi chybí určité sloveso}
 \item{\texttt{chybi\_sum} -- sčítá hodnoty všech rysů typu \texttt{chybi\_*}}
@@ -1669,28 +1680,28 @@ Celkem jsme navrhli a implementovali následujících 17 rysů, u kterých vysv�
 
 Pomocí programu Chyby, o kterém jsme se již zmínili, jsme změřili na vývojových datech korelaci každého rysu s ručně hodnocenou plynulostí. Každý rys kromě rysů součtových a rysu \texttt{root} jsou určovány pro každou klauzi zvlášť a mohou v ní vždy dostat jen hodnotu \texttt{true}/\texttt{false}. Rysy celé věty jsou pak součtem hodnot rysů ze všech klauzí -- přičteme vždy jedničku, když daný rys nabyl v klauzi hodnoty \texttt{true}.
 
-Znázornění provedeme pomocí tzv. bublinových grafů. V místě střetu plynulosti a dané hodnoty rysu se vždy vykreslí kruh (bublina) velká tak, kolik procent hodnot dané plynulosti dostalo tuto hodnotu rysu. Bubliny jsou navíc barevně odstupňované podle počtu procent -- čím světlejší, tím menší výskyt. Uvnitř každé bubliny je navíc vypsáno toto procentuální vyjádření.
+Znázornění provedeme pomocí tzv. bublinových grafů. V místě střetu plynulosti a dané hodnoty rysu se vždy vykreslí kruh (bublina) velká tak, kolik procent hodnot dané plynulosti dostalo tuto hodnotu rysu. Bubliny jsou navíc barevně odstupňované podle počtu procent -- čím světlejší, tím menší výskyt. Uvnitř každé bubliny je ještě vypsáno toto procentuální vyjádření.
 
 \subsection{Rysy typu chybi\_*}
 \begin{figure}[!htb]
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_infszu-c.eps}
-  \caption{Korelace hodnoty rysu chybi\_infszu a plynulosti}\label{gr:infszu}
+  \caption{Počty vět podle hodnoty rysu chybi\_infszu a plynulosti}\label{gr:infszu}
 \endminipage\hfill
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_podmet-c.eps}
-  \caption{Korelace hodnoty rysu chybi\_podmet a plynulosti}\label{gr:podmet}
+  \caption{Počty vět podle hodnoty rysu chybi\_podmet a plynulosti}\label{gr:podmet}
 \endminipage\hfill
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_vfin-c.eps}
-  \caption{Korelace hodnoty rysu chybi\_vfin a plynulosti}\label{gr:vfin}
+  \caption{Počty vět podle hodnoty rysu chybi\_vfin a plynulosti}\label{gr:vfin}
 \endminipage\hfill
 \end{figure}
 
 \begin{figure}[!htb]
 \centering\minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/chybi_sum-c.eps}
-  \caption{Korelace součtového rysu chybi\_sum a plynulosti}\label{gr:chybi}
+  \caption{Počty vět podle hodnoty rysu chybi\_sum a plynulosti}\label{gr:chybi}
 \endminipage
 \end{figure}
 
@@ -1703,15 +1714,15 @@ Jednotlivé rysy samostatně neukázaly souvislost s plynulostí (obrázky \ref{
 \begin{figure}[!htb]
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/inf_po_vm_neni_na_konci-c.eps}
-  \caption{Korelace hodnoty rysu inf\_po\_vm\_neni\_na\_konci a plynulosti}\label{gr:vm}
+  \caption{Počty vět podle hodnoty rysu inf\_po\_vm\_neni\_na\_konci a plynulosti}\label{gr:vm}
 \endminipage\hfill
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/infszu_neni_na_konci-c.eps}
-  \caption{Korelace hodnoty rysu infszu\_neni\_na\_konci a plynulosti}\label{gr:infszu_konec}
+  \caption{Počty vět podle hodnoty rysu infszu\_neni\_na\_konci a plynulosti}\label{gr:infszu_konec}
 \endminipage\hfill
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/vv_sloveso_neni_na_konci-c.eps}
-  \caption{Korelace hodnoty rysu vv\_sloveso\_neni\_na\_konci a plynulosti}\label{gr:vvsloveso}
+  \caption{Počty vět podle hodnoty rysu vv\_sloveso\_neni\_na\_konci a plynulosti}\label{gr:vvsloveso}
 \endminipage\hfill
 \end{figure}
 
@@ -1720,11 +1731,11 @@ Jednotlivé rysy samostatně neukázaly souvislost s plynulostí (obrázky \ref{
 \begin{center}
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/pp_neni_na_konci-c.eps}
-  \caption{Korelace hodnoty rysu pp\_neni\_na\_konci a plynulosti}\label{gr:pp_konec}
+  \caption{Počty vět podle hodnoty rysu pp\_neni\_na\_konci a plynulosti}\label{gr:pp_konec}
 \endminipage\quad
 \minipage[t]{0.31\textwidth} 
   \centering\includegraphics[width=50mm]{./grafy/rysy/neni_na_konci_sum-c.eps}
-  \caption{Korelace součtového rysu neni\_na\_konci\_sum a plynulosti}\label{gr:sumneni}
+  \caption{Počty vět podle hodnoty rysu neni\_na\_konci\_sum a plynulosti}\label{gr:sumneni}
 \endminipage
 \end{center}
 \end{figure}
@@ -1738,11 +1749,11 @@ Zde je situace podobná jako u předchozí skupiny rysů. Jednotlivé rysy samos
 \begin{center}
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/pp_bez_av-c.eps}
-  \caption{Korelace hodnoty rysu pp\_bez\_av a plynulosti}\label{gr:bezav}
+  \caption{Počty vět podle hodnoty rysu pp\_bez\_av a plynulosti}\label{gr:bezav}
 \endminipage\quad
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/neshoda_podmet_prisudek-c.eps}
-  \caption{Korelace hodnoty rysu neshoda\_podmet\_prisudek a plynulosti}\label{gr:neshoda}
+  \caption{Počty vět podle hodnoty rysu neshoda\_podmet\_prisudek a plynulosti}\label{gr:neshoda}
 \endminipage
 \end{center}
 \end{figure}
@@ -1755,15 +1766,15 @@ Oba rysy opět nevykazují samostatně souvislost s plynulostí (obrázky \ref{g
 \begin{figure}[!htb]
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/vice_osob-c.eps}
-  \caption{Korelace hodnoty rysu vice\_osob a plynulosti}\label{gr:viceosob}
+  \caption{Počty vět podle hodnoty rysu vice\_osob a plynulosti}\label{gr:viceosob}
 \endminipage\hfill
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/vice_vfin-c.eps}
-  \caption{Korelace hodnoty rysu vice\_vfin a plynulosti}\label{gr:vicevfin}
+  \caption{Počty vět podle hodnoty rysu vice\_vfin a plynulosti}\label{gr:vicevfin}
 \endminipage\hfill
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/vice_sum-c.eps}
-  \caption{Korelace součtového rysu vice\_sum a plynulosti}\label{gr:vicesum}
+  \caption{Počty vět podle hodnoty rysu vice\_sum a plynulosti}\label{gr:vicesum}
 \endminipage\hfill
 \end{figure}
 
@@ -1774,15 +1785,15 @@ Shodně dopadly i rysy typu \texttt{vice\_*}. Nejčastější hodnoty rysu \text
 \begin{center}
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/sum-c.eps}
-  \caption{Korelace hodnoty rysu sum a plynulosti}\label{gr:sumc}
+  \caption{Počty vět podle hodnoty rysu sum a plynulosti}\label{gr:sumc}
 \endminipage\quad
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/root-c.eps}
-  \caption{Korelace hodnoty rysu root a plynulosti}\label{gr:rootc}
+  \caption{Počty vět podle hodnoty rysu root a plynulosti}\label{gr:rootc}
 \endminipage\quad
 \minipage[t]{0.31\textwidth}
   \centering\includegraphics[width=50mm]{./grafy/rysy/sumr-c.eps}
-  \caption{Korelace hodnoty rysu sumr a plynulosti}\label{gr:sumrc}
+  \caption{Počty vět podle hodnoty rysu sumr a plynulosti}\label{gr:sumrc}
 \endminipage
 \end{center}
 \end{figure}
@@ -1843,7 +1854,7 @@ Ve sloupci nalevo od názvu rysu je uvedeno stanovisko -- ok označuje souhlas, 
 
 Stanovení, zda je některý rys správně či špatně, je někdy sporné, neboť mnoho hypotéz nedává smysl a spoustu věcí tak musíme jen odhadovat. V této hypotéze například nevíme, zda se jedná o dvě nebo tři klauze, proto jsme rys \texttt{chybi\_vfin} mohli ohodnotit jako +1 nebo +2. Zde jsme zvolili +1, pokud bychom ohodnotili jako +2, pak bychom zase u \texttt{chybi\_podmet} museli namísto -1 zvolit ok.
 
-Vyhodnocení jsme poté stanovili jako precision a recall (viz. ZDROJ) tak, že jsme vždy vzali minimum z vyhodnocení každého rysu, tato minima sečetli a vydělili součtem hodnot, které byly stanoveny programem, v případě precision, a součtem hodnot, které měly být, v případě recall. Vyšly následující hodnoty: 41.1 \% precision a 76.92 \% recall. Kompletní přehled výsledků je na přiloženém DVD.
+Vyhodnocení jsme poté stanovili jako precision a recall \cite{trec} tak, že jsme vždy vzali minimum z vyhodnocení každého rysu, tato minima sečetli a vydělili součtem hodnot, které byly stanoveny programem, v případě precision, a součtem hodnot, které měly být, v případě recall. Vyšly následující hodnoty: 41.1 \% precision a 76.92 \% recall. Kompletní přehled výsledků je na přiloženém DVD.
 
 Nutno však podotknout, že obě metriky předpokládají, že pokud se ruční hodnocení shodlo s hodnocením od nástroje Chyby, pak se jednalo o ten samý jev na shodném úseku hypotézy. Vzhledem k tomu, že jsme nepozorovali, kdy a na kterou část hypotézy program rys nahlásil jako pravdivý, ale pouze už konkrétní výsledky na celé hypotéze, nemusí být vždy tento předpoklad splněn.
 
@@ -1868,21 +1879,21 @@ Na morfologickou analýzu a větný rozbor použijeme opět parser ParZu. Tentok
 
 %Pro hledání chyb v jednotlivých klauzích jsme stvořili program Chyby. Ten se na základě provedené analýzy z ParZu a hranicí klauzí snaží určit některé gramatické chyby, pro celou větu pak vydá tyto chyby jako součet všech klauzí. Výstupem je soubor ve formátu ihned použitelném pro natrénování v Maxent Toolkitu od Le Zhanga. Za pomocí rysů vycházejících z gramatiky se budeme snažit predikovat plynulost. 
 
-Maxentové modely budeme trénovat v MaxentToolkitu(ZDROJ) od Le Zhanga. Pro určení vah rysů využijeme výchozího nastavení tj. metody LBFGS.
+Maxentové modely budeme trénovat v MaxentToolkitu od Le Zhanga. Pro určení vah rysů využijeme výchozího nastavení tj. metody LBFGS.
 
 %V úvodním seznamu kroků této sekce jsme se zmínili o mediánovém modelu. U korelací rysů root a sum jsme uvedli, že zkusíme, zda lze plynulost predikovat jen na základě mediánů jednotlivých plynulostí. Za tímto účelem jsme vytvořili vlastní takový klasifikátor. Z trénovacích dat si vypočítá pro každý rys a každou plynulost medián. Souhrn mediánů je pak zapsán jako model. Při testování vycházíme z těchto mediánů -- každý rys vydá jeden návrh plynulosti, tyto návrhy zprůměrujeme a dostaneme výslednou navrhovanou plynulost. Pokud jsou mediány některého z rysů u dvou plynulostí stejné, zvýšíme ten, který patří horší plynulosti, o jedna. Vstupní formát je shodný s formátem pro maxentové modely.
 
 \section{Způsob vyhodnocení}
-U obou typů modelů budeme vyhodnocovat hlavně přesnost predikce tj. procentuálně vyjádříme, v kolika případech se model trefil do správné plynulosti (níže označeno jako \textit{přesná shoda}). Mimo to budeme ještě zkoumat, v kolika případech se plynulost navrhovaná modelem lišila od skutečnosti jen o 1 (\textit{shoda nebo $\pm$ 1}). Vzhledem k tomu, že plynulost 3 je nejčastější, můžeme za základní (baseline) prohlásit postup, který právě hodnotu 3 přiřkne každé hypotéze. Baseline dosahuje úspěšnosti 44.59 \% při vyhodnocení \textit{přesná shoda} a dokonce 84.4 \% pri vyhodnocení \textit{shoda nebo $\pm$ 1}.
+U obou typů modelů budeme vyhodnocovat hlavně přesnost predikce tj. procentuálně vyjádříme, v kolika případech se model trefil do správné plynulosti (níže označeno jako \textit{přesná shoda}). Mimo to budeme ještě zkoumat, v kolika případech se plynulost navrhovaná modelem lišila od skutečnosti jen o 1 (\textit{shoda nebo $\pm$ 1}). Vzhledem k tomu, že plynulost 3 je nejčastější, můžeme za základní (baseline) prohlásit postup, který právě hodnotu 3 přiřkne každé hypotéze. Baseline dosahuje úspěšnosti 44.59 \% při vyhodnocení \textit{přesná shoda} a dokonce 84.4 \% při vyhodnocení \textit{shoda nebo $\pm$ 1}.
 
-Znázornění hodnot rysů jednotlivých plynulostí ukázalo, že hypotézy hodnocené plynulostí 5, dostávají správně nízké (nejlépe nulové) hodnoty rysů. Tím bychom mohli alespoň odlišit nejlepší (nejplynulejší) hypotézy od těch méně kvalitních. Při vyhodnocení si budeme proto i všímat úspěšnosti modelu predikovat právě plynulost 5. Hypotéz hodnocených touto plynulostí je v trénovacích i testovacích datech shodně 88 z celkového počtu 1045 hypotéz. Pokud bychom tedy tipovali samé 5, pak by úspěšnost byla pouhých 8.42 \%. Naším cílem proto bude se nad tuto hranici dostat.
+Znázornění hodnot rysů jednotlivých plynulostí ukázalo, že hypotézy hodnocené plynulostí 5, dostávají správně nízké (nejlépe nulové) hodnoty rysů. Tím bychom mohli alespoň odlišit nejlepší (nejplynulejší) hypotézy od těch méně kvalitních. Při vyhodnocení si budeme proto i všímat úspěšnosti modelu predikovat právě plynulost 5. Hypotéz hodnocených touto plynulostí je v trénovacích i testovacích datech shodně 88 z celkového počtu 1045 hypotéz tj. 8.42 \%.
 
 
 % Abychom ale mohli brát tento údaj v potaz, vypíšeme vždy ještě počty jednotlivých plynulostí, které model nabídnul. Pokud bychom tyto počty nezohlednili, mohlo by se stát, že model bude slepě tipovat vždy plynulost 3, kterých je nejvíce (44.6 \%). Potom by lišící se o jedna byly hypotézy s plynulostí 2 a 4, kterých je dohromady 38 \%. Dopředu proto stanovíme, že údaj, kdy se navrhovaná plynulost od skutečnosti lišila jen o jedna, budeme brát v potaz pouze za předpokladu, že model nabídnul každou plynulost alespoň jednou. 
 
 
 \section{Modely se všemi rysy}
-Jako první zkusíme natrénovat modely se všemi šestnácti rysy.
+Jako první zkusíme natrénovat modely se všemi sedmnácti rysy.
 
 \begin{table}[!htbp]
 \begin{center}
@@ -1907,11 +1918,15 @@ shoda v plynulosti 5 &\color{red} 0 \% & 34.09 \%  \\
 \end{center}
 \end{table}
 
-Přesnost obou modelů je nižší než, kdybychom slepě tipovali samé trojky, tedy baseline. Pro zajímavost ještě navíc sledujeme, které hodnoty plynulosti model kolikrát nabídl (tabulka \ref{tb:all}). Shoda u hypotéz s hodnocením 5 dopadla u maxentového modelu velice špatně, neboť ji nanabídnul ani jednou a dostal tak 0 \%. Mediánový model je na tom lépe a podařilo se mu správně predikovat 34.09 \% nejplynulejších hypotéz.
+Přesnost obou modelů je nižší než, kdybychom slepě tipovali samé trojky, tedy baseline. Pro zajímavost ještě navíc sledujeme, které hodnoty plynulosti model kolikrát nabídl (tabulka \ref{tb:all}). Shoda u hypotéz s hodnocením 5 dopadla u maxentového modelu velice špatně, neboť ji nanabídnul ani jednou a dostal tak 0~\%. Mediánový model je na tom lépe a podařilo se mu správně predikovat 34.09~\% nejplynulejších hypotéz.
 
 
 \section{Modely se součtovými rysy}
-Při znázorňování korelace rysů a plynulosti vždy vyšly o něco lépe součtové rysy. Konkrétně se jedná o rysy \texttt{chybi\_sum}, \texttt{neni\_na\_konci\_sum}, \texttt{sum}, \texttt{sumr} \texttt{vice\_sum}. Zkusíme proto modely natrénovat právě jenom na nich. 
+Při znázorňování korelace rysů a plynulosti vždy vyšly o něco lépe součtové rysy. Konkrétně se jedná o rysy \texttt{chybi\_sum}, \texttt{neni\_na\_konci\_sum}, \texttt{sum}, \texttt{sumr} a \texttt{vice\_sum}. Zkusíme proto modely natrénovat právě jenom na nich. 
+
+
+\pagebreak
+
 
 \begin{table}[!htbp]
 \begin{center}
@@ -1964,11 +1979,15 @@ shoda v plynulosti 5 & \color{red}0 \% & 38.64 \%  \\
 \end{center}
 \end{table}
 
-Přidání se projevilo pozitivně na obou typech modelů. Maxentový si ve shodě nebo $\pm$1 polepšil o 1.05 \%, mediánový o 3.73 \% (tabulka \ref{tb:allsumsroot}). Mediánový model znovu narozdíl od maxentového nabídnul všechny plynulosti. Shoda v hypotézách hodnocených plynulostí 5 dopadla hůře, neboť mediánovému modelu klesla o 7.95 \%.
+Přidání se projevilo pozitivně na obou typech modelů. Maxentový si ve shodě nebo $\pm$1 polepšil o 1.05 \%, mediánový o 3.73 \% (tabulka \ref{tb:allsumsroot}). Mediánový model znovu narozdíl od maxentového nabídnul všechny plynulosti. Shoda v hypotézách hodnocených plynulostí 5 dopadla hůře, neboť mediánovému modelu klesla o 7.95~\%.
 
 
 \section{Modely s rysem root}
 Rys \texttt{root} vypadal v korelaci s plynulostí slibně. Se součtovými rysy přílišné zlepšení nepřinesl, zkusíme jej proto použít zcela samostatně a poprvé také zkusíme predikovat za pomoci lineární regrese.
+
+
+\pagebreak
+
 
 \begin{table}[!htbp]
 \begin{center}
@@ -1996,7 +2015,7 @@ Rys \texttt{root} vypadal v korelaci s plynulostí slibně. Se součtovými rysy
 Zde došlo u maxentového modelu k popisovanému slepému tipování a jen díky tomu dosáhnul na baseline. Mediánový model nabídnul znovu celou škálu plynulostí (tabulka \ref{tb:root}), ovšem jeho výsledky shody jsou nízké. Lineární regresí jsme se dostali lehce nad baseline, což je určitě dobrá zpráva. V predikci plynulostí 5 ale maxentový model i lineární regrese selhaly a nenabídly ji ani jednou, proto mají shodu 0 \%. Naopak mediánovému modelu se podařilo dostat až na 54.55 \%.
 
 \section{Modely s rysem sum}
-Vedle na pohled dobře korelujícího rysu \texttt{root}, dobře dopadl i součtový rys \texttt{sum}, který je součtem ostatních rysů kromě těch součtových a rysu \texttt{root}. Zkusíme proto znovu jako v případě rysu \texttt{root}, natrénovat modely na jediném rysu \texttt{sum}. Znovu využijeme lineární regrese.
+Dalším z rysů, které na pohled dobře korelovaly s plynulostí, je rys \texttt{sum}. Znovu se pokusíme predikovat pomocí lineární regrese.
 
 \begin{table}[!htbp]
 \begin{center}
@@ -2021,12 +2040,14 @@ shoda v plynulosti 5 & \color{red}0 \% & 57.95 \% & \color{red}0 \% \\
 \end{center}
 \end{table}
 
-Zde je na výsledcích zajímavé rozložení plynulostí, které tipoval maxentový model. Netipoval totiž ani jednou plynulost 2, přitom tipoval plynulosti 1 a 3. K tomu jevu u žádného jiného modelu nedošlo. Mediánový model opět nabídl všechny plynulosti, s přesností je na tom ale špatně (tabulka \ref{tb:sum}). Zato lineární regresí jsme znovu lehce nad baseline. Shoda v plynulosti 5 se povedla jen mediánovému modelu -- 57.95 \%.
+Zde je na výsledcích zajímavé rozložení plynulostí, které tipoval maxentový model. Netipoval totiž ani jednou plynulost 2, přitom tipoval plynulosti 1 a 3. K tomuto jevu u žádného jiného modelu nedošlo. Mediánový model opět nabídl všechny plynulosti, s přesností je na tom ale špatně (tabulka \ref{tb:sum}). Zato lineární regresí jsme znovu lehce nad baseline. Shoda v plynulosti 5 se povedla jen mediánovému modelu -- 57.95 \%.
 
 
 
 \subsection{S rysem root}
 Jelikož rysy \texttt{root} a \texttt{sum} se zdály být dvěma ze tří nejúspěšnějších v rámci korelace s plynulostí, zkusíme natrénovat modely na obou najednou.
+ 
+ \pagebreak
  
 \begin{table}[!htbp]
 \begin{center}
@@ -2060,7 +2081,7 @@ Přidání druhého rysu ale u maxentového modelu znamenalo slepé tipování p
 
 
 \section{Modely s rysem sumr}
-Vedle na pohled dobře korelujících rysů \texttt{root} a \texttt{sum}, dobře dopadl i součtový rys \texttt{sumr}, který rys \texttt{root} a \texttt{sum} obsahuje v sobě započítaný. Zkusíme znovu jako v případě rysu \texttt{root} a \texttt{sum}, natrénovat modely na jediném rysu \texttt{sumr}. Znovu využijeme lineární regrese.
+Třetím z rysů s nejlepší korelací vzhledem k plynulosti je rys \texttt{sumr}, který sčítá hodnotu rysu \texttt{sum} a \texttt{root}. I u něj zkusíme predikovat pomocí lineární regrese.
 
 \begin{table}[!htbp]
 \begin{center}
@@ -2085,7 +2106,7 @@ shoda v plynulosti 5 & \color{red}0 \% & 77.27 \% & \color{red}0 \% \\
 \end{center}
 \end{table}
 
-Od maxentového modelu jsme dostali znovu stejnou odpověď jako v případě rysu \texttt{root} -- tedy slepé tipování jen plynulostí 3 (tabulka \ref{tb:sumr}). Mediánový model znovu nabídnul od všech plynulostí minimálně jedno hodnocení a oproti rysu \texttt{root} si polepšil o 5.36 \% v přesné shodě, ve shodě nebo $\pm$ ale propadl takřka o 18 \% níže. Podobně dopadl i ve srovnání s rysem \texttt{sum}. Lineární regrese se pohybuje lehce nad baseline. Zajímavá je ale i hodnota shody plynulosti 5 u mediánového modelu, který dosáhnul 77.27 \%.
+Od maxentového modelu jsme dostali znovu stejnou odpověď jako v případě rysu \texttt{root} -- tedy slepé tipování jen plynulostí 3 (tabulka \ref{tb:sumr}). Mediánový model znovu nabídnul od všech plynulostí minimálně jedno hodnocení a oproti rysu \texttt{root} si polepšil o 5.36 \% v přesné shodě, ve shodě nebo $\pm$1 ale propadl takřka o 18 \% níže. Podobně dopadl i ve srovnání s rysem \texttt{sum}. Lineární regrese se pohybuje lehce nad baseline. Zajímavá je ale i hodnota shody plynulosti 5 u mediánového modelu, který dosáhnul 77.27 \%.
 
 
 
@@ -2148,7 +2169,7 @@ Zde se ale výsledky ve všech parametrech kromě shody v hypotézách hodnocen�
 %\pagebreak
 
 \section{Shrnutí}
-Zde shrneme všechny naměřené hodnoty do tabulky. Ve sloupci lišící se o 1 uvedeme počet procent, pokud model vyhověl našemu stanovenému kritériu, nebo X v případě opačném.
+Zde shrneme naměřené hodnoty od všech zmíněných modelů do tabulky, abychom je mohli vzájemně porovnat.
 
 \begin{table}[!htbp]
 \begin{center}
@@ -2215,11 +2236,13 @@ S predikcí pomocí lineární regrese jsme se vždy dostali nad baseline, ačko
 % \include{ukazka}
 
 \chapwithtoc{Závěr}
-V práci byly popsány dvě série experimentů. První z nich se snažila modelovat jazyk jen na základě morfologických značek. Pro srovnání byly natrénovány i modely se slovy. Pokud jsme modelu předaly pouze značky z jedné morfologické třídy (rod, pád, číslo), dopadly hůře než modely se slovy. S přidáním rozšířeného slovního druhu došlo ale vždy ke zlepšení a modely vycházely lépe než běžné modely se slovy. Jako nejúspěšnější z hlediska Spearmanova korelačního koeficientu v korelaci perplexity a ručně hodnocené plynulosti vyšel maxentový model trénovaný na rozšířeném slovním druhu a pádu. Natrénování maxentových modelů trvalo někdy až mnohonásobně déle než standardních n-gramových, přičemž přínos maxentových modelů nebyl zvlášť výrazný. Obecně maxentové modely dostávaly nižší perplexitu, ale příliš nezlepšovaly korelaci s plynulostí.
+V práci byly popsány dvě série experimentů. První z nich se snažila modelovat věty v přirozeném jazyce jen na základě morfologických značek. Pro srovnání byly natrénovány i modely se slovy. Pokud jsme modelu předali pouze značky z jedné morfologické třídy (rod, pád, číslo), dopadly hůře než modely se slovy. S přidáním rozšířeného slovního druhu došlo ale vždy ke zlepšení a modely vycházely lépe než běžné modely se slovy. Jako nejúspěšnější z hlediska Spearmanova korelačního koeficientu v korelaci perplexity a ručně hodnocené plynulosti vyšel maxentový model trénovaný na rozšířeném slovním druhu a pádu. Natrénování maxentových modelů trvalo někdy až mnohonásobně déle než standardních n-gramových, přičemž přínos maxentových modelů nebyl zvlášť výrazný. Obecně maxentové modely dostávaly nižší perplexitu, ale příliš nezlepšovaly korelaci s plynulostí.
 
-Druhá série experimentů se zabývala modely maximální entropie a vlastními mediánovými modely. Bylo navrženo 16 vlastních rysů reprezentujících počet chyb v dané větě. Samostatně rysy nekorelovaly s plynulostí, a proto byly rozděleny do několika skupin a jejich hodnoty jsme sečetli. Součtové rysy vycházely v korelaci lépe. Jako nejúspěšnější z hlediska korelace dopadly rysy \texttt{root} a \texttt{sum}, kde první představuje počet kořenů větného rozboru z parseru Parzu a druhý součet přes všechny rysy. Na základě toho jsme zkoušeli predikovat pouze dle hodnot mediánů jednotlivých plynulostí. Experimenty jsme prováděli na různých kombinacích těchto vlastních rysů. V přenosti predikce plynulosti nedopadl bohužel žádný model dobře. Všechny byly horší než baseline. Zkusili jsme proto i sledovat, v kolika případech se modely lišily v plynulosti jen o 1 a stanovili jsme kritérium, kdy tento údaj lze brát v potaz. V závěrečném shrnutí proto uvádíme tento údaj jen u těch, které nabídly pro každou plynulost alespoň jedno hodnocení. Po tomto vyhodnocení dopadl nejlépe náš mediánový model se všemi součtovými rysy a rysem \texttt{root}. Výsledky však nejsou tak dobré, jak bychom si přáli. Úspěšnost by bylo možné zvýšit odstraněním chyb jednotlivých nástrojů, které bylo potřeba použít při předzpracování dat pro identifikaci německých klauzí. Určitého zlepšení by se mohlo dosáhnout i v případě, kdy by německé hypotézy nebyly převedené jen na malá písmena, neboť to často dělalo parseru problémy a došlo ke špatnému určení slovního druhu, díky čemuž byla následně i špatně identifikována hodnota rysu. Mimo to by bylo možné dále navrhovat a testovat jiné rysy reprezentující chybu v gramatice. Vycházíme z předpokladu, že hodnotitelé posuzují plynulost právě na základě počtu vyskytujících se chyb.
+Druhá série experimentů se zabývala modely maximální entropie, vlastními mediánovými modely a u některých predikcí plynulosti na základě lineární regrese. Bylo navrženo 17 vlastních rysů reprezentujících počet chyb v dané větě. Samostatně rysy nekorelovaly s plynulostí, a proto byly rozděleny do několika skupin a jejich hodnoty jsme sečetli. Součtové rysy vycházely v korelaci lépe. Jako nejúspěšnější z hlediska korelace dopadly rysy \texttt{root}, \texttt{sum} a \texttt{sumr}. U nich jsme mimo maxentové a naše mediánové modely, vyzkoušeli predikovat plynulost pomocí lineární regrese. Experimenty jsme prováděli na různých kombinacích těchto vlastních rysů. V přenosti predikce plynulosti nedopadl bohužel žádný model dobře. Všechny byly horší než baseline. Pouze v případě lineární regrese došlo k mírnému zlepšení. Mimo přesné shody jsme sledovaly i shody, kdy se návrh od modelu lišil od skutečnosti pouze o 1. V takovém případě byla ale laťka baseline nastavena vysoko na 84.40 \% a překonat se ji podařilo pouze za pomoci lineární regrese. Rozhodli jsme se proto ještě sledovat skutečnost, v kolika případech je model schopen predikovat nejplynulejší hypotézy tj. ty s hodnocením 5. Zde modely maximální entropie a lineární regrese nebyly schopné plynulost 5 predikovat a skončily vždy úspěšností 0 \%. V tomto ohledu dobře predikovaly mediánové modely, kde bylo dosaženo úspěšnosti až 77 \%.
 
-Modely z obou sérií experimentů potřebovaly data z parseru, kterému musíme předložit celou větu, aby správně určil morfologickou analýzu a větný rozbor. Jejich praktické využití by proto bylo např. při reskórování nbestlistů (n nejlepších hypotéz).
+Úspěšnost predikce by bylo zřejmě možné zvýšit odstraněním chyb jednotlivých nástrojů, které bylo potřeba použít při předzpracování dat pro identifikaci německých klauzí. Určitého zlepšení by se mohlo dosáhnout i v případě, kdy by německé hypotézy nebyly převedené jen na malá písmena, neboť to často dělalo parseru problémy a došlo ke špatnému určení slovního druhu, v důsledku čehož byla následně i špatně identifikována hodnota rysu. Mimo to by bylo možné dále navrhovat a testovat jiné rysy reprezentující chybu v gramatice. Vycházíme z předpokladu, že hodnotitelé posuzují plynulost právě na základě počtu vyskytujících se chyb.
+
+Modely z obou sérií experimentů potřebovaly data z parseru, kterému musíme předložit celou větu, aby správně určil morfologickou analýzu a větný rozbor. Jejich praktické využití je proto např. při reskórování nbestlistů (n nejlepších hypotéz). Zapojení přímo do fáze prohledávání prostoru veškerých hypotéz by bylo obtížnější.
 
 
 %%% Seznam použité literatury
@@ -2239,7 +2262,6 @@ Modely z obou sérií experimentů potřebovaly data z parseru, kterému musíme
 %%% Přílohy k bakalářské práci, existují-li (různé dodatky jako výpisy programů,
 %%% diagramy apod.). Každá příloha musí být alespoň jednou odkazována z vlastního
 %%% textu práce. Přílohy se číslují.
-\chapwithtoc{Přílohy}
 
 
 \openright
