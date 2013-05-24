@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  24 MAY 2013 07:09
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=cslatex 2012.10.29)  24 MAY 2013 07:15
 entering extended mode
  %&-line parsing enabled.
 **prace.tex
@@ -3200,6 +3200,6 @@ Here is how much of TeX's memory you used:
  11562 multiletter control sequences out of 15000+50000
  25217 words of font info for 63 fonts, out of 3000000 for 9000
  24 hyphenation exceptions out of 8191
- 38i,17n,73p,1549b,518s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,17n,73p,1550b,518s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on prace.dvi (59 pages, 414820 bytes).
+Output written on prace.dvi (59 pages, 414816 bytes).
