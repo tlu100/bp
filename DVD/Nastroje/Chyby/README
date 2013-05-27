@@ -62,3 +62,14 @@ POPIS RYSU
 
 17. sumr – jako sum, ale navíc i s root
 
+
+STRUKTURA PROGRAMU
+******************
+Program vyuziva dve tridy - word a sentence
+word - reprezentuje slovo a jeho morfologicke vlastnosti
+sentence - reprezentuje vektor slov a obsahuje metodu pro vypsani sveho obsahu
+- nejprve se nacte veta z vystupu ParZu, ulozi se jednotlive morfologicke vlastnosti
+- pote nacteme hranice klauzi - vetu dle nich rozdelime
+- na kazdou klauzi volame funkci features, ktera dle vyse uvedeneho popisu rysu prochazi klauzi po slovech a na zaklade morfologickych vlastnosti rozhoduje, zda se rys v klauzi vyskystl nebo ne, vysledek je pak vracen jako map<string, bool> clsFtrs, jejiz hodnoty se prictou k hodnotam rysu cele vety v map<string, int> stcFtrs
+- stcFtrs je po dalsim poscitani nekterych rysu vypsana na vystup
+

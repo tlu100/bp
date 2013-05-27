@@ -18,6 +18,7 @@ int string2int (string s) {
     return cislo;
 }
 
+// slouzi pro natrenovani modelu - vstupem jsou dva stringy s nazvy souboru
 void train(string text, string model) {
     ifstream in(text.c_str());
     ofstream out(model.c_str());
@@ -52,14 +53,17 @@ void train(string text, string model) {
             break;
         }
     }
+    // vypise jednotlive vystupy do modelu
     for (map<string, map<string, vector<int> > >::iterator i = ftrs.begin(); i != ftrs.end(); i++)
         out << i->first << '|';
     out << endl;
     vector<string> names;
     vector<string> limits;
     int n = 0;
+    // vypocita jednotlive mediany podle trenovacich dat - nejprve si je ulozi, aby je mohl vypsat ve spravnem poradi
     for (map<string, map<string, vector<int> > >::iterator i = ftrs.begin(); i != ftrs.end(); i++) {
         for (map<string, vector<int> >::iterator j = ftrs[i->first].begin(); j != ftrs[i->first].end(); j++) {
+        	  // nactene hodnoty setridime a uprostred nalezneme median
             sort(j->second.begin(), j->second.end());
             vector<int> kl = j->second;
             if (i == ftrs.begin()) {
@@ -71,12 +75,14 @@ void train(string text, string model) {
         }
         n = 0;
     }
+    // vypise mediany do modelu
     for (size_t i = 0; i < limits.size(); i++) {
         out << names[i] << endl;
         out << limits[i] << endl;
     }
 }
 
+// otestuje model na testovacich datech
 void test(string predict, string model) {
     ifstream inP(predict.c_str());
     ifstream inM(model.c_str());
@@ -135,6 +141,7 @@ void test(string predict, string model) {
         n=0;
     }
     int lastValue = -1;
+    // zaplnime hodnoty mezi mediany
     for (map<string, vector<int> >::iterator i = ftr2out.begin(); i != ftr2out.end(); i++) {
         for (int j = i->second.size() - 1; j >= 0; j--) {
             if (i->second[j] != -1) lastValue = i->second[j];
@@ -162,6 +169,7 @@ void test(string predict, string model) {
     int acc = 0;
     int total = 0;
     int differ = 0;
+    // vyhodnoti testovaci data
     while (inP.good()) {
         c = inP.get();
         switch (c) {

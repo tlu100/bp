@@ -37,5 +37,7 @@ rsd+morf - slova se nahradi rozsirenym slovnim druhem a vsemi morfologickymi zna
 rsd+rod - slova se nahradi rozsirenym slovnim druhem a rodem, lze-li urcit - napr. NN:Fem APPR KON
 
 
-
+STUKTURA PROGRAMU
+*****************
+Jedna se o program na jednoduchem principu. Vystup z ParZu je cten while cyklem po znacich az do konce souboru. Na zaklade prichazejiciho znaku se rozhoduje, kde jednotlive morfologicke znacky zacinaji/konci a o ktere se jedna. Na zaklade tohoto vyhodnoceni jsou pak morfologicke znacky vypisovany do prislusnych vystupnich souboru.
 

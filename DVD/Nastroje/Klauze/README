@@ -16,3 +16,18 @@ POUZITI
 - alignment pocita s vystupem ze systemu GIZA++ - viz slozka /data/alignment
 - klauze s vystupem ze systemu TREEX - viz slozka /data/clauses_txt
 - vystup oznacuje nazev vystupniho souboru, do ktereho budou hranice zapsany
+
+
+STRUKTURA PROGRAMU
+******************
+program vyuziva tri tridy - alg, cls, stc
+alg (alignment) slouzi pro ukladani odpovidajicich si slov dle alignmentu
+cls (clause) slouzi pro uchovavani slov a hranic, kterych muze byt vice
+stc (sentence) spojuje vyuziva dve vyse uvedene tridy
+	- obsahuje vektor zarovnani (alg) pro anglictinu i nemcinu - umoznuje ulozit oba smery
+	- dale je soucasti vektor klauzi (cls)
+	- metoda addWordToClause slouzi pro pridani slova do prislusne klauze - pokud klauze neexistuje, vytvori ji - metode predavame index slova a cislo klauze
+	- metoda borders zajistuje nalezeni a vypsani hranic klauzi, ktere pokryji celou vetu
+- nejprve se nacte alignment vety do struktury stc
+- pote se zavola metoda borders k nalezeni hranic, ta dle vyse uvedeneho popisu programu nalezne hranice klauzi pokryvajici celou vetu
+	

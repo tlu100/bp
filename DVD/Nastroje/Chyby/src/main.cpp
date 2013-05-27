@@ -38,6 +38,7 @@ bool wasINFPP() {
     return (wasIt(VVPP) || wasIt(VVINF) || wasIt(VAINF) || wasIt(VAPP) || wasIt(VMINF) || wasIt(VMPP));
 }
 
+// identifikuje rysy v klauzi
 map<string, bool> features(vector<word*> stc) {
     map<string, bool> ftrs;
 

@@ -18,3 +18,15 @@ POUZITI
 
 - pri volbe -t se z trenovaciho textu vypocitaji mediany a ulozi se do souboru model
 - pri volbe -p se tento model nacte, ulozi si do pameti vypoctene mediany a hodnoty mezi nimi rozdeli dane mediany - v pripade licheho poctu, dostane vice pozic horsi vystup
+
+
+
+STRUKTURA PROGRAMU
+******************
+Trenovani - postupne nacitame trenovaci data a hodnoty rysu ukladame do struktury ftrs[fluency][name] (map<string, map<string, vector<int> > >)
+	- na konci nacitani trenovacich dat se vypocitaji mediany tak, ze jednotlive vektory intu setridime a podivame se na prostredni prvek
+	- mediany prozatim ulozime do pomocnych vektoru stringu limits a names, aby je bylo mozne potom vypsat ve spravnem poradi
+Testovani - nacteme ze souboru udaje o vypoctenych medianech
+	- pro klasifikaci na zaklade testovacich dat se pouziva map<string, vector<int> > ftr2out, ktery pro kazdy rys a jeho hodnotu nabidne plynulost
+	- je-li pozorovana hodnota rysu v testovacich datech vyssi nez velikost vektoru ve ftr2out, vratime nejvyssi hodnotu
+	- ftr2out vyplnujeme tak, ze nejprve umistime mediany a potom mezery mezi nimi rozdelujeme mezi dva nejblizsi, pricemz v priapde licheho poctu, dostane ten, ktery reprezentuje horsi plynulost, o pozici vice

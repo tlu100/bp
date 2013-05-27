@@ -1,6 +1,8 @@
 #ifndef WORD_H
 #define WORD_H
 
+// trida reprezentujici slovo
+
 #include <string>
 #include <map>
 #include <vector>
