@@ -1,0 +1,17 @@
+     15 _|Akk|Sg
+     36 _|Dat|Sg
+      4 Fem|Akk|Sg
+      9 Fem|Dat|Sg
+      1 Fem|Nom|Pl
+      5 Fem|Nom|Sg
+      1 Masc|Akk|Sg
+      1 Masc|Dat|Sg
+     12 Masc|Nom|Sg
+      2 Neut|Akk|Pl
+    152 Neut|Akk|Sg
+      1 Neut|Dat|Sg
+    564 Neut|Nom|Sg
+    148 Neut|_|Sg
+      1 _|Nom|Pl
+    242 _|Nom|Sg
+      3 _|_|Sg

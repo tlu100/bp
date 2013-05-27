@@ -1,0 +1,6 @@
+  10264 _
+     47 _|_|_
+      2 _|Dat|Sg
+      1 _|Gen|Sg
+      1 Neut|Nom|Pl
+      3 _|_|Sg

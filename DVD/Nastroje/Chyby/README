@@ -1,6 +1,7 @@
 *** CHYBY - nastroj na identifikaci hodnot rysu predstavujicich gramaticke chyby ***
 
 Dle predem identifikovanych klauzi a vet ohodnocenych plynulosti vyhleda chyby a vypise je jako hodnoty nize popsanych rysu.
+Presnost urceni rysu vyhodnocena v adresari presnost - presnost.txt obsahuje rucne analyzovane hypotezy a vysledky jsou shrnuty v souboru vysledky.php.
 
 Nastroj vyuziva parser ParZu, ktery je potreba mit nainstalovan - https://github.com/rsennrich/ParZu
 
@@ -57,5 +58,7 @@ POPIS RYSU
 
 15. root – projde větný rozbor z výstupu ParZu a spočítá počet kořenů, je-li totiž věta gramaticky správně, nalezneme kořen pouze jeden, v opačném případě je jich více a představují pomyslný počet chyb ve větě
 
-16. sum – sčítá hodnoty všech předchozích rysů včetně rysu root
+16. sum – sčítá hodnoty všech předchozích rysů bez root
+
+17. sumr – jako sum, ale navíc i s root
 

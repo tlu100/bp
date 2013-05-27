@@ -1,0 +1,8 @@
+18	Oh	oh	ITJ	ITJ	_	0	root	_	_ 
+25	na	na	ITJ	ITJ	_	0	root	_	_ 
+30	nu	nu	ITJ	ITJ	_	0	root	_	_ 
+30	nu	nu	ITJ	ITJ	_	0	root	_	_ 
+2	ade	ade	ITJ	ITJ	_	0	root	_	_ 
+19	Hallo	hallo	ITJ	ITJ	_	0	root	_	_ 
+16	Na	Na	ITJ	ITJ	_	0	root	_	_ 
+27	He	He	ITJ	ITJ	_	0	root	_	_ 

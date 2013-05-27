@@ -565,7 +565,7 @@ b<-boxplot(a_label~b_label, data=c, main="chybi_infszu",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -578,7 +578,7 @@ b<-boxplot(a_label~b_label, data=c, main="chybi_podmet",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -591,7 +591,7 @@ b<-boxplot(a_label~b_label, data=c, main="chybi_sum",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -604,7 +604,7 @@ b<-boxplot(a_label~b_label, data=c, main="chybi_vfin",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -617,7 +617,7 @@ b<-boxplot(a_label~b_label, data=c, main="inf_po_vm_neni_na_konci",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -630,7 +630,7 @@ b<-boxplot(a_label~b_label, data=c, main="infszu_neni_na_konci",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -643,7 +643,7 @@ b<-boxplot(a_label~b_label, data=c, main="neni_na_konci_sum",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -656,7 +656,7 @@ b<-boxplot(a_label~b_label, data=c, main="neshoda_podmet_prisudek",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -669,7 +669,7 @@ b<-boxplot(a_label~b_label, data=c, main="pp_bez_av",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -682,7 +682,7 @@ b<-boxplot(a_label~b_label, data=c, main="pp_neni_na_konci",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -695,7 +695,7 @@ b<-boxplot(a_label~b_label, data=c, main="root",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -709,7 +709,7 @@ b<-boxplot(a_label~b_label, data=c, main="sumr",
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
 
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -722,7 +722,7 @@ b<-boxplot(a_label~b_label, data=c, main="vice_osob",
            xlab="Plynulost", ylab="Hodnota rysu")
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -736,7 +736,7 @@ b<-boxplot(a_label~b_label, data=c, main="vice_vfin",
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
 
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -750,7 +750,7 @@ b<-boxplot(a_label~b_label, data=c, main="vice_sum",
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
 
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -764,7 +764,7 @@ b<-boxplot(a_label~b_label, data=c, main="vv_sloveso_neni_na_konci",
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
 
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)
@@ -778,7 +778,7 @@ b<-boxplot(a_label~b_label, data=c, main="sum",
 m<-b$stats[3,]
 abline(lm(r~fluency), col="red", lwd=2, lty=1)
 
-levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "blue")), panel=function(x,y,z,...){  
+levelplot(round(prop.table(table(data.frame(fluency,r)), 1)*100), col.regions=colorRampPalette(c("white", "red")), panel=function(x,y,z,...){  
   cex<-scale(z)*2
   panel.levelplot.points(x,y,z,...,cex=z/11+3)
   panel.text(x,y,label=z,cex=0.8)

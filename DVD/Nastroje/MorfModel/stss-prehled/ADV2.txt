@@ -1,0 +1,15 @@
+  53843 _
+    537 _|_
+      5 Comp
+   3040 Comp|
+     40 Comp|_
+     60 Comp|<PPAST
+     65 Comp|<PPRES
+  25052 Pos|
+    751 Pos|_
+    973 Pos|<PPAST
+    116 Pos|<PPRES
+   1024 _|<PPRES
+    273 Sup|
+      3 Sup|_
+      6 Sup|<PPRES
